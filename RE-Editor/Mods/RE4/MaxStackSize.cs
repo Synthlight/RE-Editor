@@ -121,6 +121,17 @@ public class MaxStackSize : IMod {
                 case Chainsaw_ItemDefinitionUserData_Data itemData:
                     var item = itemData.ItemDefineData[0];
 
+                    // Because Hand Grenades have an ItemDefinition stack size of 60 for some bizarre reason.
+                    if (itemData.ItemId == ItemConstants_CH.HAND_GRENADE
+                        || itemData.ItemId == ItemConstants_CH.FLASH_GRENADE
+                        || itemData.ItemId == ItemConstants_CH.HEAVY_GRENADE
+                        || itemData.ItemId == ItemConstants_CH.GOLD_CHICKEN_EGG
+                        || itemData.ItemId == ItemConstants_CH.BROWN_CHICKEN_EGG
+                        || itemData.ItemId == ItemConstants_CH.CHICKEN_EGG
+                       ) {
+                        item.StackMax = itemData.WeaponDefineData[0].StackMax;
+                    }
+
                     switch (type) {
                         case Type.FULL_WITH_HERBS: {
                             if (itemData.ItemId == ItemConstants_CH.MIXED_HERB_G_PLUSG
