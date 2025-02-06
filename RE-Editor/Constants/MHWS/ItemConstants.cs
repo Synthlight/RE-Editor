@@ -19,6 +19,13 @@ public static class ItemConstants {
     public const uint ANCIENT_WYVERN_COIN = 474;
     public const uint ANTIDOTE = 4;
     public const uint ANTIDOTE_HERB = 27;
+    public const uint ARKVELD_ARMORPLATE = 460;
+    public const uint ARKVELD_CALLOUSHELL = 463;
+    public const uint ARKVELD_CERTIFICATE_S = 466;
+    public const uint ARKVELD_GEM = 465;
+    public const uint ARKVELD_HORN_PLUS = 464;
+    public const uint ARKVELD_SCALE_PLUS = 459;
+    public const uint ARKVELD_TAIL = 456;
     public const uint ARMOR_AMMO = 414;
     public const uint ARMOR_SPHERE = 622;
     public const uint ARMOR_SPHERE_PLUS = 623;
@@ -226,6 +233,7 @@ public static class ItemConstants {
     public const uint WELL_DONE_STEAK = 9;
     public const uint WHETFISH_FIN = 271;
     public const uint WHETSTONE = 21;
+    public const uint WHITE_ARKVELD_PELT = 462;
     public const uint WILD_HERB = 223;
     public const uint WINDWARD_ALOE = 231;
     public const uint WINGDRAKE_HIDE_PLUS = 492;
