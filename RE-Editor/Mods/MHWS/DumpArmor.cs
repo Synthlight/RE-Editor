@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -36,29 +37,41 @@ public class DumpArmor : IMod {
         }
 
         var writer = new StreamWriter(File.Open($@"{PathHelper.MODS_PATH}\..\Armor Models.csv", FileMode.Create, FileAccess.Write, FileShare.Read));
-        writer.WriteLine("Name,Gender,Path");
+        writer.WriteLine("Name,Equip Gender,Style Gender,Path");
         foreach (var data in list) {
-            writer.Write(data.name);
-            writer.Write(',');
-            writer.Write("Male");
-            writer.Write(',');
-            WritePart(writer, data, Gender.Male);
-
-            writer.Write(data.name);
-            writer.Write(',');
-            writer.Write("Female");
-            writer.Write(',');
-            WritePart(writer, data, Gender.Female);
+            WritePart(writer, data.name, data, Gender.Male, Gender.Male);
+            WritePart(writer, data.name, data, Gender.Male, Gender.Female);
+            WritePart(writer, data.name, data, Gender.Female, Gender.Male);
+            WritePart(writer, data.name, data, Gender.Female, Gender.Female);
         }
         writer.Close();
     }
 
-    private static void WritePart(StreamWriter writer, ArmorModelData armor, Gender gender) {
-        var genderChar = gender == Gender.Male ? "ch02" : "ch03";
+    private static void WritePart(StreamWriter writer, string name, ArmorModelData armor, Gender equipGender, Gender styleGender) {
+        writer.Write(name);
+        writer.Write(',');
+        writer.Write(equipGender == Gender.Male ? "Male" : "Female");
+        writer.Write(',');
+        writer.Write(styleGender == Gender.Male ? "Male" : "Female");
+        writer.Write(',');
+        var genderChar = equipGender == Gender.Male ? "ch02" : "ch03";
         var modelId    = armor.series.ModId;
-        var subId      = gender == Gender.Male ? armor.series.ModSubMaleId : armor.series.ModSubFemaleId;
-        var part       = (int) armor.part + 1;
+        var subId      = styleGender == Gender.Male ? armor.series.ModSubMaleId : armor.series.ModSubFemaleId;
+        var part       = GetModelPathArmorPart(armor.part);
         writer.WriteLine($"natives/STM/Art/Model/Character/{genderChar}/{modelId:000}/{subId:000}/{part}/{genderChar}_{modelId:000}_{subId:000}{part}");
+    }
+
+    private static byte GetModelPathArmorPart(App_ArmorDef_ARMOR_PARTS_Fixed part) {
+        return part switch {
+            App_ArmorDef_ARMOR_PARTS_Fixed.HELM => 3,
+            App_ArmorDef_ARMOR_PARTS_Fixed.BODY => 2,
+            App_ArmorDef_ARMOR_PARTS_Fixed.ARM => 1,
+            App_ArmorDef_ARMOR_PARTS_Fixed.WAIST => 5,
+            App_ArmorDef_ARMOR_PARTS_Fixed.LEG => 4,
+            App_ArmorDef_ARMOR_PARTS_Fixed.SLINGER => 6,
+            App_ArmorDef_ARMOR_PARTS_Fixed.MAX => throw new ArgumentOutOfRangeException(nameof(part), part, null),
+            _ => throw new ArgumentOutOfRangeException(nameof(part), part, null)
+        };
     }
 
     private struct ArmorModelData {

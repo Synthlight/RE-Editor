@@ -71,8 +71,8 @@ public class WeaponsMaxSlotsAndSkills : IMod {
     public static void MaxSlots(List<RszObject> rszObjectData) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
-                case App_user_data_WeaponData_cData armor:
-                    foreach (var slotLevel in armor.SlotLevel) {
+                case App_user_data_WeaponData_cData weapon:
+                    foreach (var slotLevel in weapon.SlotLevel) {
                         slotLevel.Value = 3;
                     }
                     break;
@@ -89,8 +89,8 @@ public class WeaponsMaxSlotsAndSkills : IMod {
     public static void MaxSkills(List<RszObject> rszObjectData) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
-                case App_user_data_WeaponData_cData armor:
-                    foreach (var skillLevel in armor.SkillLevel) {
+                case App_user_data_WeaponData_cData weapon:
+                    foreach (var skillLevel in weapon.SkillLevel) {
                         if (skillLevel.Value > 0) {
                             skillLevel.Value = 10;
                         }
