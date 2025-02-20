@@ -28,6 +28,7 @@ public class InfiniteConsumables : IMod {
         ItemConstants.PITFALL_TRAP,
         ItemConstants.SHOCK_TRAP,
         ItemConstants.ANTIDOTE_HERB,
+        ItemConstants.DUNG_POD,
         ItemConstants.LARGE_DUNG_POD,
         ItemConstants.LURING_POD,
         ItemConstants.SCREAMER_POD,

@@ -591,4 +591,32 @@ public static class Extensions {
         }
         return dictionary;
     }
+
+    /// <summary>
+    /// Returns the first index of the element matching the given condition.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="condition"></param>
+    /// <returns>Either the index or -1 if not found.</returns>
+    public static int FirstIndexOf<T>(this IList<T> list, Func<T, bool> condition) {
+        for (var i = 0; i < list.Count; i++) {
+            if (condition(list[i])) return i;
+        }
+        return -1;
+    }
+
+    /// <summary>
+    /// Returns the last index of the element matching the given condition.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="condition"></param>
+    /// <returns>Either the index or -1 if not found.</returns>
+    public static int LastIndexOf<T>(this IList<T> list, Func<T, bool> condition) {
+        for (var i = list.Count - 1; i >= 0; i--) {
+            if (condition(list[i])) return i;
+        }
+        return -1;
+    }
 }
