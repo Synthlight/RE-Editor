@@ -263,3 +263,5 @@ __pycache__/
 STRUCT_INFO.json
 GP_CRC_OVERRIDE_INFO.json
 *.lnk
+
+.venv

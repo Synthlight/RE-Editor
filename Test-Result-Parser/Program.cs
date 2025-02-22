@@ -50,6 +50,8 @@ public static class Program {
                           $"Total: {total}\n\n" +
                           $"Passing: {percent}%\n");
 
+        File.WriteAllText(TEST_RESULTS_PATH.Replace("Results.trx", "Pass Percent.txt"), $"{percent}");
+
         Console.WriteLine("Press any key to continue...");
         Console.ReadKey();
     }
