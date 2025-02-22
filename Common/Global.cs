@@ -61,7 +61,28 @@ public static class Global {
                 {"Hyakuryu", "Rampage"},
                 {"Haykuryu", "Rampage"}, // Yes, it's spelled wrong in a few places. (Like in `PlayerUserDataSkillParameter`.)
                 {"Takumi", "Handicraft"},
-                {"Hagitori", "Carve"}
+                {"Hagitori", "Carve"},
+                {"Kanpou", "Herbal"},
+                {"Sashimi", "Sushifish"},
+                {"Kairiki", "Might Pill"},
+                {"Nintai", "Adamant Pill"},
+                {"KijinDrink", "Demondrug"},
+                {"KoukaDrink", "Armorskin"},
+                {"KijinPowder", "Demon Powder"},
+                {"KoukaPowder", "Hardshell Powder"},
+                {"KijinAmmo", "Demon Ammo"},
+                {"KoukaAmmo", "Armor Ammo"},
+                {"Toishi_KireajiFish", "Whetfish"}, // Match first.
+                {"Toishi", "Whetstone"},
+                // TODO: Figure out what this is once Wilds is out.
+                {"Ryunyu", "Wyvern Milk?"},
+                // Yamori // Item Param: Some grill facility result.
+                // Ryukil // Skill Param: Dragon something? 'kil' might be kiru which would make it dragon cut?
+                // Hunki // Skill Param: Do something with stamina when health falls below the threshold?
+                {"BattoWaza", "Punishing Draw"},
+                {"BattoPower", "Punishing Draw Power"},
+                {"Konshin", "Max Might"},
+                {"_G_", "+_"},
             }
         }
     };
