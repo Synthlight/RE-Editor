@@ -477,12 +477,10 @@ public static class Extensions {
             }
         }
 
-        name = name.Replace('`', '_');
-
-        if (name.Contains('<')) {
-            name = name.Replace('<', '_')
-                       .Replace(">", "");
-        }
+        name = name.Replace('<', '_')
+                   .Replace(">", "")
+                   .Replace('`', '_')
+                   .Replace(',', '_');
 
         // snow.enemy.aifsm.EnemyCheckThinkCounter`1<snow.enemy.em001.Em001Define.ThinkCounterEnum>
         // becomes
@@ -492,6 +490,7 @@ public static class Extensions {
             name = $"{name}_EnemyCheckThinkCounter";
         }
 
+        // Some of these will never be hit due to replaces above, but left in for safety.
         Debug.Assert(!name.StartsWith("System_Collections"), source);
         Debug.Assert(!name.Contains('`'), source);
         Debug.Assert(!name.Contains('['), source);

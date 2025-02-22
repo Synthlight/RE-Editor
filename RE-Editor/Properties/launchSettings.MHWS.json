@@ -27,9 +27,17 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Weapon/LongSword.user.3\""
         },
-        "Select_Lobby.user.3": {
+        "PlayerItemParam.user.3": {
             "commandName": "Project",
-            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/FacilityMenu/Select_Lobby.user.3\""
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Player/ActionData/Common/GlobalParam/PlayerItemParam.user.3\""
+        },
+        "PlayerSkillParam.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Player/ActionData/Common/GlobalParam/Part/PlayerSkillParam.user.3\""
+        },
+        "PlayerStatusParam.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Player/ActionData/Common/GlobalParam/Part/PlayerStatusParam.user.3\""
         }
     }
 }
