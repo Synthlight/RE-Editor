@@ -52,4 +52,14 @@ public class StructJson {
             return name ?? base.ToString();
         }
     }
+
+    public string? GetGenericParam() {
+        if (name == null) return null;
+        if (!name.Contains('<')) return null;
+        // ReSharper disable once ConvertIfStatementToReturnStatement
+        if (name.Contains(',')) {
+            return name.SubstringToEnd(name.IndexOf('<') + 1, name.IndexOf(','));
+        }
+        return name.SubstringToEnd(name.IndexOf('<') + 1, name.IndexOf('>'));
+    }
 }

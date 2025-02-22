@@ -78,6 +78,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
     private static void WriteUsings(TextWriter file) {
         file.WriteLine("// ReSharper disable All");
+        file.WriteLine("using System.Collections;");
         file.WriteLine("using System.Collections.ObjectModel;");
         file.WriteLine("using System.ComponentModel;");
         file.WriteLine("using System.Diagnostics.CodeAnalysis;");
@@ -166,7 +167,25 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
         file.WriteLine($"    // {field.name}");
         file.WriteLine($"    // {field.originalType}");
-        if (field.type == nameof(UIntArray)) {
+        if (newName == "Value" && (structInfo.name! == "ace.Bitset" || structInfo.parent == "ace.Bitset")) {
+            file.WriteLine($"    public {modifier}BitArray {newName} {{ get; set; }}");
+
+            if (parentClass == "Ace_Bitset") {
+                var enumType = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
+                var enumData = generator.enumTypes[enumType];
+                var entries  = enumData.entries!;
+
+                for (var i = 0; i < entries.Count; i++) {
+                    var entry = entries[i];
+                    file.WriteLine("");
+                    file.WriteLine($"    [DisplayName(\"{entry}\")]");
+                    file.WriteLine($"    public bool {enumType}_{entry} {{");
+                    file.WriteLine($"        get => Value[{i}];");
+                    file.WriteLine($"        set => Value[{i}] = value;");
+                    file.WriteLine("    }");
+                }
+            }
+        } else if (field.type == nameof(UIntArray)) {
             file.WriteLine("    [IsList]");
             file.WriteLine($"    public {modifier}ObservableCollection<{nameof(UIntArray)}> {newName} {{ get; set; }}");
         } else if (field.array) {
@@ -340,7 +359,13 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 newName += usedNamesLocal[newName].ToString();
             }
 
-            if (!field.array && isObjectType && viaType == null && typeName != null && !isEnumType) {
+            if (newName == "Value" && className == "Ace_Bitset") {
+                file.WriteLine($"        obj.{newName} = new(1234);"); // There's no enum data to work with. I'm just using a random value here.
+            } else if (newName == "Value" && parentClass == "Ace_Bitset") {
+                var enumType = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
+                var enumData = generator.enumTypes[enumType];
+                file.WriteLine($"        obj.{newName} = new({enumData.EntryCount});"); // Should really be `MaxElement`, but it's static so...
+            } else if (!field.array && isObjectType && viaType == null && typeName != null && !isEnumType) {
                 // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
                 if (typeName.StartsWith("Via")) { // For things like `Via_AnimationCurve` which generate from the json but aren't our manually implemented `via` types.
                     file.WriteLine($"        obj.{newName} = [new()];");
@@ -380,11 +405,11 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         if (className.StartsWith("Via_")) return;
 
         var isParentViaType = parentClass?.ToLower().StartsWith("via") ?? false;
-        var modifier        = parentClass == null || isParentViaType ? "virtual" : "override";
+        var modifier        = parentClass == null || isParentViaType ? "virtual " : "override ";
         var usedNamesLocal  = new Dictionary<string, int>();
 
         file.WriteLine("");
-        file.WriteLine($"    public {modifier} {className} Copy() {{");
+        file.WriteLine($"    public {modifier}{className} Copy() {{");
 
         file.WriteLine($"        var obj = base.Copy<{className}>();");
 
@@ -411,8 +436,9 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
             // TODO: Fix generic/dataSource wrappers.
 
-            // ReSharper disable once ConvertIfStatementToSwitchStatement
-            if (!field.array && viaType?.Is(typeof(ISimpleViaType)) == true) {
+            if (newName == "Value" && (className == "Ace_Bitset" || parentClass == "Ace_Bitset")) {
+                file.WriteLine($"        obj.{newName} = new({newName});");
+            } else if (!field.array && viaType?.Is(typeof(ISimpleViaType)) == true) {
                 // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
                 if (!field.array && viaType == nameof(Guid)) {
                     file.WriteLine($"        obj.{newName} = {newName}.Copy();");

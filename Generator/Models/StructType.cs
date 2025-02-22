@@ -21,6 +21,12 @@ public class StructType(string name, string? parent, string hash, StructJson str
             generator.structTypes[parent].UpdateUsingCounts(generator, history);
         }
 
+        if (useCount > 0 && parent?.ToConvertedTypeName() == "Ace_Bitset") {
+            var enumType = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
+            var enumData = generator.enumTypes[enumType];
+            enumData.useCount++;
+        }
+
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var field in structInfo.fields!) {
             if (string.IsNullOrEmpty(field.name)) continue;

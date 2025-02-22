@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using RE_Editor.Common.Models;
@@ -617,5 +618,18 @@ public static class Extensions {
             if (condition(list[i])) return i;
         }
         return -1;
+    }
+
+    public static T Read<T>(this BinaryReader reader) where T : struct {
+        var size   = Unsafe.SizeOf<T>();
+        var buffer = reader.ReadBytes(size);
+        return Unsafe.ReadUnaligned<T>(ref buffer[0]);
+    }
+
+    public static void Write<T>(this BinaryWriter writer, T obj) where T : struct {
+        var size   = Unsafe.SizeOf<T>();
+        var buffer = new byte[size];
+        Unsafe.WriteUnaligned(ref buffer[0], obj);
+        writer.Write(buffer);
     }
 }

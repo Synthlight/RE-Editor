@@ -106,7 +106,11 @@ public class RszObject : OnPropertyChangedBase {
                     throw new FileNotSupported();
                 }
 
-                if (field.type is nameof(UIntArray) or "OBB") {
+                if (fieldName == "Value" && structInfo.parent?.ToConvertedTypeName() == "Ace_Bitset") {
+                    var bytes  = reader.ReadBytes(field.size * arrayCount);
+                    var bitset = new BitArray(bytes);
+                    fieldSetMethod.Invoke(rszObject, [bitset]);
+                } else if (field.type is nameof(UIntArray) or "OBB") {
                     Debug.Assert((float) field.size % 4 == 0, $"Error: `Data` field size is not a multiple of {UIntArray.DATA_WIDTH}.");
                     var dataWidth = (uint) (field.size / UIntArray.DATA_WIDTH);
                     var objects   = new ObservableCollection<RszObject>();
@@ -340,7 +344,14 @@ public class RszObject : OnPropertyChangedBase {
             writer.PadTill(() => writer.BaseStream.Position % align != 0);
 
             if (field.array) {
-                if (field.type is nameof(UIntArray) or "OBB") {
+                if (fieldName == "Value" && structInfo.parent?.ToConvertedTypeName() == "Ace_Bitset") {
+                    var bitset    = (BitArray) fieldGetMethod.Invoke(this, null)!;
+                    var byteCount = (bitset.Length + 7) >> 3;
+                    var bytes     = new byte[byteCount];
+                    bitset.CopyTo(bytes, 0);
+                    writer.Write(byteCount / 4);
+                    writer.Write(bytes);
+                } else if (field.type is nameof(UIntArray) or "OBB") {
                     var list = (ObservableCollection<UIntArray>) fieldGetMethod.Invoke(this, null)!;
                     writer.Write(list.Count);
                     foreach (var obj in list) {
