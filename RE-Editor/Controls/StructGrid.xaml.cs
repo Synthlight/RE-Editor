@@ -14,12 +14,13 @@ using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Controls.Models;
 using RE_Editor.Common.Models;
 using RE_Editor.Models;
-using RE_Editor.Models.Structs;
 using RE_Editor.Util;
 using RE_Editor.Windows;
 
 #if RE4
 using RE_Editor.Common.Data;
+#elif MHWS
+using RE_Editor.Models.Structs;
 #endif
 
 namespace RE_Editor.Controls;
@@ -81,6 +82,7 @@ public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
         var properties = typeof(T).GetProperties();
         var rows       = new List<Row>(properties.Length);
 
+#if MHWS
         var isBitset        = typeof(T).Is(typeof(Ace_Bitset));
         var maxBitElement   = -1;
         var bitElementCount = 0;
@@ -88,12 +90,16 @@ public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
             var maxElementProp = properties.First(prop => prop.Name == nameof(Ace_Bitset.MaxElement));
             maxBitElement = (int) maxElementProp.GetGetMethod()!.Invoke(item, null)!;
         }
+#endif
 
         foreach (var propertyInfo in properties) {
             var propertyName = propertyInfo.Name;
             if (properties.Any(prop => prop.Name == $"{propertyName}_button")) continue; // Skip the fields that have buttons so we only show the button fields.
             if (propertyName == "Index") continue;
+
+#if MHWS
             if (isBitset && propertyName is nameof(Ace_Bitset.Value) or nameof(Ace_Bitset.MaxElement)) continue;
+#endif
 
             var displayName    = ((DisplayNameAttribute) propertyInfo.GetCustomAttribute(typeof(DisplayNameAttribute), true))?.DisplayName;
             var sortOrder      = ((SortOrderAttribute) propertyInfo.GetCustomAttribute(typeof(SortOrderAttribute), true))?.sortOrder ?? 0;
@@ -155,8 +161,10 @@ public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
 
             rows.Add(row);
 
+#if MHWS
             if (isBitset) bitElementCount++;
             if (bitElementCount > maxBitElement) break;
+#endif
         }
 
         var rowIndex     = 0;
