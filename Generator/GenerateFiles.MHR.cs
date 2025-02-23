@@ -14,6 +14,7 @@ public partial class GenerateFiles {
         "Snow_data_DangoBaseUserData",
         "Snow_data_DataDef_PlEquipSkillId",
         "Snow_data_DecorationsBaseUserData",
+        "Snow_data_FlagDataManager", // For `snow.BitFlagSet`.
         "Snow_data_ItemUserData",
         "Snow_data_NormalLvBuffCageBaseUserData",
         "Snow_data_OtAirouArmorBaseUserData",
@@ -40,6 +41,7 @@ public partial class GenerateFiles {
         "Snow_equip_PlOverwearBaseUserData",
         "Snow_equip_ShortSwordBaseUserData",
         "Snow_equip_SlashAxeBaseUserData",
+        "Snow_player_PlayerDamageInfo", // For `snow.Bitflag`.
         "Snow_player_PlayerUserDataBow",
         "Snow_player_PlayerUserDataIG_Insect"
     ];

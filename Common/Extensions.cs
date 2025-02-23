@@ -453,7 +453,6 @@ public static class Extensions {
                || name.StartsWith("System_Collections_Generic_ICollection`")
                || name.StartsWith("System_Collections_Generic_SortedSet`")
                || name.StartsWith("System_Collections_Generic_Queue`")
-               || name.StartsWith("Snow_BitSetFlag`")
                || name.StartsWith("Snow_Bitset`")
                || name.StartsWith("Snow_ai_FieldGimmickIntersector_ArrayElement`")
                || name.StartsWith("Snow_enemy_aifsm_EnemyCheckThinkCounter`")
@@ -499,6 +498,7 @@ public static class Extensions {
         Debug.Assert(!name.Contains('<'), source);
         Debug.Assert(!name.Contains('>'), source);
         Debug.Assert(!name.Contains(','), source);
+        // Debug.Assert(!name.Contains('!'), source); Catches too many things too early. Most are eliminated anyways.
 
         if (name == "System_UInt32") name = "GenericWrapper<uint>";
 

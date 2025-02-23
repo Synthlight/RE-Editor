@@ -134,4 +134,17 @@ public static class Global {
 #elif RE8
     public const string USER_VERSION = "2";
 #endif
+
+// @formatter:off (Because it screws up the alignment of inactive sections.)
+#if MHR
+    public const string BITSET_NAME       = "Snow_BitSetFlagBase";
+    public const string BITSET_FIELD_NAME = "Flag";
+#elif MHWS
+    public const string BITSET_NAME       = "Ace_Bitset";
+    public const string BITSET_FIELD_NAME = "Value";
+#else
+    public const string BITSET_NAME       = "There is no cow level."; // Something that will always fail when compared to class/field names.
+    public const string BITSET_FIELD_NAME = BITSET_NAME;
+#endif
+    // @formatter:on
 }

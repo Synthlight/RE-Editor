@@ -19,8 +19,10 @@ using RE_Editor.Windows;
 
 #if RE4
 using RE_Editor.Common.Data;
+#elif MHR
+using Bitset = RE_Editor.Models.Structs.Snow_BitSetFlagBase;
 #elif MHWS
-using RE_Editor.Models.Structs;
+using Bitset = RE_Editor.Models.Structs.Ace_Bitset;
 #endif
 
 namespace RE_Editor.Controls;
@@ -82,15 +84,19 @@ public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
         var properties = typeof(T).GetProperties();
         var rows       = new List<Row>(properties.Length);
 
-#if MHWS
-        var isBitset        = typeof(T).Is(typeof(Ace_Bitset));
+// @formatter:off (Because it screws up the alignment of inactive sections.)
+#if MHR
+        var isBitset = typeof(T).Is(typeof(Bitset));
+#elif MHWS
+        var isBitset        = typeof(T).Is(typeof(Bitset));
         var maxBitElement   = -1;
         var bitElementCount = 0;
         if (isBitset) {
-            var maxElementProp = properties.First(prop => prop.Name == nameof(Ace_Bitset.MaxElement));
+            var maxElementProp = properties.First(prop => prop.Name == nameof(Bitset.MaxElement));
             maxBitElement = (int) maxElementProp.GetGetMethod()!.Invoke(item, null)!;
         }
 #endif
+// @formatter:on
 
         foreach (var propertyInfo in properties) {
             var propertyName = propertyInfo.Name;

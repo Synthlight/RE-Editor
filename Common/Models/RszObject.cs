@@ -106,7 +106,7 @@ public class RszObject : OnPropertyChangedBase {
                     throw new FileNotSupported();
                 }
 
-                if (fieldName == "Value" && structInfo.parent?.ToConvertedTypeName() == "Ace_Bitset") {
+                if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
                     var bytes  = reader.ReadBytes(field.size * arrayCount);
                     var bitset = new BitArray(bytes);
                     fieldSetMethod.Invoke(rszObject, [bitset]);
@@ -344,7 +344,7 @@ public class RszObject : OnPropertyChangedBase {
             writer.PadTill(() => writer.BaseStream.Position % align != 0);
 
             if (field.array) {
-                if (fieldName == "Value" && structInfo.parent?.ToConvertedTypeName() == "Ace_Bitset") {
+                if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
                     var bitset    = (BitArray) fieldGetMethod.Invoke(this, null)!;
                     var byteCount = (bitset.Length + 7) >> 3;
                     var bytes     = new byte[byteCount];

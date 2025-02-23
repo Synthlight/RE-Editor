@@ -151,6 +151,10 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         if (field.overrideCount > 0) modifier     = "override ";
         else if (field.virtualCount > 0) modifier = "virtual ";
 
+        // Dirty hack for MHR. It inherits from the normal base, but there's no defined size to breakout fields from.
+        // So just show the raw data list.
+        if (className == "Snow_BitSetFlagNoEnum") modifier = "new ";
+
         if (!usedNames.TryAdd(newName, 1)) {
             usedNames[newName]++;
             newName += usedNames[newName].ToString();
@@ -167,10 +171,10 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
         file.WriteLine($"    // {field.name}");
         file.WriteLine($"    // {field.originalType}");
-        if (newName == "Value" && (structInfo.name! == "ace.Bitset" || structInfo.parent == "ace.Bitset")) {
+        if (newName == Global.BITSET_FIELD_NAME && (className == Global.BITSET_NAME || parentClass == Global.BITSET_NAME) && !className.EndsWith("NoEnum")) {
             file.WriteLine($"    public {modifier}BitArray {newName} {{ get; set; }}");
 
-            if (parentClass == "Ace_Bitset") {
+            if (parentClass == Global.BITSET_NAME) {
                 var enumType = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
                 var enumData = generator.enumTypes[enumType];
                 var entries  = enumData.entries!;
@@ -180,8 +184,8 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                     file.WriteLine("");
                     file.WriteLine($"    [DisplayName(\"{entry}\")]");
                     file.WriteLine($"    public bool {enumType}_{entry} {{");
-                    file.WriteLine($"        get => Value[{i}];");
-                    file.WriteLine($"        set => Value[{i}] = value;");
+                    file.WriteLine($"        get => {Global.BITSET_FIELD_NAME}[{i}];");
+                    file.WriteLine($"        set => {Global.BITSET_FIELD_NAME}[{i}] = value;");
                     file.WriteLine("    }");
                 }
             }
@@ -359,12 +363,14 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 newName += usedNamesLocal[newName].ToString();
             }
 
-            if (newName == "Value" && className == "Ace_Bitset") {
+            if (newName == Global.BITSET_FIELD_NAME && className == Global.BITSET_NAME && !className.EndsWith("NoEnum")) {
                 file.WriteLine($"        obj.{newName} = new(1234);"); // There's no enum data to work with. I'm just using a random value here.
-            } else if (newName == "Value" && parentClass == "Ace_Bitset") {
+            } else if (newName == Global.BITSET_FIELD_NAME && parentClass == Global.BITSET_NAME && !className.EndsWith("NoEnum")) {
                 var enumType = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
                 var enumData = generator.enumTypes[enumType];
                 file.WriteLine($"        obj.{newName} = new({enumData.EntryCount});"); // Should really be `MaxElement`, but it's static so...
+            } else if (!field.array && field.originalType.StartsWith("snow.Bitset`1<System")) {
+                file.WriteLine($"        obj.{newName} = new(new());"); // GenericWrapper
             } else if (!field.array && isObjectType && viaType == null && typeName != null && !isEnumType) {
                 // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
                 if (typeName.StartsWith("Via")) { // For things like `Via_AnimationCurve` which generate from the json but aren't our manually implemented `via` types.
@@ -436,7 +442,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
             // TODO: Fix generic/dataSource wrappers.
 
-            if (newName == "Value" && (className == "Ace_Bitset" || parentClass == "Ace_Bitset")) {
+            if (newName == Global.BITSET_FIELD_NAME && (className == Global.BITSET_NAME || parentClass == Global.BITSET_NAME) && !className.EndsWith("NoEnum")) {
                 file.WriteLine($"        obj.{newName} = new({newName});");
             } else if (!field.array && viaType?.Is(typeof(ISimpleViaType)) == true) {
                 // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
