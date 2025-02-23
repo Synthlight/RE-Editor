@@ -10,7 +10,6 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Dead Rising Deluxe Remaster\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Dead Rising Deluxe Remaster\Fluffy Mod Manager\Games\DRDR\Mods";
-    public const string PYTHON38_PATH    = @"C:\Program Files\Python38\python.exe";
 
     public const string NEXUS_URL              = "https://www.nexusmods.com/deadrisingdeluxeremaster/mods/89";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";

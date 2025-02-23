@@ -12,7 +12,6 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Monster Hunter Wilds\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Wilds\FMM\Games\MonsterHunterWildsBeta\Mods";
-    public const string PYTHON38_PATH    = @"R:\Games\Monster Hunter Rise\REFramework\reversing\rsz\venv\Scripts\python.exe";
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";

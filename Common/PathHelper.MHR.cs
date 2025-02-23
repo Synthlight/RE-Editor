@@ -5,14 +5,13 @@ namespace RE_Editor.Common;
 public static partial class PathHelper {
     public const string CONFIG_NAME      = "MHR";
     public const string CHUNK_PATH       = @"V:\MHR\re_chunk_000";
-    public const string GAME_PATH        = @"C:\SteamLibrary\common\MonsterHunterRise";
+    public const string GAME_PATH        = @"O:\SteamLibrary\steamapps\common\MonsterHunterRise";
     public const string EXE_PATH         = $@"{GAME_PATH}\MonsterHunterRise_dump.exe";
     public const string IL2CPP_DUMP_PATH = $@"{GAME_PATH}\il2cpp_dump.json";
     public const string ENUM_HEADER_PATH = $@"{GAME_PATH}\Enums_Internal.hpp";
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Monster Hunter Rise\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Rise\modmanager\Games\MHRISE\Mods";
-    public const string PYTHON38_PATH    = @"C:\Program Files\Python38\python.exe";
 
     public const string NEXUS_URL              = "https://www.nexusmods.com/monsterhunterrise/mods/114";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";

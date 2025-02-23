@@ -10,7 +10,6 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Resident Evil Village\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil Village\Fluffy Mod Manager\Games\RE8\Mods";
-    public const string PYTHON38_PATH    = @"C:\Program Files\Python38\python.exe";
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = "";
