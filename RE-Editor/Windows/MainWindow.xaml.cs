@@ -23,12 +23,14 @@ using RE_Editor.Util;
 namespace RE_Editor.Windows;
 
 public partial class MainWindow {
+// @formatter:off (Because it screws up the alignment of inactive sections.)
 #if DEBUG
     private const bool ENABLE_CHEAT_BUTTONS = true;
 #else
     private const bool ENABLE_CHEAT_BUTTONS = false;
-    public const  bool SHOW_RAW_BYTES = false;
+    public const  bool SHOW_RAW_BYTES       = false;
 #endif
+// @formatter:on
 
 #if DD2
     private const string TITLE = "DD2 Editor";

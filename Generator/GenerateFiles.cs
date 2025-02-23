@@ -251,6 +251,9 @@ public partial class GenerateFiles {
             UpdateButtons();
         }
 
+        Log("Updating struct `Data` fields.");
+        UpdateStructDataFields();
+
         Log($"Generating {enumTypes.Count} enums, {structTypes.Count} structs.");
         GenerateEnums(dryRun);
         Log("Enums written.");
@@ -532,11 +535,12 @@ public partial class GenerateFiles {
      * Goes through structs and increases useCounts of enums/structs referenced by other structs.
      */
     private void UpdateUsingCounts() {
+        var history = new List<string>(structTypes.Count);
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var structType in structTypes.Values) {
             if (structType.name.GetViaType() != null) continue;
             if (structType.useCount > 0) {
-                structType.UpdateUsingCounts(this, new(structTypes.Count));
+                structType.UpdateUsingCounts(this, history);
             }
         }
     }
@@ -546,11 +550,12 @@ public partial class GenerateFiles {
      * Definitely call after updating using counts since this ignores structs not being used.
      */
     private void UpdateButtons() {
+        var history = new List<string>(structTypes.Count);
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var structType in structTypes.Values) {
             if (structType.name.GetViaType() != null) continue;
             if (structType.useCount > 0) {
-                structType.UpdateButtons(this, new(structTypes.Count));
+                structType.UpdateButtons(this, history);
             }
         }
     }
@@ -714,6 +719,14 @@ public partial class GenerateFiles {
         }
         Log($"Parsed {count}/{count}.");
         Log($"Created {gpCrcOverrides.Count} CRC overrides.");
+    }
+
+    private void UpdateStructDataFields() {
+        var history = new List<string>(structTypes.Count);
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var structType in structTypes.Values) {
+            structType.UpdateFields(this, history);
+        }
     }
 
     private void GenerateEnums(bool dryRun) {

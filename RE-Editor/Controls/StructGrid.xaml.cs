@@ -104,7 +104,7 @@ public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
             if (propertyName == "Index") continue;
 
 #if MHWS
-            if (isBitset && propertyName is nameof(Ace_Bitset.Value) or nameof(Ace_Bitset.MaxElement)) continue;
+            if (isBitset && propertyName is nameof(Bitset.Value) or nameof(Bitset.MaxElement)) continue;
 #endif
 
             var displayName    = ((DisplayNameAttribute) propertyInfo.GetCustomAttribute(typeof(DisplayNameAttribute), true))?.DisplayName;

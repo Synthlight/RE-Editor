@@ -2,6 +2,7 @@
 using RE_Editor.Common;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Models;
+using RE_Editor.Common.Structs;
 
 namespace RE_Editor.Generator.Models;
 
@@ -163,5 +164,57 @@ public class StructType(string name, string? parent, string hash, StructJson str
             null => null,
             _ => "uint"
         };
+    }
+
+    public void UpdateFields(GenerateFiles generator, List<string> history) {
+        if (history.Contains(structInfo.name!)) return;
+        history.Add(structInfo.name!);
+
+        if (parent != null) {
+            var parentType = generator.structTypes[parent!];
+            parentType.UpdateFields(generator, history);
+
+            // Make our types match parent field types.
+            var matchingFields = from field in structInfo.fields!
+                                 from parentField in parentType.structInfo.fields!
+                                 where field.name == parentField.name
+                                 select new KeyValuePair<StructJson.Field, StructJson.Field>(field, parentField);
+
+            foreach (var (field, parentField) in matchingFields) {
+                field.type         = parentField.type;
+                field.originalType = parentField.originalType;
+            }
+        }
+
+        if (structInfo.fields != null) {
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var field in structInfo.fields) {
+                if (string.IsNullOrEmpty(field.originalType) && structInfo.name?.StartsWith("via") == true) {
+                    switch (field.type) {
+                        case "Data":
+                            if (field.size == 4) {
+                                field.type         = "F32";
+                                field.originalType = "System.Single";
+
+                                if (structInfo.name == "via.AnimationCurve" && field.name == "v6") {
+                                    field.type         = "U32";
+                                    field.originalType = "System.UInt32";
+                                }
+                            } else {
+                                field.type         = nameof(UIntArray);
+                                field.originalType = nameof(UIntArray);
+                            }
+                            break;
+                        case "String":
+                            field.originalType = "System.String";
+                            break;
+                    }
+                    if (structInfo.name == "via.physics.RequestSetColliderUserData" && field.name == "v1") {
+                        field.type         = "Object";
+                        field.originalType = "via.physics.UserData";
+                    }
+                }
+            }
+        }
     }
 }

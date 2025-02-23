@@ -37,35 +37,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         WriteUsings(file);
         WriteClassHeader(file);
         if (structInfo.fields != null) {
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var field in structInfo.fields) {
-                if (string.IsNullOrEmpty(field.originalType) && (structInfo.name!.StartsWith("via") || structInfo.parent?.StartsWith("via") == true)) {
-                    switch (field.type) {
-                        case "Data":
-                            if (field.size == 4) {
-                                field.type         = "F32";
-                                field.originalType = "System.Single";
-
-                                if ((structInfo.name == "via.AnimationCurve"
-                                     || structInfo.parent == "via.AnimationCurve") && field.name == "v6") {
-                                    field.type         = "U32";
-                                    field.originalType = "System.UInt32";
-                                }
-                            } else {
-                                field.type         = nameof(UIntArray);
-                                field.originalType = nameof(UIntArray);
-                            }
-                            break;
-                        case "String":
-                            field.originalType = "System.String";
-                            break;
-                    }
-                }
-                if (structInfo.name is "app.AttackUserData" or "app.HitBaseUserData" or "via.physics.RequestSetColliderUserData" && field.name == "v1") {
-                    field.type         = "Object";
-                    field.originalType = "via.physics.UserData";
-                }
-                if (string.IsNullOrEmpty(field.name)) continue;
                 WriteProperty(file, field);
             }
         }
