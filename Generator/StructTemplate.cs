@@ -129,7 +129,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             }
 
             if (field.originalType == "") {
-                Console.WriteLine($"Warning: Unknown originalType, skipping: {structInfo.name}::{field.name}");
+                GenerateFiles.Log($"Warning: Unknown originalType, skipping: {structInfo.name}::{field.name}");
                 return;
             }
         }

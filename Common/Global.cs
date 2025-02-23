@@ -87,6 +87,7 @@ public static class Global {
         }
     };
 
+// @formatter:off (Because it screws up the alignment of inactive sections.)
 #if MHR
     public static readonly List<string> WEAPON_TYPES = ["Bow", "ChargeAxe", "DualBlades", "GreatSword", "GunLance", "Hammer", "HeavyBowgun", "Horn", "InsectGlaive", "Lance", "LightBowgun", "LongSword", "ShortSword", "SlashAxe"];
 #elif MHWS
@@ -96,6 +97,7 @@ public static class Global {
     public static readonly List<string> FOLDERS  = ["_Chainsaw", "_Mercenaries", "_AnotherOrder"];
     public static          string       variant  = "";
 #endif
+// @formatter:on
 
 #if DD2
     public const string MSG_VERSION = "22";

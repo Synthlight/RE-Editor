@@ -385,6 +385,21 @@ public partial class GenerateFiles {
             var parent     = GetParent(structInfo);
             var structType = new StructType(name, parent, hash, structInfo);
             structTypes[name] = structType;
+
+            // Check for and fix duplicate fields.
+            // e.g. MHR `snow.player.fsm.PlayerFsm2CommandBow_ReplaceCheck` has two identical `atkType` & `replaceType` fields.
+            if (structInfo.fields == null || structInfo.fields!.Count == 0) continue;
+            HashSet<StructJson.Field> fields    = new(structInfo.fields!.Count);
+            Dictionary<string, int>   nameCount = [];
+            foreach (var field in structInfo.fields) {
+                if (!fields.Add(field)) {
+                    Log($"Warning: Found a duplicate field `{field.name}` in `{structInfo.name}`. Changing name.");
+                    if (!nameCount.ContainsKey(field.name!)) nameCount[field.name!] = 1;
+                    field.name += $"{nameCount[field.name!]++}";
+                    fields.Add(field);
+                }
+            }
+            structInfo.fields = fields.ToList();
         }
 
         foreach (var key in structTypes.Keys.OrderBy(s => s)) {
@@ -558,15 +573,15 @@ public partial class GenerateFiles {
 
     private static void FindAllHashesBeingUsed() {
         foreach (var path in PathHelper.TEST_PATHS) {
-            Console.WriteLine($"Finding all files in: {PathHelper.CHUNK_PATH + path}");
+            Log($"Finding all files in: {PathHelper.CHUNK_PATH + path}");
         }
 
         var allUserFiles = PathHelper.GetCachedFileList(FileListCacheType.USER);
         var count        = allUserFiles.Count;
-        Console.WriteLine($"Found {count} files.");
+        Log($"Found {count} files.");
 
         var now = DateTime.Now;
-        Console.WriteLine("");
+        Log("");
 
         for (var i = 0; i < allUserFiles.Count; i++) {
             var newNow = DateTime.Now;
@@ -576,7 +591,7 @@ public partial class GenerateFiles {
                 } catch (Exception) {
                     // Breaks tests so just ignore for those.
                 }
-                Console.WriteLine($"Parsed {i}/{count}.");
+                Log($"Parsed {i}/{count}.");
                 now = newNow;
             }
 
@@ -596,7 +611,7 @@ public partial class GenerateFiles {
         } catch (Exception) {
             // Breaks tests so just ignore for those.
         }
-        Console.WriteLine($"Parsed {count}/{count}.");
+        Log($"Parsed {count}/{count}.");
     }
 
     /**
@@ -643,15 +658,15 @@ public partial class GenerateFiles {
 
     private void FindCrcOverrides() {
         foreach (var path in PathHelper.TEST_PATHS) {
-            Console.WriteLine($"Finding all GP files in: {(PathHelper.CHUNK_PATH + path).Replace("STM", "MSG")}");
+            Log($"Finding all GP files in: {(PathHelper.CHUNK_PATH + path).Replace("STM", "MSG")}");
         }
 
         var allGpUserFiles = PathHelper.GetCachedFileList(FileListCacheType.USER, msg: true);
         var count          = allGpUserFiles.Count;
-        Console.WriteLine($"Found {count} files.");
+        Log($"Found {count} files.");
 
         var now = DateTime.Now;
-        Console.WriteLine("");
+        Log("");
 
         for (var i = 0; i < allGpUserFiles.Count; i++) {
             var newNow = DateTime.Now;
@@ -661,7 +676,7 @@ public partial class GenerateFiles {
                 } catch (Exception) {
                     // Breaks tests so just ignore for those.
                 }
-                Console.WriteLine($"Parsed {i}/{count}.");
+                Log($"Parsed {i}/{count}.");
                 now = newNow;
             }
 
@@ -680,8 +695,8 @@ public partial class GenerateFiles {
         } catch (Exception) {
             // Breaks tests so just ignore for those.
         }
-        Console.WriteLine($"Parsed {count}/{count}.");
-        Console.WriteLine($"Created {gpCrcOverrides.Count} CRC overrides.");
+        Log($"Parsed {count}/{count}.");
+        Log($"Created {gpCrcOverrides.Count} CRC overrides.");
     }
 
     private void GenerateEnums(bool dryRun) {
@@ -698,7 +713,7 @@ public partial class GenerateFiles {
         }
     }
 
-    private static void Log(string msg) {
+    public static void Log(string msg) {
         Console.WriteLine(msg);
         Debug.WriteLine(msg);
     }

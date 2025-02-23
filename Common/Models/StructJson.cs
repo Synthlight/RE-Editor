@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using RE_Editor.Common.Attributes;
@@ -31,7 +32,7 @@ public class StructJson {
         return name ?? base.ToString();
     }
 
-    public class Field {
+    public class Field : IEquatable<Field> {
         [UsedImplicitly] public int     align;
         [UsedImplicitly] public bool    array;
         [UsedImplicitly] public string? name;
@@ -50,6 +51,32 @@ public class StructJson {
 
         public override string? ToString() {
             return name ?? base.ToString();
+        }
+
+        public bool Equals(Field? other) {
+            if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return align == other.align && array == other.array && name == other.name && native == other.native && originalType == other.originalType && size == other.size && type == other.type;
+        }
+
+        public override bool Equals(object? obj) {
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((Field) obj);
+        }
+
+        [SuppressMessage("ReSharper", "NonReadonlyMemberInGetHashCode")]
+        public override int GetHashCode() {
+            return HashCode.Combine(align, array, name, native, originalType, size, type);
+        }
+
+        public static bool operator ==(Field? left, Field? right) {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(Field? left, Field? right) {
+            return !Equals(left, right);
         }
     }
 
