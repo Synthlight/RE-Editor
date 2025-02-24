@@ -14,12 +14,5 @@ Show column primitive type below the header text.
     Add some truncated version of the full name with ellipses so it's at least obvious there's hover text.
 
 
-Fix nexus links in the error messages, enable the updated, set version numbers, etc.
-
-
-Add a system to stop people from opening files that won't write out, and maybe even tell the user to actually read the list of passing tests.
-
-
-
 Pre-generate properties to breakout enum flags.
 Figure out better enum flags parsing. Maybe check for entries that only change one bit.

@@ -19,6 +19,7 @@ public static class UpdateCheck {
     [CanBeNull] public static NotifyIcon notifyIcon;
 #pragma warning restore CA2211 // Non-constant fields should not be visible
 
+    // ReSharper disable once AsyncVoidMethod
     public static async void Run(MainWindow mainWindow) {
         await Task.Run(() => {
             try {

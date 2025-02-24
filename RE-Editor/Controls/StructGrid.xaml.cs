@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -27,17 +29,17 @@ using Bitset = RE_Editor.Models.Structs.Ace_Bitset;
 
 namespace RE_Editor.Controls;
 
-public interface IStructGrid {
+public interface IStructGrid : IDataGrid {
     void SetItem(object item);
     void Refresh();
 }
 
-public interface IStructGrid<T> : IStructGrid {
+public interface IStructGrid<T> : IStructGrid where T : RszObject {
     T    Item { get; }
     void SetItem(T item);
 }
 
-public abstract partial class StructGrid : IStructGrid, IDataGrid {
+public abstract partial class StructGrid : IStructGrid {
     protected StructGrid() {
         if (!Utils.IsRunningFromUnitTests) InitializeComponent();
     }
@@ -49,7 +51,7 @@ public abstract partial class StructGrid : IStructGrid, IDataGrid {
 /***
  ** A vertical layout of a single struct.
  **/
-public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
+public class StructGridGeneric<T> : StructGrid, IStructGrid<T> where T : RszObject {
     private T item;
     public T Item {
         get => item;
@@ -139,7 +141,7 @@ public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
                 row.value = checkBox;
             } else if (isList || genericTypeDef?.Is(typeof(ObservableCollection<>)) == true) {
                 var button = new Button {Content = "Open"};
-                button.Click += (_, _) => OpenGrid(propertyInfo, displayName, isList);
+                button.Click += (_, _) => OpenGrid(propertyInfo, displayName);
 
                 row.value = button;
             } else {
@@ -227,15 +229,15 @@ public class StructGridGeneric<T>(RSZ rsz) : StructGrid, IStructGrid<T> {
         }
     }
 
-    private void OpenGrid(PropertyInfo propertyInfo, string displayName, bool isList) {
-        var list     = propertyInfo.GetGetMethod()?.Invoke(Item, null);
-        var listType = list?.GetType().GenericTypeArguments[0];
-        var viewType = typeof(SubStructViewDynamic<>).MakeGenericType(listType ?? throw new InvalidOperationException());
-        var subStructView = isList switch {
-            true => (SubStructView) Activator.CreateInstance(viewType, Window.GetWindow(this), displayName, list, propertyInfo, rsz),
-            false => (SubStructView) Activator.CreateInstance(viewType, Window.GetWindow(this), displayName, ((dynamic) list)[0], rsz)
-        };
-        subStructView?.ShowDialog();
+    private void OpenGrid(PropertyInfo propertyInfo, string displayName) {
+        try {
+            var subStructView = new SubStructView(Window.GetWindow(this), displayName, item, propertyInfo);
+            subStructView.ShowDialog();
+        } catch (NoNullAllowedException err) when (Debugger.IsAttached) {
+            MessageBox.Show(err.Message, "Error Occurred", MessageBoxButton.OK, MessageBoxImage.Error);
+        } catch (Exception err) when (!Debugger.IsAttached) {
+            MainWindow.ShowError(err, "Error Occurred");
+        }
     }
 
     private void AddBorder(int row, int col) {

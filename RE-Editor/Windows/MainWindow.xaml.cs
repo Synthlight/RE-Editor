@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using JetBrains.Annotations;
 using Microsoft.Win32;
 using RE_Editor.Common;
+using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
 using RE_Editor.Controls;
@@ -24,12 +26,14 @@ namespace RE_Editor.Windows;
 
 public partial class MainWindow {
 // @formatter:off (Because it screws up the alignment of inactive sections.)
+ // ReSharper disable UnusedMember.Local
 #if DEBUG
     private const bool ENABLE_CHEAT_BUTTONS = true;
 #else
     private const bool ENABLE_CHEAT_BUTTONS = false;
     public const  bool SHOW_RAW_BYTES       = false;
 #endif
+ // ReSharper restore UnusedMember.Local
 // @formatter:on
 
 #if DD2
@@ -135,6 +139,7 @@ public partial class MainWindow {
         TryLoad(args);
     }
 
+    // ReSharper disable once AsyncVoidMethod
     private async void TryLoad(IReadOnlyCollection<string> args) {
         if (args.Count >= 2) {
             var filePath = args.Last();
@@ -188,7 +193,7 @@ public partial class MainWindow {
             if (rszObjectInfo == null || rszObjectInfo.Count == 0) throw new("Error loading data; rszObjectInfo is null/empty.\n\nPlease report the path/name of the file you are trying to load.");
 
             var entryObject     = file.rsz.GetEntryObject();
-            var dataGridControl = CreateDataGridControl(entryObject);
+            var dataGridControl = CreateDataGridControl(this, entryObject);
             AddMainDataGrid(dataGridControl);
 
 #if MHR
@@ -204,7 +209,7 @@ public partial class MainWindow {
         }
     }
 
-    public static IDataGrid CreateDataGridControl(RszObject rszObj) {
+    public static IDataGrid CreateDataGridControl([CanBeNull] UIElement control, RszObject rszObj) {
         /*
          * Gets the items & typeName to use as the root entry in the dataGrid.
          * For param types, this is the list of params. (A shortcut we make.)
@@ -212,54 +217,101 @@ public partial class MainWindow {
          */
         var structInfo = rszObj.structInfo;
         if (structInfo.fields is {Count: 1} && structInfo.fields[0].array && structInfo.fields[0].type == "Object") {
-            var entryType     = rszObj.GetType();
-            var entryProp     = entryType.GetProperty(structInfo.fields[0].name.ToConvertedFieldName()!)!;
-            var entryListType = entryProp.PropertyType.GenericTypeArguments[0];
-            var items         = entryProp.GetGetMethod()!.Invoke(rszObj, null);
-
-            /*
-             * If there is only one type, create a list with only that type for the grid so it can correctly plot columns.
-             * If there's more than one type, pass the root item and populate the UI so the user can switch target types.
-             */
-
-            //var itemTypes = (List<Type>) GetTypesInList((dynamic) items);
-            var itemTypes = Utils.GetTypesInList((IEnumerable) items);
-            if (itemTypes.Count == 1) {
-                entryListType = itemTypes[0];
-                var ofType = typeof(Enumerable).GetMethod(nameof(Enumerable.OfType))!.MakeGenericMethod(entryListType);
-                var list   = ofType.Invoke(null, [items]);
-                var newObs = Utils.GetGenericConstructor(typeof(ObservableCollection<>), [typeof(IEnumerable<>)], entryListType)!;
-                items = newObs.Invoke([list]);
-            } else {
-                // TODO: Add a UI so the user can select the target type for the grid.
-                // There might also be nothing in the list at all.
-            }
-
-            var makeGridMethod = typeof(MainWindow).GetMethod(nameof(MakeDataGrid), Global.FLAGS)!.MakeGenericMethod(entryListType);
-            var dataGrid       = (AutoDataGrid) makeGridMethod.Invoke(null, [items, rszObj.rsz, entryProp, rszObj, itemTypes]);
-            //var dataGrid = MakeDataGrid((dynamic) items, rszObj.rsz, entryProp, entryPointRszObject, itemTypes);
-
-            Debug.WriteLine($"Loading type: {entryListType.Name}");
+            var entryType = rszObj.GetType();
+            var entryProp = entryType.GetProperty(structInfo.fields[0].name.ToConvertedFieldName()!)!;
+            var dataGrid  = CreateDataGridFromProperty(control, rszObj, entryProp);
             return dataGrid;
         } else {
-            var type       = rszObj.GetType();
-            var structGrid = (StructGrid) MakeSubDataGrid((dynamic) Convert.ChangeType(rszObj, type), rszObj.rsz);
-            Debug.WriteLine($"Loading type: {type.Name}");
+            var structGrid = InstanceStructGridOfType(rszObj);
+            Debug.WriteLine($"Loading type: {rszObj.GetType().Name}");
             return structGrid;
         }
     }
 
-    private static AutoDataGridGeneric<T> MakeDataGrid<T>(ObservableCollection<T> items, RSZ rsz, PropertyInfo prop, object instance, List<Type> contentTypes) where T : RszObject {
-        var dataGrid = new AutoDataGridGeneric<T>(rsz);
-        dataGrid.SetItems(items);
-        // TODO: RowHelper<T>.AddKeybinds(dataGrid, lists, dataGrid, rsz);
+    public static IDataGrid CreateDataGridFromProperty([CanBeNull] UIElement control, RszObject sourceObj, PropertyInfo propertyInfo) {
+        var items         = propertyInfo.GetGetMethod()!.Invoke(sourceObj, null)!;
+        var entryListType = propertyInfo.PropertyType.GenericTypeArguments[0];
+        var isList        = (IsListAttribute) propertyInfo.GetCustomAttribute(typeof(IsListAttribute), true) != null;
+
+        if (!isList) {
+            var observableType = typeof(ObservableCollection<>).MakeGenericType(entryListType);
+            var count          = (int) observableType.GetProperty(nameof(ObservableCollection<int>.Count), Global.FLAGS)!.GetGetMethod()!.Invoke(items, null)!; // TODO: Remove the `int` generic param once C# 14 come out.
+
+            switch (count) {
+                case 0: throw new NoNullAllowedException("Object is null, nothing to open.");
+                case > 1: throw new("A non-list type somehow has more than one item in the collection.");
+            }
+
+            var rszObj     = ((dynamic) items)[0];
+            var structGrid = InstanceStructGridOfType(rszObj);
+            Debug.WriteLine($"Loading type: {rszObj.GetType().Name}");
+            return structGrid;
+        }
+
+        /*
+         * If there is only one type, create a list with only that type for the grid so it can correctly plot columns.
+         * If there's more than one type, pass the root item and populate the UI so the user can switch target types.
+         * If it's empty, just make a grid with the generic type.
+         */
+
+        IAutoDataGrid dataGrid;
+
+        var itemTypes = Utils.GetTypesInList((IEnumerable) items!);
+        if (itemTypes.Count == 1) {
+            dataGrid = InstanceAutoDataGridOfType(control, sourceObj, items, itemTypes[0], propertyInfo);
+            Debug.WriteLine($"Loading type: {itemTypes[0].Name}");
+        } else if (itemTypes.Count == 0) {
+            dataGrid = InstanceAutoDataGridOfType(control, sourceObj, items, entryListType, propertyInfo);
+            Debug.WriteLine($"Loading type: {entryListType.Name}");
+        } else {
+            // TODO: Add a UI so the user can select the target type for the grid.
+            // There might also be nothing in the list at all.
+            throw new NotImplementedException("Generic lists with multiple concrete types are not supported yet.");
+        }
+
         return dataGrid;
     }
 
-    private static StructGridGeneric<T> MakeSubDataGrid<T>(T item, RSZ rsz) where T : RszObject {
-        var dataGrid = new StructGridGeneric<T>(rsz);
+    private static IAutoDataGrid InstanceAutoDataGridOfType([CanBeNull] UIElement control, RszObject rszObj, object items, Type propertyListType, PropertyInfo propertyInfo) {
+        var ofType = typeof(Enumerable).GetMethod(nameof(Enumerable.OfType))!.MakeGenericMethod(propertyListType);
+        var list   = ofType.Invoke(null, [items]);
+        var newObs = Utils.GetGenericConstructor(typeof(ObservableCollection<>), [typeof(IEnumerable<>)], propertyListType)!;
+        items = newObs.Invoke([list]);
+
+        var makeGridMethod = typeof(MainWindow).GetMethod(nameof(MakeAutoDataGrid), Global.FLAGS)!.MakeGenericMethod(propertyListType);
+        var dataGrid       = (AutoDataGrid) makeGridMethod.Invoke(null, [control, items, rszObj, propertyInfo]);
+        return dataGrid;
+    }
+
+    private static IStructGrid InstanceStructGridOfType(RszObject rszObj) {
+        var type           = rszObj.GetType();
+        var makeGridMethod = typeof(MainWindow).GetMethod(nameof(MakeStructGrid), Global.FLAGS)!.MakeGenericMethod(type);
+        var structGrid     = (StructGrid) makeGridMethod.Invoke(null, [Convert.ChangeType(rszObj, type)]);
+        return structGrid;
+    }
+
+    /// <summary>
+    /// Creates a data-grid of the given items, and adds keybindings to it for adding/removing rows.
+    /// The type given as `T` is used to generate the columns, instance new rows, etc.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="control">What to bind keybindings to.</param>
+    /// <param name="items">The items to show in the grid.</param>
+    /// <param name="rszObj">Object containing the item list.
+    /// Required as the item list might be a generic list; something that is not actually part of the saved data and thus added/removed items would be lost.</param>
+    /// <param name="prop">The property that the original list is pulled from, that we will be adding/removing items from.</param>
+    /// <returns></returns>
+    private static AutoDataGridGeneric<T> MakeAutoDataGrid<T>(UIElement control, ObservableCollection<T> items, RszObject rszObj, PropertyInfo prop) where T : RszObject {
+        var dataGrid = new AutoDataGridGeneric<T>();
+        dataGrid.SetItems(items);
+        RowHelper<T>.AddKeybinds(control, dataGrid, rszObj, prop);
+        return dataGrid;
+    }
+
+    private static StructGridGeneric<T> MakeStructGrid<T>(T item) where T : RszObject {
+        var dataGrid = new StructGridGeneric<T>();
         dataGrid.SetItem(item);
-        // TODO: RowHelper<T>.AddKeybinds(dataGrid, item, dataGrid, rsz);
+        // No need to bring in the RowHelper here, can't add rows to a vertical struct view.
         return dataGrid;
     }
 
@@ -281,6 +333,7 @@ public partial class MainWindow {
         return ofdResult.FileName;
     }
 
+    // ReSharper disable once AsyncVoidMethod
     private async void Save(bool saveAs = false) {
         if (file == null || targetFile == null) return;
 

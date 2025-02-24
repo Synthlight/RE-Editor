@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -24,7 +24,7 @@ using RE_Editor.Windows;
 
 namespace RE_Editor.Controls;
 
-public interface IAutoDataGrid {
+public interface IAutoDataGrid : IDataGrid {
     bool IsAddingAllowed { get; set; }
     void SetItems(object items, PropertyInfo sourceProperty = null);
     void Refresh();
@@ -36,7 +36,7 @@ public interface IAutoDataGrid<T> : IAutoDataGrid {
     void SetItems(ObservableCollection<T> items, PropertyInfo sourceProperty = null);
 }
 
-public abstract partial class AutoDataGrid : IAutoDataGrid, IDataGrid {
+public abstract partial class AutoDataGrid : IAutoDataGrid {
     protected static readonly Brush           BACKGROUND_BRUSH = (Brush) new BrushConverter().ConvertFrom("#c0e1fb");
     public static readonly    SolidColorBrush ALT_ROW_BRUSH    = new(Color.FromRgb(230, 230, 230));
 
@@ -57,7 +57,7 @@ public abstract partial class AutoDataGrid : IAutoDataGrid, IDataGrid {
     protected abstract void On_Cell_MouseClick(object      sender, MouseButtonEventArgs                  e);
 }
 
-public class AutoDataGridGeneric<T>(RSZ rsz) : AutoDataGrid, IAutoDataGrid<T> {
+public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
     private             Dictionary<string, ColumnHolder> columnMap;
     private             GroupFilter                      groupFilter;
     [CanBeNull] private DataGridRow                      coloredRow;
@@ -331,35 +331,14 @@ public class AutoDataGridGeneric<T>(RSZ rsz) : AutoDataGrid, IAutoDataGrid<T> {
         try {
             var frameworkElement = (FrameworkElement) sender;
             var obj              = (RszObject) frameworkElement.DataContext;
-            var list             = (IList) propertyInfo.GetGetMethod()?.Invoke(obj, null);
-            var listType         = list?.Count > 0 ? list[0]?.GetType() : list?.GetType().GenericTypeArguments[0];
-            var isList           = (IsListAttribute) propertyInfo.GetCustomAttribute(typeof(IsListAttribute), true) != null;
-            var viewType         = typeof(SubStructViewDynamic<>).MakeGenericType(listType ?? throw new InvalidOperationException());
-            var subStructView = isList switch {
-                true => CreateDynamicSubStructView(viewType, displayName, list, propertyInfo), // (SubStructView) Activator.CreateInstance(viewType, Window.GetWindow(this), displayName, list, propertyInfo, rsz),
-                false => (SubStructView) Activator.CreateInstance(viewType, Window.GetWindow(this), displayName, ((dynamic) list)[0], rsz)
-            };
+            var subStructView    = new SubStructView(Window.GetWindow(this), displayName, obj, propertyInfo);
 
             ColorCell(frameworkElement);
-            subStructView?.ShowDialog();
+            subStructView.ShowDialog();
+        } catch (NoNullAllowedException err) {
+            MessageBox.Show(err.Message, "Error Occurred", MessageBoxButton.OK, MessageBoxImage.Error);
         } catch (Exception err) when (!Debugger.IsAttached) {
             MainWindow.ShowError(err, "Error Occurred");
-        }
-    }
-
-    private SubStructView CreateDynamicSubStructView(Type viewType, string displayName, IList list, PropertyInfo propertyInfo) {
-        try {
-            return (SubStructView) Activator.CreateInstance(viewType, Window.GetWindow(this), displayName, list, propertyInfo, rsz);
-        } catch (Exception) {
-            // Can happen when we're dealing with generic lists and the entries are of a derived class.
-            // This isn't perfect either. It'll up-cast the contents to the type of the first entry and open the sub-struct view with that.
-            // So it is possible further derived types will fail, and a non-homogenous list might also break things.
-            var listType           = list[0]?.GetType();
-            var castCall           = typeof(Enumerable).GetMethod(nameof(Enumerable.Cast))!.MakeGenericMethod(listType ?? throw new InvalidOperationException());
-            var castedList         = castCall.Invoke(null, [list]);
-            var observableListType = typeof(ObservableCollection<>).MakeGenericType(listType);
-            var newList            = (IList) Activator.CreateInstance(observableListType, castedList);
-            return (SubStructView) Activator.CreateInstance(viewType, Window.GetWindow(this), displayName, newList, propertyInfo, rsz);
         }
     }
 

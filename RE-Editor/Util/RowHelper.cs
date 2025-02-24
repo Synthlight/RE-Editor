@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
+using JetBrains.Annotations;
 using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Common.Models.List_Wrappers;
@@ -11,70 +13,91 @@ using RE_Editor.Controls;
 
 namespace RE_Editor.Util;
 
-public static class RowHelper<T> where T : class {
-    public static void AddKeybinds(UIElement control, List<IList<T>> itemLists, AutoDataGridGeneric<T> dataGrid, RSZ rsz) {
-        Utils.SetupKeybind(control, new KeyGesture(Key.I, ModifierKeys.Control), () => HandleAddRow(itemLists, dataGrid, rsz));
-        Utils.SetupKeybind(control, new KeyGesture(Key.R, ModifierKeys.Control), () => HandleRemoveRow(itemLists, dataGrid));
+public class RowHelper<T> where T : class {
+    private readonly AutoDataGridGeneric<T> dataGrid;
+    private readonly RszObject              rszObj;
+    private readonly PropertyInfo           prop;
+
+    private RowHelper([CanBeNull] UIElement control, AutoDataGridGeneric<T> dataGrid, RszObject rszObj, PropertyInfo prop) {
+        this.dataGrid = dataGrid;
+        this.rszObj   = rszObj;
+        this.prop     = prop;
+
+        if (control == null) return;
+
+        Utils.SetupKeybind(control, new KeyGesture(Key.I, ModifierKeys.Control), HandleAddRow);
+        Utils.SetupKeybind(control, new KeyGesture(Key.R, ModifierKeys.Control), HandleRemoveRow);
     }
 
-    public static void HandleAddRow(List<IList<T>> itemLists, AutoDataGridGeneric<T> dataGrid, RSZ rsz) {
-        if (itemLists == null || itemLists.Count == 0 || dataGrid == null) return;
+    public static void AddKeybinds(UIElement control, AutoDataGridGeneric<T> dataGrid, RszObject rszObj, PropertyInfo prop) {
+        _ = new RowHelper<T>(control, dataGrid, rszObj, prop);
+    }
+
+    private void HandleAddRow() {
         try {
-            if (typeof(T).GetNameWithoutGenericArity() == typeof(GenericWrapper<>).GetNameWithoutGenericArity()) {
-                // Here, `T` is `GenericWrapper<*>`.
-                var    innerType          = typeof(T).GenericTypeArguments[0];
-                var    genericWrapperType = typeof(GenericWrapper<>).MakeGenericType(innerType);
-                object itemValue;
-                if (innerType.IsValueType) {
-                    itemValue = Convert.ChangeType(0, innerType);
-                } else if (innerType == typeof(string)) {
-                    itemValue = "";
-                } else {
-                    // Should never happen.
-                    throw new NotImplementedException($"Unknown value for type, not sure how to instance it: {innerType}");
-                }
-                var newItem = (T) Activator.CreateInstance(genericWrapperType, [-1, itemValue])!;
-                foreach (var items in itemLists) {
-                    items.Add(newItem);
-                }
-                dataGrid.ScrollIntoView(newItem);
-            } else if (typeof(T).IsAssignableTo(typeof(RszObject))) {
-                var createMethod = typeof(T).GetMethod("Create", BindingFlags.Public | BindingFlags.Static, [typeof(RSZ)])!;
-                var newItem      = (T) createMethod.Invoke(null, [rsz])!;
-                foreach (var items in itemLists) {
-                    items.Add(newItem);
-                }
-                dataGrid.ScrollIntoView(newItem);
-            } else {
-                MessageBox.Show($"Unable to determine how to instance `{typeof(T)}` to add a row.", "Error Adding Rows", MessageBoxButton.OK, MessageBoxImage.Error);
+            var newItem         = CreateInstance();
+            var observableItems = dataGrid.Items;
+            var originalItems   = prop.GetGetMethod()!.Invoke(rszObj, null)!;
+
+            if (observableItems != originalItems) {
+                var listType       = prop.PropertyType.GenericTypeArguments[0];
+                var collectionType = typeof(Collection<>).MakeGenericType(listType);
+                var addMethod      = collectionType.GetMethod(nameof(Collection<T>.Add), Global.FLAGS)!; // TODO: Remove the `T` generic param once C# 14 come out.
+                addMethod.Invoke(originalItems, [Convert.ChangeType(newItem, listType)]);
             }
-        } catch (Exception e) {
+            observableItems.Add(newItem);
+            dataGrid.ScrollIntoView(newItem);
+        } catch (Exception e) when (!Debugger.IsAttached) {
             MessageBox.Show($"Error adding a new row: {e}", "Error Adding Rows", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 
-    public static void HandleRemoveRow(List<IList<T>> itemLists, AutoDataGridGeneric<T> dataGrid) {
-        if (itemLists == null || itemLists.Count == 0 || dataGrid == null) return;
-        foreach (var items in itemLists) {
-            try {
-                if (items.Count == 0) return;
+    private void HandleRemoveRow() {
+        try {
+            var observableItems = dataGrid.Items;
+            var originalItems   = prop.GetGetMethod()!.Invoke(rszObj, null)!;
+            var selectedItems   = dataGrid.SelectedItems.Cast<T>().ToList();
 
-                var selectedItems = dataGrid.SelectedItems.Cast<T>().ToList();
-
-                foreach (var cellItem in dataGrid.SelectedCells.Select(cell => cell.Item)) {
-                    if (selectedItems.Contains((T) cellItem)) continue;
-                    selectedItems.Add((T) cellItem);
-                }
-
-                foreach (var item in from selectedItem in selectedItems
-                                     from item in new List<T>(items)
-                                     where item == selectedItem
-                                     select item) {
-                    items.Remove(item);
-                }
-            } catch (Exception e) {
-                MessageBox.Show($"Error adding a new row: {e}", "Error Adding Rows", MessageBoxButton.OK, MessageBoxImage.Error);
+            // Because what `SelectedItems` returns can differ depending on *how* things were selected.
+            foreach (var cellItem in dataGrid.SelectedCells.Select(cell => cell.Item)) {
+                if (selectedItems.Contains((T) cellItem)) continue;
+                selectedItems.Add((T) cellItem);
             }
+
+            foreach (var selectedItem in selectedItems) {
+                if (observableItems != originalItems) {
+                    var listType       = prop.PropertyType.GenericTypeArguments[0];
+                    var collectionType = typeof(Collection<>).MakeGenericType(listType);
+                    var removeMethod   = collectionType.GetMethod(nameof(Collection<T>.Remove), Global.FLAGS)!;
+                    removeMethod.Invoke(originalItems, [Convert.ChangeType(selectedItem, listType)]);
+                }
+                observableItems.Remove(selectedItem);
+            }
+        } catch (Exception e) when (!Debugger.IsAttached) {
+            MessageBox.Show($"Error adding a new row: {e}", "Error Adding Rows", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private T CreateInstance() {
+        if (typeof(T).GetNameWithoutGenericArity() == typeof(GenericWrapper<>).GetNameWithoutGenericArity()) {
+            // Here, `T` is `GenericWrapper<*>`.
+            var    innerType          = typeof(T).GenericTypeArguments[0];
+            var    genericWrapperType = typeof(GenericWrapper<>).MakeGenericType(innerType);
+            object itemValue;
+            if (innerType.IsValueType) {
+                itemValue = Convert.ChangeType(0, innerType);
+            } else if (innerType == typeof(string)) {
+                itemValue = "";
+            } else {
+                // Should never happen.
+                throw new NotImplementedException($"Unknown value for type, not sure how to instance it: {innerType}");
+            }
+            return (T) Activator.CreateInstance(genericWrapperType, [-1, itemValue])!;
+        } else if (typeof(T).IsAssignableTo(typeof(RszObject))) {
+            var createMethod = typeof(T).GetMethod("Create", BindingFlags.Public | BindingFlags.Static, [typeof(RSZ)])!;
+            return (T) createMethod.Invoke(null, [rszObj.rsz])!;
+        } else {
+            throw new NotImplementedException($"Unable to determine how to instance `{typeof(T)}` to add a row.");
         }
     }
 }

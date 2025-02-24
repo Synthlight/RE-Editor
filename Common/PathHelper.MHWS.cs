@@ -15,7 +15,7 @@ public static partial class PathHelper {
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
-    public const string WIKI_URL               = "https://github.com/Synthlight/MHR-Editor/wiki";
+    public const string WIKI_URL               = NEXUS_URL;
 
     public static readonly string[] TEST_PATHS = [
         @"\natives\STM"

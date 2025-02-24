@@ -23,7 +23,7 @@ public class TestLoadingDataGrids {
 
         try {
             var entryObject = data.rsz.GetEntryObject();
-            MainWindow.CreateDataGridControl(entryObject);
+            MainWindow.CreateDataGridControl(null, entryObject);
         } catch (Exception e) {
             /*
              * So, if this is run as `STATestClass`, at some point it will start shitting the bed with "not enough resources" or something, and the only solution I've found is log out/in.
