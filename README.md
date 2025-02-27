@@ -6,7 +6,7 @@ RE data file editor.
 Supported games:
 
 Short | Long | Latest Release | Files Passing Write Tests
---- | --- | ---
+--- | --- | --- | ---
 DD2 | Dragon Age 2 | [v1.1.7.0](https://github.com/Synthlight/MHR-Editor/releases/tag/DD2-Editor_v1.1.7.0) | 91%
 DRDR | Dead Rising Deluxe Remaster | [v1.0.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/DRDR-Editor_v1.0.1.0) | 86%
 MHR | Monster Hunter Rise | [v1.5.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/MHR-Editor_v1.5.1.0) | 95%
