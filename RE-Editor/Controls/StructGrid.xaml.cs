@@ -19,9 +19,7 @@ using RE_Editor.Models;
 using RE_Editor.Util;
 using RE_Editor.Windows;
 
-#if RE4
-using RE_Editor.Common.Data;
-#elif MHR
+#if MHR
 using Bitset = RE_Editor.Models.Structs.Snow_BitSetFlagBase;
 #elif MHWS
 using Bitset = RE_Editor.Models.Structs.Ace_Bitset;
@@ -34,7 +32,7 @@ public interface IStructGrid : IDataGrid {
     void Refresh();
 }
 
-public interface IStructGrid<T> : IStructGrid where T : RszObject {
+public interface IStructGrid<T> : IStructGrid {
     T    Item { get; }
     void SetItem(T item);
 }
@@ -51,7 +49,7 @@ public abstract partial class StructGrid : IStructGrid {
 /***
  ** A vertical layout of a single struct.
  **/
-public class StructGridGeneric<T> : StructGrid, IStructGrid<T> where T : RszObject {
+public class StructGridGeneric<T> : StructGrid, IStructGrid<T> {
     private T item;
     public T Item {
         get => item;
@@ -202,38 +200,14 @@ public class StructGridGeneric<T> : StructGrid, IStructGrid<T> where T : RszObje
     }
 
     private void EditSelectedItemId(string propertyName) {
-        var property            = typeof(T).GetProperty(propertyName.Replace("_button", ""), BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)!;
-        var propertyType        = property.PropertyType;
-        var value               = property.GetValue(Item);
-        var dataSourceType      = ((DataSourceAttribute) property.GetCustomAttribute(typeof(DataSourceAttribute), true))?.dataType;
-        var showAsHex           = (ButtonIdAsHexAttribute) property.GetCustomAttribute(typeof(ButtonIdAsHexAttribute), true) != null;
-        var negativeOneForEmpty = (NegativeOneForEmptyAttribute) property.GetCustomAttribute(typeof(NegativeOneForEmptyAttribute), true) != null;
-        var dataSource          = Utils.GetDataSourceType(dataSourceType);
-
-        if (negativeOneForEmpty) {
-            var newData = new Dictionary<int, string> {[-1] = "<None>"};
-#if RE4
-            foreach (var (id, name) in DataHelper.ITEM_NAME_LOOKUP[Global.variant][Global.locale]) {
-                newData[(int) id] = name;
-            }
-#endif
-            dataSource = newData;
-        }
-
-        var getNewItemId = new GetNewItemId(value, dataSource, showAsHex);
-        getNewItemId.ShowDialog();
-
-        if (!getNewItemId.Cancelled) {
-            property.SetValue(Item, propertyType.IsEnum ? Enum.ToObject(propertyType, getNewItemId.CurrentItem) : Convert.ChangeType(getNewItemId.CurrentItem, propertyType));
-            //Item.OnPropertyChanged(propertyName);
-        }
+        AutoDataGrid.ShowDataPickerPopup(Item, propertyName);
     }
 
     private void OpenGrid(PropertyInfo propertyInfo, string displayName) {
         try {
-            var subStructView = new SubStructView(Window.GetWindow(this), displayName, item, propertyInfo);
+            var subStructView = new SubStructView(Window.GetWindow(this), displayName, (RszObject) (object) item, propertyInfo);
             subStructView.ShowDialog();
-        } catch (NoNullAllowedException err) when (Debugger.IsAttached) {
+        } catch (NoNullAllowedException err) {
             MessageBox.Show(err.Message, "Error Occurred", MessageBoxButton.OK, MessageBoxImage.Error);
         } catch (Exception err) when (!Debugger.IsAttached) {
             MainWindow.ShowError(err, "Error Occurred");

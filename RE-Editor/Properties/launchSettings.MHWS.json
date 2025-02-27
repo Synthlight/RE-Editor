@@ -50,6 +50,14 @@
         "PlayerStatusParam.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Player/ActionData/Common/GlobalParam/Part/PlayerStatusParam.user.3\""
+        },
+        "SkillCommonData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/SkillCommonData.user.3\""
+        },
+        "SkillData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/SkillData.user.3\""
         }
     }
 }

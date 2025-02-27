@@ -238,7 +238,7 @@ public partial class MainWindow {
             var count          = (int) observableType.GetProperty(nameof(ObservableCollection<int>.Count), Global.FLAGS)!.GetGetMethod()!.Invoke(items, null)!; // TODO: Remove the `int` generic param once C# 14 come out.
 
             switch (count) {
-                case 0: throw new NoNullAllowedException("Object is null, nothing to open.");
+                case 0: throw new NoNullAllowedException("Object is null, nothing to open.\n(This isn't really an error, just framed as one.)");
                 case > 1: throw new("A non-list type somehow has more than one item in the collection.");
             }
 
@@ -301,14 +301,16 @@ public partial class MainWindow {
     /// Required as the item list might be a generic list; something that is not actually part of the saved data and thus added/removed items would be lost.</param>
     /// <param name="prop">The property that the original list is pulled from, that we will be adding/removing items from.</param>
     /// <returns></returns>
-    private static AutoDataGridGeneric<T> MakeAutoDataGrid<T>(UIElement control, ObservableCollection<T> items, RszObject rszObj, PropertyInfo prop) where T : RszObject {
+    private static AutoDataGridGeneric<T> MakeAutoDataGrid<T>(UIElement control, ObservableCollection<T> items, RszObject rszObj, PropertyInfo prop) where T : class {
         var dataGrid = new AutoDataGridGeneric<T>();
         dataGrid.SetItems(items);
-        RowHelper<T>.AddKeybinds(control, dataGrid, rszObj, prop);
+        if (typeof(T).Is(typeof(RszObject))) {
+            RowHelper<T>.AddKeybinds(control, dataGrid, rszObj, prop);
+        }
         return dataGrid;
     }
 
-    private static StructGridGeneric<T> MakeStructGrid<T>(T item) where T : RszObject {
+    private static StructGridGeneric<T> MakeStructGrid<T>(T item) {
         var dataGrid = new StructGridGeneric<T>();
         dataGrid.SetItem(item);
         // No need to bring in the RowHelper here, can't add rows to a vertical struct view.

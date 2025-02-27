@@ -31,7 +31,7 @@ namespace RE_Editor.Windows {
             Top  = mouse.Y - 10;
 
             cbx_current_item.KeyUp  += Cbx_current_item_KeyUp;
-            cbx_current_item.Loaded += (_, _) => cbx_current_item.EditableTextBox.Focus(); // Focus & highlight the text.
+            cbx_current_item.Loaded += (_, _) => cbx_current_item.EditableTextBox!.Focus(); // Focus & highlight the text.
             btn_ok.Click            += (_, _) => Ok();
             btn_cancel.Click        += (_, _) => Cancel();
         }

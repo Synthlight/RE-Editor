@@ -18,9 +18,14 @@ using RE_Editor.Common;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Controls.Models;
 using RE_Editor.Common.Models;
+using RE_Editor.Common.Models.List_Wrappers;
 using RE_Editor.Models;
 using RE_Editor.Util;
 using RE_Editor.Windows;
+
+#if RE4
+using RE_Editor.Common.Data;
+#endif
 
 namespace RE_Editor.Controls;
 
@@ -55,6 +60,49 @@ public abstract partial class AutoDataGrid : IAutoDataGrid {
     protected abstract void On_GotFocus(object             sender, RoutedEventArgs                       e);
     protected abstract void On_Sorting(object              sender, DataGridSortingEventArgs              e);
     protected abstract void On_Cell_MouseClick(object      sender, MouseButtonEventArgs                  e);
+
+    public static void ShowDataPickerPopup(object obj, string propertyName, [CanBeNull] PropertyInfo dataSourceProperty = null) {
+        var objType             = obj.GetType();
+        var property            = objType.GetProperty(propertyName.Replace("_button", ""), BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)!;
+        var propertyType        = property.PropertyType;
+        var value               = property.GetValue(obj);
+        var propToUse           = dataSourceProperty?.GetCustomAttribute(typeof(DataSourceAttribute), true) != null ? dataSourceProperty : property;
+        var dataSourceType      = ((DataSourceAttribute) propToUse.GetCustomAttribute(typeof(DataSourceAttribute), true))?.dataType;
+        var showAsHex           = (ButtonIdAsHexAttribute) propToUse.GetCustomAttribute(typeof(ButtonIdAsHexAttribute), true) != null;
+        var negativeOneForEmpty = (NegativeOneForEmptyAttribute) property.GetCustomAttribute(typeof(NegativeOneForEmptyAttribute), true) != null;
+
+        dynamic dataSource;
+        if (dataSourceType == null) {
+            if (objType.Name.Contains(nameof(DataSourceWrapper<int>))) { // TODO: Remove the `int` generic param once C# 14 come out.
+                var getDataLookupSourceMethod = objType.GetMethod(nameof(DataSourceWrapper<int>.GetDataLookupSource))!; // TODO: Remove the `int` generic param once C# 14 come out.
+                dataSource = ((dynamic) getDataLookupSourceMethod.Invoke(obj, null)!)[Global.locale];
+            } else {
+                throw new($"Don't know how to get a data lookup source from: {objType}");
+            }
+        } else {
+            dataSource = Utils.GetDataSourceType(dataSourceType);
+        }
+
+        if (negativeOneForEmpty) {
+            var newData = new Dictionary<int, string> {[-1] = "<None>"};
+#if RE4
+            foreach (var (id, name) in DataHelper.ITEM_NAME_LOOKUP[Global.variant][Global.locale]) {
+                newData[(int) id] = name;
+            }
+#endif
+            dataSource = newData;
+        }
+
+        var getNewItemId = new GetNewItemId(value, dataSource, showAsHex);
+        getNewItemId.ShowDialog();
+
+        if (!getNewItemId.Cancelled) {
+            property.SetValue(obj, propertyType.IsEnum ? Enum.ToObject(propertyType, getNewItemId.CurrentItem) : Convert.ChangeType(getNewItemId.CurrentItem, propertyType));
+            if (obj is IOnPropertyChanged onChangedItem) {
+                onChangedItem.OnPropertyChanged(propertyName);
+            }
+        }
+    }
 }
 
 public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
@@ -357,20 +405,7 @@ public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
         // `sourceProperty` will only have a value if we come from a button.
         // Use it if it does, and if not, use the target column.
 
-        var property       = obj.GetType().GetProperty(propertyName.Replace("_button", ""), BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)!;
-        var propertyType   = property.PropertyType;
-        var value          = property.GetValue(obj);
-        var propToUse      = sourceProperty?.GetCustomAttribute(typeof(DataSourceAttribute), true) != null ? sourceProperty : property;
-        var dataSourceType = ((DataSourceAttribute) propToUse.GetCustomAttribute(typeof(DataSourceAttribute), true))?.dataType;
-        var showAsHex      = (ButtonIdAsHexAttribute) propToUse.GetCustomAttribute(typeof(ButtonIdAsHexAttribute), true) != null;
-        var dataSource     = Utils.GetDataSourceType(dataSourceType);
-        var getNewItemId   = new GetNewItemId(value, dataSource, showAsHex);
-        getNewItemId.ShowDialog();
-
-        if (!getNewItemId.Cancelled) {
-            property.SetValue(obj, propertyType.IsEnum ? Enum.ToObject(propertyType, getNewItemId.CurrentItem) : Convert.ChangeType(getNewItemId.CurrentItem, propertyType));
-            obj.OnPropertyChanged(propertyName);
-        }
+        ShowDataPickerPopup(obj, propertyName, sourceProperty);
 
         return true;
     }
