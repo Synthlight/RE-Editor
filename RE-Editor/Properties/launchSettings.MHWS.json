@@ -31,6 +31,10 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Item/ItemRecipe.user.3\""
         },
+        "ItemShopData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Facility/ItemShopData.user.3\""
+        },
         "LongSword.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Weapon/LongSword.user.3\""

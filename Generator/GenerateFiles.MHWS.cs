@@ -26,6 +26,8 @@ public partial class GenerateFiles {
         "App_user_data_ItemData_cData",
         "App_user_data_cItemRecipe",
         "App_user_data_cItemRecipe_cData",
+        "App_user_data_ItemShopData",
+        "App_user_data_ItemShopData_cData",
         "App_user_data_OuterArmorData",
         "App_user_data_OuterArmorData_cData",
         "App_user_data_OtomoEquipRecipe",

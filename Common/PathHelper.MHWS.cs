@@ -29,6 +29,7 @@ public static partial class PathHelper {
     public const string FISH_RANDOM_SIZES_PATH    = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSizeFish.user.3";
     public const string ITEM_DATA_PATH            = @"\natives\STM\GameDesign\Common\Item\ItemData.user.3";
     public const string ITEM_RECIPE_DATA_PATH     = @"\natives\STM\GameDesign\Common\Item\ItemRecipe.user.3";
+    public const string ITEM_SHOP_DATA_PATH       = @"\natives\STM\GameDesign\Facility\ItemShopData.user.3";
     public const string KINSECT_RECIPE_DATA_PATH  = @"\natives\STM\GameDesign\Common\Item\RodInsectRecipeData.user.3";
     public const string MONSTER_RANDOM_SIZES_PATH = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSize.user.3";
     public const string OTOMO_RECIPE_DATA_PATH    = @"\natives\STM\GameDesign\Facility\Data\OtomoEquipRecipe.user.3";
