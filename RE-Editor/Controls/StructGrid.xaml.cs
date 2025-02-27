@@ -171,7 +171,7 @@ public class StructGridGeneric<T> : StructGrid, IStructGrid<T> where T : RszObje
 
 #if MHWS
             if (isBitset) bitElementCount++;
-            if (bitElementCount > maxBitElement) break;
+            if (isBitset && bitElementCount > maxBitElement) break;
 #endif
         }
 
