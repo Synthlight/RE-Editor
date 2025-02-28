@@ -151,6 +151,7 @@ public partial class GenerateFiles {
         "app.cAnimalLotteryTable`",
         "app.cEnumerableParam`",
         "app.cFieldGridTable`",
+        "app.cNpcDerivedClassHolder`",
         "app.cParamsByEnv`",
         "app.DynamicClassSelector2`",
         "app.InstanceGuidArray`",
@@ -159,6 +160,7 @@ public partial class GenerateFiles {
         "app.snd_user_data.SoundGUIDefinition`",
         "app.snd_user_data.SoundMusicGameFlowSettings.GameFlowMusicAction`",
         "app.user_data.PorterRopesData`",
+        "soundlib.SoundStateApp`",
         "soundlib.SoundSwitchApp`",
 #elif RE2
         "app.ropeway.enemy.userdata.MotionUserDataBase.MotionInfo`",
@@ -730,17 +732,44 @@ public partial class GenerateFiles {
     }
 
     private void GenerateEnums(bool dryRun) {
-        foreach (var enumType in enumTypes.Values) {
-            new EnumTemplate(enumType).Generate(dryRun);
-        }
+        DoWithConsoleProgressCount(enumTypes.Values.ToList(), enumType => { new EnumTemplate(enumType).Generate(dryRun); }, (i, count) => $"Wrote {i}/{count} enums.");
     }
 
     private void GenerateStructs(bool dryRun) {
-        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var structType in structTypes.Values) {
-            if (structType.name.GetViaType() != null) continue;
-            new StructTemplate(this, structType).Generate(dryRun);
+        DoWithConsoleProgressCount(structTypes.Values.ToList(), structType => {
+            if (structType.name.GetViaType() == null) {
+                new StructTemplate(this, structType).Generate(dryRun);
+            }
+        }, (i, count) => $"Wrote {i}/{count} structs.");
+    }
+
+    public static void DoWithConsoleProgressCount<T>(IList<T> thingsToDo, Action<T> doThing, Func<int, int, string> progressFormat) {
+        var count = thingsToDo.Count;
+        var now   = DateTime.Now;
+        Log("");
+
+        for (var i = 0; i < thingsToDo.Count; i++) {
+            var newNow = DateTime.Now;
+            if (newNow > now.AddSeconds(1)) {
+                try {
+                    Console.SetCursorPosition(0, Console.CursorTop - 1);
+                } catch (Exception) {
+                    // Breaks tests so just ignore for those.
+                }
+                Log(progressFormat(i, count));
+                now = newNow;
+            }
+
+            var structType = thingsToDo[i];
+            doThing(structType);
         }
+
+        try {
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+        } catch (Exception) {
+            // Breaks tests so just ignore for those.
+        }
+        Log(progressFormat(count, count));
     }
 
     public static void Log(string msg) {

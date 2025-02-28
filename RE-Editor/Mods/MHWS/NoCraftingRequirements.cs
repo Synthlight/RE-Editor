@@ -76,10 +76,10 @@ public class NoCraftingRequirements : IMod {
             switch (obj) {
                 case App_user_data_AmuletRecipeData_cData amulet:
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        amulet.KeyEnemyId           = App_EnemyDef_ID_Fixed.INVALID;
-                        amulet.KeyItemId_Unwrapped  = App_ItemDef_ID_Fixed.NONE;
-                        amulet.KeyStoryNo_Unwrapped = App_MissionIDList_ID_Fixed.INVALID;
-                        amulet.FlagHunterRank       = 0;
+                        amulet.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        amulet.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
+                        amulet.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        amulet.FlagHunterRank = 0;
                     }
                     if (mode.HasFlag(Mode.NORMAL)) {
                         foreach (var item in amulet.ItemId) {
@@ -92,10 +92,10 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_ArmorRecipeData_cData armor:
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        armor.KeyEnemyId           = App_EnemyDef_ID_Fixed.INVALID;
-                        armor.KeyItemId_Unwrapped  = App_ItemDef_ID_Fixed.NONE;
-                        armor.KeyStoryNo_Unwrapped = App_MissionIDList_ID_Fixed.INVALID;
-                        armor.FlagHunterRank       = 0;
+                        armor.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        armor.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
+                        armor.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        armor.FlagHunterRank = 0;
                     }
                     if (mode.HasFlag(Mode.NORMAL)) {
                         foreach (var item in armor.Item) {
@@ -108,10 +108,10 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_OtomoEquipRecipe_cData armor:
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        armor.KeyEnemyId           = App_EnemyDef_ID_Fixed.INVALID;
-                        armor.KeyItemId_Unwrapped  = App_ItemDef_ID_Fixed.NONE;
-                        armor.KeyStoryNo_Unwrapped = App_MissionIDList_ID_Fixed.INVALID;
-                        armor.FlagHunterRank       = 0;
+                        armor.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        armor.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
+                        armor.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        armor.FlagHunterRank = 0;
                     }
                     if (mode.HasFlag(Mode.NORMAL)) {
                         foreach (var item in armor.Item) {
@@ -124,10 +124,10 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_RodInsectRecipeData_cData kinsect:
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        kinsect.KeyEnemyId           = App_EnemyDef_ID_Fixed.INVALID;
-                        kinsect.KeyItemId_Unwrapped  = App_ItemDef_ID_Fixed.NONE;
-                        kinsect.KeyStoryNo_Unwrapped = App_MissionIDList_ID_Fixed.INVALID;
-                        kinsect.FlagHunterRank       = 0;
+                        kinsect.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        kinsect.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
+                        kinsect.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        kinsect.FlagHunterRank = 0;
                     }
                     if (mode.HasFlag(Mode.NORMAL)) {
                         foreach (var item in kinsect.ItemId) {
@@ -140,10 +140,10 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_WeaponRecipeData_cData weapon:
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        weapon.KeyEnemyId           = App_EnemyDef_ID_Fixed.INVALID;
-                        weapon.KeyItemId_Unwrapped  = App_ItemDef_ID_Fixed.NONE;
-                        weapon.KeyStoryNo_Unwrapped = App_MissionIDList_ID_Fixed.INVALID;
-                        weapon.FlagHunterRank       = 0;
+                        weapon.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        weapon.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
+                        weapon.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        weapon.FlagHunterRank = 0;
                     }
                     if (mode.HasFlag(Mode.NORMAL)) {
                         foreach (var item in weapon.Item) {
