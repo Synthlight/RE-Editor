@@ -8,12 +8,26 @@ namespace RE_Editor.ID_Parser;
 
 public static partial class Program {
     public static void Main() {
+        ExtractTalismanInfoByGuid();
         ExtractItemInfoByName();
         ExtractItemInfoByGuid();
         ExtractArmorInfoByGuid();
         ExtractArmorSeriesInfoByGuid();
         ExtractWeaponInfoByGuid();
         ExtractSkillInfoByName();
+    }
+
+    private static void ExtractTalismanInfoByGuid() {
+        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Amulet.msg.{Global.MSG_VERSION}")
+                     .GetLangRawMap(name => {
+                         try {
+                             return name.id1;
+                         } catch (Exception) {
+                             throw new MSG.SkipReadException();
+                         }
+                     });
+        DataHelper.ITEM_INFO_LOOKUP_BY_GUID = msg;
+        CreateAssetFile(msg, "TALISMAN_INFO_LOOKUP_BY_GUID");
     }
 
     private static void ExtractItemInfoByName() {

@@ -163,6 +163,16 @@ namespace RE_Editor.Data.MHWS {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] TALISMAN_INFO_LOOKUP_BY_GUID {
+            get {
+                object obj = ResourceManager.GetObject("TALISMAN_INFO_LOOKUP_BY_GUID", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] WEAPON_INFO_LOOKUP_BY_GUID {
             get {
                 object obj = ResourceManager.GetObject("WEAPON_INFO_LOOKUP_BY_GUID", resourceCulture);

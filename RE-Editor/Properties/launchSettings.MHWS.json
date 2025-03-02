@@ -58,6 +58,10 @@
         "SkillData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/SkillData.user.3\""
+        },
+        "TalismanData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/AmuletData.user.3\""
         }
     }
 }

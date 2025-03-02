@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 
 namespace RE_Editor.Common;
 
@@ -21,7 +22,6 @@ public static partial class PathHelper {
         @"\natives\STM"
     ];
 
-    public const string AMULETS_RECIPE_DATA_PATH  = @"\natives\STM\GameDesign\Common\Equip\AmuletRecipeData.user.3";
     public const string ARMOR_DATA_PATH           = @"\natives\STM\GameDesign\Common\Equip\ArmorData.user.3";
     public const string ARMOR_RECIPE_DATA_PATH    = @"\natives\STM\GameDesign\Common\Equip\ArmorRecipeData.user.3";
     public const string ARMOR_SERIES_DATA_PATH    = @"\natives\STM\GameDesign\Common\Equip\ArmorSeriesData.user.3";
@@ -32,14 +32,23 @@ public static partial class PathHelper {
     public const string ITEM_SHOP_DATA_PATH       = @"\natives\STM\GameDesign\Facility\ItemShopData.user.3";
     public const string KINSECT_RECIPE_DATA_PATH  = @"\natives\STM\GameDesign\Common\Equip\RodInsectRecipeData.user.3";
     public const string MONSTER_RANDOM_SIZES_PATH = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSize.user.3";
+    public const string OTOMO_ARMOR_DATA_PATH     = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoArmorData.user.3";
     public const string OTOMO_RECIPE_DATA_PATH    = @"\natives\STM\GameDesign\Facility\Data\OtomoEquipRecipe.user.3";
     public const string POPUP_CAMP_PATH           = @"\natives\STM\System\SystemSetting\CampManagerSetting.user.3";
+    public const string TALISMAN_DATA_PATH        = @"\natives\STM\GameDesign\Common\Equip\AmuletData.user.3";
+    public const string TALISMAN_RECIPE_DATA_PATH = @"\natives\STM\GameDesign\Common\Equip\AmuletRecipeData.user.3";
 
     public static IEnumerable<string> GetAllWeaponFilePaths(WeaponDataType type, string platform = "STM") {
         var postfix                                = "";
         if (type == WeaponDataType.Recipe) postfix = "Recipe";
 
         return Global.WEAPON_TYPES.Select(s => @$"\natives\{platform}\GameDesign\Common\Weapon\{s}{postfix}.user.3");
+    }
+
+    public static IEnumerable<string> GetAllCampSafetyFilePaths(string platform = "STM") {
+        return from file in Directory.EnumerateFiles($@"{CHUNK_PATH}\natives\STM\GameDesign\Gimmick\Gm800", "*AaaUniqueParam.user.3", SearchOption.AllDirectories)
+               where File.Exists(file)
+               select file.Replace(CHUNK_PATH, "");
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]

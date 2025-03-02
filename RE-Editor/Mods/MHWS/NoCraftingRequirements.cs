@@ -43,12 +43,12 @@ public class NoCraftingRequirements : IMod {
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Recipe))
                 .SetAction(list => NoRequirements(list, Mode.NORMAL | Mode.IGNORE_UNLOCK_FLAGS)),
             baseMod
-                .SetName("Amulets")
-                .SetFiles([PathHelper.AMULETS_RECIPE_DATA_PATH])
+                .SetName("Talismans")
+                .SetFiles([PathHelper.TALISMAN_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL)),
             baseMod
-                .SetName("Amulets (Ignore Unlock Flags)")
-                .SetFiles([PathHelper.AMULETS_RECIPE_DATA_PATH])
+                .SetName("Talismans (Ignore Unlock Flags)")
+                .SetFiles([PathHelper.TALISMAN_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL | Mode.IGNORE_UNLOCK_FLAGS)),
             baseMod
                 .SetName("Kinsects")

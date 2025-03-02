@@ -18,6 +18,7 @@ public class InfiniteConsumables : IMod {
         ItemConstants.MEGA_POTION,
         ItemConstants.ANTIDOTE,
         ItemConstants.MAX_POTION,
+        ItemConstants.HERBAL_MEDICINE,
         ItemConstants.NULBERRY,
         ItemConstants.WELL_DONE_STEAK,
         ItemConstants.RARE_STEAK,
@@ -38,6 +39,7 @@ public class InfiniteConsumables : IMod {
         ItemConstants.SMOKE_BOMB,
         ItemConstants.POISON_SMOKE_BOMB,
         ItemConstants.WHETFISH_FIN,
+        ItemConstants.WHETFISH_FIN_PLUS,
         ItemConstants.FARCASTER
     ];
 
