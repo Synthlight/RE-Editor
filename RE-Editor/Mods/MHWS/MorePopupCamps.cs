@@ -13,33 +13,24 @@ namespace RE_Editor.Mods;
 public class MorePopupCamps : IMod {
     [UsedImplicitly]
     public static void Make() {
-        const string name        = "More Popup Camps";
-        const string description = "Raises the limit on Popup Camps.";
+        const string name        = "More Safe Spaces";
+        const string description = "Raises the limit on Popup Camps and makes them all 'safe'.";
         const string version     = "1.0.0";
 
-        var baseMod = new NexusMod {
-            Version      = version,
-            NameAsBundle = name,
-            Desc         = description
+        var mod = new NexusMod {
+            Name    = name,
+            Desc    = description,
+            Version = version,
+            Image   = $@"{PathHelper.MODS_PATH}\More Safe Spaces\Thumb.png",
+            Files = PathHelper.GetAllCampSafetyFilePaths()
+                              .Append([PathHelper.POPUP_CAMP_PATH]),
+            Action = MoreSafeSpaces
         };
 
-        var camps = PathHelper.GetAllCampSafetyFilePaths();
-
-        var mods = new List<INexusMod> {
-            baseMod
-                .SetName($"{name}")
-                .SetFiles([PathHelper.POPUP_CAMP_PATH])
-                .SetAction(HigherCampLimits),
-            baseMod
-                .SetName("Camps Always Safe")
-                .SetFiles(camps)
-                .SetAction(HigherCampLimits),
-        };
-
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
     }
 
-    public static void HigherCampLimits(IList<RszObject> rszObjectData) {
+    public static void MoreSafeSpaces(IList<RszObject> rszObjectData) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_CampManagerSetting settings:
@@ -55,7 +46,12 @@ public class MorePopupCamps : IMod {
                     repoTime.Danger = repoTime.LittleSafe = repoTime.Safe = 1; // Insta-repair?
                     break;
                 case App_user_data_Gm800_AaaUniqueParam settings:
-                    settings.RiskDegree = App_user_data_Gm800_AaaUniqueParam_RISK_DEGREE.SAFE;
+                    settings.RiskDegree     = App_user_data_Gm800_AaaUniqueParam_RISK_DEGREE.SAFE;
+                    settings.IsEnableScared = false;
+                    var enemySightInfo = settings.EnemySightInfo[0];
+                    enemySightInfo.LengthRate =
+                        enemySightInfo.RangeRate =
+                            enemySightInfo.FeelRate = 1;
                     break;
             }
         }

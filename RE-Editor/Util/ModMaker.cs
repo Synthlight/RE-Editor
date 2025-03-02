@@ -95,7 +95,7 @@ public static class ModMaker {
             modInfo.WriteLine($"version={mod.Version}");
             modInfo.WriteLine($"description={mod.Desc}");
             modInfo.WriteLine("author=LordGregory");
-            if (mod.Image != null) {
+            if (mod.Image != null && File.Exists(mod.Image)) {
                 var imageFileName = Path.GetFileName(mod.Image);
                 var imagePath     = @$"{modPath}\{imageFileName}";
                 modInfo.WriteLine($"screenshot={imageFileName}");
