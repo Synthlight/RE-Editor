@@ -34,6 +34,7 @@ public struct VariousDataTweak : IVariousDataTweak {
 
     public enum Target {
         ARMOR_DATA,
+        DECORATION_DATA,
         ITEM_DATA,
         TALISMAN_DATA,
         WEAPON_DATA

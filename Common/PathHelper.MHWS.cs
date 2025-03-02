@@ -26,6 +26,7 @@ public static partial class PathHelper {
     public const string ARMOR_RECIPE_DATA_PATH    = @"\natives\STM\GameDesign\Common\Equip\ArmorRecipeData.user.3";
     public const string ARMOR_SERIES_DATA_PATH    = @"\natives\STM\GameDesign\Common\Equip\ArmorSeriesData.user.3";
     public const string CHARGE_BLADE_PARAM_PATH   = @"\natives\STM\GameDesign\Player\ActionData\Wp09\GlobalParam\Wp09GlobalActionParam.user.3";
+    public const string DECORATION_DATA_PATH      = @"\natives\STM\GameDesign\Common\Equip\AccessoryData.user.3";
     public const string FISH_RANDOM_SIZES_PATH    = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSizeFish.user.3";
     public const string ITEM_DATA_PATH            = @"\natives\STM\GameDesign\Common\Item\ItemData.user.3";
     public const string ITEM_RECIPE_DATA_PATH     = @"\natives\STM\GameDesign\Common\Item\ItemRecipe.user.3";

@@ -8,6 +8,7 @@ namespace RE_Editor.ID_Parser;
 
 public static partial class Program {
     public static void Main() {
+        ExtractDecorationInfoByGuid();
         ExtractTalismanInfoByGuid();
         ExtractItemInfoByName();
         ExtractItemInfoByGuid();
@@ -15,6 +16,19 @@ public static partial class Program {
         ExtractArmorSeriesInfoByGuid();
         ExtractWeaponInfoByGuid();
         ExtractSkillInfoByName();
+    }
+
+    private static void ExtractDecorationInfoByGuid() {
+        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Accessory.msg.{Global.MSG_VERSION}")
+                     .GetLangRawMap(name => {
+                         try {
+                             return name.id1;
+                         } catch (Exception) {
+                             throw new MSG.SkipReadException();
+                         }
+                     });
+        DataHelper.ITEM_INFO_LOOKUP_BY_GUID = msg;
+        CreateAssetFile(msg, "DECORATION_INFO_LOOKUP_BY_GUID");
     }
 
     private static void ExtractTalismanInfoByGuid() {
