@@ -18,7 +18,7 @@ public class ShopTweaks : IMod {
     public static void Make() {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.1";
+        const string version     = "1.1.1";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -137,7 +137,7 @@ public class ShopTweaks : IMod {
     [Flags]
     private enum Mode {
         CONSUMABLES = 1,
-        GEMS,
-        MATERIALS
+        GEMS        = 1 << 1,
+        MATERIALS   = 1 << 2
     }
 }
