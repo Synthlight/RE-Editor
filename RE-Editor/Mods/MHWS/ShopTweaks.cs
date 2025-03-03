@@ -55,10 +55,23 @@ public class ShopTweaks : IMod {
             baseMod
                 .SetName($"{name} - Materials Only")
                 .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
-                .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.MATERIALS)),
+                .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.MATERIALS))
         };
 
         ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+
+        const string tempFixModName = "Temporarily Make Appraisal Items Sellable";
+        mods = [
+            new NexusMod {
+                Name    = tempFixModName,
+                Version = "1.0",
+                Desc    = "Enable and use ONLY to sell appraisal items bought from the shop. WILL PROBABLY PREVENT REGULAR APPRAISAL IF LEFT ENABLED WHEN YOU ACQUIRE THE ITEMS NORMALLY.",
+                Files   = [PathHelper.ITEM_DATA_PATH],
+                Action  = MakeSellableGems
+            }
+        ];
+
+        ModMaker.WriteMods(mods, tempFixModName, copyLooseToFluffy: true, noPakZip: true);
     }
 
     private static Mode? GetMode(App_ItemDef_TYPE_Fixed type) {
@@ -95,6 +108,18 @@ public class ShopTweaks : IMod {
                         entry.StoryPackage = App_StoryPackageFlag_TYPE_Fixed.INVALID;
                     }
                     itemShopData.Values = new(entries);
+                    break;
+            }
+        }
+    }
+
+    private static void MakeSellableGems(List<RszObject> rszObjectData) {
+        foreach (var obj in rszObjectData) {
+            switch (obj) {
+                case App_user_data_ItemData_cData data:
+                    if (data.Type == App_ItemDef_TYPE_Fixed.GEM) {
+                        data.OutBox = false;
+                    }
                     break;
             }
         }
