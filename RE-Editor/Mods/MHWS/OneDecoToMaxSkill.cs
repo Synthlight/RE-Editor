@@ -20,13 +20,15 @@ public class OneDecoToMaxSkill : IMod {
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Pic.png"
         };
 
         var baseLuaMod = new VariousDataTweak {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Pic.png"
         };
 
         var mods = new List<INexusMod> {
@@ -51,8 +53,8 @@ public class OneDecoToMaxSkill : IMod {
     public static void MaxSkills(List<RszObject> rszObjectData) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
-                case App_user_data_AccessoryData_cData armor:
-                    foreach (var skillLevel in armor.SkillLevel) {
+                case App_user_data_AccessoryData_cData deco:
+                    foreach (var skillLevel in deco.SkillLevel) {
                         if (skillLevel.Value > 0) {
                             skillLevel.Value = 10;
                         }

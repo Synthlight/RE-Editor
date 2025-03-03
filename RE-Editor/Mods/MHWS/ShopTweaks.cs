@@ -18,12 +18,13 @@ public class ShopTweaks : IMod {
     public static void Make() {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.0.0";
+        const string version     = "1.1";
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Shop.png"
         };
 
         var itemShopData = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.ITEM_SHOP_DATA_PATH);
@@ -51,10 +52,6 @@ public class ShopTweaks : IMod {
                 .SetName($"{name} - Consumables Only")
                 .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
                 .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.CONSUMABLES)),
-            baseMod
-                .SetName($"{name} - Gems Only")
-                .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
-                .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.GEMS)),
             baseMod
                 .SetName($"{name} - Materials Only")
                 .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
