@@ -135,6 +135,24 @@ public static class Global {
     public const string USER_VERSION = "2";
 #endif
 
+#if DD2
+    public const string PAK_CREATE_ARGS = "-version 4 1";
+#elif DRDR
+    public const string PAK_CREATE_ARGS = "";
+#elif MHR
+    public const string PAK_CREATE_ARGS = "";
+#elif MHWS
+    public const string PAK_CREATE_ARGS = "-version 4 1";
+#elif RE2
+    public const string PAK_CREATE_ARGS = "";
+#elif RE3
+    public const string PAK_CREATE_ARGS = "";
+#elif RE4
+    public const string PAK_CREATE_ARGS = "";
+#elif RE8
+    public const string PAK_CREATE_ARGS = "";
+#endif
+
 // @formatter:off (Because it screws up the alignment of inactive sections.)
 #if MHR
     public const string BITSET_NAME       = "Snow_BitSetFlagBase";
@@ -146,5 +164,5 @@ public static class Global {
     public const string BITSET_NAME       = "There is no cow level."; // Something that will always fail when compared to class/field names.
     public const string BITSET_FIELD_NAME = BITSET_NAME;
 #endif
-    // @formatter:on
+// @formatter:on
 }
