@@ -15,7 +15,7 @@ public class CraftWithPotions : IMod {
     public static void Make() {
         const string name        = "Craft With Potions";
         const string description = "Craft any item with only a potion.";
-        const string version     = "1.0.0";
+        const string version     = "1.0";
 
         List<string> files = [PathHelper.ITEM_RECIPE_DATA_PATH];
 
@@ -27,7 +27,7 @@ public class CraftWithPotions : IMod {
             Action  = ModStuff
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true);
     }
 
     private static void ModStuff(IList<RszObject> rszObjectData) {

@@ -12,11 +12,11 @@ using RE_Editor.Util;
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
-public class InfiniteAmmo : IMod {
+public class InfiniteIngredients : IMod {
     [UsedImplicitly]
     public static void Make() {
-        const string name        = "Infinite Ammo and Coatings";
-        const string description = "Infinite Ammo and Coatings.";
+        const string name        = "Infinite Ingredients";
+        const string description = "Infinite Ingredients.";
         const string version     = "1.0";
 
         var baseMod = new NexusMod {
@@ -35,14 +35,14 @@ public class InfiniteAmmo : IMod {
             baseMod
                 .SetName($"{name} (PAK)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
-                .SetAction(InfiniteAmmoAndCoatings),
+                .SetAction(InfiniteIngredientItems),
             baseLuaMod
                 .SetName($"{name} (REF)")
                 .SetDefaultLuaName()
                 .SetChanges([
                     new() {
                         Target = VariousDataTweak.Target.ITEM_DATA,
-                        Action = InfiniteAmmoAndCoatingsRef
+                        Action = InfiniteIngredientsRef
                     }
                 ])
                 .SetSkipPak(true)
@@ -51,11 +51,11 @@ public class InfiniteAmmo : IMod {
         ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
-    public static void InfiniteAmmoAndCoatings(IList<RszObject> rszObjectData) {
+    public static void InfiniteIngredientItems(IList<RszObject> rszObjectData) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_ItemData_cData item:
-                    if (item.Type is App_ItemDef_TYPE_Fixed.SHELL or App_ItemDef_TYPE_Fixed.BOTTLE) {
+                    if (item.AddIconType == App_IconDef_AddIcon_Fixed.INGREDIENTS) {
                         item.Infinit = true;
                     }
                     break;
@@ -64,8 +64,8 @@ public class InfiniteAmmo : IMod {
     }
 
     [SuppressMessage("ReSharper", "StringLiteralTypo")]
-    public static void InfiniteAmmoAndCoatingsRef(StreamWriter writer) {
-        writer.WriteLine($"    if (entry._Type == {(int) App_ItemDef_TYPE_Fixed.SHELL} or entry._Type == {(int) App_ItemDef_TYPE_Fixed.BOTTLE}) then");
+    public static void InfiniteIngredientsRef(StreamWriter writer) {
+        writer.WriteLine($"    if (entry._AddIconType == {(int) App_IconDef_AddIcon_Fixed.INGREDIENTS}) then");
         writer.WriteLine("        entry._Infinit = true");
         writer.WriteLine("    end");
     }

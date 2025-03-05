@@ -19,23 +19,25 @@ public class ItemCostTweaks : IMod {
     public static void Make() {
         const string name        = "Item Cost Tweaks - Buy for 1z, sell for 99999z";
         const string description = "Buy for 1z, sell for 99999z.";
-        const string version     = "1.0.0";
+        const string version     = "1.1";
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Shop.png"
         };
 
         var baseLuaMod = new VariousDataTweak {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Shop.png"
         };
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Item Cost Tweaks - Buy Price Only (Natives)")
+                .SetName("Item Cost Tweaks - Buy Price Only (PAK)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(list => ItemCostTweak(list, Mode.BUY_PRICE)),
             baseLuaMod
@@ -46,9 +48,10 @@ public class ItemCostTweaks : IMod {
                         Target = VariousDataTweak.Target.ITEM_DATA,
                         Action = writer => { ItemCostTweakRef(writer, Mode.BUY_PRICE); }
                     }
-                ]),
+                ])
+                .SetSkipPak(true),
             baseMod
-                .SetName("Item Cost Tweaks - Sell Price Only (Natives)")
+                .SetName("Item Cost Tweaks - Sell Price Only (PAK)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(list => ItemCostTweak(list, Mode.SELL_PRICE)),
             baseLuaMod
@@ -59,14 +62,15 @@ public class ItemCostTweaks : IMod {
                         Target = VariousDataTweak.Target.ITEM_DATA,
                         Action = writer => { ItemCostTweakRef(writer, Mode.SELL_PRICE); }
                     }
-                ]),
+                ])
+                .SetSkipPak(true),
             baseMod
-                .SetName("Item Cost Tweaks - Sell & Buy Price (Natives)")
+                .SetName("Item Cost Tweaks - Sell & Buy Price (PAK)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(list => ItemCostTweak(list, Mode.BUY_PRICE | Mode.SELL_PRICE))
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
     public static void ItemCostTweak(IList<RszObject> rszObjectData, Mode mode) {

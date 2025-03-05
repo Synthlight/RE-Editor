@@ -47,7 +47,7 @@ public class InfiniteConsumables : IMod {
     public static void Make() {
         const string name        = "Infinite Consumables";
         const string description = "Infinite Consumables.";
-        const string version     = "1.0.0";
+        const string version     = "1.0";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -63,7 +63,7 @@ public class InfiniteConsumables : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName($"{name} (Natives)")
+                .SetName($"{name} (PAK)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(InfiniteConsumableItems),
             baseLuaMod
@@ -75,9 +75,10 @@ public class InfiniteConsumables : IMod {
                         Action = InfiniteConsumableItemsRef
                     }
                 ])
+                .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
     public static void InfiniteConsumableItems(IList<RszObject> rszObjectData) {

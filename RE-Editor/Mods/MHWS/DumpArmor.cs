@@ -25,6 +25,7 @@ public class DumpArmor : IMod {
         var armorSeriesData = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}{PathHelper.ARMOR_SERIES_DATA_PATH}").rsz.GetEntryObject<App_user_data_ArmorSeriesData>().Values.Cast<App_user_data_ArmorSeriesData_cData>().ToList();
 
         var list = new List<ArmorModelData>();
+        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var armor in armorData) {
             if (armor.Series[0].Value == 1) continue;
 

@@ -40,8 +40,11 @@ public static partial class PathHelper {
     public const string TALISMAN_RECIPE_DATA_PATH = @"\natives\STM\GameDesign\Common\Equip\AmuletRecipeData.user.3";
 
     public static IEnumerable<string> GetAllWeaponFilePaths(WeaponDataType type, string platform = "STM") {
-        var postfix                                = "";
-        if (type == WeaponDataType.Recipe) postfix = "Recipe";
+        var postfix = type switch {
+            WeaponDataType.Recipe => "Recipe",
+            WeaponDataType.Tree => "Tree",
+            _ => ""
+        };
 
         return Global.WEAPON_TYPES.Select(s => @$"\natives\{platform}\GameDesign\Common\Weapon\{s}{postfix}.user.3");
     }
@@ -56,6 +59,7 @@ public static partial class PathHelper {
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public enum WeaponDataType {
         Base,
-        Recipe
+        Recipe,
+        Tree
     }
 }

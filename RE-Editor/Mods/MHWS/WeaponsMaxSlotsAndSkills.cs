@@ -15,23 +15,25 @@ public class WeaponsMaxSlotsAndSkills : IMod {
     public static void Make() {
         const string name        = "Weapons - Max Slots & Skills";
         const string description = "Weapons - Max Slots & Skills.";
-        const string version     = "1.0.0";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Equipment.png"
         };
 
         var baseLuaMod = new VariousDataTweak {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Equipment.png"
         };
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Weapons - Max Slots Only (Natives)")
+                .SetName("Weapons - Max Slots Only (PAK)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(MaxSlots),
             baseLuaMod
@@ -42,9 +44,10 @@ public class WeaponsMaxSlotsAndSkills : IMod {
                         Target = VariousDataTweak.Target.WEAPON_DATA,
                         Action = MaxSlotsRef
                     }
-                ]),
+                ])
+                .SetSkipPak(true),
             baseMod
-                .SetName("Weapons - Max Skills Only (Natives)")
+                .SetName("Weapons - Max Skills Only (PAK)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(MaxSkills),
             baseLuaMod
@@ -55,9 +58,10 @@ public class WeaponsMaxSlotsAndSkills : IMod {
                         Target = VariousDataTweak.Target.WEAPON_DATA,
                         Action = MaxSkillsRef
                     }
-                ]),
+                ])
+                .SetSkipPak(true),
             baseMod
-                .SetName("Weapons - Max Slots & Skills (Natives)")
+                .SetName("Weapons - Max Slots & Skills (PAK)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(data => {
                     MaxSlots(data);
@@ -65,7 +69,7 @@ public class WeaponsMaxSlotsAndSkills : IMod {
                 })
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxSlots(List<RszObject> rszObjectData) {

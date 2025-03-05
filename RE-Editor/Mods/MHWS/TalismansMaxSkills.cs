@@ -15,7 +15,7 @@ public class TalismansMaxSkills : IMod {
     public static void Make() {
         const string name        = "Talismans - Max Skills";
         const string description = "Talismans - Max Skills.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -31,7 +31,7 @@ public class TalismansMaxSkills : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Talismans - Max Skills (Natives)")
+                .SetName("Talismans - Max Skills (PAK)")
                 .SetFiles([PathHelper.TALISMAN_DATA_PATH])
                 .SetAction(MaxSkills),
             baseLuaMod
@@ -43,9 +43,10 @@ public class TalismansMaxSkills : IMod {
                         Action = MaxSkillsRef
                     }
                 ])
+                .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxSkills(List<RszObject> rszObjectData) {

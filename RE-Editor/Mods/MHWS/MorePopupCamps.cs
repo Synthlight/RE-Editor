@@ -14,23 +14,40 @@ public class MorePopupCamps : IMod {
     [UsedImplicitly]
     public static void Make() {
         const string name        = "More Safe Spaces";
-        const string description = "Raises the limit on Popup Camps and makes them all 'safe'.";
-        const string version     = "1.0.0";
+        const string description = "Makes all camp areas safe and optionally increases the base limit.";
+        const string version     = "1.2";
 
-        var mod = new NexusMod {
-            Name    = name,
-            Desc    = description,
-            Version = version,
-            Image   = $@"{PathHelper.MODS_PATH}\More Safe Spaces\Thumb.png",
+        var baseMod = new NexusMod {
+            NameAsBundle = name,
+            Desc         = description,
+            Version      = version,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png",
             Files = PathHelper.GetAllCampSafetyFilePaths()
-                              .Append([PathHelper.POPUP_CAMP_PATH]),
-            Action = MoreSafeSpaces
+                              .Append([PathHelper.POPUP_CAMP_PATH])
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
+        var mods = new List<INexusMod> {
+            baseMod
+                .SetName($"{name} (No Count Change)")
+                .SetAction(list => MoreSafeSpaces(list, 0)),
+            baseMod
+                .SetName($"{name} (+05)")
+                .SetAction(list => MoreSafeSpaces(list, 5)),
+            baseMod
+                .SetName($"{name} (+10)")
+                .SetAction(list => MoreSafeSpaces(list, 10)),
+            baseMod
+                .SetName($"{name} (+15)")
+                .SetAction(list => MoreSafeSpaces(list, 15)),
+            baseMod
+                .SetName($"{name} (+50)")
+                .SetAction(list => MoreSafeSpaces(list, 50))
+        };
+
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
-    public static void MoreSafeSpaces(IList<RszObject> rszObjectData) {
+    public static void MoreSafeSpaces(IList<RszObject> rszObjectData, int countAdd) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_CampManagerSetting settings:
@@ -40,7 +57,7 @@ public class MorePopupCamps : IMod {
                             campMaxNum.Forest =
                                 campMaxNum.Oil =
                                     campMaxNum.ShowOBT =
-                                        campMaxNum.Wall = 50;
+                                        campMaxNum.Wall += countAdd;
 
                     var repoTime                          = settings.RepoTimerLimit[0];
                     repoTime.Danger = repoTime.LittleSafe = repoTime.Safe = 1; // Insta-repair?
@@ -51,7 +68,7 @@ public class MorePopupCamps : IMod {
                     var enemySightInfo = settings.EnemySightInfo[0];
                     enemySightInfo.LengthRate =
                         enemySightInfo.RangeRate =
-                            enemySightInfo.FeelRate = 1;
+                            enemySightInfo.FeelRate = 0;
                     break;
             }
         }

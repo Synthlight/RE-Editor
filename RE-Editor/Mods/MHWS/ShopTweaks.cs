@@ -18,13 +18,13 @@ public class ShopTweaks : IMod {
     public static void Make() {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.1.1";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
             Desc         = description,
-            Image        = $@"{PathHelper.MODS_PATH}\{name}\Shop.png"
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png"
         };
 
         var itemShopData = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.ITEM_SHOP_DATA_PATH);
@@ -32,7 +32,7 @@ public class ShopTweaks : IMod {
                                  select entry.ItemId).ToList();
         var itemData = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.ITEM_DATA_PATH);
         var itemModeData = (from entry in itemData.rsz.objectData.OfType<App_user_data_ItemData_cData>()
-                            let mode = GetMode(entry.Type)
+                            let mode = GetMode(entry)
                             where mode != null
                             where (App_ItemDef_ID_Fixed) entry.ItemId is > App_ItemDef_ID_Fixed.NONE and < App_ItemDef_ID_Fixed.MAX
                             where !existingShopItems.Contains(entry.ItemId)
@@ -53,12 +53,16 @@ public class ShopTweaks : IMod {
                 .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
                 .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.CONSUMABLES)),
             baseMod
+                .SetName($"{name} - Consumables + Ingredients")
+                .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
+                .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.CONSUMABLES | Mode.INGREDIENTS)),
+            baseMod
                 .SetName($"{name} - Materials Only")
                 .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
                 .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.MATERIALS))
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
 
         const string tempFixModName = "Temporarily Make Appraisal Items Sellable";
         mods = [
@@ -74,17 +78,25 @@ public class ShopTweaks : IMod {
         ModMaker.WriteMods(mods, tempFixModName, copyLooseToFluffy: true, noPakZip: true);
     }
 
-    private static Mode? GetMode(App_ItemDef_TYPE_Fixed type) {
-        return type switch {
-            App_ItemDef_TYPE_Fixed.EXPENDABLE => Mode.CONSUMABLES,
-            App_ItemDef_TYPE_Fixed.TOOL => null,
-            App_ItemDef_TYPE_Fixed.MATERIAL => Mode.MATERIALS,
-            App_ItemDef_TYPE_Fixed.SHELL => Mode.CONSUMABLES,
-            App_ItemDef_TYPE_Fixed.BOTTLE => Mode.CONSUMABLES,
-            App_ItemDef_TYPE_Fixed.POINT => null,
-            App_ItemDef_TYPE_Fixed.GEM => Mode.GEMS,
-            _ => throw new ArgumentOutOfRangeException(nameof(type))
-        };
+    private static Mode? GetMode(App_user_data_ItemData_cData item) {
+        switch (item.Type) {
+            case App_ItemDef_TYPE_Fixed.EXPENDABLE:
+                return Mode.CONSUMABLES;
+            case App_ItemDef_TYPE_Fixed.MATERIAL:
+                if (item.AddIconType == App_IconDef_AddIcon_Fixed.INGREDIENTS) {
+                    return Mode.MATERIALS | Mode.INGREDIENTS;
+                }
+                return Mode.MATERIALS;
+            case App_ItemDef_TYPE_Fixed.SHELL:
+            case App_ItemDef_TYPE_Fixed.BOTTLE:
+                return Mode.CONSUMABLES;
+            case App_ItemDef_TYPE_Fixed.TOOL:
+            case App_ItemDef_TYPE_Fixed.POINT:
+                return null;
+            case App_ItemDef_TYPE_Fixed.GEM:
+                return Mode.GEMS;
+            default: throw new ArgumentOutOfRangeException(nameof(Type));
+        }
     }
 
     private static void AddShopItems(List<RszObject> rszObjectData, Dictionary<int, Mode> itemModeData, Dictionary<int, int> itemSortData, Mode mode) {
@@ -93,9 +105,10 @@ public class ShopTweaks : IMod {
                 case App_user_data_ItemShopData itemShopData:
                     var entries = itemShopData.Values.Cast<App_user_data_ItemShopData_cData>().ToList();
                     foreach (var (itemId, itemMode) in itemModeData) {
-                        var shouldAdd = (mode.HasFlag(Mode.CONSUMABLES) && itemMode == Mode.CONSUMABLES)
-                                        || (mode.HasFlag(Mode.MATERIALS) && itemMode == Mode.MATERIALS)
-                                        || (mode.HasFlag(Mode.GEMS) && itemMode == Mode.GEMS);
+                        var shouldAdd = (mode.HasFlag(Mode.CONSUMABLES) && itemMode.HasFlag(Mode.CONSUMABLES))
+                                        || (mode.HasFlag(Mode.MATERIALS) && itemMode.HasFlag(Mode.MATERIALS))
+                                        || (mode.HasFlag(Mode.GEMS) && itemMode.HasFlag(Mode.GEMS))
+                                        || (mode.HasFlag(Mode.INGREDIENTS) && itemMode.HasFlag(Mode.INGREDIENTS));
                         if (shouldAdd) {
                             entries.Add(CreateItem(itemShopData.rsz, itemId));
                         }
@@ -138,6 +151,7 @@ public class ShopTweaks : IMod {
     private enum Mode {
         CONSUMABLES = 1,
         GEMS        = 1 << 1,
-        MATERIALS   = 1 << 2
+        MATERIALS   = 1 << 2,
+        INGREDIENTS = 1 << 3
     }
 }

@@ -14,7 +14,7 @@ public class InfiniteChargeBladeBuffs : IMod {
     public static void Make() {
         const string name        = "Infinite Charge Blade Buffs";
         var          description = $"Makes the change blade shield/sword buffs last {int.MaxValue} seconds.";
-        const string version     = "1.0.0";
+        const string version     = "1.0";
 
         var mod = new NexusMod {
             Name    = name,
@@ -24,7 +24,7 @@ public class InfiniteChargeBladeBuffs : IMod {
             Action  = ModFiles
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true);
     }
 
     public static void ModFiles(IList<RszObject> rszObjectData) {

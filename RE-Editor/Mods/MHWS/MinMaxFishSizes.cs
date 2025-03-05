@@ -16,17 +16,18 @@ public class MinMaxFishSizes : IMod {
     public static void Make() {
         const string name        = "Min-Max Legal Fish Sizes";
         const string description = "Guarantees a 50/50 min/max legal size for fish. Will be a crown if the size probabilities would allow it.";
-        const string version     = "1.0.0";
+        const string version     = "1.1";
 
         var mod = new NexusMod {
             Name    = name,
             Version = version,
             Desc    = description,
             Files   = [PathHelper.FISH_RANDOM_SIZES_PATH],
-            Action  = ModProbabilities
+            Action  = ModProbabilities,
+            Image   = $@"{PathHelper.MODS_PATH}\{name}\Gold Crown.png"
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true);
     }
 
     public static void ModProbabilities(IList<RszObject> rszObjectData) {

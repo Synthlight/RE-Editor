@@ -15,7 +15,7 @@ public class OneDecoToMaxSkill : IMod {
     public static void Make() {
         const string name        = "One Deco to Max Skill";
         const string description = "One Deco to Max Skill.";
-        const string version     = "1.0";
+        const string version     = "1.1";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -33,7 +33,7 @@ public class OneDecoToMaxSkill : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("One Deco to Max Skill (Natives)")
+                .SetName("One Deco to Max Skill (PAK)")
                 .SetFiles([PathHelper.DECORATION_DATA_PATH])
                 .SetAction(MaxSkills),
             baseLuaMod
@@ -45,9 +45,10 @@ public class OneDecoToMaxSkill : IMod {
                         Action = MaxSkillsRef
                     }
                 ])
+                .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxSkills(List<RszObject> rszObjectData) {

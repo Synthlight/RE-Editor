@@ -5,7 +5,7 @@ using RE_Editor.Common.Models;
 namespace RE_Editor.Common;
 
 public static partial class PathHelper {
-    public const string PYTHON38_PATH = @"R:\Games\Monster Hunter Rise\REFramework\reversing\rsz\venv\Scripts\python.exe";
+    public const string PYTHON38_PATH = @"R:\Games\Monster Hunter Rise\REFramework\reversing\rsz\.venv\Scripts\python.exe";
 
     public const string SUPPORTED_FILES_NAME = "SUPPORTED_FILES.txt";
 

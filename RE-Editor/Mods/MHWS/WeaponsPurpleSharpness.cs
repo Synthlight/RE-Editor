@@ -15,23 +15,25 @@ public class WeaponsPurpleSharpness : IMod {
     public static void Make() {
         const string name        = "Weapons - Max Purple Sharpness";
         const string description = "Weapons - Max Purple Sharpness.";
-        const string version     = "1.0.0";
+        const string version     = "1.1";
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Pic.png"
         };
 
         var baseLuaMod = new VariousDataTweak {
             Version      = version,
             NameAsBundle = name,
-            Desc         = description
+            Desc         = description,
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Pic.png"
         };
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName($"{name} (Natives)")
+                .SetName($"{name} (PAK)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(MaxSharpness),
             baseLuaMod
@@ -43,9 +45,10 @@ public class WeaponsPurpleSharpness : IMod {
                         Action = MaxSharpnessRef
                     }
                 ])
+                .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxSharpness(List<RszObject> rszObjectData) {
