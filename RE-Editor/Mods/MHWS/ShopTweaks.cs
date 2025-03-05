@@ -18,7 +18,7 @@ public class ShopTweaks : IMod {
     public static void Make() {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.2";
+        const string version     = "1.3";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -82,6 +82,7 @@ public class ShopTweaks : IMod {
         switch (item.Type) {
             case App_ItemDef_TYPE_Fixed.EXPENDABLE:
                 return Mode.CONSUMABLES;
+            case App_ItemDef_TYPE_Fixed.POINT:
             case App_ItemDef_TYPE_Fixed.MATERIAL:
                 if (item.AddIconType == App_IconDef_AddIcon_Fixed.INGREDIENTS) {
                     return Mode.MATERIALS | Mode.INGREDIENTS;
@@ -91,7 +92,6 @@ public class ShopTweaks : IMod {
             case App_ItemDef_TYPE_Fixed.BOTTLE:
                 return Mode.CONSUMABLES;
             case App_ItemDef_TYPE_Fixed.TOOL:
-            case App_ItemDef_TYPE_Fixed.POINT:
                 return null;
             case App_ItemDef_TYPE_Fixed.GEM:
                 return Mode.GEMS;
