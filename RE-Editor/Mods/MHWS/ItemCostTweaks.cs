@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Models;
+using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
 
@@ -19,7 +20,7 @@ public class ItemCostTweaks : IMod {
     public static void Make() {
         const string name        = "Item Cost Tweaks - Buy for 1z, sell for 99999z";
         const string description = "Buy for 1z, sell for 99999z.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -77,7 +78,9 @@ public class ItemCostTweaks : IMod {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_ItemData_cData item:
-                    if (mode.HasFlag(Mode.BUY_PRICE)) item.BuyPrice   = ITEM_BUY_PRICE;
+                    if (item.Type != App_ItemDef_TYPE_Fixed.POINT) {
+                        if (mode.HasFlag(Mode.BUY_PRICE)) item.BuyPrice = ITEM_BUY_PRICE;
+                    }
                     if (mode.HasFlag(Mode.SELL_PRICE)) item.SellPrice = ITEM_SELL_PRICE;
                     break;
             }
@@ -85,8 +88,14 @@ public class ItemCostTweaks : IMod {
     }
 
     public static void ItemCostTweakRef(StreamWriter writer, Mode mode) {
-        if (mode.HasFlag(Mode.BUY_PRICE)) writer.WriteLine($"    entry._BuyPrice = {ITEM_BUY_PRICE}");
-        if (mode.HasFlag(Mode.SELL_PRICE)) writer.WriteLine($"    entry._SellPrice = {ITEM_SELL_PRICE}");
+        if (mode.HasFlag(Mode.BUY_PRICE)) {
+            writer.WriteLine($"    if (entry._Type ~= {(int) App_ItemDef_TYPE_Fixed.POINT}) then");
+            writer.WriteLine($"        entry._BuyPrice = {ITEM_BUY_PRICE}");
+            writer.WriteLine("    end");
+        }
+        if (mode.HasFlag(Mode.SELL_PRICE)) {
+            writer.WriteLine($"    entry._SellPrice = {ITEM_SELL_PRICE}");
+        }
     }
 
     [Flags]
