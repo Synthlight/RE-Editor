@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="TrxFileParser" Version="4.2.0"/>
+		<PackageReference Include="TrxFileParser" Version="4.3.0"/>
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Common\Common.csproj"/>
