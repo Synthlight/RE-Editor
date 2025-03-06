@@ -34,7 +34,6 @@ public partial class GenerateFiles {
         "Rect",
         "Rect3D",
         "Sphere",
-        "Struct",
         "Torus",
         "Triangle",
     ];
@@ -117,6 +116,7 @@ public partial class GenerateFiles {
         // "snow.Bitset`", Doesn't actually have any fields as a class, just read it as an array.
         "snow.BitSetFlag`",
         "snow.camera.CameraUtility.BufferingParam`",
+        "snow.enemy.EnemyActionTuneData.EnemyActionTuneActionData.EnemyActionTuneVariationData.EnemyActionTuneParam`",
         "snow.enemy.EnemyCarryChangeTrack`",
         "snow.enemy.EnemyEditStepActionData`",
         "snow.envCreature.EnvironmentCreatureActionController`",
@@ -162,6 +162,7 @@ public partial class GenerateFiles {
         "app.user_data.PorterRopesData`",
         "soundlib.SoundStateApp`",
         "soundlib.SoundSwitchApp`",
+        "System.Nullable`",
 #elif RE2
         "app.ropeway.enemy.userdata.MotionUserDataBase.MotionInfo`",
         "app.ropeway.enemy.userdata.MotionUserDataBase.MotionTable`",

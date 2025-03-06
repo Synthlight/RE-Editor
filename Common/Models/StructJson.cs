@@ -78,6 +78,23 @@ public class StructJson {
         public static bool operator !=(Field? left, Field? right) {
             return !Equals(left, right);
         }
+
+        /// <summary>
+        /// Copies serializable fields only.
+        /// Things such as button types or use counts are not copied.
+        /// </summary>
+        /// <returns></returns>
+        public Field Copy() {
+            return new() {
+                align        = align,
+                array        = array,
+                name         = name,
+                native       = native,
+                originalType = originalType,
+                size         = size,
+                type         = type,
+            };
+        }
     }
 
     public string? GetGenericParam() {

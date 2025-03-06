@@ -83,9 +83,10 @@ public class RszObject : OnPropertyChangedBase {
             var fieldName        = field.name?.ToConvertedFieldName()!;
             var primitiveName    = field.GetCSharpType();
             var viaType          = field.type?.GetViaType().AsType();
-            var isUserData       = field.type == "UserData";
             var isNonPrimitive   = primitiveName == null;
-            var isObjectType     = field.type == "Object";
+            var isUserData       = field.type == "UserData";
+            var isStruct         = field.type == "Struct";
+            var isObjectType     = field.type == nameof(Object);
             var fieldInfo        = rszObject.GetType().GetProperty(fieldName)!;
             var fieldType        = fieldInfo.PropertyType;
             var isStringType     = field.type == "String" || fieldType == typeof(string) || fieldType == typeof(ObservableCollection<GenericWrapper<string>>);
@@ -119,6 +120,15 @@ public class RszObject : OnPropertyChangedBase {
                         var data = new UIntArray(dataWidth);
                         data.Read(reader);
                         objects.Add(data);
+                    }
+                    var items = objects.GetGenericItemsOfType(fieldGenericType!, true);
+                    SetList(items, fieldSetMethod, rszObject);
+                } else if (isStruct) { // Array of structs.
+                    var objects        = new List<RszObject>();
+                    var structTypeHash = DataHelper.STRUCT_HASH_BY_NAME[field.originalType!];
+                    for (var index = 0; index < arrayCount; index++) {
+                        var instance = Read(reader, structTypeHash, rsz, -1);
+                        objects.Add(instance);
                     }
                     var items = objects.GetGenericItemsOfType(fieldGenericType!, true);
                     SetList(items, fieldSetMethod, rszObject);
@@ -225,7 +235,7 @@ public class RszObject : OnPropertyChangedBase {
                 var fieldName      = field.name?.ToConvertedFieldName()!;
                 var fieldInfo      = GetType().GetProperty(fieldName)!;
                 var isUserData     = field.type == "UserData";
-                var isObjectType   = field.type == "Object";
+                var isObjectType   = field.type == nameof(Object);
                 var fieldGetMethod = fieldInfo.GetMethod!;
 
                 if (isObjectType || isUserData) {
@@ -294,7 +304,7 @@ public class RszObject : OnPropertyChangedBase {
             var field          = structInfo.fields[i];
             var fieldName      = field.name?.ToConvertedFieldName()!;
             var fieldInfo      = GetType().GetProperty(fieldName)!;
-            var isObjectType   = field.type == "Object";
+            var isObjectType   = field.type == nameof(Object);
             var fieldGetMethod = fieldInfo.GetMethod!;
 
             if (isObjectType) {
@@ -331,9 +341,10 @@ public class RszObject : OnPropertyChangedBase {
             var fieldName      = field.name?.ToConvertedFieldName()!;
             var primitiveName  = field.GetCSharpType();
             var viaType        = field.type?.GetViaType().AsType();
-            var isUserData     = field.type == "UserData";
             var isNonPrimitive = primitiveName == null;
-            var isObjectType   = field.type == "Object";
+            var isUserData     = field.type == "UserData";
+            var isStruct       = field.type == "Struct";
+            var isObjectType   = field.type == nameof(Object);
             var fieldInfo      = GetType().GetProperty(fieldName)!;
             var fieldType      = fieldInfo.PropertyType;
             var isStringType   = field.type == "String" || fieldType == typeof(string) || fieldType == typeof(ObservableCollection<GenericWrapper<string>>);
@@ -357,6 +368,12 @@ public class RszObject : OnPropertyChangedBase {
                     foreach (var obj in list) {
                         writer.BaseStream.Align(field.align);
                         obj.Write(writer);
+                    }
+                } else if (isStruct) { // Array of structs.
+                    var list = (IList) fieldGetMethod.Invoke(this, null)!;
+                    writer.Write(list.Count);
+                    foreach (var obj in list) {
+                        ((RszObject) obj).Write(writer, testWritePosition);
                     }
                 } else if (isObjectType || isUserData) { // Array of pointers.
                     var list = (IList) fieldGetMethod.Invoke(this, null)!;
@@ -433,7 +450,7 @@ public class RszObject : OnPropertyChangedBase {
                 var fieldName      = field.name?.ToConvertedFieldName()!;
                 var fieldInfo      = GetType().GetProperty(fieldName)!;
                 var isUserData     = field.type == "UserData";
-                var isObjectType   = field.type == "Object";
+                var isObjectType   = field.type == nameof(Object);
                 var fieldGetMethod = fieldInfo.GetMethod!;
 
                 if (isObjectType || isUserData) {

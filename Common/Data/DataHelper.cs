@@ -11,6 +11,7 @@ namespace RE_Editor.Common.Data;
 public static partial class DataHelper {
     public static readonly Dictionary<uint, Type>       RE_STRUCTS = [];
     public static          Dictionary<uint, StructJson> STRUCT_INFO;
+    public static readonly Dictionary<string, uint>     STRUCT_HASH_BY_NAME = [];
     public static          Dictionary<uint, uint>       GP_CRC_OVERRIDE_INFO;
     public static          string[]                     SUPPORTED_FILES = [];
 

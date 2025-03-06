@@ -115,6 +115,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         var buttonPrimitive     = field.buttonPrimitive;
         var isNonPrimitive      = !isPrimitive && !isEnumType; // via.thing
         var isUserData          = field.type == "UserData";
+        var isStruct            = field.type == "Struct";
         var isObjectType        = field.type == nameof(Object);
         var viaType             = GetViaType(field, isNonPrimitive, typeName, ref isObjectType, isUserData);
         var negativeOneForEmpty = GetNegativeForEmptyAllowed(field);
@@ -182,7 +183,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             } else if (isNonPrimitive && viaType != null) {
                 file.WriteLine("    [IsList]");
                 file.WriteLine($"    public {modifier}ObservableCollection<{viaType}> {newName} {{ get; set; }}");
-            } else if (isObjectType) {
+            } else if (isObjectType || isStruct) {
                 file.WriteLine("    [IsList]");
                 file.WriteLine($"    public {modifier}ObservableCollection<{typeName}> {newName} {{ get; set; }}");
             } else if (isEnumType) {
@@ -278,6 +279,8 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         // We do it here and later since we sometimes overwrite them.
         var viaType = field.originalType?.GetViaType();
 
+        if (field.type == "Struct") return null;
+
         switch (typeName) {
             case "Via_Prefab":
                 viaType      = nameof(Prefab);
@@ -327,7 +330,8 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             var buttonType     = field.buttonType;
             var isNonPrimitive = !isPrimitive && !isEnumType; // via.thing
             var isUserData     = field.type == "UserData";
-            var isObjectType   = field.type == "Object";
+            var isStruct       = field.type == "Struct";
+            var isObjectType   = field.type == nameof(Object);
             var viaType        = GetViaType(field, isNonPrimitive, typeName, ref isObjectType, isUserData);
 
             if (!usedNamesLocal.TryAdd(newName, 1)) {
@@ -372,6 +376,8 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 file.WriteLine($"        obj.{newName} = Enum.GetValues<{typeName}>()[0];");
             } else if ((isEnumType || isPrimitive) && field.array) {
                 file.WriteLine($"        obj.{newName} = new(new());"); // GenericWrapper
+            } else if (isStruct && field.array) {
+                file.WriteLine($"        obj.{newName} = new();");
             }
         }
 
@@ -404,7 +410,8 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             var buttonType     = field.buttonType;
             var isNonPrimitive = !isPrimitive && !isEnumType; // via.thing
             var isUserData     = field.type == "UserData";
-            var isObjectType   = field.type == "Object";
+            var isStruct       = field.type == "Struct";
+            var isObjectType   = field.type == nameof(Object);
             var viaType        = GetViaType(field, isNonPrimitive, typeName, ref isObjectType, isUserData);
 
             if (!usedNamesLocal.TryAdd(newName, 1)) {
@@ -423,7 +430,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 } else {
                     file.WriteLine($"        obj.{newName} = new();");
                 }
-            } else if ((field.array || isObjectType || isNonPrimitive) && buttonType == null) {
+            } else if ((field.array || isObjectType || isStruct || isNonPrimitive) && buttonType == null) {
                 file.WriteLine($"        obj.{newName} ??= new();");
                 file.WriteLine($"        foreach (var x in {newName}) {{");
                 if (typeName == "System_Type" || viaType == "Type") { // `Type` is a built-in type, no copy.

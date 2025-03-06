@@ -8,7 +8,10 @@ public partial class GenerateFiles {
     [SuppressMessage("ReSharper", "StringLiteralTypo")]
     [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
     private static readonly List<string> WHITELIST = [
+        "App_user_data_AccessoryData",
+        "App_user_data_AccessoryData_cData",
         "App_user_data_AmuletData",
+        "App_user_data_AmuletData_cData",
         "App_user_data_AmuletRecipeData",
         "App_user_data_AmuletRecipeData_cData",
         "App_user_data_ArmorData",
@@ -22,6 +25,7 @@ public partial class GenerateFiles {
         "App_user_data_EnemyCategoryList",
         "App_user_data_EnemyReportBossData",
         "App_user_data_EnemyReportBossData_cData",
+        "App_user_data_Gm800_AaaUniqueParam",
         "App_user_data_ItemData",
         "App_user_data_ItemData_cData",
         "App_user_data_cItemRecipe",
@@ -30,6 +34,8 @@ public partial class GenerateFiles {
         "App_user_data_ItemShopData_cData",
         "App_user_data_OuterArmorData",
         "App_user_data_OuterArmorData_cData",
+        "App_user_data_OtArmorData",
+        "App_user_data_OtArmorData_cData",
         "App_user_data_OtomoEquipRecipe",
         "App_user_data_OtomoEquipRecipe_cData",
         "App_user_data_PlayerGlobalParam",
@@ -42,6 +48,8 @@ public partial class GenerateFiles {
         "App_user_data_WeaponData_cData",
         "App_user_data_WeaponRecipeData",
         "App_user_data_WeaponRecipeData_cData",
+        "App_user_data_WeaponTree",
+        "App_user_data_WeaponTree_cColumnData",
         "App_user_data_Wp01ActionParam",
         "App_user_data_Wp02ActionParam",
         "App_user_data_Wp03ActionParam",
@@ -59,5 +67,6 @@ public partial class GenerateFiles {
         "App_cEnemyCheckBox", // Has a `_Serializable` field where the wrapper is another object.
         "App_user_data_EmParamParts_cMultiParts", // Has a `_Serializable` field that doesn't target `_Fixed`.
         "App_user_data_NpcDesireLotteryTable_Health", // Has a `_Serializable` field with a button type that doesn't have an explicit `buttonPrimitive` defined.
+        "App_user_data_Wp07ActionParam", // Has a `app.Wp07Def.cShotAttackInfo` type which has `Struct` fields.
     ];
 }

@@ -187,8 +187,13 @@ public class StructType(string name, string? parent, string hash, StructJson str
         }
 
         if (structInfo.fields != null) {
+            var hasStructFields = false;
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var field in structInfo.fields) {
+                if (field.type == "Struct") {
+                    // Flag for later as we can't do it here without triggering a CME.
+                    hasStructFields = true;
+                }
                 if (string.IsNullOrEmpty(field.originalType) && structInfo.name?.StartsWith("via") == true) {
                     switch (field.type) {
                         case "Data":
@@ -214,6 +219,31 @@ public class StructType(string name, string? parent, string hash, StructJson str
                         field.originalType = "via.physics.UserData";
                     }
                 }
+            }
+            // For these, to make it simple, we just copy and expand the struct as if it was just done as fields in our type.
+            List<StructJson.Field> newStructFields = [];
+            if (hasStructFields) {
+                foreach (var field in structInfo.fields) {
+                    // Skip if not a struct. Also skip if it's a struct array because these are embedded and need to be read in-place. Can't flatten arrays.
+                    if (field.type != "Struct" || field.array) {
+                        newStructFields.Add(field);
+                        continue;
+                    }
+                    var originalFieldName = field.name.ToConvertedFieldName()!;
+                    var structTypeName    = field.originalType.ToConvertedTypeName()!;
+                    if (!generator.structTypes.TryGetValue(structTypeName, out var structType)) {
+                        GenerateFiles.Log($"Warning: Struct {structInfo.name} has a struct field with a type of {field.originalType} but it can't be found in the struct map.");
+                        continue;
+                    }
+                    foreach (var structField in structType.structInfo.fields!) {
+                        var structFieldName = structField.name.ToConvertedFieldName()!;
+                        var newName         = $"{originalFieldName}_{structFieldName}";
+                        var newField        = structField.Copy();
+                        newField.name = newName;
+                        newStructFields.Add(newField);
+                    }
+                }
+                structInfo.fields = newStructFields;
             }
         }
     }

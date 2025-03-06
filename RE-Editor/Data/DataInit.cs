@@ -37,6 +37,10 @@ public static partial class DataInit {
         DataHelper.STRUCT_INFO          = LoadDict<uint, StructJson>(Assets.STRUCT_INFO);
         DataHelper.GP_CRC_OVERRIDE_INFO = LoadDict<uint, uint>(Assets.GP_CRC_OVERRIDE_INFO);
 
+        foreach (var (hash, structInfo) in DataHelper.STRUCT_INFO) {
+            DataHelper.STRUCT_HASH_BY_NAME[structInfo.name!] = hash;
+        }
+
         var supportedFilesPath = $@"{AppDomain.CurrentDomain.BaseDirectory}\{PathHelper.SUPPORTED_FILES_NAME}";
         if (File.Exists(supportedFilesPath)) {
             DataHelper.SUPPORTED_FILES = File.ReadAllLines(supportedFilesPath);

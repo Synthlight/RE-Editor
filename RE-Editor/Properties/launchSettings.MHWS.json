@@ -66,6 +66,10 @@
         "TalismanData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/AmuletData.user.3\""
+        },
+        "Wp07GlobalActionParam.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Player/ActionData/Wp07/GlobalParam/Wp07GlobalActionParam.user.3\""
         }
     }
 }
