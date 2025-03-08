@@ -8,7 +8,9 @@
         Title="MainWindow"
         Width="1800"
         Height="500"
+        AllowDrop="True"
         DataContext="{x:Reference this}"
+        Drop="OnDragDrop"
         WindowStartupLocation="CenterScreen">
     <Grid Name="main_grid">
         <Grid.RowDefinitions>

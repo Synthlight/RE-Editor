@@ -439,4 +439,14 @@ public partial class MainWindow {
         cb.Executed += onPress;
         CommandBindings.Add(cb);
     }
+
+    private void OnDragDrop(object sender, DragEventArgs e) {
+        if (e.Data.GetDataPresent(DataFormats.FileDrop)) {
+            var files = (string[]) e.Data.GetData(DataFormats.FileDrop);
+            if (files is null) return;
+            if (files.Length > 0) {
+                Load(files[0]);
+            }
+        }
+    }
 }
