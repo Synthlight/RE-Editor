@@ -43,7 +43,18 @@ public class RowHelper<T> where T : class {
                 var listType       = prop.PropertyType.GenericTypeArguments[0];
                 var collectionType = typeof(Collection<>).MakeGenericType(listType);
                 var addMethod      = collectionType.GetMethod(nameof(Collection<T>.Add), Global.FLAGS)!; // TODO: Remove the `T` generic param once C# 14 come out.
-                addMethod.Invoke(originalItems, [Convert.ChangeType(newItem, listType)]);
+                try {
+                    addMethod.Invoke(originalItems, [Convert.ChangeType(newItem, listType)]);
+                } catch (InvalidCastException e) {
+                    if (e.Message == "Object must implement IConvertible.") {
+                        // Seems to happen in cases where it's a reference type, and we're casting to our parent.
+                        // e.g. Casting from `App_user_data_ItemShopData_cData` -> `Ace_user_data_ExcelUserData_cData`.
+                        // So just try it as-is.
+                        addMethod.Invoke(originalItems, [newItem]);
+                    } else {
+                        throw;
+                    }
+                }
             }
             observableItems.Add(newItem);
             dataGrid.ScrollIntoView(newItem);
@@ -69,7 +80,18 @@ public class RowHelper<T> where T : class {
                     var listType       = prop.PropertyType.GenericTypeArguments[0];
                     var collectionType = typeof(Collection<>).MakeGenericType(listType);
                     var removeMethod   = collectionType.GetMethod(nameof(Collection<T>.Remove), Global.FLAGS)!;
-                    removeMethod.Invoke(originalItems, [Convert.ChangeType(selectedItem, listType)]);
+                    try {
+                        removeMethod.Invoke(originalItems, [Convert.ChangeType(selectedItem, listType)]);
+                    } catch (InvalidCastException e) {
+                        if (e.Message == "Object must implement IConvertible.") {
+                            // Seems to happen in cases where it's a reference type, and we're casting to our parent.
+                            // e.g. Casting from `App_user_data_ItemShopData_cData` -> `Ace_user_data_ExcelUserData_cData`.
+                            // So just try it as-is.
+                            removeMethod.Invoke(originalItems, [selectedItem]);
+                        } else {
+                            throw;
+                        }
+                    }
                 }
                 observableItems.Remove(selectedItem);
             }
