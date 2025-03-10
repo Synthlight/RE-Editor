@@ -14,18 +14,21 @@ public interface IVariousDataTweak : INexusMod {
 
 [SuppressMessage("ReSharper", "PropertyCanBeMadeInitOnly.Global")]
 public struct VariousDataTweak : IVariousDataTweak {
-    public string                      Name            { get; set; }
-    public string                      Desc            { get; set; }
-    public string                      Version         { get; set; }
-    public string?                     Image           { get; set; }
-    public IEnumerable<string>         Files           { get; set; }
-    public Action<List<RszObject>>?    Action          { get; set; }
-    public bool                        ForGp           { get; set; }
-    public string?                     NameAsBundle    { get; set; }
-    public bool                        SkipPak         { get; set; }
-    public Dictionary<string, string>? AdditionalFiles { get; set; }
-    public string                      LuaName         { get; set; }
-    public List<Change>                Changes         { get; set; }
+    public string                       Name            { get; set; }
+    public string?                      NameOverride    { get; set; }
+    public string                       Desc            { get; set; }
+    public string                       Version         { get; set; }
+    public string?                      Image           { get; set; }
+    public IEnumerable<string>          Files           { get; set; }
+    public Action<List<RszObject>>?     Action          { get; set; }
+    public Func<List<RszObject>, bool>? FilteredAction  { get; set; }
+    public bool                         ForGp           { get; set; }
+    public string?                      NameAsBundle    { get; set; }
+    public string?                      AddonFor        { get; set; }
+    public bool                         SkipPak         { get; set; }
+    public Dictionary<string, string>?  AdditionalFiles { get; set; }
+    public string                       LuaName         { get; set; }
+    public List<Change>                 Changes         { get; set; }
 
     public struct Change {
         public Target               Target { get; set; }
@@ -36,6 +39,7 @@ public struct VariousDataTweak : IVariousDataTweak {
         ARMOR_DATA,
         DECORATION_DATA,
         ITEM_DATA,
+        SKILL_DATA,
         TALISMAN_DATA,
         WEAPON_DATA
     }

@@ -37,6 +37,7 @@ public static partial class PathHelper {
     public const string OTOMO_ARMOR_DATA_PATH     = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoArmorData.user.3";
     public const string OTOMO_RECIPE_DATA_PATH    = @"\natives\STM\GameDesign\Facility\Data\OtomoEquipRecipe.user.3";
     public const string POPUP_CAMP_PATH           = @"\natives\STM\System\SystemSetting\CampManagerSetting.user.3";
+    public const string SKILL_COMMON_DATA_PATH    = @"\natives\STM\GameDesign\Common\Equip\SkillCommonData.user.3";
     public const string TALISMAN_DATA_PATH        = @"\natives\STM\GameDesign\Common\Equip\AmuletData.user.3";
     public const string TALISMAN_RECIPE_DATA_PATH = @"\natives\STM\GameDesign\Common\Equip\AmuletRecipeData.user.3";
 
@@ -52,6 +53,12 @@ public static partial class PathHelper {
 
     public static IEnumerable<string> GetAllCampSafetyFilePaths(string platform = "STM") {
         return from file in Directory.EnumerateFiles($@"{CHUNK_PATH}\natives\STM\GameDesign\Gimmick\Gm800", "*AaaUniqueParam.user.3", SearchOption.AllDirectories)
+               where File.Exists(file)
+               select file.Replace(CHUNK_PATH, "");
+    }
+
+    public static IEnumerable<string> GetAllWeaponVisualParamPaths(string platform = "STM") {
+        return from file in Directory.EnumerateFiles($@"{CHUNK_PATH}\natives\STM\GameDesign\Equip\_Prefab\Weapon", "*wvp.user.3", SearchOption.AllDirectories)
                where File.Exists(file)
                select file.Replace(CHUNK_PATH, "");
     }

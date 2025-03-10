@@ -71,6 +71,7 @@ public static class VariousDataWriter {
             VariousDataTweak.Target.ARMOR_DATA => "armorData",
             VariousDataTweak.Target.DECORATION_DATA => "decorationData",
             VariousDataTweak.Target.ITEM_DATA => "itemData",
+            VariousDataTweak.Target.SKILL_DATA => "skillData",
             VariousDataTweak.Target.TALISMAN_DATA => "talismanData",
             VariousDataTweak.Target.WEAPON_DATA => throw new("Can't get a single name here, it's split into separate fields; one for each weapon."),
             _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
@@ -83,6 +84,7 @@ public static class VariousDataWriter {
             VariousDataTweak.Target.ARMOR_DATA => "variousDataManager._Setting._EquipDatas._ArmorData._Values",
             VariousDataTweak.Target.DECORATION_DATA => "variousDataManager._Setting._EquipDatas._AccessoryData._Values",
             VariousDataTweak.Target.ITEM_DATA => "variousDataManager._Setting._ItemSetting._ItemData._Values",
+            VariousDataTweak.Target.SKILL_DATA => "variousDataManager._Setting._SkillCommonData._Values",
             VariousDataTweak.Target.TALISMAN_DATA => "variousDataManager._Setting._EquipDatas._AmuletData._Values",
             VariousDataTweak.Target.WEAPON_DATA => throw new("Can't get a single path here, it's split into separate fields; one for each weapon."),
             _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)

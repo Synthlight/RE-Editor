@@ -76,6 +76,11 @@ public static class ModMaker {
         var modFiles          = new List<string>();
         var nativesFiles      = new List<string>();
         var pakFiles          = new List<string>();
+        var zipPathNormal     = $@"{rootPath}\{safeBundleName ?? safeModFolderName}.zip";
+        var zipPathPak        = $@"{rootPath}\{safeBundleName ?? safeModFolderName} (PAK).zip";
+
+        if (File.Exists(zipPathNormal)) File.Delete(zipPathNormal);
+        if (File.Exists(zipPathPak)) File.Delete(zipPathPak);
 
         foreach (var mod in entries) {
             var    safeName = mod.Name.ToSafeName();
@@ -91,7 +96,7 @@ public static class ModMaker {
             Directory.CreateDirectory(modPath);
 
             var modInfo = new StringWriter();
-            modInfo.WriteLine($"name={mod.Name}");
+            modInfo.WriteLine($"name={mod.NameOverride ?? mod.Name}");
             modInfo.WriteLine($"version={mod.Version}");
             modInfo.WriteLine($"description={mod.Desc}");
             modInfo.WriteLine("author=LordGregory");
@@ -105,13 +110,16 @@ public static class ModMaker {
             if (mod.NameAsBundle != null) {
                 modInfo.WriteLine($"NameAsBundle={bundleName}");
             }
+            if (mod.AddonFor != null) {
+                modInfo.WriteLine($"AddonFor={mod.AddonFor}");
+            }
             var modInfoPath = @$"{modPath}\modinfo.ini";
             File.WriteAllText(modInfoPath, modInfo.ToString());
             modFiles.Add(modInfoPath);
 
             if (mod.Files.Any()) {
-                if (mod.Action == null) {
-                    throw new InvalidDataException("`mod.Action` is null but `mod.Files` is not empty.");
+                if (mod.Action == null && mod.FilteredAction == null) {
+                    throw new InvalidDataException("`mod.Action` or `mod.FilteredAction` are null but `mod.Files` is not empty.");
                 }
                 foreach (var modFile in mod.Files) {
                     var sourceFile = @$"{PathHelper.CHUNK_PATH}\{modFile}";
@@ -121,10 +129,17 @@ public static class ModMaker {
                     var dataFile = ReDataFile.Read(sourceFile);
                     dataFile.Write(new BinaryWriter(new MemoryStream()), testWritePosition: true, forGp: mod.ForGp);
 
-                    var data = dataFile.rsz.objectData;
-                    mod.Action.Invoke(data);
-                    dataFile.Write(outFile, forGp: mod.ForGp);
-                    nativesFiles.Add(outFile);
+                    var data        = dataFile.rsz.objectData;
+                    var includeFile = true;
+                    if (mod.FilteredAction != null) {
+                        includeFile = mod.FilteredAction.Invoke(data);
+                    } else {
+                        mod.Action!.Invoke(data);
+                    }
+                    if (includeFile) {
+                        dataFile.Write(outFile, forGp: mod.ForGp);
+                        nativesFiles.Add(outFile);
+                    }
                 }
             }
 
@@ -152,9 +167,9 @@ public static class ModMaker {
             pakFiles.Add(pakFile);
         }
 
-        var threads = new List<Thread> {new(() => { CompressTheMod($@"{rootPath}\{safeBundleName ?? safeModFolderName}.zip", modFiles, nativesFiles, copyLooseToFluffy); })};
+        var threads = new List<Thread> {new(() => { CompressTheMod(zipPathNormal, modFiles, nativesFiles, copyLooseToFluffy); })};
         if (!noPakZip) {
-            threads.Add(new(() => { CompressTheMod($@"{rootPath}\{safeBundleName ?? safeModFolderName} (PAK).zip", modFiles, pakFiles, copyPakToFluffy); }));
+            threads.Add(new(() => { CompressTheMod(zipPathPak, modFiles, pakFiles, copyPakToFluffy); }));
         }
         threads.StartAll();
         threads.JoinAll();
@@ -171,9 +186,8 @@ public static class ModMaker {
     private static void DoZip(string zipPath, List<string> baseFiles, List<string> gameFiles) {
         var parentDir = Directory.GetParent(zipPath);
         var zipFile   = new FileInfo(zipPath);
-        if (zipFile.Exists) zipFile.Delete();
 
-        using var zip = ZipFile.Create(zipPath);
+        using var zip = zipFile.Exists ? new(zipPath) : ZipFile.Create(zipPath);
         zip.BeginUpdate();
 
         foreach (var file in baseFiles) {
