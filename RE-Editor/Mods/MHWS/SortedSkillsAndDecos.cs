@@ -12,6 +12,12 @@ using RE_Editor.Util;
 
 namespace RE_Editor.Mods;
 
+/// <summary>
+/// Works mostly.
+/// Known issues:
+///  - Decos are sorted by size, *then* name.
+///  - Skills are sorted by how many points you have in it.
+/// </summary>
 [UsedImplicitly]
 public class SortedSkillsAndDecos : IMod {
     [UsedImplicitly]
@@ -46,7 +52,6 @@ public class SortedSkillsAndDecos : IMod {
         ];
 
         foreach (var lang in Global.LANGUAGES) {
-            //var langName                     = Global.LANGUAGE_NAME_LOOKUP[lang];
             var langGroupName = $"Sorting Language- {lang}";
 
             mods.AddRange(new List<INexusMod> {
