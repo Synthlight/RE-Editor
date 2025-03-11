@@ -8,6 +8,7 @@ namespace RE_Editor.ID_Parser;
 
 public static partial class Program {
     public static void Main() {
+        ExtractTitleInfoByGuid();
         ExtractDecorationInfoByGuid();
         ExtractTalismanInfoByGuid();
         ExtractItemInfoByName();
@@ -16,6 +17,27 @@ public static partial class Program {
         ExtractArmorSeriesInfoByGuid();
         ExtractWeaponInfoByGuid();
         ExtractSkillInfoByName();
+    }
+
+    private static void ExtractTitleInfoByGuid() {
+        var msgWords = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\Title_Word.msg.{Global.MSG_VERSION}")
+                          .GetLangRawMap(name => {
+                              try {
+                                  return name.id1;
+                              } catch (Exception) {
+                                  throw new MSG.SkipReadException();
+                              }
+                          });
+        var msgConjunctions = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\Title_Conjunction.msg.{Global.MSG_VERSION}")
+                                 .GetLangRawMap(name => {
+                                     try {
+                                         return name.id1;
+                                     } catch (Exception) {
+                                         throw new MSG.SkipReadException();
+                                     }
+                                 });
+        var msg = Merge(msgWords, msgConjunctions);
+        CreateAssetFile(msg, "TITLE_INFO_LOOKUP_BY_GUID");
     }
 
     private static void ExtractDecorationInfoByGuid() {

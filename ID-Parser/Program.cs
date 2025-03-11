@@ -1,5 +1,6 @@
 ﻿using System.CodeDom;
 using System.Text.RegularExpressions;
+using System.Windows.Input;
 using Microsoft.CSharp;
 using Newtonsoft.Json;
 using RE_Editor.Common;
@@ -98,5 +99,20 @@ public static partial class Program {
             }
         }
         writer.WriteLine("}");
+    }
+
+    // ReSharper disable once IdentifierTypo
+    public static Dictionary<Global.LangIndex, Dictionary<T, string>> Merge<T>(params Dictionary<Global.LangIndex, Dictionary<T, string>>[] dicts) where T : notnull {
+        var dict = new Dictionary<Global.LangIndex, Dictionary<T, string>>(Global.LANGUAGES.Count);
+        foreach (var lang in Global.LANGUAGES) {
+            if (!dict.ContainsKey(lang)) dict[lang] = [];
+            foreach (var source in dicts) {
+                foreach (var (key, value) in source[lang]) {
+                    if (dict[lang].ContainsKey(key)) throw new($"Duplicate key found: {key}");
+                    dict[lang][key] = value;
+                }
+            }
+        }
+        return dict;
     }
 }

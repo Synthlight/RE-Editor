@@ -18,6 +18,7 @@ public static partial class DataInit {
         DataHelper.ITEM_INFO_LOOKUP_BY_GUID         = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.ITEM_INFO_LOOKUP_BY_GUID);
         DataHelper.SKILL_NAME_BY_ENUM_VALUE         = LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.SKILL_NAME_BY_ENUM_VALUE);
         DataHelper.TALISMAN_INFO_LOOKUP_BY_GUID     = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.TALISMAN_INFO_LOOKUP_BY_GUID);
+        DataHelper.TITLE_INFO_LOOKUP_BY_GUID        = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.TITLE_INFO_LOOKUP_BY_GUID);
         DataHelper.WEAPON_INFO_LOOKUP_BY_GUID       = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.WEAPON_INFO_LOOKUP_BY_GUID);
 
         foreach (var lang in Global.LANGUAGES) {
