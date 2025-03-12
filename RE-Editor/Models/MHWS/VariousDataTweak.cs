@@ -37,11 +37,20 @@ public struct VariousDataTweak : IVariousDataTweak {
 
     public enum Target {
         ARMOR_DATA,
+        ARMOR_RECIPE_DATA,
         DECORATION_DATA,
         ITEM_DATA,
+        INSECT_DATA,
+        INSECT_RECIPE_DATA,
+        PALICO_ARMOR_DATA,
+        PALICO_WEAPON_DATA,
+        PALICO_RECIPE_DATA,
         SKILL_DATA,
         TALISMAN_DATA,
-        WEAPON_DATA
+        TALISMAN_RECIPE_DATA,
+        WEAPON_DATA,
+        WEAPON_RECIPE_DATA,
+        WEAPON_TREE_DATA
     }
 }
 

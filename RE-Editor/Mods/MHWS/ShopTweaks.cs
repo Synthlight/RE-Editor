@@ -149,7 +149,7 @@ public class ShopTweaks : IMod {
 
     [Flags]
     private enum Mode {
-        CONSUMABLES = 1,
+        CONSUMABLES = 1 << 0,
         GEMS        = 1 << 1,
         MATERIALS   = 1 << 2,
         INGREDIENTS = 1 << 3
