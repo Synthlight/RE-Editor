@@ -12,6 +12,7 @@ public static partial class DataInit {
         DataHelper.ARMOR_INFO_LOOKUP_BY_GUID        = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.ARMOR_INFO_LOOKUP_BY_GUID);
         DataHelper.ARMOR_SERIES_BY_ENUM_VALUE       = LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.ARMOR_SERIES_BY_ENUM_VALUE);
         DataHelper.ARMOR_SERIES_INFO_LOOKUP_BY_GUID = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.ARMOR_SERIES_INFO_LOOKUP_BY_GUID);
+        DataHelper.ARTIAN_INFO_LOOKUP_BY_GUID       = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.ARTIAN_INFO_LOOKUP_BY_GUID);
         DataHelper.DECORATION_INFO_LOOKUP_BY_GUID   = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.DECORATION_INFO_LOOKUP_BY_GUID);
         DataHelper.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE  = LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE);
         DataHelper.ITEM_NAME_LOOKUP                 = LoadDict<Global.LangIndex, Dictionary<uint, string>>(Assets.ITEM_NAME_LOOKUP);

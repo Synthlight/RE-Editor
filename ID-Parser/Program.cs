@@ -103,7 +103,7 @@ public static partial class Program {
     }
 
     // ReSharper disable once IdentifierTypo
-    public static Dictionary<Global.LangIndex, Dictionary<T, string>> Merge<T>(params Dictionary<Global.LangIndex, Dictionary<T, string>>[] dicts) where T : notnull {
+    public static Dictionary<Global.LangIndex, Dictionary<T, string>> Merge<T>(params IList<Dictionary<Global.LangIndex, Dictionary<T, string>>> dicts) where T : notnull {
         var dict = new Dictionary<Global.LangIndex, Dictionary<T, string>>(Global.LANGUAGES.Count);
         foreach (var lang in Global.LANGUAGES) {
             if (!dict.ContainsKey(lang)) dict[lang] = [];

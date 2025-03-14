@@ -10,6 +10,7 @@ public static partial class Program {
     public static void Main() {
         ExtractArmorInfoByGuid();
         ExtractArmorSeriesInfoByGuid();
+        ExtractArtianInfoByGuid();
         ExtractDecorationInfoByGuid();
         ExtractEnemyInfoByName();
         ExtractItemInfoByName();
@@ -54,6 +55,18 @@ public static partial class Program {
                            });
         DataHelper.ARMOR_SERIES_BY_ENUM_VALUE = msgByEnum;
         CreateAssetFile(msgByEnum, "ARMOR_SERIES_BY_ENUM_VALUE");
+    }
+
+    private static void ExtractArtianInfoByGuid() {
+        var msgBonus = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\ArtianBonus.msg.{Global.MSG_VERSION}")
+                          .GetLangGuidMap();
+        var msgParts = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\ArtianParts.msg.{Global.MSG_VERSION}")
+                          .GetLangGuidMap();
+        var msgPerformance = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\ArtianPerformance.msg.{Global.MSG_VERSION}")
+                                .GetLangGuidMap();
+        var msg = Merge(msgBonus, msgParts, msgPerformance);
+        DataHelper.ARTIAN_INFO_LOOKUP_BY_GUID = msg;
+        CreateAssetFile(msg, "ARTIAN_INFO_LOOKUP_BY_GUID");
     }
 
     private static void ExtractDecorationInfoByGuid() {
@@ -178,10 +191,10 @@ public static partial class Program {
                      });
             nameOnlyMsgs.Add(msg);
         }
-        var mergedMsg = allMsgs.MergeDictionaries();
+        var mergedMsg = Merge(allMsgs);
         DataHelper.WEAPON_INFO_LOOKUP_BY_GUID = mergedMsg;
         CreateAssetFile(mergedMsg, "WEAPON_INFO_LOOKUP_BY_GUID");
-        mergedMsg = nameOnlyMsgs.MergeDictionaries();
+        mergedMsg = Merge(nameOnlyMsgs);
         CreateConstantsFile(mergedMsg[Global.LangIndex.eng].Flip(), "WeaponConstants");
     }
 }
