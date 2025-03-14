@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using RE_Editor.Common;
 using RE_Editor.Common.Models;
@@ -25,8 +26,9 @@ public static partial class Program {
                        }
                        .Where(File.Exists)
                        .Select(file => MSG.Read(file)
-                                          .GetLangIdMap(name => {
-                                              var match   = regex.Match(name);
+                                          .GetLangIdMap<uint>(name => {
+                                              var match = regex.Match(name);
+                                              if (!match.Success) return new(0, true);
                                               var subType = match.Groups[1].Value;
                                               var value   = match.Groups[2].Value.ToLower();
                                               value = subType switch {
@@ -37,7 +39,8 @@ public static partial class Program {
                                               try {
                                                   return (uint) (int) Enum.Parse(typeof(Chainsaw_ItemID), value);
                                               } catch (Exception) {
-                                                  throw new MSG.SkipReadException();
+                                                  Debug.WriteLine($"Error reading ${value}.");
+                                                  return new(0, true);
                                               }
                                           }))
                        .ToList();
@@ -53,14 +56,15 @@ public static partial class Program {
         var msg = new List<string> {$@"{PathHelper.CHUNK_PATH}\natives\STM\_Chainsaw\Message\Mes_Main_Charm\CH_Mes_Main_StatusEffect.msg.{Global.MSG_VERSION}",}
                   .Where(File.Exists)
                   .Select(file => MSG.Read(file)
-                                     .GetLangIdMap(name => {
+                                     .GetLangIdMap<uint>(name => {
                                          var match = regex.Match(name);
-                                         if (!match.Success) throw new MSG.SkipReadException();
+                                         if (!match.Success) return new(0, true);
                                          var value = match.Groups[1].Value;
                                          try {
                                              return (uint) (int) Enum.Parse(typeof(Chainsaw_StatusEffectID), value);
                                          } catch (Exception) {
-                                             throw new MSG.SkipReadException();
+                                             Debug.WriteLine($"Error reading ${value}.");
+                                             return new(0, true);
                                          }
                                      }))
                   .ToList()
@@ -88,15 +92,11 @@ public static partial class Program {
                       }
                       .Where(File.Exists)
                       .Select(file => MSG.Read(file)
-                                         .GetLangIdMap(name => {
+                                         .GetLangIdMap<uint>(name => {
                                              var match = regex.Match(name);
-                                             if (!match.Success) throw new MSG.SkipReadException();
+                                             if (!match.Success) return new(0, true);
                                              var value = match.Groups[1].Value.ToLower();
-                                             try {
-                                                 return (uint) (int) Enum.Parse(typeof(Chainsaw_WeaponID), value);
-                                             } catch (Exception) {
-                                                 throw new MSG.SkipReadException();
-                                             }
+                                             return (uint) (int) Enum.Parse(typeof(Chainsaw_WeaponID), value);
                                          }))
                       .ToList()
                       .MergeDictionaries();

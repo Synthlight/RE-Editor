@@ -232,7 +232,7 @@ public class StructType(string name, string? parent, string hash, StructJson str
                     var originalFieldName = field.name.ToConvertedFieldName()!;
                     var structTypeName    = field.originalType.ToConvertedTypeName()!;
                     if (!generator.structTypes.TryGetValue(structTypeName, out var structType)) {
-                        GenerateFiles.Log($"Warning: Struct {structInfo.name} has a struct field with a type of {field.originalType} but it can't be found in the struct map.");
+                        Global.Log($"Warning: Struct {structInfo.name} has a struct field with a type of {field.originalType} but it can't be found in the struct map.");
                         continue;
                     }
                     foreach (var structField in structType.structInfo.fields!) {

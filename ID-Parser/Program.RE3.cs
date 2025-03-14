@@ -14,14 +14,11 @@ public static partial class Program {
     private static void ExtractItemInfo() {
         var regex = new Regex("Item_(sm\\d+_[^_]+?)$");
         var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\Escape\Message\Mes_Item.msg.{Global.MSG_VERSION}")
-                     .GetLangIdMap(name => {
+                     .GetLangIdMap<uint>(name => {
                          var match = regex.Match(name);
+                         if (!match.Success) return new(0, true);
                          var value = match.Groups[1].Value.ToLower();
-                         try {
-                             return (uint) (int) Enum.Parse(typeof(Offline_gamemastering_Item_ID), value);
-                         } catch (Exception) {
-                             throw new MSG.SkipReadException();
-                         }
+                         return (uint) (int) Enum.Parse(typeof(Offline_gamemastering_Item_ID), value);
                      });
         CreateAssetFile(msg, "ITEM_NAME_LOOKUP");
         CreateConstantsFile(msg[Global.LangIndex.eng].Flip(), "ItemConstants");
@@ -30,14 +27,11 @@ public static partial class Program {
     private static void ExtractWeaponInfo() {
         var regex = new Regex("Weapon_(wp\\d+)$");
         var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\Escape\Message\Mes_Weapon.msg.{Global.MSG_VERSION}", true)
-                     .GetLangIdMap(name => {
+                     .GetLangIdMap<uint>(name => {
                          var match = regex.Match(name);
+                         if (!match.Success) return new(0, true);
                          var value = match.Groups[1].Value.ToUpper();
-                         try {
-                             return (uint) (int) Enum.Parse(typeof(Offline_EquipmentDefine_WeaponType), value);
-                         } catch (Exception) {
-                             throw new MSG.SkipReadException();
-                         }
+                         return (uint) (int) Enum.Parse(typeof(Offline_EquipmentDefine_WeaponType), value);
                      });
         CreateAssetFile(msg, "WEAPON_NAME_LOOKUP");
 

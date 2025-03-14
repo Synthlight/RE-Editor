@@ -18,14 +18,11 @@ public static partial class Program {
     private static void ExtractItemInfo() {
         var regex = new Regex(@"ItemName_(\d+)");
         var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\ui\message\asset\ItemName.msg.{Global.MSG_VERSION}")
-                     .GetLangIdMap(name => {
+                     .GetLangIdMap<uint>(name => {
                          var match = regex.Match(name);
+                         if (!match.Success) return new(0, true);
                          var value = match.Groups[1].Value;
-                         try {
-                             return (uint) int.Parse(value);
-                         } catch (Exception) {
-                             throw new MSG.SkipReadException();
-                         }
+                         return (uint) int.Parse(value);
                      });
         DataHelper.ITEM_NAME_LOOKUP = msg;
         CreateAssetFile(msg, "ITEM_NAME_LOOKUP");

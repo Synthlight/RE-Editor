@@ -1,5 +1,4 @@
 ﻿using System.CodeDom;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -221,23 +220,23 @@ public partial class GenerateFiles {
         var useGreylist  = args.Length > 0 && args.Contains("useGreylist");
         var dryRun       = args.Length > 0 && args.Contains("dryRun");
 
-        Log("Finding enum placeholders in the struct json.");
+        Global.Log("Finding enum placeholders in the struct json.");
         FindAllEnumUnderlyingTypes();
 
         if (!dryRun) {
-            Log("Creating directories.");
+            Global.Log("Creating directories.");
             Directory.CreateDirectory(ENUM_GEN_PATH);
             Directory.CreateDirectory(STRUCT_GEN_PATH);
             Directory.CreateDirectory(ASSETS_DIR);
 
-            Log("Removing existing generated files.");
+            Global.Log("Removing existing generated files.");
             CleanupGeneratedFiles(ENUM_GEN_PATH);
             CleanupGeneratedFiles(STRUCT_GEN_PATH);
         }
 
-        Log("Parsing enums.");
+        Global.Log("Parsing enums.");
         ParseEnums();
-        Log("Parsing structs.");
+        Global.Log("Parsing structs.");
         ParseStructs();
 
         if (useWhitelist || useGreylist) {
@@ -254,16 +253,16 @@ public partial class GenerateFiles {
             UpdateButtons();
         }
 
-        Log("Updating struct `Data` fields.");
+        Global.Log("Updating struct `Data` fields.");
         UpdateStructDataFields();
 
-        Log($"Generating {enumTypes.Count} enums, {structTypes.Count} structs.");
+        Global.Log($"Generating {enumTypes.Count} enums, {structTypes.Count} structs.");
         GenerateEnums(dryRun);
-        Log("Enums written.");
+        Global.Log("Enums written.");
         GenerateStructs(dryRun);
-        Log("Structs written.");
+        Global.Log("Structs written.");
         WriteStructInfo(dryRun);
-        Log("Struct info written.");
+        Global.Log("Struct info written.");
     }
 
     private void WriteStructInfo(bool dryRun) {
@@ -398,7 +397,7 @@ public partial class GenerateFiles {
                     structInfo.fields![0].name = "Enabled";
                     structInfo.fields![1].name = "Name";
                 } else {
-                    Log("Warning: via.prefab type has no fields.");
+                    Global.Log("Warning: via.prefab type has no fields.");
                 }
             }
 
@@ -416,7 +415,7 @@ public partial class GenerateFiles {
             Dictionary<string, int>   nameCount = [];
             foreach (var field in structInfo.fields) {
                 if (!fields.Add(field)) {
-                    Log($"Warning: Found a duplicate field `{field.name}` in `{structInfo.name}`. Changing name.");
+                    Global.Log($"Warning: Found a duplicate field `{field.name}` in `{structInfo.name}`. Changing name.");
                     if (!nameCount.ContainsKey(field.name!)) nameCount[field.name!] = 1;
                     field.name += $"{nameCount[field.name!]++}";
                     fields.Add(field);
@@ -598,15 +597,15 @@ public partial class GenerateFiles {
 
     private static void FindAllHashesBeingUsed() {
         foreach (var path in PathHelper.TEST_PATHS) {
-            Log($"Finding all files in: {PathHelper.CHUNK_PATH + path}");
+            Global.Log($"Finding all files in: {PathHelper.CHUNK_PATH + path}");
         }
 
         var allUserFiles = PathHelper.GetCachedFileList(FileListCacheType.USER);
         var count        = allUserFiles.Count;
-        Log($"Found {count} files.");
+        Global.Log($"Found {count} files.");
 
         var now = DateTime.Now;
-        Log("");
+        Global.Log("");
 
         for (var i = 0; i < allUserFiles.Count; i++) {
             var newNow = DateTime.Now;
@@ -616,7 +615,7 @@ public partial class GenerateFiles {
                 } catch (Exception) {
                     // Breaks tests so just ignore for those.
                 }
-                Log($"Parsed {i}/{count}.");
+                Global.Log($"Parsed {i}/{count}.");
                 now = newNow;
             }
 
@@ -636,7 +635,7 @@ public partial class GenerateFiles {
         } catch (Exception) {
             // Breaks tests so just ignore for those.
         }
-        Log($"Parsed {count}/{count}.");
+        Global.Log($"Parsed {count}/{count}.");
     }
 
     /**
@@ -683,15 +682,15 @@ public partial class GenerateFiles {
 
     private void FindCrcOverrides() {
         foreach (var path in PathHelper.TEST_PATHS) {
-            Log($"Finding all GP files in: {(PathHelper.CHUNK_PATH + path).Replace("STM", "MSG")}");
+            Global.Log($"Finding all GP files in: {(PathHelper.CHUNK_PATH + path).Replace("STM", "MSG")}");
         }
 
         var allGpUserFiles = PathHelper.GetCachedFileList(FileListCacheType.USER, msg: true);
         var count          = allGpUserFiles.Count;
-        Log($"Found {count} files.");
+        Global.Log($"Found {count} files.");
 
         var now = DateTime.Now;
-        Log("");
+        Global.Log("");
 
         for (var i = 0; i < allGpUserFiles.Count; i++) {
             var newNow = DateTime.Now;
@@ -701,7 +700,7 @@ public partial class GenerateFiles {
                 } catch (Exception) {
                     // Breaks tests so just ignore for those.
                 }
-                Log($"Parsed {i}/{count}.");
+                Global.Log($"Parsed {i}/{count}.");
                 now = newNow;
             }
 
@@ -720,8 +719,8 @@ public partial class GenerateFiles {
         } catch (Exception) {
             // Breaks tests so just ignore for those.
         }
-        Log($"Parsed {count}/{count}.");
-        Log($"Created {gpCrcOverrides.Count} CRC overrides.");
+        Global.Log($"Parsed {count}/{count}.");
+        Global.Log($"Created {gpCrcOverrides.Count} CRC overrides.");
     }
 
     private void UpdateStructDataFields() {
@@ -747,7 +746,7 @@ public partial class GenerateFiles {
     public static void DoWithConsoleProgressCount<T>(IList<T> thingsToDo, Action<T> doThing, Func<int, int, string> progressFormat) {
         var count = thingsToDo.Count;
         var now   = DateTime.Now;
-        Log("");
+        Global.Log("");
 
         for (var i = 0; i < thingsToDo.Count; i++) {
             var newNow = DateTime.Now;
@@ -757,7 +756,7 @@ public partial class GenerateFiles {
                 } catch (Exception) {
                     // Breaks tests so just ignore for those.
                 }
-                Log(progressFormat(i, count));
+                Global.Log(progressFormat(i, count));
                 now = newNow;
             }
 
@@ -770,11 +769,6 @@ public partial class GenerateFiles {
         } catch (Exception) {
             // Breaks tests so just ignore for those.
         }
-        Log(progressFormat(count, count));
-    }
-
-    public static void Log(string msg) {
-        Console.WriteLine(msg);
-        Debug.WriteLine(msg);
+        Global.Log(progressFormat(count, count));
     }
 }

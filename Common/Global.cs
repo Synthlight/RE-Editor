@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 #if MHR
@@ -165,4 +166,9 @@ public static class Global {
     public const string BITSET_FIELD_NAME = BITSET_NAME;
 #endif
 // @formatter:on
+
+    public static void Log(string msg) {
+        Console.WriteLine(msg);
+        Debug.WriteLine(msg);
+    }
 }

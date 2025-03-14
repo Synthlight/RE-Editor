@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-
 #pragma warning disable CS8618
 
 namespace RE_Editor.Common.Models;
@@ -10,7 +9,7 @@ namespace RE_Editor.Common.Models;
 [SuppressMessage("ReSharper", "NotAccessedField.Global")]
 [SuppressMessage("ReSharper", "NotAccessedField.Local")]
 public class MSG {
-    private static readonly byte[] KEY = {207, 206, 251, 248, 236, 10, 51, 102, 147, 169, 29, 147, 80, 57, 95, 9};
+    private static readonly byte[] KEY = [207, 206, 251, 248, 236, 10, 51, 102, 147, 169, 29, 147, 80, 57, 95, 9];
 
     public uint        version;
     public uint        magic;
@@ -36,7 +35,7 @@ public class MSG {
     public TypeEntry[] types;
 
     public static MSG Read(string targetFile, bool writeNameIds = false) {
-        Console.WriteLine($"Reading: {targetFile}");
+        Global.Log($"Reading: {targetFile}");
 
         var       file   = new MSG();
         using var reader = new BinaryReader(File.OpenRead(targetFile));
@@ -103,7 +102,7 @@ public class MSG {
 
         if (writeNameIds) {
             foreach (var entry in file.subEntries) {
-                Console.WriteLine(entry.first);
+                Global.Log(entry.first);
             }
         }
 
@@ -149,7 +148,7 @@ public class MSG {
     public Dictionary<uint, string> GetIdMap(Global.LangIndex lang, uint type, bool startAtOne, uint idBaseNum) {
         var dict = new Dictionary<uint, string>(subEntries.Length);
         for (var i = startAtOne ? 1 : 0; i < subEntries.Length; i++) {
-            var id   = idBaseNum + ((uint) type | (uint) (i - (startAtOne ? 1 : 0)));
+            var id   = idBaseNum + (type | (uint) (i - (startAtOne ? 1 : 0)));
             var text = subEntries[i].refs[(int) lang];
             if (text == "") continue;
             SetText(text, dict, id);
@@ -165,22 +164,21 @@ public class MSG {
         return dict;
     }
 
-    public Dictionary<T, string> GetIdMap<T>(Global.LangIndex lang, Func<string, T> parseName) where T : notnull {
+    public Dictionary<T, string> GetIdMap<T>(Global.LangIndex lang, Func<string, Result<T>> parseName) where T : notnull {
         var dict = new Dictionary<T, string>(subEntries.Length);
         foreach (var entry in subEntries) {
-            var name = entry.first.Replace("_Name", "").Replace("_Explain", "");
-            try {
-                var id   = parseName(name);
-                var text = entry.refs[(int) lang];
-                if (text == "") continue;
-                SetText(text, dict, id);
-            } catch (SkipReadException) {
-            }
+            var name   = entry.first.Replace("_Name", "").Replace("_Explain", "");
+            var result = parseName(name);
+            if (result.skip) continue;
+            var id   = result.data;
+            var text = entry.refs[(int) lang];
+            if (text == "") continue;
+            SetText(text, dict, id);
         }
         return dict;
     }
 
-    public Dictionary<Global.LangIndex, Dictionary<T, string>> GetLangIdMap<T>(Func<string, T> parseName) where T : notnull {
+    public Dictionary<Global.LangIndex, Dictionary<T, string>> GetLangIdMap<T>(Func<string, Result<T>> parseName) where T : notnull {
         var dict = new Dictionary<Global.LangIndex, Dictionary<T, string>>(Global.LANGUAGES.Count);
         foreach (var lang in Global.LANGUAGES) {
             dict[lang] = GetIdMap(lang, parseName);
@@ -188,21 +186,20 @@ public class MSG {
         return dict;
     }
 
-    public Dictionary<T, string> GetRawMap<T>(Global.LangIndex lang, Func<SubEntry, T> parseName) where T : notnull {
+    public Dictionary<T, string> GetRawMap<T>(Global.LangIndex lang, Func<SubEntry, Result<T>> parseName) where T : notnull {
         var dict = new Dictionary<T, string>(subEntries.Length);
         foreach (var entry in subEntries) {
-            try {
-                var id   = parseName(entry);
-                var text = entry.refs[(int) lang];
-                if (text == "") continue;
-                SetText(text, dict, id);
-            } catch (SkipReadException) {
-            }
+            var result = parseName(entry);
+            if (result.skip) continue;
+            var id   = result.data;
+            var text = entry.refs[(int) lang];
+            if (text == "") continue;
+            SetText(text, dict, id);
         }
         return dict;
     }
 
-    public Dictionary<Global.LangIndex, Dictionary<T, string>> GetLangRawMap<T>(Func<SubEntry, T> parseName) where T : notnull {
+    public Dictionary<Global.LangIndex, Dictionary<T, string>> GetLangRawMap<T>(Func<SubEntry, Result<T>> parseName) where T : notnull {
         var dict = new Dictionary<Global.LangIndex, Dictionary<T, string>>(Global.LANGUAGES.Count);
         foreach (var lang in Global.LANGUAGES) {
             dict[lang] = GetRawMap(lang, parseName);
@@ -213,13 +210,10 @@ public class MSG {
     public Dictionary<Guid, string> GetGuidMap(Global.LangIndex lang) {
         var dict = new Dictionary<Guid, string>(subEntries.Length);
         foreach (var entry in subEntries) {
-            try {
-                var id   = entry.id1;
-                var text = entry.refs[(int) lang];
-                if (text == "") continue;
-                SetText(text, dict, id);
-            } catch (SkipReadException) {
-            }
+            var id   = entry.id1;
+            var text = entry.refs[(int) lang];
+            if (text == "") continue;
+            SetText(text, dict, id);
         }
         return dict;
     }
@@ -302,6 +296,15 @@ public class MSG {
         }
     }
 
-    public class SkipReadException : Exception {
+    public struct Result<T>(T data, bool skip) where T : notnull {
+        public readonly T    data = data;
+        public readonly bool skip = skip;
+
+        public Result(T data) : this(data, false) {
+        }
+
+        public static implicit operator Result<T>(T someValue) {
+            return new(someValue);
+        }
     }
 }
