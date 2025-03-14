@@ -111,6 +111,7 @@ public class StructType(string name, string? parent, string hash, StructJson str
 #elif MHWS
             case "App_ArmorDef_SERIES_Serializable.Value": return DataSourceType.ARMOR_SERIES;
             case "App_HunterDef_Skill_Serializable.Value": return DataSourceType.SKILLS;
+            case "App_HunterProfileDef_MEDAL_ID_Serializable.Value": return DataSourceType.MEDALS;
 #endif
         }
 #pragma warning restore CS1522
@@ -139,7 +140,9 @@ public class StructType(string name, string? parent, string hash, StructJson str
             "snow.data.DataDef.PlWeaponActionId" => DataSourceType.SWITCH_SKILLS,
 #elif MHWS
             "app.ArmorDef.SERIES_Fixed" => DataSourceType.ARMOR_SERIES,
+            "app.EnemyDef.ID_Fixed" => DataSourceType.ENEMIES,
             "app.HunterDef.Skill_Fixed" => DataSourceType.SKILLS,
+            "app.HunterProfileDef.MEDAL_ID_Fixed" => DataSourceType.MEDALS,
             "app.ItemDef.ID_Fixed" => DataSourceType.ITEMS,
 #elif RE2
             "app.ropeway.gamemastering.Item.ID" => DataSourceType.ITEMS,
@@ -159,6 +162,8 @@ public class StructType(string name, string? parent, string hash, StructJson str
         return fieldButtonType switch {
 #if MHWS
             DataSourceType.ARMOR_SERIES => "int",
+            DataSourceType.ENEMIES => "int",
+            DataSourceType.MEDALS => "int",
             DataSourceType.SKILLS => "int",
 #endif
             null => null,

@@ -22,26 +22,32 @@ public static partial class PathHelper {
         @"\natives\STM"
     ];
 
-    public const string ARMOR_DATA_PATH             = @"\natives\STM\GameDesign\Common\Equip\ArmorData.user.3";
-    public const string ARMOR_RECIPE_DATA_PATH      = @"\natives\STM\GameDesign\Common\Equip\ArmorRecipeData.user.3";
-    public const string ARMOR_SERIES_DATA_PATH      = @"\natives\STM\GameDesign\Common\Equip\ArmorSeriesData.user.3";
-    public const string CHARGE_BLADE_PARAM_PATH     = @"\natives\STM\GameDesign\Player\ActionData\Wp09\GlobalParam\Wp09GlobalActionParam.user.3";
-    public const string DECORATION_DATA_PATH        = @"\natives\STM\GameDesign\Common\Equip\AccessoryData.user.3";
-    public const string FISH_RANDOM_SIZES_PATH      = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSizeFish.user.3";
-    public const string GIMMICK_REWARD_DATA_PATH    = @"\natives\STM\GameDesign\Gimmick\Common\GimmickRewardData.user.3";
-    public const string ITEM_DATA_PATH              = @"\natives\STM\GameDesign\Common\Item\ItemData.user.3";
-    public const string ITEM_RECIPE_DATA_PATH       = @"\natives\STM\GameDesign\Common\Item\ItemRecipe.user.3";
-    public const string ITEM_SHOP_DATA_PATH         = @"\natives\STM\GameDesign\Facility\ItemShopData.user.3";
-    public const string KINSECT_RECIPE_DATA_PATH    = @"\natives\STM\GameDesign\Common\Equip\RodInsectRecipeData.user.3";
-    public const string MONSTER_RANDOM_SIZES_PATH   = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSize.user.3";
-    public const string OTOMO_ARMOR_DATA_PATH       = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoArmorData.user.3";
-    public const string OTOMO_RECIPE_DATA_PATH      = @"\natives\STM\GameDesign\Facility\Data\OtomoEquipRecipe.user.3";
-    public const string POPUP_CAMP_PATH             = @"\natives\STM\System\SystemSetting\CampManagerSetting.user.3";
-    public const string SKILL_COMMON_DATA_PATH      = @"\natives\STM\GameDesign\Common\Equip\SkillCommonData.user.3";
-    public const string TALISMAN_DATA_PATH          = @"\natives\STM\GameDesign\Common\Equip\AmuletData.user.3";
-    public const string TALISMAN_RECIPE_DATA_PATH   = @"\natives\STM\GameDesign\Common\Equip\AmuletRecipeData.user.3";
-    public const string TITLE_CONJUNCTION_DATA_PATH = @"\natives\STM\GameDesign\HunterProfile\UserData\Title_Conjunction.user.3";
-    public const string TITLE_WORD_DATA_PATH        = @"\natives\STM\GameDesign\HunterProfile\UserData\Title_WordData.user.3";
+    public const string ARMOR_DATA_PATH                = @"\natives\STM\GameDesign\Common\Equip\ArmorData.user.3";
+    public const string ARMOR_RECIPE_DATA_PATH         = @"\natives\STM\GameDesign\Common\Equip\ArmorRecipeData.user.3";
+    public const string ARMOR_SERIES_DATA_PATH         = @"\natives\STM\GameDesign\Common\Equip\ArmorSeriesData.user.3";
+    public const string CHARGE_BLADE_PARAM_PATH        = @"\natives\STM\GameDesign\Player\ActionData\Wp09\GlobalParam\Wp09GlobalActionParam.user.3";
+    public const string DECORATION_DATA_PATH           = @"\natives\STM\GameDesign\Common\Equip\AccessoryData.user.3";
+    public const string FISH_RANDOM_SIZES_PATH         = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSizeFish.user.3";
+    public const string GIMMICK_REWARD_DATA_PATH       = @"\natives\STM\GameDesign\Gimmick\Common\GimmickRewardData.user.3";
+    public const string ITEM_DATA_PATH                 = @"\natives\STM\GameDesign\Common\Item\ItemData.user.3";
+    public const string ITEM_RECIPE_DATA_PATH          = @"\natives\STM\GameDesign\Common\Item\ItemRecipe.user.3";
+    public const string ITEM_SHOP_DATA_PATH            = @"\natives\STM\GameDesign\Facility\ItemShopData.user.3";
+    public const string KINSECT_RECIPE_DATA_PATH       = @"\natives\STM\GameDesign\Common\Equip\RodInsectRecipeData.user.3";
+    public const string MEDAL_DATA_PATH                = @"\natives\STM\GameDesign\HunterProfile\UserData\MedalData.user.3";
+    public const string MONSTER_RANDOM_SIZES_PATH      = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSize.user.3";
+    public const string OTOMO_ARMOR_DATA_PATH          = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoArmorData.user.3";
+    public const string OTOMO_RECIPE_DATA_PATH         = @"\natives\STM\GameDesign\Facility\Data\OtomoEquipRecipe.user.3";
+    public const string POPUP_CAMP_PATH                = @"\natives\STM\System\SystemSetting\CampManagerSetting.user.3";
+    public const string PLAYER_ACTIVE_SKILL_PARAM_PATH = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\Part\PlayerActiveSkillParam.user.3";
+    public const string PLAYER_GLOBAL_PARAM_PATH       = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\PlayerGlobalParam.user.3";
+    public const string PLAYER_ITEM_PARAM_PATH         = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\PlayerItemParam.user.3";
+    public const string PLAYER_SKILL_PARAM_PATH        = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\Part\PlayerSkillParam.user.3";
+    public const string PLAYER_STATUS_PARAM_PATH       = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\Part\PlayerStatusParam.user.3";
+    public const string SKILL_COMMON_DATA_PATH         = @"\natives\STM\GameDesign\Common\Equip\SkillCommonData.user.3";
+    public const string TALISMAN_DATA_PATH             = @"\natives\STM\GameDesign\Common\Equip\AmuletData.user.3";
+    public const string TALISMAN_RECIPE_DATA_PATH      = @"\natives\STM\GameDesign\Common\Equip\AmuletRecipeData.user.3";
+    public const string TITLE_CONJUNCTION_DATA_PATH    = @"\natives\STM\GameDesign\HunterProfile\UserData\Title_Conjunction.user.3";
+    public const string TITLE_WORD_DATA_PATH           = @"\natives\STM\GameDesign\HunterProfile\UserData\Title_WordData.user.3";
 
     public static IEnumerable<string> GetAllWeaponFilePaths(WeaponDataType type, string platform = "STM") {
         var postfix = type switch {

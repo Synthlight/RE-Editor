@@ -8,6 +8,8 @@ namespace RE_Editor.ID_Parser;
 
 public static partial class Program {
     public static void Main() {
+        ExtractEnemyInfoByName();
+        ExtractMedalInfoByGuid();
         ExtractTitleInfoByGuid();
         ExtractDecorationInfoByGuid();
         ExtractTalismanInfoByGuid();
@@ -17,6 +19,40 @@ public static partial class Program {
         ExtractArmorSeriesInfoByGuid();
         ExtractWeaponInfoByGuid();
         ExtractSkillInfoByName();
+    }
+
+    private static void ExtractEnemyInfoByName() {
+        var regex = new Regex("EnemyText_NAME_(EM.+)");
+        var msg   = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\EnemyText.msg.{Global.MSG_VERSION}");
+        var msgByEnum = msg.GetLangIdMap<App_EnemyDef_ID_Fixed>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(default, true);
+            var value = match.Groups[1].Value;
+            return new(Enum.Parse<App_EnemyDef_ID_Fixed>(value));
+        });
+        var msgByValue = msgByEnum.ConvertTo<App_EnemyDef_ID_Fixed, int>();
+        DataHelper.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "ENEMY_NAME_LOOKUP_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "EnemyConstants");
+    }
+
+    private static void ExtractMedalInfoByGuid() {
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\Medal.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.MEDAL_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "MEDAL_INFO_LOOKUP_BY_GUID");
+
+        var regex = new Regex(@"Medal_NAME_(\d+)");
+        var msgByEnum = msg.GetLangIdMap<App_HunterProfileDef_MEDAL_ID_Fixed>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value;
+            return (App_HunterProfileDef_MEDAL_ID_Fixed) int.Parse(value);
+        });
+        var msgByValue = msgByEnum.ConvertTo<App_HunterProfileDef_MEDAL_ID_Fixed, int>();
+        DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "MEDAL_NAME_LOOKUP_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "MedalConstants");
     }
 
     private static void ExtractTitleInfoByGuid() {

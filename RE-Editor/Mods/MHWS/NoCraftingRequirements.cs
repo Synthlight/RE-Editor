@@ -207,7 +207,7 @@ public class NoCraftingRequirements : IMod {
             switch (obj) {
                 case App_user_data_ArmorRecipeData_cData armor: // Armor
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        armor.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        armor.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         armor.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
                         armor.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
                         armor.FlagHunterRank = 0;
@@ -223,7 +223,7 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_RodInsectRecipeData_cData kinsect: // Insect
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        kinsect.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        kinsect.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         kinsect.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
                         kinsect.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
                         kinsect.FlagHunterRank = 0;
@@ -239,7 +239,7 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_OtomoEquipRecipe_cData armor: // Palico Equip
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        armor.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        armor.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         armor.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
                         armor.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
                         armor.FlagHunterRank = 0;
@@ -255,7 +255,7 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_AmuletRecipeData_cData talisman: // Talisman
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        talisman.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        talisman.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         talisman.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
                         talisman.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
                         talisman.FlagHunterRank = 0;
@@ -271,7 +271,7 @@ public class NoCraftingRequirements : IMod {
                     break;
                 case App_user_data_WeaponRecipeData_cData weapon: // Weapon
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
-                        weapon.KeyEnemyId     = App_EnemyDef_ID_Fixed.INVALID;
+                        weapon.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         weapon.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
                         weapon.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
                         weapon.FlagHunterRank = 0;
