@@ -17,7 +17,7 @@ public class NoCraftingRequirements : IMod {
     public static void Make() {
         const string name        = "No Crafting Requirements";
         const string description = "No Crafting Requirements.";
-        const string version     = "1.2";
+        const string version     = "1.3";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -317,7 +317,6 @@ public class NoCraftingRequirements : IMod {
             case RefTarget.WEAPONS:
                 if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                     writer.WriteLine("    for i = 0, entry._Item:get_size() - 1 do");
-                    //writer.WriteLine("    for i = 1, #entry._Item do");
                     writer.WriteLine($"        entry._Item[i] = {(int) App_ItemDef_ID_Fixed.NONE}");
                     writer.WriteLine("    end");
                 }
@@ -327,21 +326,21 @@ public class NoCraftingRequirements : IMod {
                     writer.WriteLine("        entry._ItemNum[i] = 0");
                     writer.WriteLine("    end");
                 }
+                writer.WriteLine("    entry:call(\"onLoad\")");
                 break;
             case RefTarget.INSECTS:
             case RefTarget.TALISMANS:
                 if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                     writer.WriteLine("    for i = 0, entry._ItemId:get_size() - 1 do");
-                    //writer.WriteLine("    for i = 1, #entry._ItemId do");
                     writer.WriteLine($"        entry._ItemId[i] = {(int) App_ItemDef_ID_Fixed.NONE}");
                     writer.WriteLine("    end");
                 }
                 if (mode.HasFlag(Mode.NORMAL)) {
                     writer.WriteLine("    for i = 0, entry._ItemNum:get_size() - 1 do");
-                    //writer.WriteLine("    for i = 1, #entry._ItemNum do");
                     writer.WriteLine("        entry._ItemNum[i] = 0");
                     writer.WriteLine("    end");
                 }
+                writer.WriteLine("    entry:call(\"onLoad\")");
                 break;
             case RefTarget.WEAPON_TREES:
                 if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
