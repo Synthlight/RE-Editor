@@ -626,10 +626,40 @@ public static class Extensions {
         return Unsafe.ReadUnaligned<T>(ref buffer[0]);
     }
 
+    public static object Read(this BinaryReader reader, Type type) {
+        var genericMethod = typeof(Extensions).GetMethod(nameof(Read), Global.FLAGS, [typeof(BinaryReader)])!.MakeGenericMethod(type);
+        return genericMethod.Invoke(null, [reader])!;
+    }
+
+    public static object Read(this BinaryReader reader, string type) {
+        var typeObj = type.GetAsType()!;
+        return reader.Read(typeObj);
+    }
+
     public static void Write<T>(this BinaryWriter writer, T obj) where T : struct {
         var size   = Unsafe.SizeOf<T>();
         var buffer = new byte[size];
         Unsafe.WriteUnaligned(ref buffer[0], obj);
         writer.Write(buffer);
+    }
+
+    public static void WriteGeneric(this BinaryWriter writer, Type type, object obj) {
+        var genericMethod = typeof(Extensions).GetMethod(nameof(Write), Global.FLAGS)!.MakeGenericMethod(type);
+        genericMethod.Invoke(null, [writer, obj]);
+    }
+
+    public static void WriteGeneric(this BinaryWriter writer, string type, object obj) {
+        var typeObj = type.GetAsType()!;
+        writer.WriteGeneric(typeObj, obj);
+    }
+
+    public static Type? GetAsType(this string typeName) {
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
+            foreach (var type in assembly.GetTypes()) {
+                if (type.Name == typeName) return type;
+            }
+        }
+        return null;
     }
 }

@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Data;
@@ -107,7 +108,15 @@ public class RszObject : OnPropertyChangedBase {
                     throw new FileNotSupported();
                 }
 
-                if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
+                if (field.originalType!.StartsWith("System.ValueTuple")) {
+                    var objects = new List<object>();
+                    for (var s = 0; s < arrayCount; s++) {
+                        var data = ReadTuple(reader, field);
+                        objects.Add(data);
+                    }
+                    var items = objects.GetGenericItemsOfType(fieldGenericType!, true);
+                    SetList(items, fieldSetMethod, rszObject);
+                } else if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
                     var bytes  = reader.ReadBytes(field.size * arrayCount);
                     var bitset = new BitArray(bytes);
                     fieldSetMethod.Invoke(rszObject, [bitset]);
@@ -163,7 +172,11 @@ public class RszObject : OnPropertyChangedBase {
                     SetList(items, fieldSetMethod, rszObject);
                 }
             } else {
-                if (field.type is nameof(UIntArray) or "OBB") {
+                if (field.originalType!.StartsWith("System.ValueTuple")) {
+                    List<object> objects = [ReadTuple(reader, field)];
+                    var          items   = objects.GetGenericItemsOfType(fieldGenericType!, true);
+                    SetList(items, fieldSetMethod, rszObject);
+                } else if (field.type is nameof(UIntArray) or "OBB") {
                     Debug.Assert((float) field.size % 4 == 0, $"Error: `Data` field size is not a multiple of {UIntArray.DATA_WIDTH}.");
                     var data = new UIntArray((uint) (field.size / UIntArray.DATA_WIDTH));
                     data.Read(reader);
@@ -355,7 +368,13 @@ public class RszObject : OnPropertyChangedBase {
             writer.PadTill(() => writer.BaseStream.Position % align != 0);
 
             if (field.array) {
-                if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
+                if (field.originalType!.StartsWith("System.ValueTuple")) {
+                    var list = (IList) fieldGetMethod.Invoke(this, null)!;
+                    writer.Write(list.Count);
+                    foreach (var obj in list) {
+                        WriteTuple(writer, field, (ITuple) obj);
+                    }
+                } else if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
                     var bitset    = (BitArray) fieldGetMethod.Invoke(this, null)!;
                     var byteCount = (bitset.Length + 7) >> 3;
                     var bytes     = new byte[byteCount];
@@ -410,7 +429,11 @@ public class RszObject : OnPropertyChangedBase {
                     }
                 }
             } else {
-                if (field.type is nameof(UIntArray) or "OBB") {
+                if (field.originalType!.StartsWith("System.ValueTuple")) {
+                    var data = (IList) fieldGetMethod.Invoke(this, null)!;
+                    var obj  = (ITuple) data[0]!;
+                    WriteTuple(writer, field, obj);
+                } else if (field.type is nameof(UIntArray) or "OBB") {
                     var list = (ObservableCollection<UIntArray>) fieldGetMethod.Invoke(this, null)!;
                     list[0].Write(writer);
                 } else if (isObjectType || isUserData) { // Pointer to object.
@@ -492,6 +515,53 @@ public class RszObject : OnPropertyChangedBase {
 
     public override string? ToString() {
         return structInfo.name;
+    }
+
+    private static object ReadTuple(BinaryReader reader, StructJson.Field field) {
+        field.twoGenericsInfo ??= new(field);
+        var twoGenericsInfo = field.twoGenericsInfo!.Value;
+        var item1           = ReadTupleItem(reader, twoGenericsInfo.type1);
+        var item2           = ReadTupleItem(reader, twoGenericsInfo.type2);
+        var item1Type       = twoGenericsInfo.type1.AsArrayType;
+        var item2Type       = twoGenericsInfo.type2.AsArrayType;
+        var tupleType       = typeof(ValueTuple<,>).MakeGenericType(item1Type, item2Type);
+        var obj             = Activator.CreateInstance(tupleType, item1, item2)!;
+        return obj;
+    }
+
+    private static object ReadTupleItem(BinaryReader reader, TwoGenericsInfo.GenericTypeInfo typeInfo) {
+        if (typeInfo.isArray) {
+            var count = reader.ReadInt32();
+            var items = Activator.CreateInstance(typeInfo.AsArrayType)!;
+            for (var i = 0; i < count; i++) {
+                var item = reader.Read(typeInfo.convertedName);
+                ((dynamic) items).Add((dynamic) item); // Ugly, but does the job.
+            }
+            return items;
+            // ReSharper disable once RedundantIfElseBlock
+        } else {
+            var item = reader.Read(typeInfo.convertedName);
+            return item;
+        }
+    }
+
+    private static void WriteTuple(BinaryWriter writer, StructJson.Field field, ITuple obj) {
+        field.twoGenericsInfo ??= new(field);
+        var twoGenericsInfo = field.twoGenericsInfo!.Value;
+        WriteTupleItem(writer, twoGenericsInfo.type1, obj[0]!);
+        WriteTupleItem(writer, twoGenericsInfo.type2, obj[1]!);
+    }
+
+    private static void WriteTupleItem(BinaryWriter writer, TwoGenericsInfo.GenericTypeInfo typeInfo, object item) {
+        if (typeInfo.isArray) {
+            var list = (IList) item;
+            writer.Write(list.Count);
+            foreach (var obj in list) {
+                writer.WriteGeneric(typeInfo.convertedName, obj);
+            }
+        } else {
+            writer.WriteGeneric(typeInfo.convertedName, item);
+        }
     }
 }
 

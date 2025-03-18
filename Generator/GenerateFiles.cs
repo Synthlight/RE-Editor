@@ -43,7 +43,6 @@ public partial class GenerateFiles {
         "System.Collections.Generic.Dictionary`",
         "System.Collections.Generic.Queue`1<System.Tuple`", // Nested generics.
         "System.Collections.Generic.Queue`1<via.vec3>", // Because this breaks generation and I need a better way of handling generics.
-        "System.ValueTuple`",
         "via.gui.Panel", // Too long, skip it for now.
 #if DD2
         "app.ClassSelector`1[",

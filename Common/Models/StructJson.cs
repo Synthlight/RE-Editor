@@ -49,6 +49,8 @@ public class StructJson {
         [JsonIgnore] public DataSourceType? buttonType;
         [JsonIgnore] public string?         buttonPrimitive;
 
+        [JsonIgnore] public TwoGenericsInfo? twoGenericsInfo; // For Tuples and Dictionaries and such.
+
         public override string? ToString() {
             return name ?? base.ToString();
         }

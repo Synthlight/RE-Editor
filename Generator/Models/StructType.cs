@@ -46,19 +46,30 @@ public class StructType(string name, string? parent, string hash, StructJson str
             var typeName = field.originalType?.ToConvertedTypeName();
             if (typeName == null) continue;
             if (field.originalType!.GetViaType() != null) continue;
-            if (generator.structTypes.ContainsKey(typeName)) {
-                generator.structTypes[typeName].useCount++;
-                generator.structTypes[typeName].UpdateUsingCounts(generator, history);
+
+            if (field.twoGenericsInfo != null || (field.originalType!.IndexOf('`') > -1 && field.originalType!.Substring(field.originalType!.IndexOf('`'), 3) == "`2<")) {
+                field.twoGenericsInfo ??= new(field);
+                var twoGenericsInfo = field.twoGenericsInfo.Value;
+                UpdateCountsForType(generator, history, twoGenericsInfo.type1.convertedName);
+                UpdateCountsForType(generator, history, twoGenericsInfo.type2.convertedName);
             }
-            if (generator.enumTypes.TryGetValue(typeName, out var enumType)) {
-                enumType.useCount++;
-            }
-#if MHWS
-            if (typeName.EndsWith("_Serializable")) {
-                generator.enumTypes[typeName.ToFixedEnumName()!].useCount++;
-            }
-#endif
+            UpdateCountsForType(generator, history, typeName);
         }
+    }
+
+    private static void UpdateCountsForType(GenerateFiles generator, List<string> history, string typeName) {
+        if (generator.structTypes.TryGetValue(typeName, out var fieldType)) {
+            fieldType.useCount++;
+            fieldType.UpdateUsingCounts(generator, history);
+        }
+        if (generator.enumTypes.TryGetValue(typeName, out var enumType)) {
+            enumType.useCount++;
+        }
+#if MHWS
+        if (typeName.EndsWith("_Serializable")) {
+            generator.enumTypes[typeName.ToFixedEnumName()!].useCount++;
+        }
+#endif
     }
 
     public void UpdateButtons(GenerateFiles generator, List<string> history) {

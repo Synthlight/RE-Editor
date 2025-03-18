@@ -13,7 +13,7 @@ using RE_Editor.Controls;
 
 namespace RE_Editor.Util;
 
-public class RowHelper<T> where T : class {
+public class RowHelper<T> where T : notnull {
     private readonly AutoDataGridGeneric<T> dataGrid;
     private readonly RszObject              rszObj;
     private readonly PropertyInfo           prop;

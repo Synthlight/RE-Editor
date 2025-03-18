@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -233,6 +234,10 @@ public partial class MainWindow {
         var entryListType = propertyInfo.PropertyType.GenericTypeArguments[0];
         var isList        = (IsListAttribute) propertyInfo.GetCustomAttribute(typeof(IsListAttribute), true) != null;
 
+        if (entryListType.Is(typeof(ITuple))) {
+            throw new NotImplementedException("Tuples are not supported yet."); // TODO: Add tuple support to the UI.
+        }
+
         if (!isList) {
             var observableType = typeof(ObservableCollection<>).MakeGenericType(entryListType);
             var count          = (int) observableType.GetProperty(nameof(ObservableCollection<int>.Count), Global.FLAGS)!.GetGetMethod()!.Invoke(items, null)!; // TODO: Remove the `int` generic param once C# 14 come out.
@@ -301,7 +306,7 @@ public partial class MainWindow {
     /// Required as the item list might be a generic list; something that is not actually part of the saved data and thus added/removed items would be lost.</param>
     /// <param name="prop">The property that the original list is pulled from, that we will be adding/removing items from.</param>
     /// <returns></returns>
-    private static AutoDataGridGeneric<T> MakeAutoDataGrid<T>(UIElement control, ObservableCollection<T> items, RszObject rszObj, PropertyInfo prop) where T : class {
+    private static AutoDataGridGeneric<T> MakeAutoDataGrid<T>(UIElement control, ObservableCollection<T> items, RszObject rszObj, PropertyInfo prop) where T : notnull {
         var dataGrid = new AutoDataGridGeneric<T>();
         dataGrid.SetItems(items);
         if (typeof(T).Is(typeof(RszObject))) {

@@ -34,6 +34,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
     public void Generate(bool dryRun) {
         var       filename = $@"{GenerateFiles.STRUCT_GEN_PATH}\{className}.cs";
         using var file     = new StreamWriter(dryRun ? new MemoryStream() : File.Open(filename, FileMode.Create, FileAccess.Write));
+
         WriteUsings(file);
         WriteClassHeader(file);
         if (structInfo.fields != null) {
@@ -144,7 +145,14 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
         file.WriteLine($"    // {field.name}");
         file.WriteLine($"    // {field.originalType}");
-        if (newName == Global.BITSET_FIELD_NAME && (className == Global.BITSET_NAME || parentClass == Global.BITSET_NAME) && !className.EndsWith("NoEnum")) {
+        if (typeName!.StartsWith("System_ValueTuple")) {
+            var twoGenericsInfo = field.twoGenericsInfo!.Value;
+            file.WriteLine($"    [SortOrder({sortOrder})]");
+            if (field.array) {
+                file.WriteLine("    [IsList]");
+            }
+            file.WriteLine($"    public {modifier}ObservableCollection<ValueTuple<{twoGenericsInfo.type1.AsArrayTypeName}, {twoGenericsInfo.type2.AsArrayTypeName}>> {newName} {{ get; set; }}");
+        } else if (newName == Global.BITSET_FIELD_NAME && (className == Global.BITSET_NAME || parentClass == Global.BITSET_NAME) && !className.EndsWith("NoEnum")) {
             file.WriteLine($"    public {modifier}BitArray {newName} {{ get; set; }}");
 
             if (parentClass == Global.BITSET_NAME) {
@@ -339,6 +347,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 newName += usedNamesLocal[newName].ToString();
             }
 
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (newName == Global.BITSET_FIELD_NAME && className == Global.BITSET_NAME && !className.EndsWith("NoEnum")) {
                 file.WriteLine($"        obj.{newName} = new(1234);"); // There's no enum data to work with. I'm just using a random value here.
             } else if (newName == Global.BITSET_FIELD_NAME && parentClass == Global.BITSET_NAME && !className.EndsWith("NoEnum")) {
@@ -421,7 +430,24 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
             // TODO: Fix generic/dataSource wrappers.
 
-            if (newName == Global.BITSET_FIELD_NAME && (className == Global.BITSET_NAME || parentClass == Global.BITSET_NAME) && !className.EndsWith("NoEnum")) {
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
+            if (typeName!.StartsWith("System_ValueTuple")) {
+                file.WriteLine($"        foreach (var x in {newName}) {{");
+                var twoGenericsInfo = field.twoGenericsInfo!.Value;
+
+                var item1 = "x.Item1";
+                if (twoGenericsInfo.type1.isArray) {
+                    item1 = $"new({item1})";
+                }
+
+                var item2 = "x.Item2";
+                if (twoGenericsInfo.type2.isArray) {
+                    item2 = $"new({item2})";
+                }
+
+                file.WriteLine($"            obj.{newName}.Add(new({item1}, {item2}));");
+                file.WriteLine("        }");
+            } else if (newName == Global.BITSET_FIELD_NAME && (className == Global.BITSET_NAME || parentClass == Global.BITSET_NAME) && !className.EndsWith("NoEnum")) {
                 file.WriteLine($"        obj.{newName} = new({newName});");
             } else if (!field.array && viaType?.Is(typeof(ISimpleViaType)) == true) {
                 // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
