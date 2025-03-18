@@ -15,30 +15,28 @@ namespace RE_Editor.Mods;
 /// <summary>
 /// Works mostly.
 /// Known issues:
-///  - Decos are sorted by size, *then* name.
-///  - Skills are sorted by how many points you have in it.
+///  - REF versions don't fix sort orderings so they're sorted by the level before the name.
+///    (And thus they've been disabled for now.)
 /// </summary>
 [UsedImplicitly]
-public class SortedSkillsAndDecos : IMod {
+public class SortedDecos : IMod {
     [UsedImplicitly]
     public static void Make() {
-        const string name                   = "Sorted Skills and Decos";
-        const string descriptionByDeco      = "Resorts decorations by the name of the decoration.";
-        const string descriptionBySkill     = "Resorts decorations by the name of the skill, ordering by either the first or second skill, for decos with two skills.";
-        const string descriptionSkillSoring = "Resorts skills by the name of the skill.";
-        const string version                = "1.0";
+        const string name               = "Sorted Decos";
+        const string descriptionByDeco  = "Resorts decorations by the name of the decoration.";
+        const string descriptionBySkill = "Resorts decorations by the name of the skill, ordering by either the first or second skill, for decos with two skills.";
+        const string version            = "1.0";
 
-        var decoData        = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.DECORATION_DATA_PATH).rsz.objectData.OfType<App_user_data_AccessoryData_cData>().ToList();
-        var skillCommonData = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.SKILL_COMMON_DATA_PATH).rsz.objectData.OfType<App_user_data_SkillCommonData_cData>().ToList();
+        var decoData = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.DECORATION_DATA_PATH).rsz.objectData.OfType<App_user_data_AccessoryData_cData>().ToList();
 
         var baseMod = new NexusMod {
             Version = version,
-            //Image = $@"{PathHelper.MODS_PATH}\{name}\Pic.png"
+            Image = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png"
         };
 
         var baseLuaMod = new VariousDataTweak {
             Version = version,
-            //Image = $@"{PathHelper.MODS_PATH}\{name}\Pic.png"
+            Image = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png"
         };
 
         List<INexusMod> mods = [
@@ -52,7 +50,7 @@ public class SortedSkillsAndDecos : IMod {
         ];
 
         foreach (var lang in Global.LANGUAGES) {
-            var langGroupName = $"Sorting Language- {lang}";
+            var langGroupName = $"Sorting Language- {lang} (Deco)";
 
             mods.AddRange(new List<INexusMod> {
                 new NexusMod {
@@ -67,10 +65,10 @@ public class SortedSkillsAndDecos : IMod {
 
             AddDecosSortedBySkillNameMods(mods, baseMod, baseLuaMod, lang, langGroupName, decoData, descriptionBySkill);
             AddDecosSortedByDecoNameMods(mods, baseMod, baseLuaMod, lang, langGroupName, decoData, descriptionByDeco);
-            AddSkillsSortedBySkillNameMods(mods, baseMod, baseLuaMod, lang, langGroupName, skillCommonData, descriptionSkillSoring);
         }
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        // TODO: Re-enable the REF options when sort ordering for them has been fixed.
+        ModMaker.WriteMods(mods.OfType<NexusMod>(), name, copyLooseToFluffy: true);
     }
 
     private static void AddDecosSortedBySkillNameMods(List<INexusMod> mods, NexusMod baseMod, VariousDataTweak baseLuaMod, Global.LangIndex lang, string langGroupName, List<App_user_data_AccessoryData_cData> data, string description) {
@@ -82,13 +80,21 @@ public class SortedSkillsAndDecos : IMod {
                 .SetName($"Sort Decos by Skill Name (Skill1, Skill2) (PAK, {lang})")
                 .SetDesc(description)
                 .SetAddonFor(langGroupName)
-                .SetFiles([PathHelper.DECORATION_DATA_PATH])
+                .SetFiles([
+                    PathHelper.DECORATION_DATA_PATH,
+                    @"\natives\STM\GameDesign\Catalog\First\Data\SortModeDefinition_AccessoryAll.user.3",
+                    @"\natives\STM\GameDesign\Catalog\First\Data\SortModeDefinition_AccessoryEquip.user.3",
+                ])
                 .SetAction(list => ApplyDecoSort(list, decosSortedByFirstSkillName)),
             baseMod
                 .SetName($"Sort Decos by Skill Name (Skill2, Skill1) (PAK, {lang})")
                 .SetDesc(description)
                 .SetAddonFor(langGroupName)
-                .SetFiles([PathHelper.DECORATION_DATA_PATH])
+                .SetFiles([
+                    PathHelper.DECORATION_DATA_PATH,
+                    @"\natives\STM\GameDesign\Catalog\First\Data\SortModeDefinition_AccessoryAll.user.3",
+                    @"\natives\STM\GameDesign\Catalog\First\Data\SortModeDefinition_AccessoryEquip.user.3",
+                ])
                 .SetAction(list => ApplyDecoSort(list, decosSortedBySecondSkillName)),
             baseLuaMod
                 .SetName($"Sort Decos by Skill Name (Skill1, Skill2) (REF, {lang})")
@@ -125,7 +131,11 @@ public class SortedSkillsAndDecos : IMod {
                 .SetName($"Sort Decos by Deco Name (PAK, {lang})")
                 .SetDesc(description)
                 .SetAddonFor(langGroupName)
-                .SetFiles([PathHelper.DECORATION_DATA_PATH])
+                .SetFiles([
+                    PathHelper.DECORATION_DATA_PATH,
+                    @"\natives\STM\GameDesign\Catalog\First\Data\SortModeDefinition_AccessoryAll.user.3",
+                    @"\natives\STM\GameDesign\Catalog\First\Data\SortModeDefinition_AccessoryEquip.user.3",
+                ])
                 .SetAction(list => ApplyDecoSort(list, decosSortedByDecoName)),
             baseLuaMod
                 .SetName($"Sort Decos by Deco Name (REF, {lang})")
@@ -172,6 +182,12 @@ public class SortedSkillsAndDecos : IMod {
                 case App_user_data_AccessoryData_cData deco:
                     deco.SortId = (uint) sortedDecos[deco.AccessoryId_Unwrapped];
                     break;
+                case App_user_data_SortModeDefinition_cSortOptionData data:
+                    // The list is either changed into bit flags, or it's going by the bottom first.
+                    foreach (var (_, orderings) in data.TargetOrderings) {
+                        orderings.Remove(App_SearchSortDef_SORT_ORDERING_Fixed.SLOT_LEVEL); // Stops the game from sorting by deco size *before* name.
+                    }
+                    break;
             }
         }
     }
@@ -179,63 +195,6 @@ public class SortedSkillsAndDecos : IMod {
     public static void ApplyDecoSortRef(StreamWriter writer, Dictionary<App_EquipDef_ACCESSORY_ID_Fixed, int> sortedDecos) {
         foreach (var (decoId, sortOrder) in sortedDecos) {
             writer.WriteLine($"    if (entry._AccessoryId._Value == {(int) decoId}) then");
-            writer.WriteLine($"        entry._SortId = {sortOrder}");
-            writer.WriteLine("    end");
-        }
-    }
-
-    private static void AddSkillsSortedBySkillNameMods(List<INexusMod> mods, NexusMod baseMod, VariousDataTweak baseLuaMod, Global.LangIndex lang, string langGroupName, List<App_user_data_SkillCommonData_cData> data, string description) {
-        var skillsSortedByName = GetSkillsSortedBySkillName(lang, data);
-
-        mods.AddRange(new List<INexusMod> {
-            baseMod
-                .SetName($"Sort Skills by Name (PAK, {lang})")
-                .SetDesc(description)
-                .SetAddonFor(langGroupName)
-                .SetFiles([PathHelper.SKILL_COMMON_DATA_PATH])
-                .SetAction(list => ApplySkillSort(list, skillsSortedByName)),
-            baseLuaMod
-                .SetName($"Sort Skills by Name (REF, {lang})")
-                .SetDesc(description)
-                .SetAddonFor(langGroupName)
-                .SetDefaultLuaName()
-                .SetChanges([
-                    new() {
-                        Target = VariousDataTweak.Target.SKILL_DATA,
-                        Action = writer => ApplySkillSortRef(writer, skillsSortedByName)
-                    }
-                ])
-                .SetSkipPak(true)
-        });
-    }
-
-    private static Dictionary<App_HunterDef_Skill_Fixed, int> GetSkillsSortedBySkillName(Global.LangIndex lang, List<App_user_data_SkillCommonData_cData> skillCommonData) {
-        var sortedSkills = (from skill in skillCommonData
-                            where skill.SkillId != 0 // Skip 'None'.
-                            orderby DataHelper.SKILL_NAME_BY_ENUM_VALUE[lang][skill.SkillId]
-                            select (App_HunterDef_Skill_Fixed) skill.SkillId).ToList();
-        Dictionary<App_HunterDef_Skill_Fixed, int> dict = new(sortedSkills.Count);
-        for (var i = 0; i < sortedSkills.Count; i++) {
-            dict[sortedSkills[i]] = i + 100;
-        }
-        return dict;
-    }
-
-    public static void ApplySkillSort(List<RszObject> rszObjectData, Dictionary<App_HunterDef_Skill_Fixed, int> sortedSkills) {
-        foreach (var obj in rszObjectData) {
-            switch (obj) {
-                case App_user_data_SkillCommonData_cData skill:
-                    if (skill.SkillId != (int) App_HunterDef_Skill_Fixed.NONE) {
-                        skill.SortId = sortedSkills[(App_HunterDef_Skill_Fixed) skill.SkillId];
-                    }
-                    break;
-            }
-        }
-    }
-
-    public static void ApplySkillSortRef(StreamWriter writer, Dictionary<App_HunterDef_Skill_Fixed, int> sortedSkills) {
-        foreach (var (skillId, sortOrder) in sortedSkills) {
-            writer.WriteLine($"    if (entry._skillId == {(int) skillId}) then");
             writer.WriteLine($"        entry._SortId = {sortOrder}");
             writer.WriteLine("    end");
         }
