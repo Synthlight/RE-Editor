@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using RE_Editor.Common;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
+using RE_Editor.Constants;
 using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
@@ -66,6 +67,8 @@ public class ShopTweaks : IMod {
     }
 
     private static Mode? GetMode(App_user_data_ItemData_cData item) {
+        if (item.ItemId == (int) ItemConstants.PARA_POD) return null;
+
         switch (item.Type) {
             case App_ItemDef_TYPE_Fixed.EXPENDABLE:
                 return Mode.CONSUMABLES;
