@@ -61,15 +61,6 @@ public class BingoBrawlers : IMod {
             Desc         = description
         };
 
-        /*
-        @"\natives\STM\GameDesign\Mission\_UserData\_Reward\AddRewardData.user.3",
-        @"\natives\STM\GameDesign\Mission\_UserData\_Reward\CommonRewardData.user.3",
-        @"\natives\STM\GameDesign\Mission\_UserData\_Reward\QuestRewardSetting.user.3",
-        @"\natives\STM\GameDesign\Mission\_UserData\_Reward\QuestRewardVariousData.user.3",
-        @"\natives\STM\GameDesign\Mission\_UserData\_Reward\RewardLotProbabilityTable.user.3",
-        @"\natives\STM\GameDesign\Mission\_UserData\_Reward\RewardNumTable.user.3",
-        */
-
         Dictionary<string, Dictionary<int, App_WeaponDef_SERIES_Fixed>> weaponToRecipeIdToSeriesIdMap  = [];
         List<int>                                                       recipeIdsOfLastUpgradeInSeries = [];
 
@@ -212,77 +203,6 @@ public class BingoBrawlers : IMod {
                     break;
             }
         }
-    }
-
-    public static void ModDrops(List<RszObject> rszObjectData) {
-        const uint commonRewardTableId         = 8000u;
-        const uint rewardLotProbabilityTableId = 8000u;
-
-        foreach (var obj in rszObjectData) {
-            switch (obj) {
-                case App_user_data_QuestGeneralRewardData rewardData:
-                    if (rewardData.Values.Count < 10) { // Assume it's the 'Add' reward data file.
-                        foreach (var entry in rewardData.Values) {
-                            var reward = (App_user_data_QuestGeneralRewardData_cData) entry;
-                            if (reward.TableId == 100) {
-                                reward.AddLotType_Unwrapped = App_RewardDef_REWARD_ADD_LOT_TYPE_Fixed.REM_ITEM_ALL_GET_3;
-                            }
-                        }
-                    } else {
-                        var dataId    = 8000u;
-                        var data      = rewardData.Values.Cast<App_user_data_QuestGeneralRewardData_cData>().ToList();
-                        var lastIndex = data.Max(entry => entry._Index);
-
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, ItemConstants.GOLD_MELDING_TICKET, 1, 100));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, ItemConstants.SILVER_MELDING_TICKET, 1, 100));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, ItemConstants.HEAVY_ARMOR_SPHERE, 1, 100));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, App_ItemDef_ID_Fixed.NONE, 0, 0));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, App_ItemDef_ID_Fixed.NONE, 0, 0));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, App_ItemDef_ID_Fixed.NONE, 0, 0));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, App_ItemDef_ID_Fixed.NONE, 0, 0));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, App_ItemDef_ID_Fixed.NONE, 0, 0));
-                        data.Add(MakeGeneralRewardData(rewardData.rsz, data, ref dataId, ref lastIndex, commonRewardTableId, App_ItemDef_ID_Fixed.NONE, 0, 0));
-                        rewardData.Values = [.. data];
-                    }
-                    break;
-                case App_user_data_QuestRewardSetting_cData questRewardData:
-                    questRewardData.CommonRewardTableId    = commonRewardTableId;
-                    questRewardData.TargetAddRewardTableId = 100; // Should be random potions.
-                    break;
-                case App_user_data_QuestRewardVariousData questRewardVariousData:
-                    questRewardVariousData.QuestCommonRewardLotProbabilityTableId = rewardLotProbabilityTableId;
-                    questRewardVariousData.QuestCommonRewardConfirmNum            = 3;
-                    break;
-                case App_user_data_RewardLotProbabilityTable rewardLotProbabilityData:
-                    var newLot = App_user_data_RewardLotProbabilityTable_cData.Create(rewardLotProbabilityData.rsz);
-                    newLot.TableId     = rewardLotProbabilityTableId;
-                    newLot.DataId      = rewardLotProbabilityTableId;
-                    newLot.AddLotNum   = 1;
-                    newLot.Probability = 100;
-                    rewardLotProbabilityData.Values.Add(newLot);
-                    break;
-                case App_user_data_RewardNumTableData rewardNumTableData:
-                    var newNumData = App_user_data_RewardNumTableData_cData.Create(rewardNumTableData.rsz);
-                    newNumData.TargetNum   = 1;
-                    newNumData.ConfirmNum  = 3;
-                    newNumData.LotTableNum = rewardLotProbabilityTableId;
-                    rewardNumTableData.Values.Add(newNumData);
-                    break;
-            }
-        }
-    }
-
-    private static App_user_data_QuestGeneralRewardData_cData MakeGeneralRewardData(RSZ rsz, List<App_user_data_QuestGeneralRewardData_cData> data, ref uint dataId, ref int lastIndex, uint tableId, App_ItemDef_ID_Fixed itemId, short quantity, int probability) {
-        var entry = App_user_data_QuestGeneralRewardData_cData.Create(rsz);
-        entry._Index                  = lastIndex++;
-        entry.DataId                  = dataId++;
-        entry.TableId                 = tableId;
-        entry.AddLotType_Unwrapped    = App_RewardDef_REWARD_ADD_LOT_TYPE_Fixed.REM_ITEM_ALL_GET_3;
-        entry.CommonLotType_Unwrapped = App_RewardDef_REWARD_COMMON_LOT_TYPE_Fixed.REM_ITEM_ALL_GET;
-        entry.ItemId_Unwrapped        = itemId;
-        entry.Num                     = quantity;
-        entry.Probability             = probability;
-        return entry;
     }
 
     private static App_ItemDef_ID_Fixed GetRequiredItemBy(App_ArmorDef_SERIES_Fixed seriesId) {
