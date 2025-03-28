@@ -4,6 +4,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using ICSharpCode.SharpZipLib.Zip;
 using RE_Editor.Common;
@@ -144,10 +145,26 @@ public static class ModMaker {
             }
 
             if (mod.AdditionalFiles?.Any() == true) {
-                foreach (var (dest, sourceFile) in mod.AdditionalFiles) {
+                foreach (var (dest, obj) in mod.AdditionalFiles) {
                     var outFile = @$"{modPath}\{dest}";
                     Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
-                    File.Copy(sourceFile, outFile);
+                    switch (obj) {
+                        case string sourceFile:
+                            File.Copy(sourceFile, outFile);
+                            break;
+                        case byte[] bytes:
+                            using (var file = new StreamWriter(File.Open(outFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None))) {
+                                file.Write($"-- {mod.NameOverride ?? mod.Name}\n" +
+                                           "-- By LordGregory\n\n" +
+                                           $"local version = \"{mod.Version}\"\n" +
+                                           $"log.info(\"Initializing `{mod.NameOverride ?? mod.Name}` v\" .. version)\n\n");
+                                file.Flush();
+                                file.BaseStream.Write(bytes);
+                            }
+                            break;
+                        default:
+                            throw new InvalidDataException($"Source LUA data is of an unsupported type: {obj.GetType()}");
+                    }
                     if (dest.StartsWith("natives")) {
                         nativesFiles.Add(outFile);
                     } else {

@@ -22,7 +22,7 @@ public interface INexusMod {
     public string?                      NameAsBundle    { get; set; }
     public string?                      AddonFor        { get; set; }
     public bool                         SkipPak         { get; set; }
-    public Dictionary<string, string>?  AdditionalFiles { get; set; }
+    public Dictionary<string, object>?  AdditionalFiles { get; set; }
 }
 
 public struct NexusMod : INexusMod {
@@ -38,7 +38,7 @@ public struct NexusMod : INexusMod {
     public string?                      NameAsBundle    { get; set; }
     public string?                      AddonFor        { get; set; }
     public bool                         SkipPak         { get; set; }
-    public Dictionary<string, string>?  AdditionalFiles { get; set; }
+    public Dictionary<string, object>?  AdditionalFiles { get; set; }
 
     [Pure]
     public readonly override string ToString() {
@@ -107,7 +107,7 @@ public static class NexusModExtensions {
         return nexusMod;
     }
 
-    public static T SetAdditionalFiles<T>(this T nexusMod, Dictionary<string, string> additionalFiles) where T : INexusMod {
+    public static T SetAdditionalFiles<T>(this T nexusMod, Dictionary<string, object> additionalFiles) where T : INexusMod {
         nexusMod.AdditionalFiles = additionalFiles;
         return nexusMod;
     }
