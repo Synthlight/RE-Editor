@@ -160,6 +160,15 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
 		</None>
+		<Compile Update="Mods\MHWS\ModResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ModResources.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Mods\MHWS\ModResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>ModResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup Condition="'!$(Configuration.StartsWith(`MHWS`))'">
 		<Compile Remove="Constants\MHWS\**"/>
