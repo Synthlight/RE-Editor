@@ -18,8 +18,11 @@ public static partial class DataHelper {
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> ITEM_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  MEDAL_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> MEDAL_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> PENDANT_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<int, string>>  PENDANT_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  SKILL_NAME_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> TALISMAN_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> TITLE_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> WEAPON_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<int, string>>  WEAPON_SERIES_BY_ENUM_VALUE;
 }

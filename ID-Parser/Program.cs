@@ -102,6 +102,51 @@ public static partial class Program {
         writer.WriteLine("}");
     }
 
+    private static void CreateLuaConstantsFile<T>(Dictionary<string, T> engDict, string className, bool asHex = false) where T : notnull {
+        Directory.CreateDirectory(CONSTANTS_DIR);
+        using var writer = new StreamWriter(File.Create($@"{CONSTANTS_DIR}\{className}.lua"));
+        writer.WriteLine($"{className} = {{");
+        var regex     = new Regex(@"^\d");
+        var namesUsed = new List<string?>(engDict.Count);
+        engDict = engDict.Sort(pair => pair.Key);
+        foreach (var (name, value) in engDict) {
+            if (name.ToLower().Contains("#rejected#")
+                || name.ToLower().Contains('?')) {
+                continue;
+            }
+            var constName = name.ToUpper()
+                                .Replace("'", "")
+                                .Replace("\"", "")
+                                .Replace(",", "")
+                                .Replace(".", "")
+                                .Replace("(", "")
+                                .Replace(")", "")
+                                .Replace("/", "_")
+                                .Replace("&", "AND")
+                                .Replace("+", "_PLUS")
+                                .Replace("%", "_PERCENT")
+                                .Replace('-', '_')
+                                .Replace(' ', '_')
+                                .Replace(':', '_')
+                                .Replace('{', '_')
+                                .Replace('}', '_')
+                                .Replace('[', '_')
+                                .Replace(']', '_')
+                                .Replace('!', '_');
+            if (regex.Match(constName).Success) constName = $"_{constName}";
+            if (namesUsed.Contains(constName)) continue;
+            namesUsed.Add(constName);
+            if (typeof(T) == typeof(string)) {
+                writer.WriteLine($"    {constName} = \"{value}\";");
+            } else if (typeof(T).IsEnum) {
+                writer.WriteLine($"    {constName} = {((int) (object) value)},");
+            } else {
+                throw new NotImplementedException($"{typeof(T)} is not implemented for LUA constants file.");
+            }
+        }
+        writer.WriteLine("}");
+    }
+
     // ReSharper disable once IdentifierTypo
     public static Dictionary<Global.LangIndex, Dictionary<T, string>> Merge<T>(params IList<Dictionary<Global.LangIndex, Dictionary<T, string>>> dicts) where T : notnull {
         var dict = new Dictionary<Global.LangIndex, Dictionary<T, string>>(Global.LANGUAGES.Count);

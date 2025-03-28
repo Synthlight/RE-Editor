@@ -183,6 +183,26 @@ namespace RE_Editor.Data.MHWS {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] PENDANT_INFO_LOOKUP_BY_GUID {
+            get {
+                object obj = ResourceManager.GetObject("PENDANT_INFO_LOOKUP_BY_GUID", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PENDANT_NAME_LOOKUP_BY_ENUM_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("PENDANT_NAME_LOOKUP_BY_ENUM_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SKILL_NAME_BY_ENUM_VALUE {
             get {
                 object obj = ResourceManager.GetObject("SKILL_NAME_BY_ENUM_VALUE", resourceCulture);
@@ -226,6 +246,16 @@ namespace RE_Editor.Data.MHWS {
         internal static byte[] WEAPON_INFO_LOOKUP_BY_GUID {
             get {
                 object obj = ResourceManager.GetObject("WEAPON_INFO_LOOKUP_BY_GUID", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WEAPON_SERIES_BY_ENUM_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("WEAPON_SERIES_BY_ENUM_VALUE", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -16,6 +16,7 @@ public static class Program {
         var passed = 0;
         var failed = 0;
         var total  = 0;
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var result in results.Results.UnitTestResults) {
             if (!result.TestName.StartsWith(testName)) continue;
 

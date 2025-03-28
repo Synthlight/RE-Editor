@@ -5,5 +5,7 @@ public enum DataSourceType {
     ENEMIES,
     ITEMS,
     MEDALS,
+    PENDANTS,
     SKILLS,
+    WEAPON_SERIES,
 }

@@ -15,6 +15,10 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/ArmorSeriesData.user.3\""
         },
+        "Charm.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/Charm.user.3\""
+        },
         "DecorationData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/AccessoryData.user.3\""

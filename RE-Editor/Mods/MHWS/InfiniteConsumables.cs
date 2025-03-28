@@ -6,6 +6,7 @@ using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Constants;
 using RE_Editor.Models;
+using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
 
@@ -13,7 +14,7 @@ namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class InfiniteConsumables : IMod {
-    private static readonly List<uint> COVERED_ITEMS = [
+    private static readonly List<App_ItemDef_ID_Fixed> COVERED_ITEMS = [
         ItemConstants.POTION,
         ItemConstants.MEGA_POTION,
         ItemConstants.ANTIDOTE,
@@ -85,7 +86,7 @@ public class InfiniteConsumables : IMod {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_ItemData_cData item:
-                    if (COVERED_ITEMS.Contains((uint) item.ItemId)) {
+                    if (COVERED_ITEMS.Contains((App_ItemDef_ID_Fixed) item.ItemId)) {
                         item.Infinit = true;
                     }
                     break;

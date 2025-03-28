@@ -146,6 +146,11 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         file.WriteLine($"    // {field.name}");
         file.WriteLine($"    // {field.originalType}");
         if (typeName!.StartsWith("System_ValueTuple")) {
+            if (field.twoGenericsInfo == null) {
+                // TODO: Make a better system to parse whatever generic args it actually has.
+                // (Incl. handling that types might be primitives using the `System.X` name.)
+                return;
+            }
             var twoGenericsInfo = field.twoGenericsInfo!.Value;
             file.WriteLine($"    [SortOrder({sortOrder})]");
             if (field.array) {
@@ -347,6 +352,12 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 newName += usedNamesLocal[newName].ToString();
             }
 
+            if (typeName!.StartsWith("System_ValueTuple") && field.twoGenericsInfo == null) {
+                // TODO: Make a better system to parse whatever generic args it actually has.
+                // (Incl. handling that types might be primitives using the `System.X` name.)
+                continue;
+            }
+
             // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (newName == Global.BITSET_FIELD_NAME && className == Global.BITSET_NAME && !className.EndsWith("NoEnum")) {
                 file.WriteLine($"        obj.{newName} = new(1234);"); // There's no enum data to work with. I'm just using a random value here.
@@ -432,6 +443,11 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 
             // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (typeName!.StartsWith("System_ValueTuple")) {
+                if (field.twoGenericsInfo == null) {
+                    // TODO: Make a better system to parse whatever generic args it actually has.
+                    // (Incl. handling that types might be primitives using the `System.X` name.)
+                    continue;
+                }
                 file.WriteLine($"        foreach (var x in {newName}) {{");
                 var twoGenericsInfo = field.twoGenericsInfo!.Value;
 
@@ -513,7 +529,9 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             DataSourceType.ENEMIES => nameof(DataHelper.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.ITEMS => nameof(DataHelper.ITEM_NAME_LOOKUP),
             DataSourceType.MEDALS => nameof(DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE),
+            DataSourceType.PENDANTS => nameof(DataHelper.PENDANT_NAME_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.SKILLS => nameof(DataHelper.SKILL_NAME_BY_ENUM_VALUE),
+            DataSourceType.WEAPON_SERIES => nameof(DataHelper.WEAPON_SERIES_BY_ENUM_VALUE),
 #elif RE2
             DataSourceType.ITEMS => nameof(DataHelper.ITEM_NAME_LOOKUP),
             DataSourceType.WEAPONS => nameof(DataHelper.WEAPON_NAME_LOOKUP),

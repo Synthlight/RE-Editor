@@ -35,6 +35,14 @@ public class Guid : RszObject, ISimpleViaType {
     public override string ToString() {
         return Value.ToString();
     }
+
+    public static implicit operator System.Guid(Guid input) {
+        return input.Value;
+    }
+
+    public static implicit operator Guid(System.Guid input) {
+        return new Guid {Value = input};
+    }
 }
 
 public class GuidTypeConverter : TypeConverter {

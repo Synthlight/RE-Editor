@@ -47,6 +47,8 @@ public static class Utils {
             DataSourceType.ITEMS => DataHelper.ITEM_NAME_LOOKUP[Global.locale],
             DataSourceType.MEDALS => DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],
             DataSourceType.SKILLS => DataHelper.SKILL_NAME_BY_ENUM_VALUE[Global.locale],
+            DataSourceType.PENDANTS => DataHelper.PENDANT_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],
+            DataSourceType.WEAPON_SERIES => DataHelper.WEAPON_SERIES_BY_ENUM_VALUE[Global.locale],
 #elif RE4
             DataSourceType.ITEMS => DataHelper.ITEM_NAME_LOOKUP[Global.variant][Global.locale],
             DataSourceType.WEAPONS => DataHelper.WEAPON_NAME_LOOKUP[Global.variant][Global.locale],

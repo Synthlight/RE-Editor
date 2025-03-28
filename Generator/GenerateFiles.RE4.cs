@@ -49,5 +49,8 @@ public partial class GenerateFiles {
         "Chainsaw_SpCategory01EvaluationSetting",
         "Chainsaw_SpCategory02EvaluationSetting",
         "Chainsaw_SpCategory03EvaluationSetting",
+
+        // For debugging:
+        "Chainsaw_Ch4fez0ParamUserData", // Has a `Struct` `System.ValueTuple`1<System.Single>`.
     ];
 }

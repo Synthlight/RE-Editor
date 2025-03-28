@@ -123,6 +123,9 @@ public class StructType(string name, string? parent, string hash, StructJson str
             case "App_ArmorDef_SERIES_Serializable.Value": return DataSourceType.ARMOR_SERIES;
             case "App_HunterDef_Skill_Serializable.Value": return DataSourceType.SKILLS;
             case "App_HunterProfileDef_MEDAL_ID_Serializable.Value": return DataSourceType.MEDALS;
+            case "App_ItemDef_ID_Serializable.Value": return DataSourceType.ITEMS;
+            case "App_WeaponCharmDef_TYPE_Serializable.Value": return DataSourceType.PENDANTS;
+            case "App_WeaponDef_SERIES_Serializable.Value": return DataSourceType.WEAPON_SERIES;
 #endif
         }
 #pragma warning restore CS1522
@@ -155,6 +158,8 @@ public class StructType(string name, string? parent, string hash, StructJson str
             "app.HunterDef.Skill_Fixed" => DataSourceType.SKILLS,
             "app.HunterProfileDef.MEDAL_ID_Fixed" => DataSourceType.MEDALS,
             "app.ItemDef.ID_Fixed" => DataSourceType.ITEMS,
+            "app.WeaponCharmDef.TYPE_Fixed" => DataSourceType.PENDANTS,
+            "app.WeaponDef.SERIES_Fixed" => DataSourceType.WEAPON_SERIES,
 #elif RE2
             "app.ropeway.gamemastering.Item.ID" => DataSourceType.ITEMS,
             "app.ropeway.EquipmentDefine.WeaponType" => DataSourceType.WEAPONS,
@@ -176,6 +181,8 @@ public class StructType(string name, string? parent, string hash, StructJson str
             DataSourceType.ENEMIES => "int",
             DataSourceType.MEDALS => "int",
             DataSourceType.SKILLS => "int",
+            DataSourceType.PENDANTS => "int",
+            DataSourceType.WEAPON_SERIES => "int",
 #endif
             null => null,
             _ => "uint"

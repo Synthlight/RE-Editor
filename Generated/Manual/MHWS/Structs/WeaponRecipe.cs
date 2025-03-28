@@ -1,7 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using RE_Editor.Common;
-using RE_Editor.Common.Attributes;
-using RE_Editor.Common.Data;
 using RE_Editor.Models.Enums;
 
 namespace RE_Editor.Models.Structs;
@@ -10,17 +7,7 @@ namespace RE_Editor.Models.Structs;
 [SuppressMessage("ReSharper", "UnusedMember.Global")]
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
 [SuppressMessage("ReSharper", "UnusedType.Global")]
-public partial class App_user_data_WeaponData_cData {
-    [SortOrder(50)]
-    public string Name_ => DataHelper.WEAPON_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Name.Value);
-
-    [SortOrder(int.MaxValue)]
-    public string Description_ => DataHelper.WEAPON_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Explain.Value);
-
-    public override string ToString() {
-        return Name_;
-    }
-
+public partial class App_user_data_WeaponRecipeData_cData {
     public int GetUsedEnumIdValue() {
         if (LongSword != App_WeaponDef_LongSwordId_Fixed.INVALID) return (int) LongSword;
         if (ShortSword != App_WeaponDef_ShortSwordId_Fixed.INVALID) return (int) ShortSword;
