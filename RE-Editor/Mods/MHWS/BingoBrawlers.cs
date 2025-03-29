@@ -177,7 +177,7 @@ public class BingoBrawlers : IMod {
                     if (requiredWeaponItem != App_ItemDef_ID_Fixed.INVALID) {
                         weaponRecipe.Item[0].Value    = (int) requiredWeaponItem;
                         weaponRecipe.ItemNum[0].Value = 1;
-                        if (requiredWeaponItem == ItemConstants.GOLD_MELDING_TICKET && recipeIdsOfLastUpgradeInSeries.Contains(weaponRecipe.RecipeNo)) {
+                        if (requiredWeaponItem == ItemConstants.GOLD_MELDING_TICKET) {
                             weaponRecipe.ItemNum[0].Value = 3;
                         }
                     }
