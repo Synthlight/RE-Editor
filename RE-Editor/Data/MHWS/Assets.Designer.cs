@@ -103,6 +103,16 @@ namespace RE_Editor.Data.MHWS {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DECORATION_INFO_LOOKUP_BY_ENUM_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("DECORATION_INFO_LOOKUP_BY_ENUM_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DECORATION_INFO_LOOKUP_BY_GUID {
             get {
                 object obj = ResourceManager.GetObject("DECORATION_INFO_LOOKUP_BY_GUID", resourceCulture);

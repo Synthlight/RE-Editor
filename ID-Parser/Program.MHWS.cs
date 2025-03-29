@@ -11,7 +11,7 @@ public static partial class Program {
         ExtractArmorInfoByGuid();
         ExtractArmorSeriesInfoByGuid();
         ExtractArtianInfoByGuid();
-        ExtractDecorationInfoByGuid();
+        ExtractDecorationInfo();
         ExtractEnemyInfoByName();
         ExtractItemInfoByName();
         ExtractItemInfoByGuid();
@@ -73,11 +73,23 @@ public static partial class Program {
         CreateAssetFile(msg, "ARTIAN_INFO_LOOKUP_BY_GUID");
     }
 
-    private static void ExtractDecorationInfoByGuid() {
-        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Accessory.msg.{Global.MSG_VERSION}")
-                     .GetLangGuidMap();
-        DataHelper.ITEM_INFO_LOOKUP_BY_GUID = msg;
-        CreateAssetFile(msg, "DECORATION_INFO_LOOKUP_BY_GUID");
+    private static void ExtractDecorationInfo() {
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Accessory.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.ITEM_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "DECORATION_INFO_LOOKUP_BY_GUID");
+
+        var regex = new Regex(@"Accessory_ACC_(m?\d+)");
+        var msgByEnum = msg.GetLangIdMap<App_EquipDef_ACCESSORY_ID_Fixed>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return (App_EquipDef_ACCESSORY_ID_Fixed) int.Parse(value);
+        });
+        var msgByValue = msgByEnum.ConvertTo<App_EquipDef_ACCESSORY_ID_Fixed, int>();
+        DataHelper.DECORATION_INFO_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "DECORATION_INFO_LOOKUP_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "DecorationConstants");
     }
 
     private static void ExtractEnemyInfoByName() {

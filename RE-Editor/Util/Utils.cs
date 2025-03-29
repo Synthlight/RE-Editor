@@ -43,6 +43,7 @@ public static class Utils {
             DataSourceType.SWITCH_SKILLS => DataHelper.SWITCH_SKILL_NAME_LOOKUP[Global.locale],
 #elif MHWS
             DataSourceType.ARMOR_SERIES => DataHelper.ARMOR_SERIES_BY_ENUM_VALUE[Global.locale],
+            DataSourceType.DECORATIONS => DataHelper.DECORATION_INFO_LOOKUP_BY_ENUM_VALUE[Global.locale],
             DataSourceType.ENEMIES => DataHelper.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],
             DataSourceType.ITEMS => DataHelper.ITEM_NAME_LOOKUP[Global.locale],
             DataSourceType.MEDALS => DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],

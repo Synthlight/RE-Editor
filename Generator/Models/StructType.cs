@@ -121,6 +121,8 @@ public class StructType(string name, string? parent, string hash, StructJson str
                 return DataSourceType.ITEMS;
 #elif MHWS
             case "App_ArmorDef_SERIES_Serializable.Value": return DataSourceType.ARMOR_SERIES;
+            case "App_EquipDef_ACCESSORY_ID_Fixed.Value": return DataSourceType.DECORATIONS;
+            case "App_EnemyDef_ID_Fixed.Value": return DataSourceType.ENEMIES;
             case "App_HunterDef_Skill_Serializable.Value": return DataSourceType.SKILLS;
             case "App_HunterProfileDef_MEDAL_ID_Serializable.Value": return DataSourceType.MEDALS;
             case "App_ItemDef_ID_Serializable.Value": return DataSourceType.ITEMS;
@@ -155,6 +157,7 @@ public class StructType(string name, string? parent, string hash, StructJson str
 #elif MHWS
             "app.ArmorDef.SERIES_Fixed" => DataSourceType.ARMOR_SERIES,
             "app.EnemyDef.ID_Fixed" => DataSourceType.ENEMIES,
+            "app.EquipDef.ACCESSORY_ID_Fixed" => DataSourceType.DECORATIONS,
             "app.HunterDef.Skill_Fixed" => DataSourceType.SKILLS,
             "app.HunterProfileDef.MEDAL_ID_Fixed" => DataSourceType.MEDALS,
             "app.ItemDef.ID_Fixed" => DataSourceType.ITEMS,
@@ -178,6 +181,7 @@ public class StructType(string name, string? parent, string hash, StructJson str
         return fieldButtonType switch {
 #if MHWS
             DataSourceType.ARMOR_SERIES => "int",
+            DataSourceType.DECORATIONS => "int",
             DataSourceType.ENEMIES => "int",
             DataSourceType.MEDALS => "int",
             DataSourceType.SKILLS => "int",
