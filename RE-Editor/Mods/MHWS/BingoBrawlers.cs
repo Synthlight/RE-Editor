@@ -35,11 +35,13 @@ namespace RE_Editor.Mods;
  *    - Silver cert
  *    - Hard (red) armor sphere
  *    - Monster specific cert, or a mega potion if there isn't one.
- *    - They'll always appear in this order, so if something is giving you a MP when it should be giving you some cert, let me know.
+ *    - They'll always appear in this order, so if something is giving you a mega potion when it should be giving you some cert, let me know.
  *  - Large monster carves are mega potions.
  *  - Recipes are set so:
- *    - Weapons/armor/weapon upgrades are all 10k.
+ *    - Weapons/armor/weapon forging are all 5k.
+ *    - Armor upgrades are 500 per level.
  *    - Weapons/armor use a monster cert, or a gold cert for the rest.
+ *    - Only the last weapon upgrade is available, no upgrade needed.
  *    - Kinsects craft/upgrade with one silver cert.
  *    - Hope/expedition/ore and other non-monster tree weapons require 3 golden certs to upgrade.
  *      - Exceptions:
@@ -97,6 +99,7 @@ public class BingoBrawlers : IMod {
                                     .Append([
                                         PathHelper.ARMOR_RECIPE_DATA_PATH,
                                         PathHelper.ARMOR_SERIES_DATA_PATH,
+                                        PathHelper.ARMOR_UPGRADE_DATA_PATH,
                                         PathHelper.KINSECT_RECIPE_DATA_PATH,
                                     ]))
                 .SetAction(list => ModRecipes(list, weaponToRecipeIdToSeriesIdMap, recipeIdsOfLastUpgradeInSeries)),
@@ -116,7 +119,10 @@ public class BingoBrawlers : IMod {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_ArmorSeriesData_cData armor: // Armor
-                    armor.Price = 10000;
+                    armor.Price = 5000;
+                    break;
+                case App_user_data_ArmorUpgradeData_cData armorUpgrade: // Armor Upgrade
+                    armorUpgrade.Price = 500;
                     break;
                 case App_user_data_ArmorRecipeData_cData armorRecipe: // Armor Recipe
                     armorRecipe.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
@@ -150,7 +156,7 @@ public class BingoBrawlers : IMod {
                     kinsectRecipe.ItemNum[0].Value = 1;
                     break;
                 case App_user_data_WeaponData_cData weapon: // Weapon
-                    weapon.Price = 10000;
+                    weapon.Price = 5000;
                     break;
                 case App_user_data_WeaponRecipeData_cData weaponRecipe: // Weapon Recipe
                     weaponRecipe.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
@@ -189,13 +195,10 @@ public class BingoBrawlers : IMod {
 
                     var newEntries = new List<App_user_data_WeaponTree_cWeaponTree>(lastTwoByRow.Count * 2);
                     foreach (var (_, lastTwo) in lastTwoByRow) {
-                        lastTwo[0].PreDataGuidList  = [];
-                        lastTwo[0].NextDataGuidList = [lastTwo[1].Guid.Value];
-                        lastTwo[0].ColumnDataLevel  = 0;
-                        lastTwo[1].PreDataGuidList  = [lastTwo[0].Guid.Value];
+                        lastTwo[1].PreDataGuidList  = [];
                         lastTwo[1].NextDataGuidList = [];
-                        lastTwo[1].ColumnDataLevel  = 1;
-                        newEntries.AddRange(lastTwo);
+                        lastTwo[1].ColumnDataLevel  = 0;
+                        newEntries.Add(lastTwo[1]);
                     }
                     tree.WeaponTreeList = new(newEntries);
                     break;
