@@ -1,3 +1,5 @@
+local LOG_DEBUG = false
+
 sdk.hook(sdk.find_type_definition("app.EnemyRewardUtil"):get_method("getRewardItemData(app.EnemyDef.ID, app.EnemyReward.RewardType, System.Int32, System.Int32)"), function(args) end, function (retval)
     FixRewards(retval, Mode.EnemyRewardUtil_getRewardItemDataPost)
     return retval
@@ -19,7 +21,7 @@ sdk.hook(sdk.find_type_definition("app.QuestRewardUtil"):get_method("getTargetRe
 end)
 
 function FixRewards(ptr, mode) -- List<cSendItemInfo>
-    --log.info(mode .. ": Changing rewards.")
+    if (LOG_DEBUG) then log.info(mode .. ": Changing rewards.") end
 
     if (ptr == 0) then return end
     local sendItemInfo = sdk.to_managed_object(ptr)
@@ -27,14 +29,24 @@ function FixRewards(ptr, mode) -- List<cSendItemInfo>
 
     local count = sendItemInfo:get_Count()
 
-    --log.info(mode .. ": Starting item dump.")
-    --log.info(mode .. ": Item count: " .. count)
+--  if (LOG_DEBUG and count > 0) then
+--      local isCarveType    = sendItemInfo[0]:get_field("<LogType>k__BackingField") == LogType.HAGITORI
+--      local enemyId        = sendItemInfo[0]:get_field("<EnemyId>k__BackingField")
+--      local isLargeMonster = tableContains(EnemyConstants, sendItemInfo[0]:get_field("<EnemyId>k__BackingField"))
+
+--      log.info(mode .. ": isCarveType:    " .. toStrinOrNull(isCarveType))
+--      log.info(mode .. ": enemyId:        " .. toStrinOrNull(enemyId))
+--      log.info(mode .. ": isLargeMonster: " .. toStrinOrNull(isLargeMonster))
+--  end
+
+    if (LOG_DEBUG) then log.info(mode .. ": Starting item dump.") end
+    if (LOG_DEBUG) then log.info(mode .. ": Item count: " .. count) end
 
     if (mode == Mode.QuestGeneralRewardUtil_getRewardItemDataPost and count > 0) then
         log.info(mode .. ": Clearing extra rewards.")
         sendItemInfo:Clear()
     elseif (mode == Mode.QuestRewardUtil_getTargetRewardPost and count > 0) then
-        log.info(mode .. ": Changing rewards for BB.")
+        log.info(mode .. ": Changing rewards for Bingo Brawlers.")
 
         local enemyId             = sendItemInfo[0]:get_field("<EnemyId>k__BackingField")
         local monsterSpecificItem = GetMonsterSpecificReward(enemyId) -- Defaults to mega potion if there's nothing for the given monster.
@@ -50,6 +62,26 @@ function FixRewards(ptr, mode) -- List<cSendItemInfo>
         sendItemInfo[3]:set_field("<Num>k__BackingField", 1)
 
         while (sendItemInfo:get_Count() > 4) do sendItemInfo:RemoveAt(4) end
+    elseif (mode == Mode.EnemyRewardUtil_getRewardItemDataPost and count > 0
+            and sendItemInfo[0]:get_field("<LogType>k__BackingField") == LogType.HAGITORI
+            and tableContains(EnemyConstants, sendItemInfo[0]:get_field("<EnemyId>k__BackingField"))) then
+        log.info(mode .. ": Making carves mega potions.")
+
+            for i = 0, count - 1 do
+                sendItemInfo[i]:set_field("<ItemId>k__BackingField", ItemConstants.MEGA_POTION)
+            end
+    end
+
+    if (LOG_DEBUG and count > 0) then 
+        for i = 0, count - 1 do
+            log.info(mode .. ": ItemId: " .. toStrinOrNull(sendItemInfo[i]:get_field("<ItemId>k__BackingField"))
+                .. ", EnemyId: " .. toStrinOrNull(sendItemInfo[i]:get_field("<EnemyId>k__BackingField"))
+                .. ", IsReceived: " .. toStrinOrNull(sendItemInfo[i]:get_field("<IsReceived>k__BackingField"))
+                .. ", LogType: " .. toStrinOrNull(sendItemInfo[i]:get_field("<LogType>k__BackingField"))
+                .. ", Param: " .. toStrinOrNull(sendItemInfo[i]:get_field("<Param>k__BackingField"))
+                .. ", Num: " .. toStrinOrNull(sendItemInfo[i]:get_field("<Num>k__BackingField"))
+                .. ", OverNum: " .. toStrinOrNull(sendItemInfo[i]:get_field("<OverNum>k__BackingField")));
+        end
     end
 end
 
@@ -83,9 +115,32 @@ function GetMonsterSpecificReward(enemyId)
     elseif (enemyId == EnemyConstants.YIAN_KUT_KU) then return ItemConstants.YIAN_KUT_KU_CERTIFICATE_S
     else
         -- Includes EnemyConstants.ZOH_SHIA for now, not re-fight-able.
-        log.info("Not adding special rewards for EnemyID: " .. enemyId)
+        log.info("Not adding special rewards for EnemyID: " .. toStrinOrNull(enemyId))
         return ItemConstants.MEGA_POTION
     end
+end
+
+function tableContains(data, value)
+    for k, v in pairs(data) do
+        if (v == value) then
+            return true
+        end
+    end
+    return false
+end
+
+function tableGetNameOfValue(data, value)
+    for k, v in pairs(data) do
+        if (v == value) then
+            return k
+        end
+    end
+    return nil
+end
+
+function toStrinOrNull(obj)
+    if (obj == nil) then return "null" end
+    return tostring(obj)
 end
 
 Mode = {
@@ -740,7 +795,7 @@ ItemConstants = {
     XU_WU_TENTACLE = 441,
     XU_WU_TENTACLE_PLUS = 448,
     XU_WU_UMBRAGEM = 451,
-    YIAN_KUT_KU_CERTIFICATE_S = 526
+    YIAN_KUT_KU_CERTIFICATE_S = 526,
 }
 
 EnemyConstants = {
@@ -774,4 +829,26 @@ EnemyConstants = {
     XU_WU = 31,
     YIAN_KUT_KU = 4,
     ZOH_SHIA = 32,
+}
+
+LogType = {
+    INVALID = -1,
+    HUNT = 0,
+    HUND_ADD = 1,
+    EVENT = 2,
+    HELP = 3,
+    LUCKY = 4,
+    SKILL = 5,
+    MEAL_SKILL = 6,
+    QUEST_RANK = 7,
+    FIELD = 8,
+    ANIMAL = 9,
+    HAGITORI = 10,
+    CAPTURE = 11,
+    BREAK = 12,
+    DROP = 13,
+    PARTS_HAGITORI = 14,
+    SCAR = 15,
+    BUNDORI = 16,
+    SCAR01 = 17,
 }

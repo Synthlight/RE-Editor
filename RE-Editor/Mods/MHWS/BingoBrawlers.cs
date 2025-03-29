@@ -36,16 +36,14 @@ namespace RE_Editor.Mods;
  *    - Hard (red) armor sphere
  *    - Monster specific cert, or a mega potion if there isn't one.
  *    - They'll always appear in this order, so if something is giving you a MP when it should be giving you some cert, let me know.
- *   - Recipes are set so:
+ *  - Large monster carves are mega potions.
+ *  - Recipes are set so:
  *    - Weapons/armor/weapon upgrades are all 10k.
  *    - Weapons/armor use a monster cert, or a gold cert for the rest.
  *    - Kinsects craft/upgrade with one silver cert.
  *    - Hope/expedition/ore and other non-monster tree weapons require 3 golden certs to upgrade.
- *     - Exceptions:
- *      - "Paralysis Tree" changed to Lala B. (It uses Lala parts for most of it, just doesn't have the mon in the name.)
- *
- *  To do:
- *  - Make carves mega potions (small & large), remove certs from part breaks (not sure if you can get any that way).
+ *      - Exceptions:
+ *        - "Paralysis Tree" changed to Lala B. (It uses Lala parts for most of it, just doesn't have the mon in the name.)
  */
 [UsedImplicitly]
 public class BingoBrawlers : IMod {
