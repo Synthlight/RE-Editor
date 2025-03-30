@@ -63,7 +63,8 @@ function FixRewards(ptr, mode) -- List<cSendItemInfo>
 
         while (sendItemInfo:get_Count() > 4) do sendItemInfo:RemoveAt(4) end
     elseif (mode == Mode.EnemyRewardUtil_getRewardItemDataPost and count > 0
-            and sendItemInfo[0]:get_field("<LogType>k__BackingField") == LogType.HAGITORI
+            and (sendItemInfo[0]:get_field("<LogType>k__BackingField") == LogType.HAGITORI
+                 or sendItemInfo[0]:get_field("<LogType>k__BackingField") == LogType.PARTS_HAGITORI)
             and tableContains(EnemyConstants, sendItemInfo[0]:get_field("<EnemyId>k__BackingField"))) then
         log.info(mode .. ": Making carves mega potions.")
 

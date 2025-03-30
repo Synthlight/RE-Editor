@@ -35,6 +35,7 @@ namespace RE_Editor.Mods;
  *    - Silver cert
  *    - Hard (red) armor sphere
  *    - Monster specific cert, or a mega potion if there isn't one.
+ *    - Tail (part) carves changed to mega potions.
  *    - They'll always appear in this order, so if something is giving you a mega potion when it should be giving you some cert, let me know.
  *  - Large monster carves are mega potions.
  *  - Recipes are set so:
@@ -53,7 +54,7 @@ public class BingoBrawlers : IMod {
     public static void Make() {
         const string name        = "Bingo Brawlers";
         const string description = "Bingo Brawlers stuff.";
-        const string version     = "1.0";
+        const string version     = "1.1";
 
         var baseMod = new NexusMod {
             Version      = version,
