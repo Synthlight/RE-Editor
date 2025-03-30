@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
 #pragma warning disable CS8618
 
@@ -25,7 +24,7 @@ public class MSG {
     public ulong       typenameOffset;
     public byte[]      data1;
     public ulong[]     subOffsets;
-    public SubEntry[]  subEntries;
+    public SubEntry[]? subEntries;
     public ulong       zeroOffset;
     public int[]       languages;
     public int[]       typeIds;
@@ -146,6 +145,7 @@ public class MSG {
     }
 
     public Dictionary<uint, string> GetIdMap(Global.LangIndex lang, uint type, bool startAtOne, uint idBaseNum) {
+        if (subEntries == null) return [];
         var dict = new Dictionary<uint, string>(subEntries.Length);
         for (var i = startAtOne ? 1 : 0; i < subEntries.Length; i++) {
             var id   = idBaseNum + (type | (uint) (i - (startAtOne ? 1 : 0)));
@@ -165,6 +165,7 @@ public class MSG {
     }
 
     public Dictionary<T, string> GetIdMap<T>(Global.LangIndex lang, Func<string, Result<T>> parseName) where T : notnull {
+        if (subEntries == null) return [];
         var dict = new Dictionary<T, string>(subEntries.Length);
         foreach (var entry in subEntries) {
             var name   = entry.first.Replace("_Name", "").Replace("_Explain", "");
@@ -187,6 +188,7 @@ public class MSG {
     }
 
     public Dictionary<T, string> GetRawMap<T>(Global.LangIndex lang, Func<SubEntry, Result<T>> parseName) where T : notnull {
+        if (subEntries == null) return [];
         var dict = new Dictionary<T, string>(subEntries.Length);
         foreach (var entry in subEntries) {
             var result = parseName(entry);
@@ -208,6 +210,7 @@ public class MSG {
     }
 
     public Dictionary<Guid, string> GetGuidMap(Global.LangIndex lang) {
+        if (subEntries == null) return [];
         var dict = new Dictionary<Guid, string>(subEntries.Length);
         foreach (var entry in subEntries) {
             var id   = entry.id1;

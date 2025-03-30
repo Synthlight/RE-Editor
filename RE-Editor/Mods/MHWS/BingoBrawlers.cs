@@ -127,7 +127,7 @@ public class BingoBrawlers : IMod {
                 case App_user_data_ArmorRecipeData_cData armorRecipe: // Armor Recipe
                     armorRecipe.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                     armorRecipe.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                    armorRecipe.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                    armorRecipe.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                     armorRecipe.FlagHunterRank = 0;
                     foreach (var item in armorRecipe.Item) {
                         item.Value = (int) App_ItemDef_ID_Fixed.NONE;
@@ -144,7 +144,7 @@ public class BingoBrawlers : IMod {
                 case App_user_data_RodInsectRecipeData_cData kinsectRecipe: // Insect Recipe
                     kinsectRecipe.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                     kinsectRecipe.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                    kinsectRecipe.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                    kinsectRecipe.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                     kinsectRecipe.FlagHunterRank = 0;
                     foreach (var item in kinsectRecipe.ItemId) {
                         item.Value = (int) App_ItemDef_ID_Fixed.NONE;
@@ -161,7 +161,7 @@ public class BingoBrawlers : IMod {
                 case App_user_data_WeaponRecipeData_cData weaponRecipe: // Weapon Recipe
                     weaponRecipe.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                     weaponRecipe.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                    weaponRecipe.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                    weaponRecipe.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                     weaponRecipe.FlagHunterRank = 0;
                     foreach (var item in weaponRecipe.Item) {
                         item.Value = (int) App_ItemDef_ID_Fixed.NONE;

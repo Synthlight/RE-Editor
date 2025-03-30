@@ -126,6 +126,7 @@ public class StructType(string name, string? parent, string hash, StructJson str
             case "App_HunterDef_Skill_Serializable.Value": return DataSourceType.SKILLS;
             case "App_HunterProfileDef_MEDAL_ID_Serializable.Value": return DataSourceType.MEDALS;
             case "App_ItemDef_ID_Serializable.Value": return DataSourceType.ITEMS;
+            case "App_MissionIDList_ID_Serializable.Value": return DataSourceType.QUESTS;
             case "App_WeaponCharmDef_TYPE_Serializable.Value": return DataSourceType.PENDANTS;
             case "App_WeaponDef_SERIES_Serializable.Value": return DataSourceType.WEAPON_SERIES;
 #endif
@@ -161,6 +162,7 @@ public class StructType(string name, string? parent, string hash, StructJson str
             "app.HunterDef.Skill_Fixed" => DataSourceType.SKILLS,
             "app.HunterProfileDef.MEDAL_ID_Fixed" => DataSourceType.MEDALS,
             "app.ItemDef.ID_Fixed" => DataSourceType.ITEMS,
+            "app.MissionIDList.ID_Fixed" => DataSourceType.QUESTS,
             "app.WeaponCharmDef.TYPE_Fixed" => DataSourceType.PENDANTS,
             "app.WeaponDef.SERIES_Fixed" => DataSourceType.WEAPON_SERIES,
 #elif RE2
@@ -184,6 +186,7 @@ public class StructType(string name, string? parent, string hash, StructJson str
             DataSourceType.DECORATIONS => "int",
             DataSourceType.ENEMIES => "int",
             DataSourceType.MEDALS => "int",
+            DataSourceType.QUESTS => "int",
             DataSourceType.SKILLS => "int",
             DataSourceType.PENDANTS => "int",
             DataSourceType.WEAPON_SERIES => "int",

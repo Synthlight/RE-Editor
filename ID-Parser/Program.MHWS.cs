@@ -17,6 +17,7 @@ public static partial class Program {
         ExtractItemInfoByGuid();
         ExtractMedalInfoByGuid();
         ExtractPendantInfoByGuid();
+        ExtractQuestInfo();
         ExtractSkillInfoByName();
         ExtractTalismanInfoByGuid();
         ExtractTitleInfoByGuid();
@@ -205,6 +206,32 @@ public static partial class Program {
         DataHelper.PENDANT_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
         CreateAssetFile(msgByValue, "PENDANT_NAME_LOOKUP_BY_ENUM_VALUE");
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "PendantConstants");
+    }
+
+    private static void ExtractQuestInfo() {
+        var langMaps  = new List<Dictionary<Global.LangIndex, Dictionary<App_MissionIDList_ID_Fixed, string>>>();
+        var fileRegex = new Regex(@"Mission\d+\.msg");
+        var nameRegex = new Regex(@"Mission(\d+)_000");
+        foreach (var file in Directory.EnumerateFiles($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Mission", $"*.msg.{Global.MSG_VERSION}")) {
+            if (!fileRegex.IsMatch(file)) continue;
+
+            var msg = MSG.Read(file);
+            var values = msg.GetLangIdMap<App_MissionIDList_ID_Fixed>(name => {
+                var match = nameRegex.Match(name);
+                if (!match.Success) return new(0, true);
+                var value = $"MISSION_{match.Groups[1].Value}";
+                // ReSharper disable once ConvertIfStatementToReturnStatement
+                if (Enum.TryParse<App_MissionIDList_ID_Fixed>(value, out var result)) {
+                    return result;
+                }
+                return new(0, true);
+            });
+            langMaps.Add(values);
+        }
+        var msgByEnum  = langMaps.MergeDictionaries();
+        var msgByValue = msgByEnum.ConvertTo<App_MissionIDList_ID_Fixed, int>();
+        DataHelper.QUEST_INFO_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "QUEST_INFO_LOOKUP_BY_ENUM_VALUE");
     }
 
     private static void ExtractSkillInfoByName() {

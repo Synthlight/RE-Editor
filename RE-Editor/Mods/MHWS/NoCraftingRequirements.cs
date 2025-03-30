@@ -209,7 +209,7 @@ public class NoCraftingRequirements : IMod {
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                         armor.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         armor.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                        armor.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        armor.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                         armor.FlagHunterRank = 0;
                         foreach (var item in armor.Item) {
                             item.Value = (int) App_ItemDef_ID_Fixed.NONE;
@@ -225,7 +225,7 @@ public class NoCraftingRequirements : IMod {
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                         kinsect.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         kinsect.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                        kinsect.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        kinsect.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                         kinsect.FlagHunterRank = 0;
                         foreach (var item in kinsect.ItemId) {
                             item.Value = (int) App_ItemDef_ID_Fixed.NONE;
@@ -241,7 +241,7 @@ public class NoCraftingRequirements : IMod {
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                         armor.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         armor.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                        armor.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        armor.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                         armor.FlagHunterRank = 0;
                         foreach (var item in armor.Item) {
                             item.Value = (int) App_ItemDef_ID_Fixed.NONE;
@@ -257,7 +257,7 @@ public class NoCraftingRequirements : IMod {
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                         talisman.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         talisman.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                        talisman.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        talisman.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                         talisman.FlagHunterRank = 0;
                         foreach (var item in talisman.ItemId) {
                             item.Value = (int) App_ItemDef_ID_Fixed.NONE;
@@ -273,7 +273,7 @@ public class NoCraftingRequirements : IMod {
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                         weapon.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
                         weapon.KeyItemId      = (int) App_ItemDef_ID_Fixed.NONE;
-                        weapon.KeyStoryNo     = App_MissionIDList_ID_Fixed.INVALID;
+                        weapon.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                         weapon.FlagHunterRank = 0;
                         foreach (var item in weapon.Item) {
                             item.Value = (int) App_ItemDef_ID_Fixed.NONE;

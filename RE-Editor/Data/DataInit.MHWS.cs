@@ -23,6 +23,7 @@ public static partial class DataInit {
         DataHelper.MEDAL_INFO_LOOKUP_BY_GUID            = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.MEDAL_INFO_LOOKUP_BY_GUID);
         DataHelper.PENDANT_NAME_LOOKUP_BY_ENUM_VALUE    = LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.PENDANT_NAME_LOOKUP_BY_ENUM_VALUE);
         DataHelper.PENDANT_INFO_LOOKUP_BY_GUID          = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.PENDANT_INFO_LOOKUP_BY_GUID);
+        DataHelper.QUEST_INFO_LOOKUP_BY_ENUM_VALUE      = LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.QUEST_INFO_LOOKUP_BY_ENUM_VALUE);
         DataHelper.SKILL_NAME_BY_ENUM_VALUE             = LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.SKILL_NAME_BY_ENUM_VALUE);
         DataHelper.TALISMAN_INFO_LOOKUP_BY_GUID         = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.TALISMAN_INFO_LOOKUP_BY_GUID);
         DataHelper.TITLE_INFO_LOOKUP_BY_GUID            = LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.TITLE_INFO_LOOKUP_BY_GUID);
