@@ -88,9 +88,8 @@ public class StructGridGeneric<T> : StructGrid, IStructGrid<T> {
 #if MHR
         var isBitset = typeof(T).Is(typeof(Bitset));
 #elif MHWS
-        var isBitset        = typeof(T).Is(typeof(Bitset));
-        var maxBitElement   = -1;
-        var bitElementCount = 0;
+        var isBitset      = typeof(T).Is(typeof(Bitset));
+        var maxBitElement = -1;
         if (isBitset) {
             var maxElementProp = properties.First(prop => prop.Name == nameof(Bitset.MaxElement));
             maxBitElement = (int) maxElementProp.GetGetMethod()!.Invoke(item, null)!;
@@ -117,6 +116,13 @@ public class StructGridGeneric<T> : StructGrid, IStructGrid<T> {
 
             if (displayName is "") continue;
             displayName ??= propertyName;
+
+#if MHWS
+            if (isBitset) {
+                var elementValue = ((BitIndexAttribute) propertyInfo.GetCustomAttribute(typeof(BitIndexAttribute), true))!.value!;
+                if (elementValue > maxBitElement) continue;
+            }
+#endif
 
             var row = new Row {sortOrder = sortOrder};
 
@@ -166,11 +172,6 @@ public class StructGridGeneric<T> : StructGrid, IStructGrid<T> {
             }
 
             rows.Add(row);
-
-#if MHWS
-            if (isBitset) bitElementCount++;
-            if (isBitset && bitElementCount > maxBitElement) break;
-#endif
         }
 
         var rowIndex     = 0;

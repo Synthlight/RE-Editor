@@ -23,6 +23,10 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/AccessoryData.user.3\""
         },
+        "Em0160_00_Param_Relation.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Enemy/Em0160/00/Data/Em0160_00_Param_Relation.user.3\""
+        },
         "EnemyCategoryList.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Enemy/CommonData/Data/EnemyCategoryList.user.3\""

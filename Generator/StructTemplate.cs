@@ -159,19 +159,23 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             file.WriteLine($"    public {modifier}ObservableCollection<ValueTuple<{twoGenericsInfo.type1.AsArrayTypeName}, {twoGenericsInfo.type2.AsArrayTypeName}>> {newName} {{ get; set; }}");
         } else if (newName == Global.BITSET_FIELD_NAME && (className == Global.BITSET_NAME || parentClass == Global.BITSET_NAME) && !className.EndsWith("NoEnum")) {
             file.WriteLine($"    public {modifier}BitArray {newName} {{ get; set; }}");
+            file.WriteLine("    [DisplayName(\"\")]");
+            file.WriteLine($"    public {modifier}int {newName}_Length {{ get; set; }}");
 
             if (parentClass == Global.BITSET_NAME) {
                 var enumType = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
                 var enumData = generator.enumTypes[enumType];
                 var entries  = enumData.entries!;
 
+                // ReSharper disable once ForCanBeConvertedToForeach
                 for (var i = 0; i < entries.Count; i++) {
                     var entry = entries[i];
                     file.WriteLine("");
                     file.WriteLine($"    [DisplayName(\"{entry}\")]");
+                    file.WriteLine($"    [BitIndex((int) {enumType}.{entry})]");
                     file.WriteLine($"    public bool {enumType}_{entry} {{");
-                    file.WriteLine($"        get => {Global.BITSET_FIELD_NAME}[{i}];");
-                    file.WriteLine($"        set => {Global.BITSET_FIELD_NAME}[{i}] = value;");
+                    file.WriteLine($"        get => {Global.BITSET_FIELD_NAME}[(int) {enumType}.{entry}];");
+                    file.WriteLine($"        set => {Global.BITSET_FIELD_NAME}[(int) {enumType}.{entry}] = value;");
                     file.WriteLine("    }");
                 }
             }

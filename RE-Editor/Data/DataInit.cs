@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -50,6 +52,20 @@ public static partial class DataInit {
 
         foreach (var lang in Enum.GetValues<Global.LangIndex>()) {
             if (!Global.TRANSLATION_MAP.ContainsKey(lang)) Global.TRANSLATION_MAP[lang] = [];
+        }
+
+        // Load translation resources, usually dumped for enums.
+        var resources = Assets.ResourceManager.GetResourceSet(CultureInfo.InvariantCulture, true, false)!;
+        foreach (DictionaryEntry resource in resources) {
+            if (((string) resource.Key).StartsWith("TRANSLATION_")) {
+                var data = LoadDict<Global.LangIndex, Dictionary<string, string>>((byte[]) resource.Value);
+                foreach (var (lang, dict) in data) {
+                    if (!Global.TRANSLATION_MAP.ContainsKey(lang)) Global.TRANSLATION_MAP[lang] = [];
+                    foreach (var (key, value) in dict) {
+                        Global.TRANSLATION_MAP[lang][key] = value;
+                    }
+                }
+            }
         }
 
 #if MHR

@@ -117,8 +117,10 @@ public class RszObject : OnPropertyChangedBase {
                     var items = objects.GetGenericItemsOfType(fieldGenericType!, true);
                     SetList(items, fieldSetMethod, rszObject);
                 } else if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
-                    var bytes  = reader.ReadBytes(field.size * arrayCount);
-                    var bitset = new BitArray(bytes);
+                    var bytes               = reader.ReadBytes(field.size * arrayCount);
+                    var bitset              = new BitArray(bytes);
+                    var bitarrayLengthField = rszObject.GetType().GetProperty(fieldName + "_Length")!.GetSetMethod()!;
+                    bitarrayLengthField.Invoke(rszObject, [bytes.Length]);
                     fieldSetMethod.Invoke(rszObject, [bitset]);
                 } else if (field.type is nameof(UIntArray) or "OBB") {
                     Debug.Assert((float) field.size % 4 == 0, $"Error: `Data` field size is not a multiple of {UIntArray.DATA_WIDTH}.");
@@ -375,11 +377,12 @@ public class RszObject : OnPropertyChangedBase {
                         WriteTuple(writer, field, (ITuple) obj);
                     }
                 } else if (fieldName == Global.BITSET_FIELD_NAME && structInfo.parent?.ToConvertedTypeName() == Global.BITSET_NAME) {
-                    var bitset    = (BitArray) fieldGetMethod.Invoke(this, null)!;
-                    var byteCount = (bitset.Length + 7) >> 3;
-                    var bytes     = new byte[byteCount];
+                    var bitset              = (BitArray) fieldGetMethod.Invoke(this, null)!;
+                    var bitarrayLengthField = GetType().GetProperty(fieldName + "_Length")!.GetGetMethod()!;
+                    var byteCount           = (int) bitarrayLengthField.Invoke(this, null)!;
+                    var bytes               = new byte[byteCount];
                     bitset.CopyTo(bytes, 0);
-                    writer.Write(byteCount / 4);
+                    writer.Write(byteCount / field.size); // Because the count treats it as ints and we're handling it as bytes.
                     writer.Write(bytes);
                 } else if (field.type is nameof(UIntArray) or "OBB") {
                     var list = (ObservableCollection<UIntArray>) fieldGetMethod.Invoke(this, null)!;

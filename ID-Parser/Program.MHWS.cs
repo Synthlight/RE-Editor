@@ -128,6 +128,9 @@ public static partial class Program {
             nonFixedEngMap[normalId] = name;
         }
         CreateLuaConstantsFile(nonFixedEngMap.Flip(), "EnemyConstantsNormalLarge");
+
+        var msgBitset = msgByEnum.ConvertToByEnumName<App_EnemyDef_ID_Fixed, App_EnemyDef_ID_BIT>();
+        CreateAssetFile(msgBitset, "TRANSLATION_App_EnemyDef_ID_BIT");
     }
 
     private static void ExtractItemInfoByName() {
