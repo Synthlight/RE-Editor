@@ -15,7 +15,7 @@ public class OneDecoToMaxSkill : IMod {
     public static void Make() {
         const string name        = "One Deco to Max Skill";
         const string description = "One Deco to Max Skill.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,

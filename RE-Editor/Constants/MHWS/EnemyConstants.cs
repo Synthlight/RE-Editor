@@ -89,6 +89,7 @@ public static class EnemyConstants {
     public const App_EnemyDef_ID_Fixed LANDLIGHT_SHRIMP = App_EnemyDef_ID_Fixed.EM5202_00_0;
     public const App_EnemyDef_ID_Fixed LEAFLUGGER_ANT = App_EnemyDef_ID_Fixed.EM5102_00_0;
     public const App_EnemyDef_ID_Fixed MIMIPHYTA = App_EnemyDef_ID_Fixed.EM5214_00_0;
+    public const App_EnemyDef_ID_Fixed MIZUTSUNE = App_EnemyDef_ID_Fixed.EM0082_00_0;
     public const App_EnemyDef_ID_Fixed MYRIADS = App_EnemyDef_ID_Fixed.EM5210_00_0;
     public const App_EnemyDef_ID_Fixed MYRIADS_2 = App_EnemyDef_ID_Fixed.EM5210_10_0;
     public const App_EnemyDef_ID_Fixed NERSCYLLA = App_EnemyDef_ID_Fixed.EM0070_00_0;

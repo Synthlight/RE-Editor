@@ -17,7 +17,7 @@ public class NoCraftingRequirements : IMod {
     public static void Make() {
         const string name        = "No Crafting Requirements";
         const string description = "No Crafting Requirements.";
-        const string version     = "1.3";
+        const string version     = "1.4";
 
         var baseMod = new NexusMod {
             Version      = version,

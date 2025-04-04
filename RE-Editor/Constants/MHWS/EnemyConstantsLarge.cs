@@ -28,6 +28,7 @@ public static class EnemyConstantsLarge {
     public const App_EnemyDef_ID_Fixed HIRABAMI = App_EnemyDef_ID_Fixed.EM0161_00_0;
     public const App_EnemyDef_ID_Fixed JIN_DAHAAD = App_EnemyDef_ID_Fixed.EM0162_00_0;
     public const App_EnemyDef_ID_Fixed LALA_BARINA = App_EnemyDef_ID_Fixed.EM0154_00_0;
+    public const App_EnemyDef_ID_Fixed MIZUTSUNE = App_EnemyDef_ID_Fixed.EM0082_00_0;
     public const App_EnemyDef_ID_Fixed NERSCYLLA = App_EnemyDef_ID_Fixed.EM0070_00_0;
     public const App_EnemyDef_ID_Fixed NU_UDRA = App_EnemyDef_ID_Fixed.EM0158_00_0;
     public const App_EnemyDef_ID_Fixed QUEMATRICE = App_EnemyDef_ID_Fixed.EM0153_00_0;

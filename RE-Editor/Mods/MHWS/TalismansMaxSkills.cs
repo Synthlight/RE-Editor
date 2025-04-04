@@ -15,7 +15,7 @@ public class TalismansMaxSkills : IMod {
     public static void Make() {
         const string name        = "Talismans - Max Skills";
         const string description = "Talismans - Max Skills.";
-        const string version     = "1.2";
+        const string version     = "1.3";
 
         var baseMod = new NexusMod {
             Version      = version,

@@ -29,6 +29,7 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed HIRABAMI_TREE = App_WeaponDef_SERIES_Fixed.ID_014;
     public const App_WeaponDef_SERIES_Fixed JIN_DAHAAD_TREE = App_WeaponDef_SERIES_Fixed.ID_019;
     public const App_WeaponDef_SERIES_Fixed LALA_BARINA_TREE = App_WeaponDef_SERIES_Fixed.ID_006;
+    public const App_WeaponDef_SERIES_Fixed MIZUTSUNE_TREE = App_WeaponDef_SERIES_Fixed.ID_039;
     public const App_WeaponDef_SERIES_Fixed NERSCYLLA_TREE = App_WeaponDef_SERIES_Fixed.ID_013;
     public const App_WeaponDef_SERIES_Fixed NU_UDRA_TREE = App_WeaponDef_SERIES_Fixed.ID_016;
     public const App_WeaponDef_SERIES_Fixed ORE_TREE = App_WeaponDef_SERIES_Fixed.ID_001;
@@ -45,4 +46,5 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed WORKSHOP_TREE = App_WeaponDef_SERIES_Fixed.ID_045;
     public const App_WeaponDef_SERIES_Fixed XU_WU_TREE = App_WeaponDef_SERIES_Fixed.ID_021;
     public const App_WeaponDef_SERIES_Fixed YIAN_KUT_KU_TREE = App_WeaponDef_SERIES_Fixed.ID_024;
+    public const App_WeaponDef_SERIES_Fixed ZOH_SHIA_TREE = App_WeaponDef_SERIES_Fixed.ID_034;
 }

@@ -15,7 +15,7 @@ public class WeaponsPurpleSharpness : IMod {
     public static void Make() {
         const string name        = "Weapons - Max Purple Sharpness";
         const string description = "Weapons - Max Purple Sharpness.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,

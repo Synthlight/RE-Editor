@@ -18,6 +18,7 @@ EnemyConstantsNormalLarge = {
     HIRABAMI = 29,
     JIN_DAHAAD = 30,
     LALA_BARINA = 21,
+    MIZUTSUNE = 13,
     NERSCYLLA = 9,
     NU_UDRA = 25,
     QUEMATRICE = 20,
