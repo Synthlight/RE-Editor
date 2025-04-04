@@ -54,7 +54,7 @@ public class BingoBrawlers : IMod {
     public static void Make() {
         const string name        = "Bingo Brawlers";
         const string description = "Bingo Brawlers stuff.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -273,6 +273,9 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.LALA_BARINA_Α:
             case ArmorSeriesConstants.LALA_BARINA_Β:
                 return ItemConstants.LALA_BARINA_CERTIFICATE_S;
+            case ArmorSeriesConstants.MIZUTSUNE_Α:
+            case ArmorSeriesConstants.MIZUTSUNE_Β:
+                return ItemConstants.MIZUTSUNE_CERTIFICATE_S;
             case ArmorSeriesConstants.NERSCYLLA:
             case ArmorSeriesConstants.NERSCYLLA_Α:
             case ArmorSeriesConstants.NERSCYLLA_Β:
@@ -294,6 +297,7 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.REY_DAU:
             case ArmorSeriesConstants.REY_DAU_Α:
             case ArmorSeriesConstants.REY_DAU_Β:
+            case ArmorSeriesConstants.REY_DAU_Γ:
                 return ItemConstants.REY_DAU_CERTIFICATE_S;
             case ArmorSeriesConstants.ROMPOPOLO:
             case ArmorSeriesConstants.ROMPOPOLO_Α:
@@ -310,6 +314,9 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.KUT_KU_Α:
             case ArmorSeriesConstants.KUT_KU_Β:
                 return ItemConstants.YIAN_KUT_KU_CERTIFICATE_S;
+            case ArmorSeriesConstants.NUMINOUS_Α: // Zoh Shia
+            case ArmorSeriesConstants.NUMINOUS_Β:
+                return ItemConstants.ZOH_SHIA_CERTIFICATE_S;
             // Generic:
             // And whilst `default` would cover it, I'm copying the others as I find them to make it easier to identify.
             case ArmorSeriesConstants.ALLOY:
@@ -407,6 +414,8 @@ public class BingoBrawlers : IMod {
             case WeaponSeriesConstants.LALA_BARINA_TREE:
             case WeaponSeriesConstants.PARALYSIS_TREE: // It's made with Lala B. parts.
                 return ItemConstants.LALA_BARINA_CERTIFICATE_S;
+            case WeaponSeriesConstants.MIZUTSUNE_TREE:
+                return ItemConstants.MIZUTSUNE_CERTIFICATE_S;
             case WeaponSeriesConstants.NERSCYLLA_TREE:
                 return ItemConstants.NERSCYLLA_CERTIFICATE_S;
             case WeaponSeriesConstants.NU_UDRA_TREE:
@@ -427,6 +436,8 @@ public class BingoBrawlers : IMod {
                 return ItemConstants.XU_WU_CERTIFICATE_S;
             case WeaponSeriesConstants.YIAN_KUT_KU_TREE:
                 return ItemConstants.YIAN_KUT_KU_CERTIFICATE_S;
+            case WeaponSeriesConstants.ZOH_SHIA_TREE:
+                return ItemConstants.ZOH_SHIA_CERTIFICATE_S;
             // Generic:
             // And whilst `default` would cover it, I'm copying the others as I find them to make it easier to identify.
             case WeaponSeriesConstants.BONE_TREE:
