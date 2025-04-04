@@ -19,7 +19,7 @@ public class ShopTweaks : IMod {
     public static void Make() {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.4";
+        const string version     = "1.4.1";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -35,7 +35,7 @@ public class ShopTweaks : IMod {
         var itemModeData = (from entry in itemData.rsz.objectData.OfType<App_user_data_ItemData_cData>()
                             let mode = GetMode(entry)
                             where mode != null
-                            where (App_ItemDef_ID_Fixed) entry.ItemId is > App_ItemDef_ID_Fixed.NONE and < App_ItemDef_ID_Fixed.MAX
+                            where (App_ItemDef_ID_Fixed) entry.ItemId != App_ItemDef_ID_Fixed.NONE && (App_ItemDef_ID_Fixed) entry.ItemId != App_ItemDef_ID_Fixed.INVALID
                             where !existingShopItems.Contains(entry.ItemId)
                             where DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng].ContainsKey((uint) entry.ItemId)
                                   && DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng][(uint) entry.ItemId] != "#Rejected#"
