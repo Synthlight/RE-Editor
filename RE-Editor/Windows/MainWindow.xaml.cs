@@ -19,6 +19,7 @@ using RE_Editor.Common;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
+using RE_Editor.Common.PakModels.Hashing;
 using RE_Editor.Controls;
 using RE_Editor.Models;
 using RE_Editor.Util;
@@ -165,6 +166,18 @@ public partial class MainWindow {
                 var result = MessageBox.Show("This file has not passed write tests. It may or may not even open.\n" +
                                              "This also means you WILL BE UNABLE TO SAVE ANY CHANGES MADE TO IT.\n\nTry opening the file anyway?", "File not supported.", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result is MessageBoxResult.No or MessageBoxResult.Cancel) return;
+            }
+
+            if (DataHelper.OBSOLETE_BY_HASH.Any()) {
+                var bytes = File.ReadAllBytes(target);
+                var hash  = PakFileHash.GetChecksum(bytes);
+                if (DataHelper.OBSOLETE_BY_HASH.TryGetValue(hash, out var fileInfo)) { // If found, it's an outdated file, since good hashes aren't stored.
+                    var result = MessageBox.Show($"This file is outdated. It comes from PAK {fileInfo.sourcePak}, and the latest version of it is in {fileInfo.knownGoodPak}.\n" +
+                                                 "Reading an outdated file is unsupported, and might fail.\n" +
+                                                 "It will probably also just cause the game to blackscreen on startup. I STRONGLY recommend against using it.\n\n" +
+                                                 "Try opening the file anyway?", "File is outdated.", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (result is MessageBoxResult.No or MessageBoxResult.Cancel) return;
+                }
             }
 
             targetFile = target;

@@ -260,8 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 
-STRUCT_INFO.json
-GP_CRC_OVERRIDE_INFO.json
 *.lnk
 
 .venv

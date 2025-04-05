@@ -1,6 +1,5 @@
 ﻿using System.CodeDom;
 using System.Text.RegularExpressions;
-using System.Windows.Input;
 using Microsoft.CSharp;
 using Newtonsoft.Json;
 using RE_Editor.Common;
@@ -8,9 +7,18 @@ using RE_Editor.Common;
 namespace RE_Editor.ID_Parser;
 
 public static partial class Program {
-    public const  string BASE_PROJ_PATH = @"..\..\..";
-    private const string CONSTANTS_DIR  = $@"{BASE_PROJ_PATH}\RE-Editor\Constants\{PathHelper.CONFIG_NAME}";
-    private const string ASSETS_DIR     = $@"{BASE_PROJ_PATH}\RE-Editor\Data\{PathHelper.CONFIG_NAME}\Assets";
+    public const  string BASE_PROJ_PATH      = @"..\..\..";
+    private const string CONSTANTS_DIR       = $@"{BASE_PROJ_PATH}\RE-Editor\Constants\{PathHelper.CONFIG_NAME}";
+    public const  string ASSETS_DIR          = $@"{BASE_PROJ_PATH}\RE-Editor\Data\{PathHelper.CONFIG_NAME}\Assets";
+    public const  string DETECTOR_ASSETS_DIR = $@"{BASE_PROJ_PATH}\Obsolete-Detector\Data\{PathHelper.CONFIG_NAME}\Assets";
+
+    public static void Main(string[] args) {
+        if (args.Contains("obsoleteMap")) {
+            ObsoleteMapMaker.Go();
+        } else {
+            Go();
+        }
+    }
 
     public static uint ParseEnum(Type enumType, string value) {
         return (uint) Convert.ChangeType(Enum.Parse(enumType, value), typeof(uint));

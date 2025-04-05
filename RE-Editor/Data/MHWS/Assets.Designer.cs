@@ -193,6 +193,16 @@ namespace RE_Editor.Data.MHWS {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] OBSOLETE_BY_HASH {
+            get {
+                object obj = ResourceManager.GetObject("OBSOLETE_BY_HASH", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] PENDANT_INFO_LOOKUP_BY_GUID {
             get {
                 object obj = ResourceManager.GetObject("PENDANT_INFO_LOOKUP_BY_GUID", resourceCulture);

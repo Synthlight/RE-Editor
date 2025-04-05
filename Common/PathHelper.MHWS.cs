@@ -13,6 +13,40 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Monster Hunter Wilds\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Wilds\FMM\Games\MonsterHunterWilds\Mods";
+    public const string PAK_LIST_FILE    = @"R:\Games\Monster Hunter Wilds\MHWs.list";
+
+    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
+        "user",
+        "pfb"
+    ];
+
+    public static readonly string[] PAK_PATHS = [
+        "re_chunk_000.pak",
+        "re_chunk_000.pak.patch_001.pak",
+        "re_chunk_000.pak.patch_002.pak",
+        "re_chunk_000.pak.sub_000.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_001.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_002.pak"
+    ];
+
+    public static readonly Dictionary<string, List<string>> PAK_UPDATE_INFO = new() {
+        {
+            "2025-02-28", [ // 1.000.00.00
+                "re_chunk_000.pak",
+                "re_chunk_000.pak.sub_000.pak"
+            ]
+        }, {
+            "2025-03-10", [ // 1.000.05.00
+                "re_chunk_000.pak.patch_001.pak",
+                "re_chunk_000.pak.sub_000.pak.patch_001.pak"
+            ]
+        }, {
+            "2025-04-03", [ // 1.010.00.00 (Title Update 1)
+                "re_chunk_000.pak.patch_002.pak",
+                "re_chunk_000.pak.sub_000.pak.patch_002.pak"
+            ]
+        }
+    };
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";

@@ -15,7 +15,7 @@ public static partial class Program {
 
     private const string MR = "{{{MR}}}"; // To find/replace with either nothing or `_MR` when parsing paired files.
 
-    public static void Main() {
+    public static void Go() {
         ExtractItemInfo();
         ExtractArmorInfo();
         ExtractArmorSeriesInfo();

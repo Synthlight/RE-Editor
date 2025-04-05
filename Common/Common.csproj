@@ -9,6 +9,7 @@
 		<PackageReference Include="JetBrains.Annotations" Version="2024.3.0"/>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All"/>
+		<PackageReference Include="Zstandard.Net" Version="1.1.7"/>
 	</ItemGroup>
 	<!-- DD2 -->
 	<ItemGroup Condition="'$(Configuration.StartsWith(`DD2`))'">

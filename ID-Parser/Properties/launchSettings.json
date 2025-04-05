@@ -1,0 +1,11 @@
+{
+    "profiles": {
+        "[None]": {
+            "commandName": "Project"
+        },
+        "Generate Obsolete Map": {
+            "commandName": "Project",
+            "commandLineArgs": "obsoleteMap"
+        }
+    }
+}

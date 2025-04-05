@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Text;
-using Newtonsoft.Json;
 using RE_Editor.Common;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
@@ -17,6 +15,7 @@ using RE_Editor.Data.DRDR;
 #elif MHR
 using RE_Editor.Data.MHR;
 #elif MHWS
+using RE_Editor.Common.PakModels;
 using RE_Editor.Data.MHWS;
 #elif RE2
 using RE_Editor.Data.RE2;
@@ -36,8 +35,8 @@ public static partial class DataInit {
         Assembly.Load(nameof(Generated));
         DataHelper.InitStructTypeInfo();
 
-        DataHelper.STRUCT_INFO          = LoadDict<uint, StructJson>(Assets.STRUCT_INFO);
-        DataHelper.GP_CRC_OVERRIDE_INFO = LoadDict<uint, uint>(Assets.GP_CRC_OVERRIDE_INFO);
+        DataHelper.STRUCT_INFO          = DataHelper.LoadDict<uint, StructJson>(Assets.STRUCT_INFO);
+        DataHelper.GP_CRC_OVERRIDE_INFO = DataHelper.LoadDict<uint, uint>(Assets.GP_CRC_OVERRIDE_INFO);
 
         foreach (var (hash, structInfo) in DataHelper.STRUCT_INFO) {
             DataHelper.STRUCT_HASH_BY_NAME[structInfo.name!] = hash;
@@ -58,7 +57,7 @@ public static partial class DataInit {
         var resources = Assets.ResourceManager.GetResourceSet(CultureInfo.InvariantCulture, true, false)!;
         foreach (DictionaryEntry resource in resources) {
             if (((string) resource.Key).StartsWith("TRANSLATION_")) {
-                var data = LoadDict<Global.LangIndex, Dictionary<string, string>>((byte[]) resource.Value);
+                var data = DataHelper.LoadDict<Global.LangIndex, Dictionary<string, string>>((byte[]) resource.Value);
                 foreach (var (lang, dict) in data) {
                     if (!Global.TRANSLATION_MAP.ContainsKey(lang)) Global.TRANSLATION_MAP[lang] = [];
                     foreach (var (key, value) in dict) {
@@ -71,24 +70,9 @@ public static partial class DataInit {
 #if MHR
         CreateTranslationsForSkillEnumNameColumns();
 #endif
-    }
 
-    private static T Load<T>(byte[] data) {
-        var json = Encoding.UTF8.GetString(data);
-        return JsonConvert.DeserializeObject<T>(json);
-    }
-
-    private static List<T> LoadList<T>(byte[] data) {
-        var json = Encoding.UTF8.GetString(data);
-        return JsonConvert.DeserializeObject<List<T>>(json);
-    }
-
-    private static Dictionary<K, V> LoadDict<K, V>(byte[] data) {
-        var json = Encoding.UTF8.GetString(data);
-        return JsonConvert.DeserializeObject<Dictionary<K, V>>(json);
-    }
-
-    private static byte[] GetAsset(string assetName) {
-        return (byte[]) Assets.ResourceManager.GetObject(assetName);
+#if MHWS
+        DataHelper.OBSOLETE_BY_HASH = DataHelper.Load<Dictionary<string, InfoByHash>>(Assets.OBSOLETE_BY_HASH);
+#endif
     }
 }

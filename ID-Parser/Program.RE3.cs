@@ -6,7 +6,7 @@ using RE_Editor.Models.Enums;
 namespace RE_Editor.ID_Parser;
 
 public static partial class Program {
-    public static void Main() {
+    public static void Go() {
         ExtractItemInfo();
         ExtractWeaponInfo();
     }
