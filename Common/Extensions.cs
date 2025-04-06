@@ -3,11 +3,14 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows;
+using System.Windows.Media;
 using RE_Editor.Common.Models;
 using RE_Editor.Common.Structs;
 
@@ -661,5 +664,29 @@ public static class Extensions {
             }
         }
         return null;
+    }
+
+    public static T? GetParent<T>(this DependencyObject? d) where T : class {
+        while (d != null && d is not T) {
+            d = VisualTreeHelper.GetParent(d);
+        }
+
+        return d as T;
+    }
+
+    public static Dictionary<string, V> KeyToHexString<V>(this Dictionary<uint, V> dict) where V : notnull {
+        var dictionary = new Dictionary<string, V>();
+        foreach (var (key, value) in dict) {
+            dictionary[$"{key:X}"] = value;
+        }
+        return dictionary;
+    }
+
+    public static Dictionary<uint, V> KeyFromHexString<V>(this Dictionary<string, V> dict) where V : notnull {
+        var dictionary = new Dictionary<uint, V>();
+        foreach (var (key, value) in dict) {
+            dictionary[uint.Parse(key, NumberStyles.HexNumber)] = value;
+        }
+        return dictionary;
     }
 }

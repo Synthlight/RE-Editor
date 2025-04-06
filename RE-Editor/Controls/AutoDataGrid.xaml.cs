@@ -19,8 +19,8 @@ using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Controls.Models;
 using RE_Editor.Common.Models;
 using RE_Editor.Common.Models.List_Wrappers;
+using RE_Editor.Common.Util;
 using RE_Editor.Models;
-using RE_Editor.Util;
 using RE_Editor.Windows;
 
 #if RE4

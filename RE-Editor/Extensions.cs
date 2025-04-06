@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using RE_Editor.Common;
 
 namespace RE_Editor;
@@ -20,14 +19,6 @@ public static class Extensions {
 
     public static Visibility VisibleIfTrue(this bool b) {
         return b ? Visibility.Visible : Visibility.Collapsed;
-    }
-
-    public static T GetParent<T>(this DependencyObject d) where T : class {
-        while (d != null && d is not T) {
-            d = VisualTreeHelper.GetParent(d);
-        }
-
-        return d as T;
     }
 
     public static string ReadNullTermString(this BinaryReader reader) {

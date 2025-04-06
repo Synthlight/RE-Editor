@@ -10,7 +10,7 @@ public sealed class HexStringJsonConverter : JsonConverter {
     }
 
     public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer) {
-        writer.WriteValue(value?.ToString());
+        writer.WriteValue($"{value:X}");
     }
 
     public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer) {

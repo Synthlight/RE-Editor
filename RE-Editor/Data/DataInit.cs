@@ -35,7 +35,7 @@ public static partial class DataInit {
         Assembly.Load(nameof(Generated));
         DataHelper.InitStructTypeInfo();
 
-        DataHelper.STRUCT_INFO          = DataHelper.LoadDict<uint, StructJson>(Assets.STRUCT_INFO);
+        DataHelper.STRUCT_INFO          = DataHelper.LoadDict<string, StructJson>(Assets.STRUCT_INFO).KeyFromHexString();
         DataHelper.GP_CRC_OVERRIDE_INFO = DataHelper.LoadDict<uint, uint>(Assets.GP_CRC_OVERRIDE_INFO);
 
         foreach (var (hash, structInfo) in DataHelper.STRUCT_INFO) {
@@ -57,7 +57,7 @@ public static partial class DataInit {
         var resources = Assets.ResourceManager.GetResourceSet(CultureInfo.InvariantCulture, true, false)!;
         foreach (DictionaryEntry resource in resources) {
             if (((string) resource.Key).StartsWith("TRANSLATION_")) {
-                var data = DataHelper.LoadDict<Global.LangIndex, Dictionary<string, string>>((byte[]) resource.Value);
+                var data = DataHelper.LoadDict<Global.LangIndex, Dictionary<string, string>>((byte[]) resource.Value!);
                 foreach (var (lang, dict) in data) {
                     if (!Global.TRANSLATION_MAP.ContainsKey(lang)) Global.TRANSLATION_MAP[lang] = [];
                     foreach (var (key, value) in dict) {

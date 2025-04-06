@@ -20,6 +20,7 @@ using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
 using RE_Editor.Common.PakModels.Hashing;
+using RE_Editor.Common.Util;
 using RE_Editor.Controls;
 using RE_Editor.Models;
 using RE_Editor.Util;

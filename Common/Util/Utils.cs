@@ -1,16 +1,11 @@
-﻿#nullable enable
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
-using RE_Editor.Common;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Data;
 
-namespace RE_Editor.Util;
+namespace RE_Editor.Common.Util;
 
 public static class Utils {
     public static bool IsRunningFromUnitTests { get; private set; }

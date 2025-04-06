@@ -1,6 +1,5 @@
 ﻿using System.CodeDom;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Text.RegularExpressions;
 using Microsoft.CSharp;
 using Newtonsoft.Json;
@@ -224,7 +223,7 @@ public partial class GenerateFiles {
     public GenerateFiles() {
         // Because it's so much easier than writing whatever is needed to deserialize dictionary keys as hex string->uint.
         var structJsonAsString = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>(File.ReadAllText(STRUCT_JSON_PATH))!;
-        structJson = structJsonAsString.ToDictionary(pair => uint.Parse(pair.Key, NumberStyles.HexNumber), pair => pair.Value);
+        structJson = structJsonAsString.KeyFromHexString();
     }
 
     public void Go(string[] args) {
@@ -278,10 +277,7 @@ public partial class GenerateFiles {
     }
 
     private void WriteStructInfo(bool dryRun) {
-        var structInfo = new Dictionary<uint, StructJson>();
-        foreach (var (hash, @struct) in structJson) {
-            structInfo[hash] = @struct;
-        }
+        var structInfo = structJson.KeyToHexString();
         if (!dryRun) {
             Directory.CreateDirectory(ASSETS_DIR);
             File.WriteAllText($@"{ASSETS_DIR}\STRUCT_INFO.json", JsonConvert.SerializeObject(structInfo, Formatting.Indented));

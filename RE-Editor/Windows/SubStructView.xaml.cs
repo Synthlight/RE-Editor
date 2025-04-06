@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using RE_Editor.Common.Models;
-using RE_Editor.Util;
+using RE_Editor.Common.Util;
 
 namespace RE_Editor.Windows {
     public partial class SubStructView {
