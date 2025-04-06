@@ -8,7 +8,8 @@ namespace RE_Editor.Common.Models;
 
 [UsedImplicitly]
 public class StructJson {
-    [UsedImplicitly] public string?      crc;
+    [JsonConverter(typeof(HexStringJsonConverter))]
+    [UsedImplicitly] public uint crc;
     [UsedImplicitly] public List<Field>? fields;
     [UsedImplicitly] public string?      name;
     [UsedImplicitly] public string?      parent;

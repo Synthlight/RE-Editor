@@ -24,7 +24,7 @@ using RE_Editor.Common.Data;
 namespace RE_Editor.Generator;
 
 public class StructTemplate(GenerateFiles generator, StructType structType) {
-    public readonly  string                  hash        = structType.hash;
+    public readonly  uint                    hash        = structType.hash;
     public readonly  StructJson              structInfo  = structType.structInfo;
     private readonly string                  className   = structType.name;
     private readonly Dictionary<string, int> usedNames   = [];
@@ -87,7 +87,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         file.WriteLine("[MhrStruct]");
         file.WriteLine($"// {structInfo.name}");
         file.WriteLine($"public partial class {className} : {parentClass ?? nameof(RszObject)} {{");
-        file.WriteLine($"    public {(parentClass == null ? "const" : "new const")} uint HASH = 0x{hash};");
+        file.WriteLine($"    public {(parentClass == null ? "const" : "new const")} uint HASH = 0x{hash:X};");
     }
 
     private void WriteProperty(TextWriter file, StructJson.Field field) {

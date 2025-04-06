@@ -218,8 +218,14 @@ public partial class GenerateFiles {
     public readonly  Dictionary<string, EnumType>   enumTypes        = [];
     public readonly  Dictionary<string, StructType> structTypes      = [];
     private readonly Dictionary<string, StructJson> structJsonByName = [];
-    private readonly Dictionary<string, StructJson> structJson       = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>(File.ReadAllText(STRUCT_JSON_PATH))!;
-    public readonly  Dictionary<uint, uint>         gpCrcOverrides   = []; // Because the GP version uses the same hashes, but different CRCs.
+    private readonly Dictionary<uint, StructJson>   structJson;
+    public readonly  Dictionary<uint, uint>         gpCrcOverrides = []; // Because the GP version uses the same hashes, but different CRCs.
+
+    public GenerateFiles() {
+        // Because it's so much easier than writing whatever is needed to deserialize dictionary keys as hex string->uint.
+        var structJsonAsString = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>(File.ReadAllText(STRUCT_JSON_PATH))!;
+        structJson = structJsonAsString.ToDictionary(pair => uint.Parse(pair.Key, NumberStyles.HexNumber), pair => pair.Value);
+    }
 
     public void Go(string[] args) {
         var useWhitelist = args.Length > 0 && args.Contains("useWhitelist");
@@ -273,8 +279,7 @@ public partial class GenerateFiles {
 
     private void WriteStructInfo(bool dryRun) {
         var structInfo = new Dictionary<uint, StructJson>();
-        foreach (var (hashString, @struct) in structJson) {
-            var hash = uint.Parse(hashString, NumberStyles.HexNumber);
+        foreach (var (hash, @struct) in structJson) {
             structInfo[hash] = @struct;
         }
         if (!dryRun) {
@@ -595,7 +600,7 @@ public partial class GenerateFiles {
                       select entry.Key);
     }
 
-    private void RemoveStructs(IEnumerable<string> enumerable) {
+    private void RemoveStructs(IEnumerable<uint> enumerable) {
         foreach (var key in enumerable.ToList()) {
             structJson.Remove(key);
         }
@@ -652,7 +657,7 @@ public partial class GenerateFiles {
         var structsByHash = new Dictionary<uint, StructType>();
         foreach (var (_, structType) in structTypes) {
             if (structType.name.GetViaType() != null) continue;
-            structsByHash[uint.Parse(structType.hash, NumberStyles.HexNumber)] = structType;
+            structsByHash[structType.hash] = structType;
         }
 
         // Include structs for all the target files.

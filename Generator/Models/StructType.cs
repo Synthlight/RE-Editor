@@ -6,10 +6,10 @@ using RE_Editor.Common.Structs;
 
 namespace RE_Editor.Generator.Models;
 
-public class StructType(string name, string? parent, string hash, StructJson structInfo) {
+public class StructType(string name, string? parent, uint hash, StructJson structInfo) {
     public readonly string     name       = name;
     public readonly string?    parent     = parent;
-    public readonly string     hash       = hash;
+    public readonly uint       hash       = hash;
     public readonly StructJson structInfo = structInfo;
     public          int        useCount;
 

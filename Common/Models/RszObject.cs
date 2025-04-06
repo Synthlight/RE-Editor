@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -280,7 +279,7 @@ public class RszObject : OnPropertyChangedBase {
             Prefab prefab => prefab.hash,
             _ => (uint) GetType().GetField("HASH")!.GetValue(null)!
         };
-        var crc = uint.Parse(structInfo.crc!, NumberStyles.HexNumber);
+        var crc = structInfo.crc;
 
         if (forGp && DataHelper.GP_CRC_OVERRIDE_INFO.TryGetValue(hash, out var value)) {
             crc = value;
