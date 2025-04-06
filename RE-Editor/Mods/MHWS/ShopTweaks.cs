@@ -78,11 +78,14 @@ public class ShopTweaks : IMod {
                 return Mode.CONSUMABLES;
             case App_ItemDef_TYPE_Fixed.POINT:
             case App_ItemDef_TYPE_Fixed.MATERIAL:
-                if (item.AddIconType == App_IconDef_AddIcon_Fixed.INGREDIENTS) {
-                    return Mode.MATERIALS | Mode.INGREDIENTS;
-                }
                 if (item.Type == App_ItemDef_TYPE_Fixed.MATERIAL && DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng][(uint) item.ItemId].EndsWith(" Coin")) {
                     return Mode.MATERIALS | Mode.ARENA_COINS;
+                }
+                if (item.Type == App_ItemDef_TYPE_Fixed.MATERIAL && DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng][(uint) item.ItemId].ToLower().EndsWith("meal voucher")) {
+                    return Mode.MATERIALS | Mode.INGREDIENTS;
+                }
+                if (item.AddIconType == App_IconDef_AddIcon_Fixed.INGREDIENTS) {
+                    return Mode.MATERIALS | Mode.INGREDIENTS;
                 }
                 return Mode.MATERIALS;
             case App_ItemDef_TYPE_Fixed.SHELL:
