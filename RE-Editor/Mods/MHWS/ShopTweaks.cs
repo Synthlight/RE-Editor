@@ -19,7 +19,7 @@ public class ShopTweaks : IMod {
     public static void Make() {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.4.1";
+        const string version     = "1.4.2";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -60,7 +60,11 @@ public class ShopTweaks : IMod {
             baseMod
                 .SetName($"{name} - Materials Only")
                 .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
-                .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.MATERIALS))
+                .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.MATERIALS)),
+            baseMod
+                .SetName($"{name} - Arena Coins Only")
+                .SetFiles([PathHelper.ITEM_SHOP_DATA_PATH])
+                .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.ARENA_COINS))
         };
 
         ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
@@ -76,6 +80,9 @@ public class ShopTweaks : IMod {
             case App_ItemDef_TYPE_Fixed.MATERIAL:
                 if (item.AddIconType == App_IconDef_AddIcon_Fixed.INGREDIENTS) {
                     return Mode.MATERIALS | Mode.INGREDIENTS;
+                }
+                if (item.Type == App_ItemDef_TYPE_Fixed.MATERIAL && DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng][(uint) item.ItemId].EndsWith(" Coin")) {
+                    return Mode.MATERIALS | Mode.ARENA_COINS;
                 }
                 return Mode.MATERIALS;
             case App_ItemDef_TYPE_Fixed.SHELL:
@@ -98,7 +105,8 @@ public class ShopTweaks : IMod {
                         var shouldAdd = (mode.HasFlag(Mode.CONSUMABLES) && itemMode.HasFlag(Mode.CONSUMABLES))
                                         || (mode.HasFlag(Mode.MATERIALS) && itemMode.HasFlag(Mode.MATERIALS))
                                         || (mode.HasFlag(Mode.GEMS) && itemMode.HasFlag(Mode.GEMS))
-                                        || (mode.HasFlag(Mode.INGREDIENTS) && itemMode.HasFlag(Mode.INGREDIENTS));
+                                        || (mode.HasFlag(Mode.INGREDIENTS) && itemMode.HasFlag(Mode.INGREDIENTS))
+                                        || (mode.HasFlag(Mode.ARENA_COINS) && itemMode.HasFlag(Mode.ARENA_COINS));
                         if (shouldAdd) {
                             entries.Add(CreateItem(itemShopData.rsz, itemId));
                         }
@@ -130,6 +138,7 @@ public class ShopTweaks : IMod {
         CONSUMABLES = 1 << 0,
         GEMS        = 1 << 1,
         MATERIALS   = 1 << 2,
-        INGREDIENTS = 1 << 3
+        INGREDIENTS = 1 << 3,
+        ARENA_COINS = 1 << 4
     }
 }
