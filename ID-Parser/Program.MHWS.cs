@@ -253,10 +253,19 @@ public static partial class Program {
     }
 
     private static void ExtractTalismanInfoByGuid() {
-        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Amulet.msg.{Global.MSG_VERSION}")
-                     .GetLangGuidMap();
-        DataHelper.ITEM_INFO_LOOKUP_BY_GUID = msg;
-        CreateAssetFile(msg, "TALISMAN_INFO_LOOKUP_BY_GUID");
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Amulet.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.ITEM_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "TALISMAN_INFO_LOOKUP_BY_GUID");
+
+        // Get only the names, no descriptions.
+        var regex = new Regex(@"Amulet_(\d+)");
+        msgByGuid = msg.GetLangRawMap<Guid>(name => {
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
+            return name.id1;
+        });
+        CreateConstantsFile(msgByGuid[Global.LangIndex.eng].Flip(), "TalismanConstants");
     }
 
     private static void ExtractTitleInfoByGuid() {
