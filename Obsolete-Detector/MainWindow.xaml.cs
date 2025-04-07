@@ -123,7 +123,7 @@ public partial class MainWindow {
             var fmmModByFiles    = new Dictionary<string, string>();
 
             if (!Directory.Exists(gamePath)) {
-                MessageBox.Show("The entered folder cannot found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("The entered folder cannot be found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

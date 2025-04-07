@@ -5,6 +5,7 @@
 		<UseWPF>true</UseWPF>
 		<ApplicationManifest>App.manifest</ApplicationManifest>
 		<AssemblyName>Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<NoWarn>$(NoWarn);WFAC010</NoWarn>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
