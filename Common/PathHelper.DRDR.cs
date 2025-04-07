@@ -1,4 +1,6 @@
-﻿namespace RE_Editor.Common;
+﻿using RE_Editor.Common.PakModels;
+
+namespace RE_Editor.Common;
 
 public static partial class PathHelper {
     public const string CONFIG_NAME      = "DRDR";
@@ -10,6 +12,13 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Dead Rising Deluxe Remaster\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Dead Rising Deluxe Remaster\Fluffy Mod Manager\Games\DRDR\Mods";
+    public const string PAK_LIST_FILE    = "";
+
+    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
+
+    public static readonly string[] PAK_PATHS = [];
+
+    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [];
 
     public const string NEXUS_URL              = "https://www.nexusmods.com/deadrisingdeluxeremaster/mods/89";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";

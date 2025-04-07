@@ -1,4 +1,6 @@
-﻿namespace RE_Editor.Common;
+﻿using RE_Editor.Common.PakModels;
+
+namespace RE_Editor.Common;
 
 public static partial class PathHelper {
     public const string CONFIG_NAME      = "RE3";
@@ -10,6 +12,13 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Resident Evil 3 Remake\Mods\RTX";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil 3 Remake\Mods\Fluffy Manager 5000\Games\RE3R\Mods";
+    public const string PAK_LIST_FILE    = "";
+
+    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
+
+    public static readonly string[] PAK_PATHS = [];
+
+    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [];
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = "";

@@ -1,0 +1,229 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<RootNamespace>RE_Editor.Obsolete_Detector</RootNamespace>
+		<UseWPF>true</UseWPF>
+		<ApplicationManifest>App.manifest</ApplicationManifest>
+		<AssemblyName>Obsolete-Detector</AssemblyName>
+		<NoWarn>$(NoWarn);WFAC010</NoWarn>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="JetBrains.Annotations" Version="2024.3.0"/>
+		<PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5"/>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Common\Common.csproj"/>
+	</ItemGroup>
+	<!-- DD2 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('DD2'))">
+		<AssemblyName>DD2-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('DD2'))">
+		<Compile Update="Data\DD2\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\DD2\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\DD2\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`DD2`))'">
+		<Compile Remove="Data\DD2\**"/>
+		<EmbeddedResource Remove="Data\DD2\**"/>
+		<Page Remove="Data\DD2\**"/>
+		<None Remove="Data\DD2\**"/>
+	</ItemGroup>
+	<!-- DRDR -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('DRDR'))">
+		<AssemblyName>DRDR-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('DRDR'))">
+		<Compile Update="Data\DRDR\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\DRDR\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\DRDR\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`DRDR`))'">
+		<Compile Remove="Data\DRDR\**"/>
+		<EmbeddedResource Remove="Data\DRDR\**"/>
+		<Page Remove="Data\DRDR\**"/>
+		<None Remove="Data\DRDR\**"/>
+	</ItemGroup>
+	<!-- MHR -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('MHR'))">
+		<AssemblyName>MHR-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('MHR'))">
+		<Compile Update="Data\MHR\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\MHR\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\MHR\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`MHR`))'">
+		<Compile Remove="Data\MHR\**"/>
+		<EmbeddedResource Remove="Data\MHR\**"/>
+		<Page Remove="Data\MHR\**"/>
+		<None Remove="Data\MHR\**"/>
+	</ItemGroup>
+	<!-- MHWS -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('MHWS'))">
+		<AssemblyName>MHWS-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('MHWS'))">
+		<Compile Update="Data\MHWS\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\MHWS\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\MHWS\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`MHWS`))'">
+		<Compile Remove="Data\MHWS\**"/>
+		<EmbeddedResource Remove="Data\MHWS\**"/>
+		<Page Remove="Data\MHWS\**"/>
+		<None Remove="Data\MHWS\**"/>
+	</ItemGroup>
+	<!-- RE2 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('RE2'))">
+		<AssemblyName>RE2-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('RE2'))">
+		<Compile Update="Data\RE2\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\RE2\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\RE2\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE2`))'">
+		<Compile Remove="Data\RE2\**"/>
+		<EmbeddedResource Remove="Data\RE2\**"/>
+		<Page Remove="Data\RE2\**"/>
+		<None Remove="Data\RE2\**"/>
+	</ItemGroup>
+	<!-- RE3 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('RE3'))">
+		<AssemblyName>RE3-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('RE3'))">
+		<Compile Update="Data\RE3\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\RE3\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\RE3\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE3`))'">
+		<Compile Remove="Data\RE3\**"/>
+		<EmbeddedResource Remove="Data\RE3\**"/>
+		<Page Remove="Data\RE3\**"/>
+		<None Remove="Data\RE3\**"/>
+	</ItemGroup>
+	<!-- RE4 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('RE4'))">
+		<AssemblyName>RE4-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('RE4'))">
+		<Compile Update="Data\RE4\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\RE4\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\RE4\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE4`))'">
+		<Compile Remove="Data\RE4\**"/>
+		<EmbeddedResource Remove="Data\RE4\**"/>
+		<Page Remove="Data\RE4\**"/>
+		<None Remove="Data\RE4\**"/>
+	</ItemGroup>
+	<!-- RE8 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('RE8'))">
+		<AssemblyName>RE8-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('RE8'))">
+		<Compile Update="Data\RE8\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\RE8\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\RE8\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE8`))'">
+		<Compile Remove="Data\RE8\**"/>
+		<EmbeddedResource Remove="Data\RE8\**"/>
+		<Page Remove="Data\RE8\**"/>
+		<None Remove="Data\RE8\**"/>
+	</ItemGroup>
+</Project>

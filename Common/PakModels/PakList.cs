@@ -10,15 +10,25 @@ public class PakList {
     public PakList(string listFile) {
         using var projectFile = new StreamReader(listFile);
         while (projectFile.ReadLine() is {} line) {
-            var hashLower = GetStringHash(line.ToLower());
-            var hashUpper = GetStringHash(line.ToUpper());
-            var hash      = (ulong) hashUpper << 32 | hashLower;
+            ParseLine(line);
+        }
+    }
 
-            if (!hashList.TryAdd(hash, line)) {
-                hashList.TryGetValue(hash, out var collision);
+    public PakList(string[] listLines) {
+        foreach (var line in listLines) {
+            ParseLine(line);
+        }
+    }
 
-                throw new($"[COLLISION]: {collision} <-> {line}");
-            }
+    private void ParseLine(string line) {
+        var hashLower = GetStringHash(line.ToLower());
+        var hashUpper = GetStringHash(line.ToUpper());
+        var hash      = (ulong) hashUpper << 32 | hashLower;
+
+        if (!hashList.TryAdd(hash, line)) {
+            hashList.TryGetValue(hash, out var collision);
+
+            throw new($"[COLLISION]: {collision} <-> {line}");
         }
     }
 

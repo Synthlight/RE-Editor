@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using RE_Editor.Common.PakModels;
 
 namespace RE_Editor.Common;
 
@@ -29,24 +30,20 @@ public static partial class PathHelper {
         "re_chunk_000.pak.sub_000.pak.patch_002.pak"
     ];
 
-    public static readonly Dictionary<string, List<string>> PAK_UPDATE_INFO = new() {
-        {
-            "2025-02-28", [ // 1.000.00.00
-                "re_chunk_000.pak",
-                "re_chunk_000.pak.sub_000.pak"
-            ]
-        }, {
-            "2025-03-10", [ // 1.000.05.00
-                "re_chunk_000.pak.patch_001.pak",
-                "re_chunk_000.pak.sub_000.pak.patch_001.pak"
-            ]
-        }, {
-            "2025-04-03", [ // 1.010.00.00 (Title Update 1)
-                "re_chunk_000.pak.patch_002.pak",
-                "re_chunk_000.pak.sub_000.pak.patch_002.pak"
-            ]
-        }
-    };
+    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [
+        new(new(2025, 02, 28), "1.000.00.00", [
+            "re_chunk_000.pak",
+            "re_chunk_000.pak.sub_000.pak"
+        ]),
+        new(new(2025, 03, 10), "1.000.05.00", [
+            "re_chunk_000.pak.patch_001.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_001.pak"
+        ]),
+        new(new(2025, 04, 03), "1.010.00.00", [
+            "re_chunk_000.pak.patch_002.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_002.pak"
+        ]) {updateName = "Title Update 1"}
+    ];
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";

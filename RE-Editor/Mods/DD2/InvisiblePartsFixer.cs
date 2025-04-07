@@ -28,7 +28,7 @@ public class InvisiblePartsFixer : IMod {
             Files        = [],
         };
 
-        var nulledMasks = new Dictionary<string, string>();
+        var nulledMasks = new Dictionary<string, object>();
         var reader      = File.OpenText(@"V:\DD2\DD2_PC_Release.list");
         while (!reader.EndOfStream) {
             var line = reader.ReadLine()!

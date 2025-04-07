@@ -14,8 +14,18 @@ public class ReDataFile {
     public RSZ                rsz;
 
     public static ReDataFile Read(string targetFile, bool justReadHashes = false) {
-        var       file   = new ReDataFile();
         using var reader = new BinaryReader(File.OpenRead(targetFile));
+        return Read(reader, justReadHashes);
+    }
+
+    public static ReDataFile Read(byte[] bytes, bool justReadHashes = false) {
+        using var reader = new BinaryReader(new MemoryStream(bytes));
+        return Read(reader, justReadHashes);
+    }
+
+    private static ReDataFile Read(BinaryReader reader, bool justReadHashes) {
+        // ReSharper disable once UseObjectOrCollectionInitializer
+        var file = new ReDataFile();
         file.magic = (Magic) reader.ReadUInt32();
         var resourceCount = reader.ReadInt32();
         var userDataCount = reader.ReadInt32();

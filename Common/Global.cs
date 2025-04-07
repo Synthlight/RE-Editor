@@ -154,6 +154,24 @@ public static class Global {
     public const string PAK_CREATE_ARGS = "";
 #endif
 
+#if DD2
+    public const string CURRENT_GAME_VERSION = "Unknown";
+#elif DRDR
+    public const string CURRENT_GAME_VERSION = "Unknown";
+#elif MHR
+    public const string CURRENT_GAME_VERSION = "Unknown";
+#elif MHWS
+    public const string CURRENT_GAME_VERSION = "v1.010.00.00";
+#elif RE2
+    public const string CURRENT_GAME_VERSION = "Unknown";
+#elif RE3
+    public const string CURRENT_GAME_VERSION = "Unknown";
+#elif RE4
+    public const string CURRENT_GAME_VERSION = "Unknown";
+#elif RE8
+    public const string CURRENT_GAME_VERSION = "Unknown";
+#endif
+
 // @formatter:off (Because it screws up the alignment of inactive sections.)
 #if MHR
     public const string BITSET_NAME       = "Snow_BitSetFlagBase";

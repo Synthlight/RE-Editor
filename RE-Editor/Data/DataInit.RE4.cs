@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using RE_Editor.Common;
 using RE_Editor.Common.Data;
+using RE_Editor.Data.RE4;
 
 namespace RE_Editor.Data;
 
@@ -9,7 +10,7 @@ public static partial class DataInit {
     private static void LoadDicts() {
         DataHelper.ITEM_NAME_LOOKUP          = [];
         DataHelper.WEAPON_NAME_LOOKUP        = [];
-        DataHelper.STATUS_EFFECT_NAME_LOOKUP = DataHelper.LoadDict<Global.LangIndex, Dictionary<uint, string>>(GetAsset("STATUS_EFFECT_NAME_LOOKUP"));
+        DataHelper.STATUS_EFFECT_NAME_LOOKUP = DataHelper.LoadDict<Global.LangIndex, Dictionary<uint, string>>(Assets.STATUS_EFFECT_NAME_LOOKUP);
 
         foreach (var variant in Global.VARIANTS) {
             DataHelper.ITEM_NAME_LOOKUP[variant]   = DataHelper.LoadDict<Global.LangIndex, Dictionary<uint, string>>(GetAsset($"{variant}_ITEM_NAME_LOOKUP"));
@@ -33,5 +34,9 @@ public static partial class DataInit {
                 }
             }
         }
+    }
+
+    private static byte[] GetAsset(string assetName) {
+        return (byte[]) Assets.ResourceManager.GetObject(assetName);
     }
 }

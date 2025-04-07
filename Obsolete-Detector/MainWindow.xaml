@@ -1,0 +1,71 @@
+﻿<Window x:Class="RE_Editor.Obsolete_Detector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Obsolete Mod Detector"
+        Width="800"
+        ResizeMode="NoResize"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+            <TextBlock Name="main_text"
+                       TextWrapping="Wrap"/>
+        </Label>
+        <TextBox Name="txt_path"
+                 Grid.Row="1"
+                 Grid.Column="0"
+                 Text="Path to a folder containing `natives`, or PAK files to check."/>
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Click="Browse_OnClick"
+                Content="Browse"/>
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Grid.ColumnSpan="2">
+            <TextBlock Name="fmm_text"
+                       TextWrapping="Wrap"/>
+        </Label>
+        <TextBox Name="fmm_path"
+                 Grid.Row="3"
+                 Grid.Column="0"
+                 Text="Path to Fluffy Mod Manager's folder."/>
+        <Button Grid.Row="3"
+                Grid.Column="1"
+                Click="BrowseFmm_OnClick"
+                Content="Browse"/>
+        <StackPanel Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="16"
+                    HorizontalAlignment="Center">
+            <Button Name="btn_scan"
+                    Click="Scan_OnClick"
+                    Content="Scan"/>
+        </StackPanel>
+        <DockPanel Grid.Row="4"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Margin="16">
+            <ProgressBar Name="progress"
+                         Height="10"
+                         IsIndeterminate="True"
+                         Visibility="Hidden"/>
+        </DockPanel>
+    </Grid>
+</Window>

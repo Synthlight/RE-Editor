@@ -10,7 +10,7 @@ public class PakData(PakList pakList) {
 
     public void ReadEntries(string pakFile) {
         using var pakStream = new BinaryReader(File.OpenRead(pakFile));
-        if (pakStream.BaseStream.Length <= 16) throw new("[ERROR]: Empty PAK archive file");
+        if (pakStream.BaseStream.Length <= 16) return;
 
         var header = pakStream.Read<PakHeader>();
 

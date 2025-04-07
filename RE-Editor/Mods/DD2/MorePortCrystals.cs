@@ -27,7 +27,7 @@ public class MorePortCrystals : IMod {
             Image        = $@"{PathHelper.MODS_PATH}\{name}\Title.png",
         };
 
-        var additionalFiles = new Dictionary<string, string> {{@"reframework\plugins\MapIconSizeFixer.dll", $@"{PathHelper.MODS_PATH}\{name}\MapIconSizeFixer.dll"}};
+        var additionalFiles = new Dictionary<string, object> {{@"reframework\plugins\MapIconSizeFixer.dll", $@"{PathHelper.MODS_PATH}\{name}\MapIconSizeFixer.dll"}};
 
         var mods = new[] {
             baseMod

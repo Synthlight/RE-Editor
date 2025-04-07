@@ -1,15 +1,35 @@
 ﻿using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using RE_Editor.Common;
+using RE_Editor.Common.Models;
 using RE_Editor.Common.PakModels;
 using RE_Editor.Common.PakModels.Hashing;
 
 namespace RE_Editor.ID_Parser;
 
 public static class ObsoleteMapMaker {
+    public const string BASE_PROJ_PATH   = @"..\..\..";
+    public const string STRUCT_JSON_PATH = $@"{BASE_PROJ_PATH}\Dump-Parser\Output\{PathHelper.CONFIG_NAME}\rsz{PathHelper.CONFIG_NAME}.json";
+
     private static readonly Regex EXTENSION = new(@"^.*?\.([^\.]+)\.\d+$");
 
     public static void Go() {
+        BuildCrcDump();
+        BuildHashJson();
+    }
+
+    private static void BuildCrcDump() {
+        // Because it's so much easier than writing whatever is needed to deserialize dictionary keys as hex string->uint.
+        var structJson = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>(File.ReadAllText(STRUCT_JSON_PATH))!.KeyFromHexString();
+
+        Dictionary<uint, uint> validHashToCrcMap = [];
+        foreach (var (hash, @struct) in structJson) {
+            validHashToCrcMap[hash] = @struct.crc;
+        }
+        File.WriteAllText($@"{Program.DETECTOR_ASSETS_DIR}\HASH_TO_CRC_MAP.json", JsonConvert.SerializeObject(validHashToCrcMap, Formatting.Indented));
+    }
+
+    private static void BuildHashJson() {
         var allFilesByPak = GetAllCoveredFilesByPak();
         var fileInfoMap   = new Dictionary<string, GoodPakInfo>();
 
@@ -29,25 +49,22 @@ public static class ObsoleteMapMaker {
             }
         }
 
-        // Sort so the results don't change every time.
-        fileInfoMap = fileInfoMap.Sort(pair => pair.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
-
-        Directory.CreateDirectory(Program.DETECTOR_ASSETS_DIR);
-        File.WriteAllText($@"{Program.DETECTOR_ASSETS_DIR}\GOOD_PAK_MAP_{PathHelper.CONFIG_NAME}.json", JsonConvert.SerializeObject(fileInfoMap, Formatting.Indented));
-
         Dictionary<string, InfoByHash> obsoleteFileByHash = [];
-
         foreach (var (filename, goodPakInfo) in fileInfoMap) {
             foreach (var badPakInfo in goodPakInfo.badPakInfo) {
                 obsoleteFileByHash[badPakInfo.hash] = new(filename, goodPakInfo.knownGoodPak, badPakInfo.pak, badPakInfo.length, goodPakInfo.goodPakInfo.length == badPakInfo.length);
             }
         }
-
         // Sort so the results don't change every time.
         obsoleteFileByHash = obsoleteFileByHash.Sort(pair => pair.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
-
         Directory.CreateDirectory(Program.ASSETS_DIR);
         File.WriteAllText($@"{Program.ASSETS_DIR}\OBSOLETE_BY_HASH.json", JsonConvert.SerializeObject(obsoleteFileByHash, Formatting.Indented));
+
+        // Sort so the results don't change every time.
+        // Also make the keys lowercase to make checking easier.
+        fileInfoMap = fileInfoMap.Sort(pair => pair.Key).ToDictionary(pair => pair.Key.ToLower(), pair => pair.Value);
+        Directory.CreateDirectory(Program.DETECTOR_ASSETS_DIR);
+        File.WriteAllText($@"{Program.DETECTOR_ASSETS_DIR}\GOOD_PAK_MAP.json", JsonConvert.SerializeObject(fileInfoMap, Formatting.Indented));
     }
 
     private static Dictionary<string, List<PakFileInfo>> GetAllCoveredFilesByPak() {

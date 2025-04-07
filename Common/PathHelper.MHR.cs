@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using RE_Editor.Common.PakModels;
+
+using System.Diagnostics.CodeAnalysis;
 
 namespace RE_Editor.Common;
 
@@ -12,6 +14,13 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Monster Hunter Rise\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Rise\modmanager\Games\MHRISE\Mods";
+    public const string PAK_LIST_FILE    = "";
+
+    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
+
+    public static readonly string[] PAK_PATHS = [];
+
+    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [];
 
     public const string NEXUS_URL              = "https://www.nexusmods.com/monsterhunterrise/mods/114";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
