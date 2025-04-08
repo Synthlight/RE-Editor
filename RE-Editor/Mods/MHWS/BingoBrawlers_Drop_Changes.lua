@@ -10,7 +10,7 @@ sdk.hook(sdk.find_type_definition("app.EnemyRewardUtil"):get_method("getAddRewar
     return retval
 end)
 
-sdk.hook(sdk.find_type_definition("app.QuestGeneralRewardUtil"):get_method("getRewardItemData(System.UInt32, app.QuestGeneralRewardUtil.GeneralRewardType, app.cQuestDirector.TIME_RANK)"), function(args) end, function (retval)
+sdk.hook(sdk.find_type_definition("app.QuestGeneralRewardUtil"):get_method("getRewardItemData(System.UInt32, app.QuestGeneralRewardUtil.GeneralRewardType, app.cQuestDirector.TIME_RANK, System.Int32)"), function(args) end, function (retval)
     FixRewards(retval, Mode.QuestGeneralRewardUtil_getRewardItemDataPost)
     return retval
 end)
@@ -677,7 +677,7 @@ ItemConstants = {
     REY_DAU_CARAPACE = 347,
     REY_DAU_CERTIFICATE = 345,
     REY_DAU_CERTIFICATE_S = 351,
-    REY_DAU_CERTIFICATE_Γ = 756,
+    --REY_DAU_CERTIFICATE_Γ = 756,
     REY_DAU_FULGURTALON = 349,
     REY_DAU_PLATE = 143,
     REY_DAU_SCALE = 138,

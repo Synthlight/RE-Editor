@@ -54,7 +54,7 @@ public class BingoBrawlers : IMod {
     public static void Make() {
         const string name        = "Bingo Brawlers";
         const string description = "Bingo Brawlers stuff.";
-        const string version     = "1.2";
+        const string version     = "1.2.2";
 
         var baseMod = new NexusMod {
             Version      = version,
