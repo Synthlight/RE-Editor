@@ -155,7 +155,7 @@ public static class Global {
 #endif
 
 #if DD2
-    public const string CURRENT_GAME_VERSION = "Unknown";
+    public const string CURRENT_GAME_VERSION = "Update 13 (2025-04-09)";
 #elif DRDR
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif MHR

@@ -26,6 +26,7 @@ public static class ObsoleteMapMaker {
         foreach (var (hash, @struct) in structJson) {
             validHashToCrcMap[hash] = @struct.crc;
         }
+        Directory.CreateDirectory(Program.DETECTOR_ASSETS_DIR);
         File.WriteAllText($@"{Program.DETECTOR_ASSETS_DIR}\HASH_TO_CRC_MAP.json", JsonConvert.SerializeObject(validHashToCrcMap, Formatting.Indented));
     }
 

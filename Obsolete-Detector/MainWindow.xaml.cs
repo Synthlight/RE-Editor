@@ -19,7 +19,7 @@ public partial class MainWindow {
 // @formatter:off (Because it screws up the alignment of inactive sections.)
 #if DD2
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\Dragons Dogma 2";
-    public const string FMM_GAME_FOLDER   = "";
+    public const string FMM_GAME_FOLDER   = "DragonsDogma2";
 #elif DRDR
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\DRDR";
     public const string FMM_GAME_FOLDER   = "";

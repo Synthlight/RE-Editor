@@ -83,6 +83,16 @@ namespace RE_Editor.Data.DD2 {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] OBSOLETE_BY_HASH {
+            get {
+                object obj = ResourceManager.GetObject("OBSOLETE_BY_HASH", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SHOP_NAME_LOOKUP {
             get {
                 object obj = ResourceManager.GetObject("SHOP_NAME_LOOKUP", resourceCulture);

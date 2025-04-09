@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using RE_Editor.Common;
@@ -19,7 +18,7 @@ public static partial class Program {
         Assembly.Load(nameof(Generated));
         DataHelper.InitStructTypeInfo();
         var json = File.ReadAllText($@"{ASSETS_DIR}\STRUCT_INFO.json");
-        DataHelper.STRUCT_INFO = JsonConvert.DeserializeObject<Dictionary<uint, StructJson>>(json)!;
+        DataHelper.STRUCT_INFO = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>(json)!.KeyFromHexString();
 
         // Do after data is loaded/parsed.
         ExtractStyleConstants();

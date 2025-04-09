@@ -59,5 +59,41 @@ namespace RE_Editor.Obsolete_Detector.Data.DD2 {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GOOD_PAK_MAP {
+            get {
+                object obj = ResourceManager.GetObject("GOOD_PAK_MAP", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HASH_TO_CRC_MAP {
+            get {
+                object obj = ResourceManager.GetObject("HASH_TO_CRC_MAP", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to natives/stm/animation/ch/ch00/fbx/006_atk/ch00_006_vfx_custom_vortexrage_loop.mot.698
+        ///natives/stm/animation/ch/ch00/fbx/006_atk/ch00_006_vfx_custom_vortexrage_start.mot.698
+        ///natives/stm/animation/ch/ch00/motlist/ch00_000_atk.motlist.751
+        ///natives/stm/animation/ch/ch00/motlist/ch00_000_com.motlist.751
+        ///natives/stm/animation/ch/ch00/motlist/ch00_000_com_tree.motlist.751
+        ///natives/stm/animation/ch/ch00/motlist/ch00_000_combm.motlist.751
+        ///natives/stm/animation/ch/ch00/motlist/ch00_000_comcs.motlist.751
+        ///natives/stm/ani [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string List {
+            get {
+                return ResourceManager.GetString("List", resourceCulture);
+            }
+        }
     }
 }
