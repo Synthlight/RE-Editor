@@ -21,14 +21,15 @@ public class PakList {
     }
 
     private void ParseLine(string line) {
-        var hashLower = GetStringHash(line.ToLower());
-        var hashUpper = GetStringHash(line.ToUpper());
+        var fixedLine = line.Replace('\\', '/');
+        var hashLower = GetStringHash(fixedLine.ToLower());
+        var hashUpper = GetStringHash(fixedLine.ToUpper());
         var hash      = (ulong) hashUpper << 32 | hashLower;
 
-        if (!hashList.TryAdd(hash, line)) {
+        if (!hashList.TryAdd(hash, fixedLine)) {
             hashList.TryGetValue(hash, out var collision);
 
-            throw new($"[COLLISION]: {collision} <-> {line}");
+            throw new($"[COLLISION]: {collision} <-> {fixedLine}");
         }
     }
 
