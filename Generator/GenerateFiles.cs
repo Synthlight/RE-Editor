@@ -105,6 +105,7 @@ public partial class GenerateFiles {
         "app.StringUtil.NameHash`",
         "soundlib.SoundSwitchApp`",
 #elif DRDR
+        "app.solid.camera.CameraCurveUserData.CurveParam`",
         "app.solid.camera.CameraCurveUserData.CurveParamTable`",
         "app.solid.DampingSetting`",
         "app.solid.weapon.generator.BombGeneratorUserDataBase`",
@@ -212,7 +213,7 @@ public partial class GenerateFiles {
 #endif
     ];
 
-    private static readonly List<uint> GREYLIST = []; // Hashes used in a given location.
+    private static readonly HashSet<uint> GREYLIST = []; // Hashes used in a given location.
 
     public readonly  Dictionary<string, EnumType>   enumTypes        = [];
     public readonly  Dictionary<string, StructType> structTypes      = [];
@@ -254,9 +255,18 @@ public partial class GenerateFiles {
             FilterWhitelisted();
         }
         if (useGreylist) {
-            FindAllHashesBeingUsed();
+            if (PathHelper.PAK_PATHS.Length > 0 && File.Exists($@"{PathHelper.GAME_PATH}\{PathHelper.PAK_PATHS[0]}")) {
+                FindAllHashesBeingUsedViaPaks();
+            } else {
+                FindAllHashesBeingUsedViaFiles();
+            }
+            Global.Log($"Read {GREYLIST.Count} hashes.");
             FilterGreylisted();
-            FindCrcOverrides();
+            if (PathHelper.PAK_PATHS.Length > 0 && File.Exists($@"{PathHelper.GAME_PATH_MSG}\{PathHelper.PAK_PATHS[0]}")) {
+                FindCrcOverridesViaPaks();
+            } else {
+                FindCrcOverridesViaFiles();
+            }
         }
         if (useWhitelist || useGreylist) {
             UpdateUsingCounts();
@@ -602,47 +612,32 @@ public partial class GenerateFiles {
         }
     }
 
-    private static void FindAllHashesBeingUsed() {
-        foreach (var path in PathHelper.TEST_PATHS) {
-            Global.Log($"Finding all files in: {PathHelper.CHUNK_PATH + path}");
-        }
+    private static void FindAllHashesBeingUsedViaPaks() {
+        Global.Log($"Finding all hashes used in: {PathHelper.GAME_PATH}\\*.pak");
 
-        var allUserFiles = PathHelper.GetCachedFileList(FileListCacheType.USER);
-        var count        = allUserFiles.Count;
-        Global.Log($"Found {count} files.");
-
-        var now = DateTime.Now;
-        Global.Log("");
-
-        for (var i = 0; i < allUserFiles.Count; i++) {
-            var newNow = DateTime.Now;
-            if (newNow > now.AddSeconds(1)) {
-                try {
-                    Console.SetCursorPosition(0, Console.CursorTop - 1);
-                } catch (Exception) {
-                    // Breaks tests so just ignore for those.
-                }
-                Global.Log($"Parsed {i}/{count}.");
-                now = newNow;
-            }
-
-            var file = allUserFiles[i];
-            var rsz  = ReDataFile.Read(file, justReadHashes: true);
+        foreach (var fileData in PathHelper.ForEachFileInPaks(FileListCacheType.USER)) {
+            var rsz = ReDataFile.Read(fileData.bytes, justReadHashes: true);
             var hashes = from instanceInfo in rsz.rsz.instanceInfo
                          select instanceInfo.hash;
             hashes = hashes.Distinct();
             foreach (var hash in hashes) {
-                if (GREYLIST.Contains(hash)) continue;
                 GREYLIST.Add(hash);
             }
         }
+    }
 
-        try {
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-        } catch (Exception) {
-            // Breaks tests so just ignore for those.
+    private static void FindAllHashesBeingUsedViaFiles() {
+        Global.Log($"Finding all hashes used in: {PathHelper.CHUNK_PATH + PathHelper.BASE_PATH}");
+
+        foreach (var file in PathHelper.ForEachExtractedFile(FileListCacheType.USER)) {
+            var rsz = ReDataFile.Read(file, justReadHashes: true);
+            var hashes = from instanceInfo in rsz.rsz.instanceInfo
+                         select instanceInfo.hash;
+            hashes = hashes.Distinct();
+            foreach (var hash in hashes) {
+                GREYLIST.Add(hash);
+            }
         }
-        Global.Log($"Parsed {count}/{count}.");
     }
 
     /**
@@ -687,32 +682,11 @@ public partial class GenerateFiles {
 #endif
     }
 
-    private void FindCrcOverrides() {
-        foreach (var path in PathHelper.TEST_PATHS) {
-            Global.Log($"Finding all GP files in: {(PathHelper.CHUNK_PATH + path).Replace("STM", "MSG")}");
-        }
+    private void FindCrcOverridesViaPaks() {
+        Global.Log($"Finding all hashes used in: {PathHelper.GAME_PATH_MSG}\\*.pak");
 
-        var allGpUserFiles = PathHelper.GetCachedFileList(FileListCacheType.USER, msg: true);
-        var count          = allGpUserFiles.Count;
-        Global.Log($"Found {count} files.");
-
-        var now = DateTime.Now;
-        Global.Log("");
-
-        for (var i = 0; i < allGpUserFiles.Count; i++) {
-            var newNow = DateTime.Now;
-            if (newNow > now.AddSeconds(1)) {
-                try {
-                    Console.SetCursorPosition(0, Console.CursorTop - 1);
-                } catch (Exception) {
-                    // Breaks tests so just ignore for those.
-                }
-                Global.Log($"Parsed {i}/{count}.");
-                now = newNow;
-            }
-
-            var file = allGpUserFiles[i];
-            var rsz  = ReDataFile.Read(file, justReadHashes: true);
+        foreach (var fileData in PathHelper.ForEachFileInPaks(FileListCacheType.USER, msg: true)) {
+            var rsz = ReDataFile.Read(fileData.bytes, justReadHashes: true);
             var instanceInfos = from instanceInfo in rsz.rsz.instanceInfo
                                 select instanceInfo;
             instanceInfos = instanceInfos.Distinct();
@@ -721,12 +695,22 @@ public partial class GenerateFiles {
             }
         }
 
-        try {
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-        } catch (Exception) {
-            // Breaks tests so just ignore for those.
+        Global.Log($"Created {gpCrcOverrides.Count} CRC overrides.");
+    }
+
+    private void FindCrcOverridesViaFiles() {
+        Global.Log($"Finding all hashes used in: {(PathHelper.CHUNK_PATH + PathHelper.BASE_PATH).Replace("STM", "MSG")}");
+
+        foreach (var file in PathHelper.ForEachExtractedFile(FileListCacheType.USER, msg: true)) {
+            var rsz = ReDataFile.Read(file, justReadHashes: true);
+            var instanceInfos = from instanceInfo in rsz.rsz.instanceInfo
+                                select instanceInfo;
+            instanceInfos = instanceInfos.Distinct();
+            foreach (var (hash, crc) in instanceInfos) {
+                gpCrcOverrides.TryAdd(hash, crc);
+            }
         }
-        Global.Log($"Parsed {count}/{count}.");
+
         Global.Log($"Created {gpCrcOverrides.Count} CRC overrides.");
     }
 

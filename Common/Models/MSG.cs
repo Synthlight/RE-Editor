@@ -35,9 +35,18 @@ public class MSG {
 
     public static MSG Read(string targetFile, bool writeNameIds = false) {
         Global.Log($"Reading: {targetFile}");
-
-        var       file   = new MSG();
         using var reader = new BinaryReader(File.OpenRead(targetFile));
+        return Read(reader, writeNameIds);
+    }
+
+    public static MSG Read(byte[] bytes, bool writeNameIds = false) {
+        using var reader = new BinaryReader(new MemoryStream(bytes));
+        return Read(reader, writeNameIds);
+    }
+
+    private static MSG Read(BinaryReader reader, bool writeNameIds = false) {
+        // ReSharper disable once UseObjectOrCollectionInitializer
+        var file = new MSG();
         file.version        = reader.ReadUInt32();
         file.magic          = reader.ReadUInt32();
         file.headerOffset   = reader.ReadUInt64();

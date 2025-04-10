@@ -6,27 +6,25 @@ public static partial class PathHelper {
     public const string CONFIG_NAME      = "RE4";
     public const string CHUNK_PATH       = @"V:\RE4\re_chunk_000";
     public const string GAME_PATH        = @"O:\SteamLibrary\steamapps\common\RESIDENT EVIL 4  BIOHAZARD RE4";
+    public const string GAME_PATH_MSG    = "";
     public const string EXE_PATH         = $@"{GAME_PATH}\re4_dump.exe";
     public const string IL2CPP_DUMP_PATH = $@"{GAME_PATH}\il2cpp_dump.json";
     public const string ENUM_HEADER_PATH = $@"{GAME_PATH}\Enums_Internal.hpp";
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Resident Evil 4 Remake\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil 4 Remake\Fluffy Mod Manager\Games\RE4R\Mods";
-    public const string PAK_LIST_FILE    = "";
+    public const string PAK_LIST         = "";
+    public const string PAK_LIST_MSG     = "";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
 
     public static readonly string[] PAK_PATHS = [];
 
-    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [];
+    public static readonly PakDateInfo[] PAK_UPDATE_INFO = [];
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = "";
     public const string WIKI_URL               = "";
-
-    public static readonly string[] TEST_PATHS = [
-        @"\natives\STM\"
-    ];
 
     public const string ATTACHE_CASE_SKIN_EFFECT_DATA_PATH      = @"\natives\STM\_Chainsaw\AppSystem\UI\UserData\AttacheCaseSkinEffectSettingUserdata.user.2";
     public const string ATTACHE_CASE_SKIN_EFFECT_DATA_AO_PATH   = @"\natives\STM\_AnotherOrder\AppSystem\UI\UserData\AttacheCaseSkinEffectSettingUserdata_AO.user.2";

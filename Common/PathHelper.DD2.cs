@@ -6,13 +6,15 @@ public static partial class PathHelper {
     public const string CONFIG_NAME      = "DD2";
     public const string CHUNK_PATH       = @"V:\DD2\re_chunk_000";
     public const string GAME_PATH        = @"O:\SteamLibrary\steamapps\common\Dragons Dogma 2";
+    public const string GAME_PATH_MSG    = "";
     public const string EXE_PATH         = $@"{GAME_PATH}\DD2_dump.exe";
     public const string IL2CPP_DUMP_PATH = $@"{GAME_PATH}\il2cpp_dump.json";
     public const string ENUM_HEADER_PATH = $@"{GAME_PATH}\Enums_Internal.hpp";
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Dragons Dogma 2\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Dragons Dogma 2\Fluffy Mod Manager\Games\DragonsDogma2\Mods";
-    public const string PAK_LIST_FILE    = @"R:\Games\Dragons Dogma 2\DD2_PC_Release.list";
+    public const string PAK_LIST         = @"R:\Games\Dragons Dogma 2\DD2_PC_Release.list";
+    public const string PAK_LIST_MSG     = "";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
         "user",
@@ -36,7 +38,7 @@ public static partial class PathHelper {
         "re_chunk_000.pak.patch_013.pak"
     ];
 
-    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [
+    public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
         new(new(2024, 03, 21), "Release", [
             "re_chunk_000.pak"
         ]) {updateName = "2024-03-21"},
@@ -84,10 +86,6 @@ public static partial class PathHelper {
     public const string NEXUS_URL              = "https://www.nexusmods.com/dragonsdogma2/mods/522";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
     public const string WIKI_URL               = NEXUS_URL;
-
-    public static readonly string[] TEST_PATHS = [
-        @"\natives\STM\"
-    ];
 
     public const string ARMOR_DATA_PATH                  = "natives/STM/AppSystem/Item/ItemData/ItemArmorData.user.2";
     public const string ARMOR_UPGRADE_DATA_PATH          = "natives/STM/AppSystem/Item/ItemData/ArmorEnhanceData.user.2";

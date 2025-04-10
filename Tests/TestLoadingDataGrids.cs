@@ -6,16 +6,33 @@ namespace RE_Editor.Tests;
 
 [TestClass]
 public class TestLoadingDataGrids {
+    private static Dictionary<string, byte[]> pakData = [];
+
+    [ClassInitialize]
+    public static void Init(TestContext context) {
+        if (PathHelper.PAK_PATHS.Length > 0 && File.Exists($@"{PathHelper.GAME_PATH}\{PathHelper.PAK_PATHS[0]}")) {
+            pakData = PathHelper.ForEachFileInPaks(FileListCacheType.USER).ToDictionary(data => data.path, data => data.bytes);
+        }
+    }
+
     private static IEnumerable<object[]> GetFilesToTest() {
+        if (PathHelper.PAK_PATHS.Length > 0 && File.Exists($@"{PathHelper.GAME_PATH}\{PathHelper.PAK_PATHS[0]}")) {
+            return PathHelper.GetFilesInPaks(FileListCacheType.USER).Select(s => new object[] {s.Key});
+        }
         return PathHelper.GetCachedFileList(FileListCacheType.USER).Select(s => new object[] {s});
     }
 
     [DynamicData(nameof(GetFilesToTest), DynamicDataSourceType.Method)]
     [DataTestMethod]
-    public void TestLoadingDataGrid(string file) {
+    public void TestLoadingDataGrid(string path) {
         ReDataFile data;
         try {
-            data = ReDataFile.Read(file);
+            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+            if (pakData.Any()) {
+                data = ReDataFile.Read(pakData[path]);
+            } else {
+                data = ReDataFile.Read(path);
+            }
         } catch (Exception e) {
             Assert.Inconclusive($"{e.Message}\n{e.StackTrace}");
             return;

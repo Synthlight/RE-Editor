@@ -7,8 +7,10 @@ public class PakData(PakList pakList) {
     private         int                          entrySize;
     private         List<PakEntry>               entryTable         = [];
     public readonly Dictionary<string, PakEntry> filenameToEntryMap = [];
+    public          string?                      pakFile { get; private set; }
 
     public void ReadEntries(string pakFile) {
+        this.pakFile = pakFile;
         using var pakStream = new BinaryReader(File.OpenRead(pakFile));
         if (pakStream.BaseStream.Length <= 16) return;
 

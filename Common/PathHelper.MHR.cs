@@ -1,6 +1,5 @@
-﻿using RE_Editor.Common.PakModels;
-
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
+using RE_Editor.Common.PakModels;
 
 namespace RE_Editor.Common;
 
@@ -8,27 +7,41 @@ public static partial class PathHelper {
     public const string CONFIG_NAME      = "MHR";
     public const string CHUNK_PATH       = @"V:\MHR\re_chunk_000";
     public const string GAME_PATH        = @"O:\SteamLibrary\steamapps\common\MonsterHunterRise";
+    public const string GAME_PATH_MSG    = @"O:\MHR-MSG";
     public const string EXE_PATH         = $@"{GAME_PATH}\MonsterHunterRise_dump.exe";
     public const string IL2CPP_DUMP_PATH = $@"{GAME_PATH}\il2cpp_dump.json";
     public const string ENUM_HEADER_PATH = $@"{GAME_PATH}\Enums_Internal.hpp";
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Monster Hunter Rise\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Rise\modmanager\Games\MHRISE\Mods";
-    public const string PAK_LIST_FILE    = "";
+    public const string PAK_LIST         = @"R:\Games\Monster Hunter Rise\MHR_STM.list";
+    public const string PAK_LIST_MSG     = @"R:\Games\Monster Hunter Rise\MHR_MSG.list";
 
-    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
+    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
+        "user",
+        "pfb"
+    ];
 
-    public static readonly string[] PAK_PATHS = [];
+    public static readonly string[] PAK_PATHS = [
+        "re_chunk_000.pak",
+        "re_chunk_000.pak.patch_001.pak",
+        "re_chunk_000.pak.patch_002.pak", // This and higher are MSG PAKs.
+        "re_chunk_000.pak.patch_003.pak",
+        "re_chunk_000.pak.patch_004.pak",
+        "re_chunk_000.pak.patch_005.pak",
+        "re_chunk_000.pak.patch_006.pak",
+        "re_chunk_000.pak.patch_007.pak",
+        "re_chunk_000.pak.patch_008.pak",
+        "re_chunk_000.pak.patch_009.pak",
+        "re_chunk_000.pak.patch_010.pak"
+    ];
 
-    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [];
+    // Can't go by date since they kept replacing the second PAK.
+    public static readonly PakDateInfo[] PAK_UPDATE_INFO = [];
 
     public const string NEXUS_URL              = "https://www.nexusmods.com/monsterhunterrise/mods/114";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
     public const string WIKI_URL               = NEXUS_URL;
-
-    public static readonly string[] TEST_PATHS = [
-        @"\natives\STM"
-    ];
 
     public const string WIKI_PATH = @"R:\Games\Monster Hunter Rise\Wiki Dump";
 

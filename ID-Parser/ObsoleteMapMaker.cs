@@ -69,7 +69,7 @@ public static class ObsoleteMapMaker {
     }
 
     private static Dictionary<string, List<PakFileInfo>> GetAllCoveredFilesByPak() {
-        var pakList           = new PakList(PathHelper.PAK_LIST_FILE);
+        var pakList           = new PakList(PathHelper.PAK_LIST);
         var allFilesByPak     = new Dictionary<string, List<PakFileInfo>>();
         var allFilesByPakLock = new Mutex();
 

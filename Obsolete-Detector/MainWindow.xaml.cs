@@ -25,7 +25,7 @@ public partial class MainWindow {
     public const string FMM_GAME_FOLDER   = "";
 #elif MHR
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\MonsterHunterRise";
-    public const string FMM_GAME_FOLDER   = "";
+    public const string FMM_GAME_FOLDER   = "MHRISE";
 #elif MHWS
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\MonsterHunterWilds";
     public const string FMM_GAME_FOLDER   = "MonsterHunterWilds";

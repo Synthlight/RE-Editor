@@ -8,13 +8,15 @@ public static partial class PathHelper {
     public const string CONFIG_NAME      = "MHWS";
     public const string CHUNK_PATH       = @"V:\MHWilds\re_chunk_000";
     public const string GAME_PATH        = @"O:\SteamLibrary\steamapps\common\MonsterHunterWilds";
+    public const string GAME_PATH_MSG    = "";
     public const string EXE_PATH         = $@"{GAME_PATH}\MonsterHunterWilds_dump.exe";
     public const string IL2CPP_DUMP_PATH = $@"{GAME_PATH}\il2cpp_dump.json";
     public const string ENUM_HEADER_PATH = $@"{GAME_PATH}\Enums_Internal.hpp";
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Monster Hunter Wilds\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Wilds\FMM\Games\MonsterHunterWilds\Mods";
-    public const string PAK_LIST_FILE    = @"R:\Games\Monster Hunter Wilds\MHWs.list";
+    public const string PAK_LIST         = @"R:\Games\Monster Hunter Wilds\MHWs.list";
+    public const string PAK_LIST_MSG     = "";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
         "user",
@@ -30,7 +32,7 @@ public static partial class PathHelper {
         "re_chunk_000.pak.sub_000.pak.patch_002.pak"
     ];
 
-    public static readonly List<PakDateInfo> PAK_UPDATE_INFO = [
+    public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
         new(new(2025, 02, 28), "1.000.00.00", [
             "re_chunk_000.pak",
             "re_chunk_000.pak.sub_000.pak"
@@ -48,10 +50,6 @@ public static partial class PathHelper {
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
     public const string WIKI_URL               = NEXUS_URL;
-
-    public static readonly string[] TEST_PATHS = [
-        @"\natives\STM"
-    ];
 
     public const string ARMOR_DATA_PATH                = @"\natives\STM\GameDesign\Common\Equip\ArmorData.user.3";
     public const string ARMOR_RECIPE_DATA_PATH         = @"\natives\STM\GameDesign\Common\Equip\ArmorRecipeData.user.3";
