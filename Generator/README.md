@@ -11,6 +11,8 @@ This needs to be run before the editor will even compile. This generates all the
 
 Note: There are game-specific generator files. (This is to support multiple configurations.)
 
+Note 2: The editor can parse the game PAK files if the paths are set. This removes the need to extract any files for generation.
+
 ## Whitelist/Greylist builds are fast! Full builds will take 20+ minutes!
 And may also involve force-closing VS and then try to build again.<br>
 Don't do full builds unless you're prepared to wait.<br>
