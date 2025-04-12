@@ -75,12 +75,12 @@ public abstract partial class AutoDataGrid : IAutoDataGrid {
         if (dataSourceType == null) {
             if (objType.Name.Contains(nameof(DataSourceWrapper<int>))) { // TODO: Remove the `int` generic param once C# 14 come out.
                 var getDataLookupSourceMethod = objType.GetMethod(nameof(DataSourceWrapper<int>.GetDataLookupSource))!; // TODO: Remove the `int` generic param once C# 14 come out.
-                dataSource = ((dynamic) getDataLookupSourceMethod.Invoke(obj, null)!)[Global.locale];
+                dataSource = getDataLookupSourceMethod.Invoke(obj, null)!;
             } else {
                 throw new($"Don't know how to get a data lookup source from: {objType}");
             }
         } else {
-            dataSource = Utils.GetDataSourceType(dataSourceType);
+            dataSource = Utils.GetDataSourceLookup(dataSourceType);
         }
 
         if (negativeOneForEmpty) {

@@ -2,11 +2,11 @@
 using System.Diagnostics.CodeAnalysis;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Controls.Models;
+using RE_Editor.Common.Util;
 
 #if MHR
 using RE_Editor.Common.Data;
 #elif MHWS
-using RE_Editor.Common.Data;
 #elif RE4
 using RE_Editor.Common.Data;
 #endif
@@ -38,8 +38,9 @@ public sealed class DataSourceWrapper<T> : ListWrapper<T> where T : struct {
         get {
             var dataLookupSource = GetDataLookupSource();
             return dataLookupSource switch {
-                Dictionary<Global.LangIndex, Dictionary<int, string>> source => GetLookupText(source),
-                Dictionary<Global.LangIndex, Dictionary<uint, string>> source => GetLookupText(source),
+                Dictionary<int, string> source => GetLookupText(source),
+                Dictionary<uint, string> source => GetLookupText(source),
+                Dictionary<Guid, string> source => GetLookupText(source),
                 // ReSharper disable once NotResolvedInText
                 _ => throw new ArgumentOutOfRangeException("dataLookupSource", $"Don't know how to lookup from: {dataLookupSource.GetType()}")
             };
@@ -52,27 +53,15 @@ public sealed class DataSourceWrapper<T> : ListWrapper<T> where T : struct {
         this.field = field;
     }
 
+    /**
+     * Leave as a separate function, it gets called via reflection by AutoDataGrid for DataSourceWrapper types.
+     */
     public object GetDataLookupSource() {
-        return field.originalType?.Replace("[]", "") switch {
-#if MHR
-            "snow.data.ContentsIdSystem.ItemId" => DataHelper.ITEM_NAME_LOOKUP,
-            "snow.data.DataDef.PlEquipSkillId" => DataHelper.SKILL_NAME_LOOKUP,
-            "snow.data.DataDef.PlHyakuryuSkillId" => DataHelper.RAMPAGE_SKILL_NAME_LOOKUP,
-            "snow.data.DataDef.PlKitchenSkillId" => DataHelper.DANGO_NAME_LOOKUP,
-            "snow.data.DataDef.PlWeaponActionId" => DataHelper.SWITCH_SKILL_NAME_LOOKUP,
-#elif MHWS
-            "app.ArmorDef.SERIES_Fixed" => DataHelper.ARMOR_SERIES_BY_ENUM_VALUE,
-            "app.HunterDef.Skill_Fixed" => DataHelper.SKILL_NAME_BY_ENUM_VALUE,
-            "app.ItemDef.ID_Fixed" => DataHelper.ITEM_NAME_LOOKUP,
-#elif RE4
-            "chainsaw.ItemID" => DataHelper.ITEM_NAME_LOOKUP[Global.variant],
-#endif
-            _ => throw new InvalidOperationException($"No data source lookup known for: {field.originalType}")
-        };
+        return Utils.GetDataSourceLookup(field.originalType);
     }
 
-    private string GetLookupText<LookupT>(Dictionary<Global.LangIndex, Dictionary<LookupT, string>> source) where LookupT : struct {
-        return source[Global.locale].TryGet((LookupT) Convert.ChangeType(Value, typeof(LookupT))).ToStringWithId(Value, ShowAsHex());
+    private string GetLookupText<LookupT>(Dictionary<LookupT, string> source) where LookupT : struct {
+        return source.TryGet((LookupT) Convert.ChangeType(Value, typeof(LookupT))).ToStringWithId(Value, ShowAsHex());
     }
 
     private bool ShowAsHex() {

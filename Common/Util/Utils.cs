@@ -24,7 +24,11 @@ public static class Utils {
         control.CommandBindings.Add(cb);
     }
 
-    public static dynamic GetDataSourceType(DataSourceType? dataSourceType) {
+    public static dynamic GetDataSourceLookup(string? originalType) {
+        return GetDataSourceLookup(GetDataSourceType(originalType));
+    }
+
+    public static dynamic GetDataSourceLookup(DataSourceType? dataSourceType) {
         dynamic dataSource = dataSourceType switch {
 #if DD2
             DataSourceType.ITEMS => DataHelper.ITEM_NAME_LOOKUP[Global.locale],
@@ -53,6 +57,42 @@ public static class Utils {
             _ => throw new ArgumentOutOfRangeException(dataSourceType.ToString())
         };
         return dataSource;
+    }
+
+    public static DataSourceType? GetDataSourceType(string? originalType) {
+        return originalType?.Replace("[]", "") switch {
+#if DD2
+            "app.ItemIDEnum" => DataSourceType.ITEMS,
+#elif DRDR
+            "app.MTData.ITEM_NO" => DataSourceType.ITEMS,
+#elif MHR
+            "snow.data.ContentsIdSystem.ItemId" => DataSourceType.ITEMS,
+            "snow.data.DataDef.PlEquipSkillId" => DataSourceType.SKILLS,
+            "snow.data.DataDef.PlHyakuryuSkillId" => DataSourceType.RAMPAGE_SKILLS,
+            "snow.data.DataDef.PlKitchenSkillId" => DataSourceType.DANGO_SKILLS,
+            "snow.data.DataDef.PlWeaponActionId" => DataSourceType.SWITCH_SKILLS,
+#elif MHWS
+            "app.ArmorDef.SERIES_Fixed" => DataSourceType.ARMOR_SERIES,
+            "app.EnemyDef.ID_Fixed" => DataSourceType.ENEMIES,
+            "app.EquipDef.ACCESSORY_ID_Fixed" => DataSourceType.DECORATIONS,
+            "app.HunterDef.Skill_Fixed" => DataSourceType.SKILLS,
+            "app.HunterProfileDef.MEDAL_ID_Fixed" => DataSourceType.MEDALS,
+            "app.ItemDef.ID_Fixed" => DataSourceType.ITEMS,
+            "app.MissionIDList.ID_Fixed" => DataSourceType.QUESTS,
+            "app.WeaponCharmDef.TYPE_Fixed" => DataSourceType.PENDANTS,
+            "app.WeaponDef.SERIES_Fixed" => DataSourceType.WEAPON_SERIES,
+#elif RE2
+            "app.ropeway.gamemastering.Item.ID" => DataSourceType.ITEMS,
+            "app.ropeway.EquipmentDefine.WeaponType" => DataSourceType.WEAPONS,
+#elif RE3
+            "offline.EquipmentDefine.WeaponType" => DataSourceType.WEAPONS,
+            "offline.gamemastering.Item.ID" => DataSourceType.ITEMS,
+#elif RE4
+            "chainsaw.ItemID" => DataSourceType.ITEMS,
+            "chainsaw.WeaponID" => DataSourceType.WEAPONS,
+#endif
+            _ => null
+        };
     }
 
     public static ConstructorInfo? GetGenericConstructor(Type target, List<Type> args, Type genericType) {

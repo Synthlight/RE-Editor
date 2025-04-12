@@ -3,6 +3,7 @@ using RE_Editor.Common;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Models;
 using RE_Editor.Common.Structs;
+using RE_Editor.Common.Util;
 
 namespace RE_Editor.Generator.Models;
 
@@ -144,39 +145,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
 #endif
 
         // And this check the original type.
-        return originalType.Replace("[]", "") switch {
-#if DD2
-            "app.ItemIDEnum" => DataSourceType.ITEMS,
-#elif DRDR
-            "app.MTData.ITEM_NO" => DataSourceType.ITEMS,
-#elif MHR
-            "snow.data.ContentsIdSystem.ItemId" => DataSourceType.ITEMS,
-            "snow.data.DataDef.PlEquipSkillId" => DataSourceType.SKILLS,
-            "snow.data.DataDef.PlHyakuryuSkillId" => DataSourceType.RAMPAGE_SKILLS,
-            "snow.data.DataDef.PlKitchenSkillId" => DataSourceType.DANGO_SKILLS,
-            "snow.data.DataDef.PlWeaponActionId" => DataSourceType.SWITCH_SKILLS,
-#elif MHWS
-            "app.ArmorDef.SERIES_Fixed" => DataSourceType.ARMOR_SERIES,
-            "app.EnemyDef.ID_Fixed" => DataSourceType.ENEMIES,
-            "app.EquipDef.ACCESSORY_ID_Fixed" => DataSourceType.DECORATIONS,
-            "app.HunterDef.Skill_Fixed" => DataSourceType.SKILLS,
-            "app.HunterProfileDef.MEDAL_ID_Fixed" => DataSourceType.MEDALS,
-            "app.ItemDef.ID_Fixed" => DataSourceType.ITEMS,
-            "app.MissionIDList.ID_Fixed" => DataSourceType.QUESTS,
-            "app.WeaponCharmDef.TYPE_Fixed" => DataSourceType.PENDANTS,
-            "app.WeaponDef.SERIES_Fixed" => DataSourceType.WEAPON_SERIES,
-#elif RE2
-            "app.ropeway.gamemastering.Item.ID" => DataSourceType.ITEMS,
-            "app.ropeway.EquipmentDefine.WeaponType" => DataSourceType.WEAPONS,
-#elif RE3
-            "offline.EquipmentDefine.WeaponType" => DataSourceType.WEAPONS,
-            "offline.gamemastering.Item.ID" => DataSourceType.ITEMS,
-#elif RE4
-            "chainsaw.ItemID" => DataSourceType.ITEMS,
-            "chainsaw.WeaponID" => DataSourceType.WEAPONS,
-#endif
-            _ => null
-        };
+        return Utils.GetDataSourceType(originalType);
     }
 
     private static string? GetButtonPrimitive(DataSourceType? fieldButtonType) {
