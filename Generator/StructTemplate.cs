@@ -163,19 +163,28 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             file.WriteLine($"    public {modifier}int {newName}_Length {{ get; set; }}");
 
             if (parentClass == Global.BITSET_NAME) {
-                var enumType = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
-                var enumData = generator.enumTypes[enumType];
-                var entries  = enumData.entries!;
+                var enumType   = structInfo.GetGenericParam()?.ToConvertedTypeName()!;
+                var enumData   = generator.enumTypes[enumType];
+                var entries    = enumData.entries!;
+                var correction = "";
+
+                // Enums that start with -1 wind up being off-by-one in the UI, but ones that start with 0 are fine.
+                // The solution is just +1 where it's all accessed to offset it so the first generated property equates to 0.
+                if (enumData.values![0].StartsWith('-')) {
+                    var negValue = int.Parse(enumData.values![0]);
+                    var offBy    = Math.Abs(negValue);
+                    correction = $" + {offBy}";
+                }
 
                 // ReSharper disable once ForCanBeConvertedToForeach
                 for (var i = 0; i < entries.Count; i++) {
                     var entry = entries[i];
                     file.WriteLine("");
                     file.WriteLine($"    [DisplayName(\"{entry}\")]");
-                    file.WriteLine($"    [BitIndex((int) {enumType}.{entry})]");
+                    file.WriteLine($"    [BitIndex((int) {enumType}.{entry}{correction})]");
                     file.WriteLine($"    public bool {enumType}_{entry} {{");
-                    file.WriteLine($"        get => {Global.BITSET_FIELD_NAME}[(int) {enumType}.{entry}];");
-                    file.WriteLine($"        set => {Global.BITSET_FIELD_NAME}[(int) {enumType}.{entry}] = value;");
+                    file.WriteLine($"        get => {Global.BITSET_FIELD_NAME}[(int) {enumType}.{entry}{correction}];");
+                    file.WriteLine($"        set => {Global.BITSET_FIELD_NAME}[(int) {enumType}.{entry}{correction}] = value;");
                     file.WriteLine("    }");
                 }
             }
