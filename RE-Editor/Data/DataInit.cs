@@ -7,6 +7,7 @@ using System.Reflection;
 using RE_Editor.Common;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
+using RE_Editor.Common.PakModels;
 
 #if DD2
 using RE_Editor.Data.DD2;
@@ -56,7 +57,8 @@ public static partial class DataInit {
         // Load translation resources, usually dumped for enums.
         var resources = Assets.ResourceManager.GetResourceSet(CultureInfo.InvariantCulture, true, false)!;
         foreach (DictionaryEntry resource in resources) {
-            if (((string) resource.Key).StartsWith("TRANSLATION_")) {
+            var resourceKey = (string) resource.Key;
+            if (resourceKey.StartsWith("TRANSLATION_")) {
                 var data = DataHelper.LoadDict<Global.LangIndex, Dictionary<string, string>>((byte[]) resource.Value!);
                 foreach (var (lang, dict) in data) {
                     if (!Global.TRANSLATION_MAP.ContainsKey(lang)) Global.TRANSLATION_MAP[lang] = [];
@@ -64,15 +66,13 @@ public static partial class DataInit {
                         Global.TRANSLATION_MAP[lang][key] = value;
                     }
                 }
+            } else if (resourceKey == "OBSOLETE_BY_HASH") {
+                DataHelper.OBSOLETE_BY_HASH = DataHelper.Load<Dictionary<string, InfoByHash>>((byte[]) resource.Value!);
             }
         }
 
 #if MHR
         CreateTranslationsForSkillEnumNameColumns();
-#endif
-
-#if MHWS
-        DataHelper.OBSOLETE_BY_HASH = DataHelper.Load<Dictionary<string, InfoByHash>>(Assets.OBSOLETE_BY_HASH);
 #endif
     }
 }
