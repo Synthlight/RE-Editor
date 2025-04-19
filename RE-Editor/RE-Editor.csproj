@@ -25,7 +25,7 @@
 	<!-- DD2 -->
 	<PropertyGroup Condition="$(Configuration.StartsWith('DD2'))">
 		<AssemblyName>DD2-Editor</AssemblyName>
-		<AssemblyVersion>1.2.0.0</AssemblyVersion>
+		<AssemblyVersion>1.2.1.0</AssemblyVersion>
 	</PropertyGroup>
 	<ItemGroup Condition="$(Configuration.StartsWith('DD2'))">
 		<Compile Update="Data\DD2\Assets.Designer.cs">
