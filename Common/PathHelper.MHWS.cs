@@ -27,9 +27,11 @@ public static partial class PathHelper {
         "re_chunk_000.pak",
         "re_chunk_000.pak.patch_001.pak",
         "re_chunk_000.pak.patch_002.pak",
+        "re_chunk_000.pak.patch_003.pak",
         "re_chunk_000.pak.sub_000.pak",
         "re_chunk_000.pak.sub_000.pak.patch_001.pak",
-        "re_chunk_000.pak.sub_000.pak.patch_002.pak"
+        "re_chunk_000.pak.sub_000.pak.patch_002.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_003.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
@@ -44,7 +46,11 @@ public static partial class PathHelper {
         new(new(2025, 04, 03), "1.010.00.00", [
             "re_chunk_000.pak.patch_002.pak",
             "re_chunk_000.pak.sub_000.pak.patch_002.pak"
-        ]) {updateName = "Title Update 1"}
+        ]) {updateName = "Title Update 1"},
+        new(new(2025, 04, 16), "1.010.01.00", [
+            "re_chunk_000.pak.patch_003.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_003.pak"
+        ])
     ];
 
     public const string NEXUS_URL              = "";
