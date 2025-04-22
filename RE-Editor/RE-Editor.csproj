@@ -179,6 +179,8 @@
 		<Compile Remove="Data\DataInit.MHWS.cs"/>
 		<Compile Remove="Models\MHWS\**"/>
 		<Compile Remove="Mods\MHWS\**"/>
+		<EmbeddedResource Remove="Mods\MHWS\**"/>
+		<None Remove="Mods\MHWS\**"/>
 	</ItemGroup>
 	<!-- MHWS (Launch Settings) -->
 	<ItemGroup Condition="$(Configuration.StartsWith('MHWS'))">
