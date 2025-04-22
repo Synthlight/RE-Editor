@@ -21,7 +21,7 @@ namespace RE_Editor.Common.Models;
 [SuppressMessage("ReSharper", "MemberCanBeProtected.Global")]
 public class RszObject : OnPropertyChangedBase {
     public                   StructJson structInfo;
-    [DisplayName("")] public RSZ        rsz { get; private set; }
+    [DisplayName("")] public RSZ        rsz { get; protected set; }
     protected                int        userDataRef = -1;
     public                   int        objectInstanceIndex; // 0 is invalid, field is one based. This is assigned during write so the order is correct.
     private                  long       pos; // Used during testing to make sure read/write without altering anything is written in the same spot.
@@ -56,10 +56,8 @@ public class RszObject : OnPropertyChangedBase {
         }
 
         if (userDataRef > -1) {
-            return new UserDataShell(hash) {
-                userDataRef = userDataRef,
-                rsz         = rsz,
-                structInfo  = structInfo
+            return new UserDataShell(hash, rsz) {
+                userDataRef = userDataRef
             };
         }
 
@@ -291,6 +289,8 @@ public class RszObject : OnPropertyChangedBase {
         };
         if (this is UserDataShell) {
             instanceInfo.userDataRef = userDataRef;
+            // Make sure the userDataInfo entry points to this instance info.
+            rsz.userDataInfo[userDataRef].instanceId = instanceInfoList.Count;
         }
         instanceInfoList.Add(instanceInfo);
 

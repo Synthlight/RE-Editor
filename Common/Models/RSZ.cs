@@ -163,4 +163,13 @@ public class RSZ {
         file = entryObj as T;
         return file != null;
     }
+
+    public int AddUserDataRef(uint hash) {
+        var nextIndex = userDataInfo.Count;
+        userDataInfo.Add(new() {
+            instanceId = -1,
+            hash       = hash
+        });
+        return nextIndex;
+    }
 }

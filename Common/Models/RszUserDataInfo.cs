@@ -7,14 +7,14 @@ namespace RE_Editor.Common.Models;
 
 [SuppressMessage("ReSharper", "UseObjectOrCollectionInitializer")]
 public class RszUserDataInfo {
-    public  uint   instanceId;
+    public  int    instanceId;
     public  uint   hash;
     public  string str;
     private ulong  tempOffsetPos; // Temp spot to place the position we write this object so we can update the offset later after we write the string.
 
     public static RszUserDataInfo Read(BinaryReader reader, RSZ rsz) {
         var userDataInfo = new RszUserDataInfo();
-        userDataInfo.instanceId = reader.ReadUInt32();
+        userDataInfo.instanceId = reader.ReadInt32();
         userDataInfo.hash       = reader.ReadUInt32();
         var stringOffset = reader.ReadUInt64();
         userDataInfo.str = reader.ReadNullTermWString(rsz.position + (long) stringOffset);
@@ -22,6 +22,7 @@ public class RszUserDataInfo {
     }
 
     public void Write(BinaryWriter writer) {
+        if (instanceId == -1) throw new("Error: InstanceId is -1.");
         writer.Write(instanceId);
         writer.Write(hash);
         tempOffsetPos = (ulong) writer.BaseStream.Position;
