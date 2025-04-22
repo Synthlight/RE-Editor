@@ -122,12 +122,13 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
                 return DataSourceType.ITEMS;
 #elif MHWS
             case "App_ArmorDef_SERIES_Serializable.Value": return DataSourceType.ARMOR_SERIES;
-            case "App_EquipDef_ACCESSORY_ID_Fixed.Value": return DataSourceType.DECORATIONS;
+            case "App_EquipDef_ACCESSORY_ID_Serializable.Value": return DataSourceType.DECORATIONS;
             case "App_EnemyDef_ID_Fixed.Value": return DataSourceType.ENEMIES;
             case "App_HunterDef_Skill_Serializable.Value": return DataSourceType.SKILLS;
             case "App_HunterProfileDef_MEDAL_ID_Serializable.Value": return DataSourceType.MEDALS;
             case "App_ItemDef_ID_Serializable.Value": return DataSourceType.ITEMS;
             case "App_MissionIDList_ID_Serializable.Value": return DataSourceType.QUESTS;
+            case "App_NpcDef_ID_Serializable.Value": return DataSourceType.NPCS;
             case "App_WeaponCharmDef_TYPE_Serializable.Value": return DataSourceType.PENDANTS;
             case "App_WeaponDef_SERIES_Serializable.Value": return DataSourceType.WEAPON_SERIES;
 #endif
@@ -155,6 +156,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             DataSourceType.DECORATIONS => "int",
             DataSourceType.ENEMIES => "int",
             DataSourceType.MEDALS => "int",
+            DataSourceType.NPCS => "int",
             DataSourceType.QUESTS => "int",
             DataSourceType.SKILLS => "int",
             DataSourceType.PENDANTS => "int",

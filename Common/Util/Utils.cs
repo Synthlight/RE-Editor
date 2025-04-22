@@ -46,6 +46,7 @@ public static class Utils {
             DataSourceType.ENEMIES => DataHelper.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],
             DataSourceType.ITEMS => DataHelper.ITEM_NAME_LOOKUP[Global.locale],
             DataSourceType.MEDALS => DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],
+            DataSourceType.NPCS => DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],
             DataSourceType.QUESTS => DataHelper.QUEST_INFO_LOOKUP_BY_ENUM_VALUE[Global.locale],
             DataSourceType.SKILLS => DataHelper.SKILL_NAME_BY_ENUM_VALUE[Global.locale],
             DataSourceType.PENDANTS => DataHelper.PENDANT_NAME_LOOKUP_BY_ENUM_VALUE[Global.locale],
@@ -79,6 +80,7 @@ public static class Utils {
             "app.HunterProfileDef.MEDAL_ID_Fixed" => DataSourceType.MEDALS,
             "app.ItemDef.ID_Fixed" => DataSourceType.ITEMS,
             "app.MissionIDList.ID_Fixed" => DataSourceType.QUESTS,
+            "app.NpcDef.ID_Fixed" => DataSourceType.NPCS,
             "app.WeaponCharmDef.TYPE_Fixed" => DataSourceType.PENDANTS,
             "app.WeaponDef.SERIES_Fixed" => DataSourceType.WEAPON_SERIES,
 #elif RE2

@@ -1,11 +1,15 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace RE_Editor.Common.Attributes;
 
+[SuppressMessage("ReSharper", "IdentifierTypo")]
 public enum DataSourceType {
     ARMOR_SERIES,
     DECORATIONS,
     ENEMIES,
     ITEMS,
     MEDALS,
+    NPCS,
     PENDANTS,
     QUESTS,
     SKILLS,

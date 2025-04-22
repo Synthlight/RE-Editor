@@ -16,6 +16,7 @@ public static partial class Program {
         ExtractItemInfoByName();
         ExtractItemInfoByGuid();
         ExtractMedalInfoByGuid();
+        ExtractNpcInfoByName();
         ExtractPendantInfoByGuid();
         ExtractQuestInfo();
         ExtractSkillInfoByName();
@@ -190,6 +191,21 @@ public static partial class Program {
         DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
         CreateAssetFile(msgByValue, "MEDAL_NAME_LOOKUP_BY_ENUM_VALUE");
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "MedalConstants");
+    }
+
+    private static void ExtractNpcInfoByName() {
+        var msgData   = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\NpcName.msg.{Global.MSG_VERSION}");
+        var nameRegex = new Regex(@"NpcName_NN_(m?\d+)");
+        var msgByEnum = msgData.GetLangIdMap<App_NpcDef_ID_Fixed>(name => {
+            var match = nameRegex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return (App_NpcDef_ID_Fixed) int.Parse(value);
+        });
+        var msgByValue = msgByEnum.ConvertTo<App_NpcDef_ID_Fixed, int>();
+        DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "NPC_NAME_LOOKUP_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "NpcConstants");
     }
 
     private static void ExtractPendantInfoByGuid() {

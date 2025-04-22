@@ -193,6 +193,16 @@ namespace RE_Editor.Data.MHWS {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] NPC_NAME_LOOKUP_BY_ENUM_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("NPC_NAME_LOOKUP_BY_ENUM_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] OBSOLETE_BY_HASH {
             get {
                 object obj = ResourceManager.GetObject("OBSOLETE_BY_HASH", resourceCulture);
