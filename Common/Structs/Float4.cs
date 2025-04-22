@@ -33,4 +33,14 @@ public class Float4 : RszObject, IViaType {
             W = W
         };
     }
+
+    public static implicit operator Float4(float[] array) {
+        if (array.Length != 4) throw new ArgumentOutOfRangeException(nameof(array), "Given array must be exactly 4 long.");
+        return new() {
+            X = array[0],
+            Y = array[1],
+            Z = array[2],
+            W = array[3],
+        };
+    }
 }

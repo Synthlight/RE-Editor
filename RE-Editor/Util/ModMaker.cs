@@ -4,7 +4,6 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using ICSharpCode.SharpZipLib.Zip;
 using RE_Editor.Common;
@@ -114,6 +113,9 @@ public static class ModMaker {
             if (mod.AddonFor != null) {
                 modInfo.WriteLine($"AddonFor={mod.AddonFor}");
             }
+            if (mod.Requirement != null) {
+                modInfo.WriteLine($"Requirement={mod.Requirement}");
+            }
             var modInfoPath = @$"{modPath}\modinfo.ini";
             File.WriteAllText(modInfoPath, modInfo.ToString());
             modFiles.Add(modInfoPath);
@@ -125,7 +127,6 @@ public static class ModMaker {
                 foreach (var modFile in mod.Files) {
                     var sourceFile = @$"{PathHelper.CHUNK_PATH}\{modFile}";
                     var outFile    = @$"{modPath}\{modFile}";
-                    Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
 
                     var dataFile = ReDataFile.Read(sourceFile);
                     dataFile.Write(new BinaryWriter(new MemoryStream()), testWritePosition: true, forGp: mod.ForGp);
@@ -138,6 +139,7 @@ public static class ModMaker {
                         mod.Action!.Invoke(data);
                     }
                     if (includeFile) {
+                        Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
                         dataFile.Write(outFile, forGp: mod.ForGp);
                         nativesFiles.Add(outFile);
                     }
@@ -160,6 +162,12 @@ public static class ModMaker {
                                            $"log.info(\"Initializing `{mod.NameOverride ?? mod.Name}` v\" .. version)\n\n");
                                 file.Flush();
                                 file.BaseStream.Write(bytes);
+                            }
+                            break;
+                        case ReDataFile reDataFile:
+                            using (var file = new BinaryWriter(File.Open(outFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None))) {
+                                reDataFile.Write(file);
+                                file.Flush();
                             }
                             break;
                         default:

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
 
 namespace RE_Editor.Common.Structs;
@@ -23,6 +24,10 @@ public class Prefab(uint hash) : RszObject, IViaType {
         writer.Write(Enabled);
         writer.BaseStream.Align(4);
         writer.WriteWString(Name);
+    }
+
+    public static Prefab Create(RSZ rsz) {
+        return Create<Prefab>(rsz, DataHelper.STRUCT_HASH_BY_NAME["via.Prefab"]);
     }
 
     public Prefab Copy() {

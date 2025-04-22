@@ -230,7 +230,7 @@ public class RszObject : OnPropertyChangedBase {
         var viaType = structInfo.name?.GetViaType();
         var rszType = viaType == null ? DataHelper.RE_STRUCTS.TryGet(hash, typeof(RszObject)) : Type.GetType($"RE_Editor.Common.Structs.{viaType}");
         if (rszType == typeof(Prefab)) {
-            return (RszObject) Activator.CreateInstance(rszType, [hash])!;
+            return (RszObject) Activator.CreateInstance(rszType, hash)!;
         }
         var rszObject = (RszObject) Activator.CreateInstance(rszType!) ?? new RszObject();
         return rszObject;

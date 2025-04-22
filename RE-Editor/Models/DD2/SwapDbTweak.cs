@@ -24,6 +24,7 @@ public struct SwapDbTweak : INexusMod, ISwapDbTweak {
     public bool                         ForGp           { get; set; }
     public string?                      NameAsBundle    { get; set; }
     public string?                      AddonFor        { get; set; }
+    public string?                      Requirement     { get; set; }
     public bool                         SkipPak         { get; set; }
     public Dictionary<string, object>?  AdditionalFiles { get; set; }
     public string                       LuaName         { get; set; }

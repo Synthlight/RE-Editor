@@ -21,6 +21,7 @@ public interface INexusMod {
     public bool                         ForGp           { get; set; }
     public string?                      NameAsBundle    { get; set; }
     public string?                      AddonFor        { get; set; }
+    public string?                      Requirement     { get; set; }
     public bool                         SkipPak         { get; set; }
     public Dictionary<string, object>?  AdditionalFiles { get; set; }
 }
@@ -37,6 +38,7 @@ public struct NexusMod : INexusMod {
     public bool                         ForGp           { get; set; }
     public string?                      NameAsBundle    { get; set; }
     public string?                      AddonFor        { get; set; }
+    public string?                      Requirement     { get; set; }
     public bool                         SkipPak         { get; set; }
     public Dictionary<string, object>?  AdditionalFiles { get; set; }
 
@@ -92,13 +94,18 @@ public static class NexusModExtensions {
         return nexusMod;
     }
 
-    public static T SetNameAsBundle<T>(this T nexusMod, string nameAsBundle) where T : INexusMod {
+    public static T SetNameAsBundle<T>(this T nexusMod, string? nameAsBundle) where T : INexusMod {
         nexusMod.NameAsBundle = nameAsBundle;
         return nexusMod;
     }
 
-    public static T SetAddonFor<T>(this T nexusMod, string addonFor) where T : INexusMod {
+    public static T SetAddonFor<T>(this T nexusMod, string? addonFor) where T : INexusMod {
         nexusMod.AddonFor = addonFor;
+        return nexusMod;
+    }
+
+    public static T SetRequirement<T>(this T nexusMod, string? requirement) where T : INexusMod {
+        nexusMod.Requirement = requirement;
         return nexusMod;
     }
 
