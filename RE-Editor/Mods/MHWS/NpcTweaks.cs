@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -18,10 +19,23 @@ namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class NpcTweaks : IMod {
-    private const string MASTER_NPC_EQUIP_PATH          = @"\natives\STM\GameDesign\NPC\Data\Master_NpcHunterEquipData.user.3";
-    private const string MASTER_NPC_EQUIP_PATH_INTERNAL = @"GameDesign/NPC/Data/Master_NpcHunterEquipData.user";
-    private const string UNUSED_KEY                     = "{UNUSED}";
-    private const string PLACEHOLDER_ENTRY_TEXT         = "Activating this entry does nothing, it exists solely to create the submenu.";
+    private const string MASTER_NPC_EQUIP_PATH_FEMALE          = @"natives\STM\GameDesign\NPC\Data\Master_Female_NpcHunterEquipData.user.3";
+    private const string MASTER_NPC_EQUIP_PATH_MALE            = @"natives\STM\GameDesign\NPC\Data\Master_Male_NpcHunterEquipData.user.3";
+    private const string MASTER_NPC_EQUIP_PATH_INTERNAL_FEMALE = @"GameDesign/NPC/Data/Master_Female_NpcHunterEquipData.user";
+    private const string MASTER_NPC_EQUIP_PATH_INTERNAL_MALE   = @"GameDesign/NPC/Data/Master_Male_NpcHunterEquipData.user";
+    private const string UNUSED_KEY                            = "{UNUSED}";
+    private const string PLACEHOLDER_ENTRY_TEXT                = "Activating this entry does nothing, it exists solely to create the submenu.";
+
+    [SuppressMessage("ReSharper", "StringLiteralTypo")]
+    private static readonly List<string> NPCS_WITH_SKIN_ISSUES = [
+        "Alma",
+        "Erik",
+        "Fabius",
+        "Nata",
+        "Gemma",
+        "Olivia",
+        "Werner"
+    ];
 
     [UsedImplicitly]
     public static void Make() {
@@ -29,7 +43,7 @@ public class NpcTweaks : IMod {
         const string description = "NPC outfit tweaks - Makes all NPCs wear a given outfit.";
         const string version     = "1.0";
 
-        const string coreName = "Core (MUST ACTIVATE ONE!)";
+        const string coreName = "Core (MUST ACTIVATE ONE FOR EACH GENDER USED!)";
 
         var npcIdsByName = GetNpcIdsByName();
         var visualSettingsFiles = (from file in Directory.EnumerateFiles($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\NPC\Character", "*_VisualSetting*.user.3", SearchOption.AllDirectories)
@@ -43,6 +57,17 @@ public class NpcTweaks : IMod {
                             into g
                             orderby g.Key
                             select new KeyValuePair<App_NpcDef_ID_Fixed, List<string>>(g.Key, g.ToList())).ToDictionary(pair => pair.Key, pair => pair.Value);
+
+        var allExcludingSkinIssues = new HashSet<string>();
+        foreach (var (id, files) in filesByNpcId) {
+            if (DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.LangIndex.eng].ContainsKey((int) id)
+                && NPCS_WITH_SKIN_ISSUES.Contains(DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.LangIndex.eng][(int) id])) {
+                continue;
+            }
+            foreach (var file in files) {
+                allExcludingSkinIssues.Add(file);
+            }
+        }
 
         var baseMod = new NexusMod {
             Version = version,
@@ -70,15 +95,29 @@ public class NpcTweaks : IMod {
             }
         };
 
-        mods.AddRange(Enum.GetValues<InnerwearOption>()
-                          .Select(innerwearOption => baseMod.SetName($"Core: Innerwear {(int) innerwearOption}")
-                                                            .SetFiles([])
-                                                            .SetAddonFor(coreName)
-                                                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH, CreateCleanHunterEquipFile(innerwearOption)}})));
+        foreach (var innerwearOption in Enum.GetValues<InnerwearOption>()) {
+            mods.Add(baseMod.SetName($"Core (Female): Innerwear {(int) innerwearOption}")
+                            .SetFiles([])
+                            .SetAddonFor(coreName)
+                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_FEMALE, CreateCleanHunterEquipFile(innerwearOption)}}));
+            mods.Add(baseMod.SetName($"Core (Male): Innerwear {(int) innerwearOption}")
+                            .SetFiles([])
+                            .SetAddonFor(coreName)
+                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_MALE, CreateCleanHunterEquipFile(innerwearOption)}}));
+        }
 
         mods.AddRange([
             baseMod
-                .SetName("Female NPCs (Human)")
+                .SetName("Female NPCs (Human, Excluding Skin Issues)")
+                .SetAddonFor(name)
+                .SetFiles(allExcludingSkinIssues)
+                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
+                                                                                        && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_BC
+                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST101
+                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST103
+                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST105)),
+            baseMod
+                .SetName("Female NPCs (Human, All)")
                 .SetAddonFor(name)
                 .SetFiles(visualSettingsFiles)
                 .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
@@ -93,7 +132,16 @@ public class NpcTweaks : IMod {
                 .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
                                                                                         && visualSettings.ParamPackOwCategory == App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.RYU_NML_FEMALE)),
             baseMod
-                .SetName("Male NPCs (Human)")
+                .SetName("Male NPCs (Human, Excluding Skin Issues)")
+                .SetAddonFor(name)
+                .SetFiles(allExcludingSkinIssues)
+                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
+                                                                                        && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_BC
+                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST101
+                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST103
+                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST105)),
+            baseMod
+                .SetName("Male NPCs (Human, All)")
                 .SetAddonFor(name)
                 .SetFiles(visualSettingsFiles)
                 .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
@@ -123,6 +171,7 @@ public class NpcTweaks : IMod {
         List<App_NpcDef_ID_Fixed> used = [];
         foreach (var (npcName, npcIds) in npcIdsByName) {
             if (npcName == UNUSED_KEY) continue;
+            if (NPCS_WITH_SKIN_ISSUES.Contains(npcName)) continue;
             var idNames = string.Join(", ", from id in npcIds
                                             let idName = Enum.GetName(id)
                                             select idName);
@@ -282,12 +331,13 @@ public class NpcTweaks : IMod {
             switch (obj) {
                 case App_user_data_NpcVisualSetting visualSettings:
                     if (!predicate(visualSettings)) return false;
+                    var isFemale = visualSettings.Gender == App_CharacterDef_GENDER.FEMALE;
 
                     foreach (var part in visualSettings.ModelData[0].ModelInfo[0].PartsList) {
                         part.IsEnabled = false; // Keeps the prefab parts off.
                     }
                     if (visualSettings.HunterEquipData.Count == 0) visualSettings.HunterEquipData.Add(new(App_user_data_NpcHunterEquipData.HASH, visualSettings.rsz));
-                    visualSettings.HunterEquipData[0].Value = MASTER_NPC_EQUIP_PATH_INTERNAL;
+                    visualSettings.HunterEquipData[0].Value = isFemale ? MASTER_NPC_EQUIP_PATH_INTERNAL_FEMALE : MASTER_NPC_EQUIP_PATH_INTERNAL_MALE;
                     return true;
             }
         }
