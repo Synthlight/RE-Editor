@@ -24,6 +24,7 @@ public interface INexusMod {
     public string?                      Requirement     { get; set; }
     public bool                         SkipPak         { get; set; }
     public Dictionary<string, object>?  AdditionalFiles { get; set; }
+    public bool                         AlwaysInclude   { get; set; }
 }
 
 public struct NexusMod : INexusMod {
@@ -41,6 +42,7 @@ public struct NexusMod : INexusMod {
     public string?                      Requirement     { get; set; }
     public bool                         SkipPak         { get; set; }
     public Dictionary<string, object>?  AdditionalFiles { get; set; }
+    public bool                         AlwaysInclude   { get; set; }
 
     [Pure]
     public readonly override string ToString() {
@@ -116,6 +118,11 @@ public static class NexusModExtensions {
 
     public static T SetAdditionalFiles<T>(this T nexusMod, Dictionary<string, object> additionalFiles) where T : INexusMod {
         nexusMod.AdditionalFiles = additionalFiles;
+        return nexusMod;
+    }
+
+    public static T SetAlwaysInclude<T>(this T nexusMod, bool alwaysInclude) where T : INexusMod {
+        nexusMod.AlwaysInclude = alwaysInclude;
         return nexusMod;
     }
 

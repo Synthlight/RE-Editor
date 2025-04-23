@@ -100,13 +100,6 @@ public static class ModMaker {
             modInfo.WriteLine($"version={mod.Version}");
             modInfo.WriteLine($"description={mod.Desc}");
             modInfo.WriteLine("author=LordGregory");
-            if (mod.Image != null && File.Exists(mod.Image)) {
-                var imageFileName = Path.GetFileName(mod.Image);
-                var imagePath     = @$"{modPath}\{imageFileName}";
-                modInfo.WriteLine($"screenshot={imageFileName}");
-                File.Copy(mod.Image, imagePath);
-                modFiles.Add(imagePath);
-            }
             if (mod.NameAsBundle != null) {
                 modInfo.WriteLine($"NameAsBundle={bundleName}");
             }
@@ -116,10 +109,8 @@ public static class ModMaker {
             if (mod.Requirement != null) {
                 modInfo.WriteLine($"Requirement={mod.Requirement}");
             }
-            var modInfoPath = @$"{modPath}\modinfo.ini";
-            File.WriteAllText(modInfoPath, modInfo.ToString());
-            modFiles.Add(modInfoPath);
 
+            var anyIncluded = false;
             if (mod.Files.Any()) {
                 if (mod.Action == null && mod.FilteredAction == null) {
                     throw new InvalidDataException("`mod.Action` or `mod.FilteredAction` are null but `mod.Files` is not empty.");
@@ -139,6 +130,7 @@ public static class ModMaker {
                         mod.Action!.Invoke(data);
                     }
                     if (includeFile) {
+                        anyIncluded = true;
                         Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
                         dataFile.Write(outFile, forGp: mod.ForGp);
                         nativesFiles.Add(outFile);
@@ -173,6 +165,7 @@ public static class ModMaker {
                         default:
                             throw new InvalidDataException($"Source LUA data is of an unsupported type: {obj.GetType()}");
                     }
+                    anyIncluded = true;
                     if (dest.StartsWith("natives")) {
                         nativesFiles.Add(outFile);
                     } else {
@@ -180,6 +173,24 @@ public static class ModMaker {
                     }
                 }
             }
+
+            // If the mod has literally no files outside of metadata, just delete the folder and continue.
+            if (!anyIncluded && !mod.AlwaysInclude) {
+                Directory.Delete(modPath, true);
+                continue;
+            }
+
+            // Do late so we can skip the whole thing if all the files are filtered out.
+            if (mod.Image != null && File.Exists(mod.Image)) {
+                var imageFileName = Path.GetFileName(mod.Image);
+                var imagePath     = @$"{modPath}\{imageFileName}";
+                modInfo.WriteLine($"screenshot={imageFileName}");
+                File.Copy(mod.Image, imagePath);
+                modFiles.Add(imagePath);
+            }
+            var modInfoPath = @$"{modPath}\modinfo.ini";
+            File.WriteAllText(modInfoPath, modInfo.ToString());
+            modFiles.Add(modInfoPath);
 
             if (mod.SkipPak) continue;
             var processStartInfo = new ProcessStartInfo(@"R:\Games\Monster Hunter Rise\REtool\REtool.exe", $"{Global.PAK_CREATE_ARGS} -c \"{modPath}\"") {
