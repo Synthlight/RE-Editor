@@ -72,6 +72,7 @@ public static class ObsoleteMapMaker {
         var pakList           = new PakList(PathHelper.PAK_LIST);
         var allFilesByPak     = new Dictionary<string, List<PakFileInfo>>();
         var allFilesByPakLock = new Mutex();
+        var countdownEvents   = new List<CountdownEvent>();
 
         foreach (var pakFile in PathHelper.PAK_PATHS) {
             var pak     = new PakData(pakList);
@@ -88,6 +89,8 @@ public static class ObsoleteMapMaker {
                 fileToHash.Add(new(filename, entry, PakData.ReadEntry(pakStream, entry)));
             }
 
+            var countdownEvent = new CountdownEvent(fileToHash.Count);
+            countdownEvents.Add(countdownEvent);
             foreach (var toHash in fileToHash) {
                 ThreadPool.QueueUserWorkItem(_ => {
                     lock (allFilesByPakLock) {
@@ -98,8 +101,14 @@ public static class ObsoleteMapMaker {
                     lock (allFilesByPakLock) {
                         allFilesByPak[pakFile].Add(fileInfo);
                     }
+                    countdownEvent.Signal();
                 });
             }
+        }
+
+        foreach (var countdownEvent in countdownEvents) {
+            countdownEvent.Wait();
+            countdownEvent.Dispose();
         }
 
         return allFilesByPak;
