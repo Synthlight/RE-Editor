@@ -25,6 +25,7 @@ public class NpcTweaks : IMod {
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_MALE   = @"GameDesign/NPC/Data/Master_Male_NpcHunterEquipData.user";
     private const string UNUSED_KEY                            = "{UNUSED}";
     private const string PLACEHOLDER_ENTRY_TEXT                = "Activating this entry does nothing, it exists solely to create the submenu.";
+    private const string INVISIBLE_SLINGER_PREFAB              = "GameDesign/Equip/_Prefab/Armor/Female/069/000/Slinger/ch03_069_0006.pfb"; // Sakuratide slinger which is EFX.
 
     [SuppressMessage("ReSharper", "StringLiteralTypo")]
     private static readonly List<string> NPCS_WITH_SKIN_ISSUES = [
@@ -96,14 +97,22 @@ public class NpcTweaks : IMod {
         };
 
         foreach (var innerwearOption in Enum.GetValues<InnerwearOption>()) {
-            mods.Add(baseMod.SetName($"Core (Female): Innerwear {(int) innerwearOption}")
+            mods.Add(baseMod.SetName($"Core (Female): Innerwear {(int) innerwearOption}                      ,")
                             .SetFiles([])
                             .SetAddonFor(coreName)
-                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_FEMALE, CreateCleanHunterEquipFile(innerwearOption)}}));
-            mods.Add(baseMod.SetName($"Core (Male): Innerwear {(int) innerwearOption}")
+                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_FEMALE, CreateCleanHunterEquipFile(innerwearOption, true)}}));
+            mods.Add(baseMod.SetName($"Core (Female): Innerwear {(int) innerwearOption} (No Slinger)")
                             .SetFiles([])
                             .SetAddonFor(coreName)
-                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_MALE, CreateCleanHunterEquipFile(innerwearOption)}}));
+                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_FEMALE, CreateCleanHunterEquipFile(innerwearOption, false)}}));
+            mods.Add(baseMod.SetName($"Core (Male): Innerwear {(int) innerwearOption}                      ,")
+                            .SetFiles([])
+                            .SetAddonFor(coreName)
+                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_MALE, CreateCleanHunterEquipFile(innerwearOption, true)}}));
+            mods.Add(baseMod.SetName($"Core (Male): Innerwear {(int) innerwearOption} (No Slinger)")
+                            .SetFiles([])
+                            .SetAddonFor(coreName)
+                            .SetAdditionalFiles(new() {{MASTER_NPC_EQUIP_PATH_MALE, CreateCleanHunterEquipFile(innerwearOption, false)}}));
         }
 
         mods.AddRange([
@@ -171,7 +180,6 @@ public class NpcTweaks : IMod {
         List<App_NpcDef_ID_Fixed> used = [];
         foreach (var (npcName, npcIds) in npcIdsByName) {
             if (npcName == UNUSED_KEY) continue;
-            if (NPCS_WITH_SKIN_ISSUES.Contains(npcName)) continue;
             var idNames = string.Join(", ", from id in npcIds
                                             let idName = Enum.GetName(id)
                                             select idName);
@@ -243,7 +251,7 @@ public class NpcTweaks : IMod {
         return npcIdsByName;
     }
 
-    private static ReDataFile CreateCleanHunterEquipFile(InnerwearOption innerwearOption) {
+    private static ReDataFile CreateCleanHunterEquipFile(InnerwearOption innerwearOption, bool slingerEnabled) {
         var newHunterEquip = new ReDataFile {
             magic        = ReDataFile.Magic.id_USR,
             resourceInfo = [],
@@ -305,6 +313,12 @@ public class NpcTweaks : IMod {
 
         armorData.OverwriteSlingerPrefab = [Prefab.Create(newHunterEquip.rsz)];
 
+        if (!slingerEnabled) {
+            var slinger = armorData.OverwriteSlingerPrefab[0];
+            slinger.Enabled = true;
+            slinger.Name    = INVISIBLE_SLINGER_PREFAB;
+        }
+
         newHunterEquip.rsz.objectData.Add(hunterEquipData);
         newHunterEquip.rsz.objectEntryPoints.Add(1);
 
@@ -338,6 +352,23 @@ public class NpcTweaks : IMod {
                     }
                     if (visualSettings.HunterEquipData.Count == 0) visualSettings.HunterEquipData.Add(new(App_user_data_NpcHunterEquipData.HASH, visualSettings.rsz));
                     visualSettings.HunterEquipData[0].Value = isFemale ? MASTER_NPC_EQUIP_PATH_INTERNAL_FEMALE : MASTER_NPC_EQUIP_PATH_INTERNAL_MALE;
+
+                    /*
+                    if (visualSettings.CategoryData.Count > 0) {
+                        switch (visualSettings.CategoryData[0]) {
+                            case App_cNpcCategoryData_BaseCampHuman:
+                            case App_cNpcCategoryData_DesertHuman:
+                            case App_cNpcCategoryData_OilHuman:
+                            case App_cNpcCategoryData_UniqueHuman:
+                                visualSettings.CategoryData = [App_cNpcCategoryData_CoreHuman.Create(visualSettings.rsz)];
+                                break;
+                        }
+                    }
+
+                    visualSettings.ModelData[0].UniqueInfo[0].Prefab[0].Name = null;
+                    visualSettings.ModelData[0].UniqueInfo[0].UniqueVisual   = App_NpcDef_UNIQUE_VISUAL_Fixed.INVALID;
+                    */
+
                     return true;
             }
         }
