@@ -23,8 +23,8 @@ public class NpcTweaks : IMod {
     private const string MASTER_NPC_EQUIP_PATH_MALE            = @"natives\STM\GameDesign\NPC\Data\Master_Male_NpcHunterEquipData.user.3";
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_FEMALE = @"GameDesign/NPC/Data/Master_Female_NpcHunterEquipData.user";
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_MALE   = @"GameDesign/NPC/Data/Master_Male_NpcHunterEquipData.user";
-    private const string UNUSED_KEY                            = "{UNUSED}";
-    private const string PLACEHOLDER_ENTRY_TEXT                = "Activating this entry does nothing, it exists solely to create the submenu.";
+    public const  string UNUSED_KEY                            = "{UNUSED}";
+    public const  string PLACEHOLDER_ENTRY_TEXT                = "Activating this entry does nothing, it exists solely to create the submenu.";
     private const string INVISIBLE_SLINGER_PREFAB              = "GameDesign/Equip/_Prefab/Armor/Female/069/000/Slinger/ch03_069_0006.pfb"; // Sakuratide slinger which is EFX.
 
     [SuppressMessage("ReSharper", "StringLiteralTypo")]
@@ -42,33 +42,14 @@ public class NpcTweaks : IMod {
     public static void Make() {
         const string name        = "NPC Outfit Tweaks";
         const string description = "NPC outfit tweaks - Makes all NPCs wear a given outfit.";
-        const string version     = "1.0";
+        const string version     = "1.1";
 
         const string coreName = "Core (MUST ACTIVATE ONE FOR EACH GENDER USED!)";
 
-        var npcIdsByName = GetNpcIdsByName();
-        var visualSettingsFiles = (from file in Directory.EnumerateFiles($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\NPC\Character", "*_VisualSetting*.user.3", SearchOption.AllDirectories)
-                                   select file.Replace(PathHelper.CHUNK_PATH, "")).ToList();
-        var fileNpcIdRegex = new Regex(@"GameDesign\\NPC\\Character\\[^\\]+\\([^\\]+)\\");
-        var filesByNpcId = (from file in visualSettingsFiles
-                            let match = fileNpcIdRegex.Match(file)
-                            where match.Success
-                            let npcId = Enum.Parse<App_NpcDef_ID_Fixed>(match.Groups[1].Value)
-                            group file by npcId
-                            into g
-                            orderby g.Key
-                            select new KeyValuePair<App_NpcDef_ID_Fixed, List<string>>(g.Key, g.ToList())).ToDictionary(pair => pair.Key, pair => pair.Value);
-
-        var allExcludingSkinIssues = new HashSet<string>();
-        foreach (var (id, files) in filesByNpcId) {
-            if (DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.LangIndex.eng].ContainsKey((int) id)
-                && NPCS_WITH_SKIN_ISSUES.Contains(DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.LangIndex.eng][(int) id])) {
-                continue;
-            }
-            foreach (var file in files) {
-                allExcludingSkinIssues.Add(file);
-            }
-        }
+        var npcIdsByName           = GetNpcIdsByName();
+        var visualSettingsFiles    = GetAllVisualSettingsFiles();
+        var filesByNpcId           = GetAllFilesByNpcId(visualSettingsFiles);
+        var allExcludingSkinIssues = GetAllFilesExcludingSkinIssues(filesByNpcId);
 
         var baseMod = new NexusMod {
             Version = version,
@@ -166,6 +147,7 @@ public class NpcTweaks : IMod {
                                                                                         && visualSettings.ParamPackOwCategory == App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.RYU_NML_MALE))
         ]);
 
+        // Build the whole list of individual options.
         const string byNameGroup = "Individually, by Name";
         mods.Add(new() {
             Name          = byNameGroup,
@@ -217,7 +199,7 @@ public class NpcTweaks : IMod {
         ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
     }
 
-    private static bool IsAllowed(App_user_data_NpcVisualSetting visualSettings) {
+    public static bool IsAllowed(App_user_data_NpcVisualSetting visualSettings) {
         return visualSettings.Gender is App_CharacterDef_GENDER.FEMALE or App_CharacterDef_GENDER.MALE
                && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_BC
                    or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST101
@@ -231,7 +213,7 @@ public class NpcTweaks : IMod {
                    or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.RYU_NML_MALE;
     }
 
-    private static Dictionary<string, List<App_NpcDef_ID_Fixed>> GetNpcIdsByName() {
+    public static Dictionary<string, List<App_NpcDef_ID_Fixed>> GetNpcIdsByName() {
         // Build a map of NPCs to their ID, and exclude anything unused. (Which won't account for values that never had a name associated with them.)
         var npcIdsByName = (from entry in DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.LangIndex.eng]
                             where entry.Value != "#Rejected#" && entry.Value != "{0}"
@@ -249,6 +231,39 @@ public class NpcTweaks : IMod {
                                     select enumValue).ToList();
 
         return npcIdsByName;
+    }
+
+    public static List<string> GetAllVisualSettingsFiles() {
+        var visualSettingsFiles = (from file in Directory.EnumerateFiles($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\NPC\Character", "*_VisualSetting*.user.3", SearchOption.AllDirectories)
+                                   select file.Replace(PathHelper.CHUNK_PATH, "")).ToList();
+        return visualSettingsFiles;
+    }
+
+    public static Dictionary<App_NpcDef_ID_Fixed, List<string>> GetAllFilesByNpcId(List<string> visualSettingsFiles) {
+        var fileNpcIdRegex = new Regex(@"GameDesign\\NPC\\Character\\[^\\]+\\([^\\]+)\\");
+        var filesByNpcId = (from file in visualSettingsFiles
+                            let match = fileNpcIdRegex.Match(file)
+                            where match.Success
+                            let npcId = Enum.Parse<App_NpcDef_ID_Fixed>(match.Groups[1].Value)
+                            group file by npcId
+                            into g
+                            orderby g.Key
+                            select new KeyValuePair<App_NpcDef_ID_Fixed, List<string>>(g.Key, g.ToList())).ToDictionary(pair => pair.Key, pair => pair.Value);
+        return filesByNpcId;
+    }
+
+    private static HashSet<string> GetAllFilesExcludingSkinIssues(Dictionary<App_NpcDef_ID_Fixed, List<string>> filesByNpcId) {
+        var allExcludingSkinIssues = new HashSet<string>();
+        foreach (var (id, files) in filesByNpcId) {
+            if (DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.LangIndex.eng].ContainsKey((int) id)
+                && NPCS_WITH_SKIN_ISSUES.Contains(DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE[Global.LangIndex.eng][(int) id])) {
+                continue;
+            }
+            foreach (var file in files) {
+                allExcludingSkinIssues.Add(file);
+            }
+        }
+        return allExcludingSkinIssues;
     }
 
     private static ReDataFile CreateCleanHunterEquipFile(InnerwearOption innerwearOption, bool slingerEnabled) {
@@ -340,7 +355,7 @@ public class NpcTweaks : IMod {
         return new[] {0f, 0f, 0f, 1f};
     }
 
-    private static bool ChangeVisualSettings(IList<RszObject> rszObjectData, Func<App_user_data_NpcVisualSetting, bool> predicate) {
+    public static bool ChangeVisualSettings(IList<RszObject> rszObjectData, Func<App_user_data_NpcVisualSetting, bool> predicate) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_NpcVisualSetting visualSettings:
