@@ -16,11 +16,46 @@ namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class ShopTweaks : IMod {
+    private static readonly List<App_ItemDef_ID_Fixed> BLACKLIST = [
+        ItemConstants.STONE,
+        ItemConstants.NORMAL_AMMO,
+        ItemConstants.PIERCE_AMMO,
+        ItemConstants.SPREAD_AMMO,
+        ItemConstants.THORNGRASS_POD,
+        ItemConstants.BURST_POD,
+        ItemConstants.SCREAMER_POD_2, // First one (70) is fine, the one that's 278 is not.
+        ItemConstants.BLEEDING_POD,
+        ItemConstants.GROUNDING_POD,
+        ItemConstants.POISON_POD,
+        ItemConstants.BRIGHTMOSS,
+        ItemConstants.TORCH_POD,
+        ItemConstants.PUDDLE_POD,
+        ItemConstants.BOMB_POD,
+        ItemConstants.PIERCING_POD,
+        ItemConstants.THUNDER_POD,
+        ItemConstants.FROST_POD,
+        ItemConstants.DRAGON_POD,
+        ItemConstants.FRESH_HONEY,
+        ItemConstants.FROSTBURST,
+        ItemConstants.HEAVY_BLUNT_POD,
+        ItemConstants.HEAVY_SLICING_POD,
+        ItemConstants.HEAVY_EXPLOSION_POD,
+        ItemConstants.HEAVY_PIERCING_POD,
+        ItemConstants.CLOSE_RANGE_COATING,
+        ItemConstants.POWER_COATING,
+        ItemConstants.PIERCE_COATING,
+        ItemConstants.PARALYSIS_COATING,
+        ItemConstants.POISON_COATING,
+        ItemConstants.SLEEP_COATING,
+        ItemConstants.BLAST_COATING,
+        ItemConstants.EXHAUST_COATING
+    ];
+
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.4.2";
+        const string version     = "1.4.3";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -36,6 +71,7 @@ public class ShopTweaks : IMod {
         var itemModeData = (from entry in itemData.rsz.objectData.OfType<App_user_data_ItemData_cData>()
                             let mode = GetMode(entry)
                             where mode != null
+                            where !BLACKLIST.Contains((App_ItemDef_ID_Fixed) entry.ItemId)
                             where (App_ItemDef_ID_Fixed) entry.ItemId != App_ItemDef_ID_Fixed.NONE && (App_ItemDef_ID_Fixed) entry.ItemId != App_ItemDef_ID_Fixed.INVALID
                             where !existingShopItems.Contains(entry.ItemId)
                             where DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng].ContainsKey((uint) entry.ItemId)
@@ -128,6 +164,9 @@ public class ShopTweaks : IMod {
     }
 
     public static App_user_data_ItemShopData_cData CreateItem(RSZ rsz, int itemId) {
+        if (BLACKLIST.Contains((App_ItemDef_ID_Fixed) itemId)) {
+            throw new($"Error: Blacklisted item `{itemId}` made it through.");
+        }
         var shopEntry = App_user_data_ItemShopData_cData.Create(rsz);
         shopEntry.ItemId       = itemId;
         shopEntry.StoryPackage = App_StoryPackageFlag_TYPE_Fixed.INVALID;
