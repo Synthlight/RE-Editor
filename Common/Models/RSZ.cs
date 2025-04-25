@@ -77,76 +77,78 @@ public class RSZ {
     [SuppressMessage("ReSharper", "ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator")]
     [SuppressMessage("ReSharper", "ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator")]
     public void Write(BinaryWriter writer, ulong rszOffsetStart, bool testWritePosition, bool forGp) {
-        // We need to pre-calculate the instance info array before we write it.
-        // This will also give us the entry object, but we're just not supporting adding/removing instances for now.
-        instanceInfo.Clear();
-        instanceInfo.Add(new() {hash = 0, crc = 0});
+        lock (this) {
+            // We need to pre-calculate the instance info array before we write it.
+            // This will also give us the entry object, but we're just not supporting adding/removing instances for now.
+            instanceInfo.Clear();
+            instanceInfo.Add(new() {hash = 0, crc = 0});
 
-        // Re-create the `objectData` array in case we've added data.
-        // First, get a list of entry objects.
-        var rootObjects = new List<RszObject>();
-        foreach (var entryIndex in objectEntryPoints) {
-            var entryPointObject = objectData[(int) entryIndex - 1]; // 1 based.
-            rootObjects.Add(entryPointObject);
-        }
-        // Then, call each in order, so they can rebuild the list in the right order.
-        objectData.Clear();
-        foreach (var rootObject in rootObjects) {
-            var objectChain = new List<RszObject>();
-            // Build the object data chain.
-            rootObject.WriteObjectList(objectChain);
-            objectData.AddRange(objectChain);
-            // And build the instance info chain.
-            rootObject.SetupInstanceInfo(instanceInfo, forGp);
-        }
-        // Finally, rebuild the `objectInfo` list with the new entries from where our `rootObjects` now live.
-        objectEntryPoints.Clear();
-        for (var i = 0; i < objectData.Count; i++) {
+            // Re-create the `objectData` array in case we've added data.
+            // First, get a list of entry objects.
+            var rootObjects = new List<RszObject>();
+            foreach (var entryIndex in objectEntryPoints) {
+                var entryPointObject = objectData[(int) entryIndex - 1]; // 1 based.
+                rootObjects.Add(entryPointObject);
+            }
+            // Then, call each in order, so they can rebuild the list in the right order.
+            objectData.Clear();
             foreach (var rootObject in rootObjects) {
-                if (objectData[i] == rootObject) {
-                    objectEntryPoints.Add((uint) (i + 1));
+                var objectChain = new List<RszObject>();
+                // Build the object data chain.
+                rootObject.WriteObjectList(objectChain);
+                objectData.AddRange(objectChain);
+                // And build the instance info chain.
+                rootObject.SetupInstanceInfo(instanceInfo, forGp);
+            }
+            // Finally, rebuild the `objectInfo` list with the new entries from where our `rootObjects` now live.
+            objectEntryPoints.Clear();
+            for (var i = 0; i < objectData.Count; i++) {
+                foreach (var rootObject in rootObjects) {
+                    if (objectData[i] == rootObject) {
+                        objectEntryPoints.Add((uint) (i + 1));
+                    }
                 }
             }
-        }
 
-        writer.Write(magic);
-        writer.Write(version);
-        writer.Write(objectEntryPoints.Count);
-        writer.Write(instanceInfo.Count);
-        writer.Write(userDataInfo.Count);
-        writer.Write(reserved);
+            writer.Write(magic);
+            writer.Write(version);
+            writer.Write(objectEntryPoints.Count);
+            writer.Write(instanceInfo.Count);
+            writer.Write(userDataInfo.Count);
+            writer.Write(reserved);
 
-        var instanceOffsetPos = writer.BaseStream.Position;
-        writer.Write(0ul);
-        var dataOffsetPos = writer.BaseStream.Position;
-        writer.Write(0ul);
-        var userDataOffsetPos = writer.BaseStream.Position;
-        writer.Write(0ul);
+            var instanceOffsetPos = writer.BaseStream.Position;
+            writer.Write(0ul);
+            var dataOffsetPos = writer.BaseStream.Position;
+            writer.Write(0ul);
+            var userDataOffsetPos = writer.BaseStream.Position;
+            writer.Write(0ul);
 
-        foreach (var obj in objectEntryPoints) {
-            writer.Write(obj);
-        }
+            foreach (var obj in objectEntryPoints) {
+                writer.Write(obj);
+            }
 
-        writer.WriteValueAtOffset((ulong) writer.BaseStream.Position - rszOffsetStart, instanceOffsetPos);
-        foreach (var info in instanceInfo) {
-            info.Write(writer);
-        }
+            writer.WriteValueAtOffset((ulong) writer.BaseStream.Position - rszOffsetStart, instanceOffsetPos);
+            foreach (var info in instanceInfo) {
+                info.Write(writer);
+            }
 
-        writer.PadTill(() => writer.BaseStream.Position % 16 != 0);
-        writer.WriteValueAtOffset((ulong) writer.BaseStream.Position - rszOffsetStart, userDataOffsetPos);
-        foreach (var userData in userDataInfo) {
-            userData.Write(writer);
-        }
-        foreach (var userData in userDataInfo) {
-            userData.UpdateWrite(writer, rszOffsetStart);
-        }
+            writer.PadTill(() => writer.BaseStream.Position % 16 != 0);
+            writer.WriteValueAtOffset((ulong) writer.BaseStream.Position - rszOffsetStart, userDataOffsetPos);
+            foreach (var userData in userDataInfo) {
+                userData.Write(writer);
+            }
+            foreach (var userData in userDataInfo) {
+                userData.UpdateWrite(writer, rszOffsetStart);
+            }
 
-        writer.PadTill(() => writer.BaseStream.Position % 16 != 0);
-        writer.WriteValueAtOffset((ulong) writer.BaseStream.Position - rszOffsetStart, dataOffsetPos);
+            writer.PadTill(() => writer.BaseStream.Position % 16 != 0);
+            writer.WriteValueAtOffset((ulong) writer.BaseStream.Position - rszOffsetStart, dataOffsetPos);
 
-        // Call `Write` from the root objects. Those will handle writing out the objects in the correct order.
-        foreach (var rootObject in rootObjects) {
-            rootObject.Write(writer, testWritePosition);
+            // Call `Write` from the root objects. Those will handle writing out the objects in the correct order.
+            foreach (var rootObject in rootObjects) {
+                rootObject.Write(writer, testWritePosition);
+            }
         }
     }
 

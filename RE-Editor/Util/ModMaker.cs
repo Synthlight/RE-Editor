@@ -21,7 +21,8 @@ public static class ModMaker {
     /// <param name="copyLooseToFluffy">If true, will copy the *loose* zip to FMM.</param>
     /// <param name="copyPakToFluffy">If true, will copy the *pak* zip to FMM.</param>
     /// <param name="noPakZip">Will skip the second zip containing pak files if true.</param>
-    public static void WriteMods<T>(IEnumerable<T> mods, string modFolderName, bool copyLooseToFluffy = false, bool copyPakToFluffy = false, bool noPakZip = false) where T : INexusMod {
+    /// <param name="workingDir">Will build the mod here and copy the output zip to the normal dir.</param>
+    public static void WriteMods<T>(IEnumerable<T> mods, string modFolderName, bool copyLooseToFluffy = false, bool copyPakToFluffy = false, bool noPakZip = false, string? workingDir = null) where T : INexusMod {
 #if DD2
         var usedLuaFiles = new List<string>();
 #elif MHWS
@@ -61,147 +62,187 @@ public static class ModMaker {
 
         var threads = new List<Thread>();
         foreach (var (bundleName, entries) in bundles) {
-            var thread = new Thread(() => { CreateModBundle(modFolderName, copyLooseToFluffy, copyPakToFluffy, bundleName, entries, noPakZip); });
+            var thread = new Thread(() => { CreateModBundle(modFolderName, copyLooseToFluffy, copyPakToFluffy, bundleName, entries, noPakZip, workingDir); });
             threads.Add(thread);
             thread.Start();
         }
         threads.JoinAll();
     }
 
-    private static void CreateModBundle<T>(string modFolderName, bool copyLooseToFluffy, bool copyPakToFluffy, string? bundleName, List<T> entries, bool noPakZip) where T : INexusMod {
+    private static void CreateModBundle<T>(string modFolderName, bool copyLooseToFluffy, bool copyPakToFluffy, string? bundleName, List<T> entries, bool noPakZip, string? workingDir) where T : INexusMod {
         bundleName = bundleName == "" ? null : bundleName;
         var safeBundleName    = bundleName?.ToSafeName();
         var safeModFolderName = modFolderName.ToSafeName();
-        var rootPath          = $@"{PathHelper.MODS_PATH}\{safeModFolderName}";
+        var rootPath          = $@"{workingDir ?? PathHelper.MODS_PATH}\{safeModFolderName}";
+        var destRootPath      = $@"{PathHelper.MODS_PATH}\{safeModFolderName}";
         var modFiles          = new List<string>();
         var nativesFiles      = new List<string>();
         var pakFiles          = new List<string>();
+        var listLock          = new Mutex();
         var zipPathNormal     = $@"{rootPath}\{safeBundleName ?? safeModFolderName}.zip";
         var zipPathPak        = $@"{rootPath}\{safeBundleName ?? safeModFolderName} (PAK).zip";
 
         if (File.Exists(zipPathNormal)) File.Delete(zipPathNormal);
         if (File.Exists(zipPathPak)) File.Delete(zipPathPak);
 
+        Dictionary<ReDataFile, byte[]> reDataFileCache = [];
+        List<Thread>                   entryThreads    = [];
+
         foreach (var mod in entries) {
-            var    safeName = mod.Name.ToSafeName();
-            string modPath;
-            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
-            if (safeBundleName != null) {
-                modPath = $@"{rootPath}\{safeBundleName}\{safeName}";
-            } else {
-                modPath = $@"{rootPath}\{safeName}";
-            }
-
-            if (Directory.Exists(modPath)) Directory.Delete(modPath, true);
-            Directory.CreateDirectory(modPath);
-
-            var modInfo = new StringWriter();
-            modInfo.WriteLine($"name={mod.NameOverride ?? mod.Name}");
-            modInfo.WriteLine($"version={mod.Version}");
-            modInfo.WriteLine($"description={mod.Desc}");
-            modInfo.WriteLine("author=LordGregory");
-            if (mod.NameAsBundle != null) {
-                modInfo.WriteLine($"NameAsBundle={bundleName}");
-            }
-            if (mod.AddonFor != null) {
-                modInfo.WriteLine($"AddonFor={mod.AddonFor}");
-            }
-            if (mod.Requirement != null) {
-                modInfo.WriteLine($"Requirement={mod.Requirement}");
-            }
-
-            var anyIncluded = false;
-            if (mod.Files.Any()) {
-                if (mod.Action == null && mod.FilteredAction == null) {
-                    throw new InvalidDataException("`mod.Action` or `mod.FilteredAction` are null but `mod.Files` is not empty.");
+            var entryThread = new Thread(() => {
+                var    safeName = mod.Name.ToSafeName();
+                string modPath;
+                // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+                if (safeBundleName != null) {
+                    modPath = $@"{rootPath}\{safeBundleName}\{safeName}";
+                } else {
+                    modPath = $@"{rootPath}\{safeName}";
                 }
-                foreach (var modFile in mod.Files) {
-                    var sourceFile = @$"{PathHelper.CHUNK_PATH}\{modFile}";
-                    var outFile    = @$"{modPath}\{modFile}";
 
-                    var dataFile = ReDataFile.Read(sourceFile);
-                    dataFile.Write(new BinaryWriter(new MemoryStream()), testWritePosition: true, forGp: mod.ForGp);
+                if (Directory.Exists(modPath)) Directory.Delete(modPath, true);
+                Directory.CreateDirectory(modPath);
 
-                    var data        = dataFile.rsz.objectData;
-                    var includeFile = true;
-                    if (mod.FilteredAction != null) {
-                        includeFile = mod.FilteredAction.Invoke(data);
-                    } else {
-                        mod.Action!.Invoke(data);
+                var modInfo = new StringWriter();
+                modInfo.WriteLine($"name={mod.NameOverride ?? mod.Name}");
+                modInfo.WriteLine($"version={mod.Version}");
+                modInfo.WriteLine($"description={mod.Desc}");
+                modInfo.WriteLine("author=LordGregory");
+                if (mod.NameAsBundle != null) {
+                    modInfo.WriteLine($"NameAsBundle={bundleName}");
+                }
+                if (mod.AddonFor != null) {
+                    modInfo.WriteLine($"AddonFor={mod.AddonFor}");
+                }
+                if (mod.Requirement != null) {
+                    modInfo.WriteLine($"Requirement={mod.Requirement}");
+                }
+
+                var anyIncluded = false;
+                if (mod.Files.Any()) {
+                    if (mod.Action == null && mod.FilteredAction == null) {
+                        throw new InvalidDataException("`mod.Action` or `mod.FilteredAction` are null but `mod.Files` is not empty.");
                     }
-                    if (includeFile) {
-                        anyIncluded = true;
+                    foreach (var modFile in mod.Files) {
+                        var sourceFile = @$"{PathHelper.CHUNK_PATH}\{modFile}";
+                        var outFile    = @$"{modPath}\{modFile}";
+
+                        var dataFile = ReDataFile.Read(sourceFile);
+                        dataFile.Write(new BinaryWriter(new MemoryStream()), testWritePosition: true, forGp: mod.ForGp);
+
+                        var data        = dataFile.rsz.objectData;
+                        var includeFile = true;
+                        if (mod.FilteredAction != null) {
+                            includeFile = mod.FilteredAction.Invoke(data);
+                        } else {
+                            mod.Action!.Invoke(data);
+                        }
+                        if (includeFile) {
+                            anyIncluded = true;
+                            Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
+                            dataFile.Write(outFile, forGp: mod.ForGp);
+                            lock (listLock) {
+                                nativesFiles.Add(outFile);
+                            }
+                        }
+                    }
+                }
+
+                if (mod.AdditionalFiles?.Any() == true) {
+                    foreach (var (dest, obj) in mod.AdditionalFiles) {
+                        var fixedDest = dest;
+                        if (fixedDest.StartsWith('\\') || fixedDest.StartsWith('/')) {
+                            fixedDest = dest[1..];
+                        }
+                        var outFile = @$"{modPath}\{dest}";
                         Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
-                        dataFile.Write(outFile, forGp: mod.ForGp);
-                        nativesFiles.Add(outFile);
+                        switch (obj) {
+                            case string sourceFile:
+                                File.Copy(sourceFile, outFile);
+                                break;
+                            case byte[] bytes:
+                                using (var file = new StreamWriter(File.Open(outFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None))) {
+                                    file.Write($"-- {mod.NameOverride ?? mod.Name}\n" +
+                                               "-- By LordGregory\n\n" +
+                                               $"local version = \"{mod.Version}\"\n" +
+                                               $"log.info(\"Initializing `{mod.NameOverride ?? mod.Name}` v\" .. version)\n\n");
+                                    file.Flush();
+                                    file.BaseStream.Write(bytes);
+                                }
+                                break;
+                            case ReDataFile reDataFile:
+                                if (!reDataFileCache.ContainsKey(reDataFile)) {
+                                    using var memoryStream = new MemoryStream();
+                                    reDataFile.Write(new BinaryWriter(memoryStream));
+                                    var bytes = memoryStream.ToArray();
+                                    lock (listLock) {
+                                        reDataFileCache[reDataFile] = bytes;
+                                    }
+                                }
+                                using (var file = new BinaryWriter(File.Open(outFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None))) {
+                                    //reDataFile.Write(file);
+                                    byte[] bytes;
+                                    lock (listLock) {
+                                        bytes = reDataFileCache[reDataFile];
+                                    }
+                                    file.Write(bytes);
+                                    file.Flush();
+                                }
+                                break;
+                            default:
+                                throw new InvalidDataException($"Source LUA data is of an unsupported type: {obj.GetType()}");
+                        }
+                        anyIncluded = true;
+                        if (fixedDest.StartsWith("natives")) {
+                            lock (listLock) {
+                                nativesFiles.Add(outFile);
+                            }
+                        } else {
+                            lock (listLock) {
+                                modFiles.Add(outFile); // Because it's basically anything NOT a pak since we can't mix those two types.
+                            }
+                        }
                     }
                 }
-            }
 
-            if (mod.AdditionalFiles?.Any() == true) {
-                foreach (var (dest, obj) in mod.AdditionalFiles) {
-                    var outFile = @$"{modPath}\{dest}";
-                    Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
-                    switch (obj) {
-                        case string sourceFile:
-                            File.Copy(sourceFile, outFile);
-                            break;
-                        case byte[] bytes:
-                            using (var file = new StreamWriter(File.Open(outFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None))) {
-                                file.Write($"-- {mod.NameOverride ?? mod.Name}\n" +
-                                           "-- By LordGregory\n\n" +
-                                           $"local version = \"{mod.Version}\"\n" +
-                                           $"log.info(\"Initializing `{mod.NameOverride ?? mod.Name}` v\" .. version)\n\n");
-                                file.Flush();
-                                file.BaseStream.Write(bytes);
-                            }
-                            break;
-                        case ReDataFile reDataFile:
-                            using (var file = new BinaryWriter(File.Open(outFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None))) {
-                                reDataFile.Write(file);
-                                file.Flush();
-                            }
-                            break;
-                        default:
-                            throw new InvalidDataException($"Source LUA data is of an unsupported type: {obj.GetType()}");
-                    }
-                    anyIncluded = true;
-                    if (dest.StartsWith("natives")) {
-                        nativesFiles.Add(outFile);
-                    } else {
-                        modFiles.Add(outFile); // Because it's basically anything NOT a pak since we can't mix those two types.
+                // If the mod has literally no files outside of metadata, just delete the folder and continue.
+                if (!anyIncluded && !mod.AlwaysInclude) {
+                    Directory.Delete(modPath, true);
+                    return;
+                }
+
+                // Do late so we can skip the whole thing if all the files are filtered out.
+                if (mod.Image != null && File.Exists(mod.Image)) {
+                    var imageFileName = Path.GetFileName(mod.Image);
+                    var imagePath     = @$"{modPath}\{imageFileName}";
+                    modInfo.WriteLine($"screenshot={imageFileName}");
+                    File.Copy(mod.Image, imagePath);
+                    lock (listLock) {
+                        modFiles.Add(imagePath);
                     }
                 }
-            }
+                var modInfoPath = @$"{modPath}\modinfo.ini";
+                File.WriteAllText(modInfoPath, modInfo.ToString());
+                lock (listLock) {
+                    modFiles.Add(modInfoPath);
+                }
 
-            // If the mod has literally no files outside of metadata, just delete the folder and continue.
-            if (!anyIncluded && !mod.AlwaysInclude) {
-                Directory.Delete(modPath, true);
-                continue;
-            }
-
-            // Do late so we can skip the whole thing if all the files are filtered out.
-            if (mod.Image != null && File.Exists(mod.Image)) {
-                var imageFileName = Path.GetFileName(mod.Image);
-                var imagePath     = @$"{modPath}\{imageFileName}";
-                modInfo.WriteLine($"screenshot={imageFileName}");
-                File.Copy(mod.Image, imagePath);
-                modFiles.Add(imagePath);
-            }
-            var modInfoPath = @$"{modPath}\modinfo.ini";
-            File.WriteAllText(modInfoPath, modInfo.ToString());
-            modFiles.Add(modInfoPath);
-
-            if (mod.SkipPak) continue;
-            var processStartInfo = new ProcessStartInfo(@"R:\Games\Monster Hunter Rise\REtool\REtool.exe", $"{Global.PAK_CREATE_ARGS} -c \"{modPath}\"") {
-                WorkingDirectory = $@"{modPath}\..",
-                CreateNoWindow   = true
-            };
-            Process.Start(processStartInfo)?.WaitForExit();
-            var pakFile = $@"{modPath}\{safeName}.pak";
-            File.Move($@"{modPath}.pak", pakFile);
-            pakFiles.Add(pakFile);
+                if (mod.SkipPak) return;
+                var processStartInfo = new ProcessStartInfo(@"R:\Games\Monster Hunter Rise\REtool\REtool.exe", $"{Global.PAK_CREATE_ARGS} -c \"{modPath}\"") {
+                    WorkingDirectory = $@"{modPath}\..",
+                    CreateNoWindow   = true
+                };
+                Process.Start(processStartInfo)?.WaitForExit();
+                var pakFile = $@"{modPath}\{safeName}.pak";
+                File.Move($@"{modPath}.pak", pakFile);
+                lock (listLock) {
+                    pakFiles.Add(pakFile);
+                }
+                Debug.WriteLine($"Wrote: {mod.Name}");
+            });
+            entryThreads.Add(entryThread);
+            entryThread.Start();
         }
+        entryThreads.JoinAll();
 
         var threads = new List<Thread> {new(() => { CompressTheMod(zipPathNormal, modFiles, nativesFiles, copyLooseToFluffy); })};
         if (!noPakZip) {
@@ -209,6 +250,12 @@ public static class ModMaker {
         }
         threads.StartAll();
         threads.JoinAll();
+
+        if (workingDir != null) {
+            Directory.CreateDirectory(destRootPath);
+            if (File.Exists(zipPathNormal)) File.Copy(zipPathNormal, zipPathNormal.Replace(rootPath, destRootPath), true);
+            if (File.Exists(zipPathPak)) File.Copy(zipPathPak, zipPathPak.Replace(rootPath, destRootPath), true);
+        }
     }
 
     private static void CompressTheMod(string zipPath, List<string> baseFiles, List<string> gameFiles, bool copyToFluffy) {
