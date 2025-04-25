@@ -6,6 +6,7 @@ using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -15,7 +16,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class MorePortCrystals : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Higher Portcrystal Limit";
         const string description = "Changes the limit from 10 to 127.";
         const string version     = "1.13";
@@ -41,7 +42,7 @@ public class MorePortCrystals : IMod {
                 .SetAction(Mod),
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData) {

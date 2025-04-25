@@ -7,13 +7,14 @@ using RE_Editor.Constants;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class MaxStackSize : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Stack Size Changes";
         const string description = "Modifies the stack size of stackable items.";
         const string version     = "1.9";
@@ -110,7 +111,7 @@ public class MaxStackSize : IMod {
                 .SetAction(list => MaxStacks(list, Target.X10, Type.AMMO_ONLY)),
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxStacks(List<RszObject> rszObjectData, Target target, Type type) {

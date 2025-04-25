@@ -128,7 +128,7 @@ public partial class MainWindow {
             };
             var make = modType.GetMethod("Make", BindingFlags.Static | BindingFlags.Public);
             allMakeModMethods.Add(make);
-            button.Click += (_, _) => { make!.Invoke(null, null); };
+            button.Click += (_, _) => { make!.Invoke(null, [this]); };
             panel_mods.Children.Add(button);
         }
 
@@ -467,5 +467,30 @@ public partial class MainWindow {
                 Load(files[0]);
             }
         }
+    }
+
+    public void ShowThreadProgress(ThreadHandler threadHandler, string text) {
+        var info = new ProgressInfo {
+            Text          = text,
+            ProgressValue = threadHandler.DoneCount,
+            ProgressMax   = threadHandler.DoCount
+        };
+        ThreadHandler.OnUpdateHandler onUpdateHandler = null;
+        onUpdateHandler = (doCount, doneCount, threadName) => {
+            Utils.RunOnUiThread(() => {
+                info.ProgressValue = doneCount;
+                info.ProgressMax   = doCount;
+                info.Context       = threadName;
+            });
+            if (doCount == doneCount) {
+                threadHandler.OnUpdate -= onUpdateHandler;
+                Utils.RunOnUiThread(() => { mod_maker_overlay.Stuff.Remove(info); });
+            }
+        };
+        threadHandler.OnUpdate += onUpdateHandler;
+        if (info.ProgressMax > 0) { // Just in-case it finished before we added it to the UI.
+            mod_maker_overlay.Stuff.Add(info);
+        }
+        new Thread(threadHandler.WaitAll).Start();
     }
 }

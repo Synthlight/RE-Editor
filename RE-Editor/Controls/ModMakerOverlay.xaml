@@ -1,0 +1,60 @@
+﻿<ListBox x:Class="RE_Editor.Controls.ModMakerOverlay"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:local="clr-namespace:RE_Editor.Controls"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         Name="this"
+         HorizontalContentAlignment="Stretch"
+         d:DesignHeight="450"
+         d:DesignWidth="800"
+         d:ItemsSource="{d:SampleData}"
+         Background="Transparent"
+         DataContext="{x:Reference this}"
+         ItemTemplate="{DynamicResource DownloadProgress}"
+         ItemsSource="{Binding Stuff}"
+         mc:Ignorable="d">
+    <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+            <VirtualizingStackPanel VerticalAlignment="Bottom"/>
+        </ItemsPanelTemplate>
+    </ListBox.ItemsPanel>
+    <ListBox.Resources>
+        <DataTemplate x:Key="DownloadProgress"
+                      x:Shared="True"
+                      DataType="{x:Type local:ProgressInfo}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <ProgressBar Grid.Row="0"
+                             VerticalAlignment="Stretch"
+                             VerticalContentAlignment="Stretch"
+                             Foreground="#FF01D328"
+                             IsIndeterminate="false"
+                             Maximum="{Binding ProgressMax}"
+                             Orientation="Horizontal"
+                             Value="{Binding ProgressValue}"/>
+                <Grid Grid.Row="0"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center">
+                    <TextBlock Margin="10,0,0,0"
+                               Text="{Binding Text}"
+                               TextAlignment="Center"
+                               TextWrapping="NoWrap"/>
+                </Grid>
+                <Grid Grid.Row="0"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Center">
+                    <TextBlock Margin="0,0,10,0"
+                               Text="{Binding Context}"
+                               TextAlignment="Center"
+                               TextWrapping="NoWrap"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </ListBox.Resources>
+</ListBox>

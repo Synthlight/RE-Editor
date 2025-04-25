@@ -8,13 +8,14 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class CheatMod : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name = "Weapon/Armor/Gem/Slot/Skill Cheats";
 
         var baseMod = new NexusMod {
@@ -109,7 +110,7 @@ public class CheatMod : IMod {
             mods.Add(newMod);
         }
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxSharpness(List<RszObject> rszObjectData) {

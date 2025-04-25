@@ -9,6 +9,7 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -21,7 +22,7 @@ namespace RE_Editor.Mods;
 [UsedImplicitly]
 public class SortedDecos : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name               = "Sorted Decos";
         const string descriptionByDeco  = "Resorts decorations by the name of the decoration.";
         const string descriptionBySkill = "Resorts decorations by the name of the skill, ordering by either the first or second skill, for decos with two skills.";
@@ -68,7 +69,7 @@ public class SortedDecos : IMod {
         }
 
         // TODO: Re-enable the REF options when sort ordering for them has been fixed.
-        ModMaker.WriteMods(mods.OfType<NexusMod>(), name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods.OfType<NexusMod>(), name, copyLooseToFluffy: true);
     }
 
     private static void AddDecosSortedBySkillNameMods(List<INexusMod> mods, NexusMod baseMod, VariousDataTweak baseLuaMod, Global.LangIndex lang, string langGroupName, List<App_user_data_AccessoryData_cData> data, string description) {

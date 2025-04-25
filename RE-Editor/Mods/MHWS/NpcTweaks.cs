@@ -14,6 +14,7 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -39,7 +40,7 @@ public class NpcTweaks : IMod {
     ];
 
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "NPC Outfit Tweaks";
         const string description = "NPC outfit tweaks - Makes all NPCs wear a given outfit.";
         const string version     = "1.1";
@@ -196,7 +197,7 @@ public class NpcTweaks : IMod {
                  .SetFiles(unnamedFiles)
                  .SetFilteredAction(list => ChangeVisualSettings(list, IsAllowed)));
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static bool IsAllowed(App_user_data_NpcVisualSetting visualSettings) {

@@ -7,13 +7,14 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class MpMedalsInSp : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "MP Medals in SP";
         const string description = "Changes the last 4 medals to unlock after hunting 1 large monster.";
         const string version     = "1.0";
@@ -26,7 +27,7 @@ public class MpMedalsInSp : IMod {
             Action  = ModMedals
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     private static void ModMedals(IList<RszObject> rszObjectData) {

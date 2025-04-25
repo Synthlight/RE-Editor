@@ -8,13 +8,14 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class NoCraftingRequirements : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "No Crafting Requirements";
         const string description = "No Crafting Requirements.";
         const string version     = "1.4";
@@ -199,7 +200,7 @@ public class NoCraftingRequirements : IMod {
                 .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void NoRequirements(List<RszObject> rszObjectData, Mode mode) {

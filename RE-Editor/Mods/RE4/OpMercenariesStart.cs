@@ -6,13 +6,14 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class OpMercenariesStart : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "OP Mercenaries Start";
         const string description = "Max <all things stackable>/case size for all mercenaries starter inventories.";
         const string version     = "1.0";
@@ -25,7 +26,7 @@ public class OpMercenariesStart : IMod {
             Action  = MakeNewInventory
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true);
     }
 
     public static void MakeNewInventory(IEnumerable<RszObject> rszObjectData) {

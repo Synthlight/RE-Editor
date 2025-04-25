@@ -7,6 +7,7 @@ using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -16,7 +17,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class HideSheathedWeapons : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Hide Sheathed Weapons";
         const string description = "Hides weapons when sheathed.";
         const string version     = "1.0";
@@ -29,7 +30,7 @@ public class HideSheathedWeapons : IMod {
             Action  = ShopData,
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true);
     }
 
     public static void ShopData(List<RszObject> rszObjectData) {

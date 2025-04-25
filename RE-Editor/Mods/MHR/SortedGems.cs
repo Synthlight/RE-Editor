@@ -8,13 +8,14 @@ using RE_Editor.Generated.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class SortedGems : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name              = "Sorted Gems";
         const string version           = "1.7.1";
         const string bundleByNameName  = "Gems Sorted by Gem Name";
@@ -51,7 +52,7 @@ public class SortedGems : IMod {
             Version      = version
         });
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void SortGems(IEnumerable<RszObject> rszObjectData, GemSortType sortType, Global.LangIndex lang) {

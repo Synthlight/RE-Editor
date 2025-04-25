@@ -9,6 +9,7 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -18,7 +19,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class HideStargazerArmCloth : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Hide Stargazer's Garb Arm Cloth";
         const string description = "Hides the arm cloth on the Stargazer's Garb.";
         const string version     = "1.1";
@@ -52,6 +53,6 @@ public class HideStargazerArmCloth : IMod {
             ]
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true, noPakZip: true);
     }
 }

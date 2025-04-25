@@ -7,6 +7,7 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -16,7 +17,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class HidePetticoatSkirts : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string nameAsBundle        = "Hide Petticoat Parts";
         const string version             = "1.3";
         const string elegantPetticoat    = "Elegant Petticoat";
@@ -242,6 +243,6 @@ public class HidePetticoatSkirts : IMod {
             mod.Changes.Add(change);
         }
 
-        ModMaker.WriteMods(mods, nameAsBundle, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mainWindow, mods, nameAsBundle, copyLooseToFluffy: true, noPakZip: true);
     }
 }

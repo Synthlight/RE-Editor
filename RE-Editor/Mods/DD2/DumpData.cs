@@ -7,6 +7,7 @@ using RE_Editor.Common;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
 using RE_Editor.Models.Structs;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -16,7 +17,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class DumpData : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         DumpDecayData();
         DumpGimmickData();
         DumpStyleToMeshData();

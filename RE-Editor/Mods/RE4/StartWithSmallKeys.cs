@@ -7,13 +7,14 @@ using RE_Editor.Generated;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class StartWithSmallKeys : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string bundleName  = "Start with Small Keys";
         const string description = "Gives you 20 Small Keys at the start of new games.";
         const string version     = "1.0";
@@ -31,7 +32,7 @@ public class StartWithSmallKeys : IMod {
             Action = AddSmallKeys
         };
 
-        ModMaker.WriteMods([mod], bundleName, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, [mod], bundleName, copyLooseToFluffy: true);
     }
 
     public static void AddSmallKeys(IEnumerable<RszObject> rszObjectData) {

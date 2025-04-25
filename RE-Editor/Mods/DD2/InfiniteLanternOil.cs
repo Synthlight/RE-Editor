@@ -5,6 +5,7 @@ using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -14,7 +15,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class InfiniteLanternOil : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Infinite Lantern Oil";
         const string description = "Infinite lantern oil.";
         const string version     = "1.0";
@@ -33,7 +34,7 @@ public class InfiniteLanternOil : IMod {
             SkipPak         = true,
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     [SuppressMessage("ReSharper", "StringLiteralTypo")]

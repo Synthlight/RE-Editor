@@ -8,6 +8,7 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -17,7 +18,7 @@ public class ItemCostTweaks : IMod {
     private const int ITEM_SELL_PRICE = 99999;
 
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Item Cost Tweaks - Buy for 1z, sell for 99999z";
         const string description = "Buy for 1z, sell for 99999z.";
         const string version     = "1.3";
@@ -71,7 +72,7 @@ public class ItemCostTweaks : IMod {
                 .SetAction(list => ItemCostTweak(list, Mode.BUY_PRICE | Mode.SELL_PRICE))
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void ItemCostTweak(IList<RszObject> rszObjectData, Mode mode) {

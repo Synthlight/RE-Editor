@@ -10,13 +10,14 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class ShopTweaks : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
         const string version     = "1.4.2";
@@ -67,7 +68,7 @@ public class ShopTweaks : IMod {
                 .SetAction(list => AddShopItems(list, itemModeData, itemSortData, Mode.ARENA_COINS))
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     private static Mode? GetMode(App_user_data_ItemData_cData item) {
@@ -114,7 +115,6 @@ public class ShopTweaks : IMod {
                             entries.Add(CreateItem(itemShopData.rsz, itemId));
                         }
                     }
-                    // TODO: Change back to `itemSortData[entry1.ItemId].CompareTo(itemSortData[entry2.ItemId])` once released and there won't be unknowns.
                     entries.Sort((entry1, entry2) => itemSortData.TryGet(entry1.ItemId, 0).CompareTo(itemSortData.TryGet(entry2.ItemId, 0)));
                     for (var i = 0; i < entries.Count; i++) {
                         var entry = entries[i];
@@ -127,7 +127,7 @@ public class ShopTweaks : IMod {
         }
     }
 
-    private static App_user_data_ItemShopData_cData CreateItem(RSZ rsz, int itemId) {
+    public static App_user_data_ItemShopData_cData CreateItem(RSZ rsz, int itemId) {
         var shopEntry = App_user_data_ItemShopData_cData.Create(rsz);
         shopEntry.ItemId       = itemId;
         shopEntry.StoryPackage = App_StoryPackageFlag_TYPE_Fixed.INVALID;

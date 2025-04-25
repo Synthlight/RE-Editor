@@ -9,6 +9,7 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -20,7 +21,7 @@ namespace RE_Editor.Mods;
 [UsedImplicitly]
 public class SortedSkills : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name                   = "Sorted Skills";
         const string descriptionSkillSoring = "Resorts skills by the name of the skill.";
         const string version                = "1.0";
@@ -64,7 +65,7 @@ public class SortedSkills : IMod {
             AddSkillsSortedBySkillNameMods(mods, baseMod, baseLuaMod, lang, langGroupName, skillCommonData, descriptionSkillSoring);
         }
 
-        ModMaker.WriteMods(mods.OfType<NexusMod>(), name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods.OfType<NexusMod>(), name, copyLooseToFluffy: true);
     }
 
     private static void AddSkillsSortedBySkillNameMods(List<INexusMod> mods, NexusMod baseMod, VariousDataTweak baseLuaMod, Global.LangIndex lang, string langGroupName, List<App_user_data_SkillCommonData_cData> data, string description) {

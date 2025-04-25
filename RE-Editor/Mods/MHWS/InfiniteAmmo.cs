@@ -8,13 +8,14 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class InfiniteAmmo : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Infinite Ammo and Coatings";
         const string description = "Infinite Ammo and Coatings.";
         const string version     = "1.0";
@@ -48,7 +49,7 @@ public class InfiniteAmmo : IMod {
                 .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void InfiniteAmmoAndCoatings(IList<RszObject> rszObjectData) {

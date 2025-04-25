@@ -39,14 +39,20 @@
                     </VisualBrush>
                 </Style.Resources>
                 <Style.Triggers>
-                    <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}"/>
+                    <Trigger Property="Text"
+                             Value="{x:Static sys:String.Empty}">
+                        <Setter Property="Background"
+                                Value="{StaticResource CueBannerBrush}"/>
                     </Trigger>
-                    <Trigger Property="Text" Value="{x:Null}">
-                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}"/>
+                    <Trigger Property="Text"
+                             Value="{x:Null}">
+                        <Setter Property="Background"
+                                Value="{StaticResource CueBannerBrush}"/>
                     </Trigger>
-                    <Trigger Property="IsKeyboardFocused" Value="True">
-                        <Setter Property="Background" Value="White"/>
+                    <Trigger Property="IsKeyboardFocused"
+                             Value="True">
+                        <Setter Property="Background"
+                                Value="White"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>

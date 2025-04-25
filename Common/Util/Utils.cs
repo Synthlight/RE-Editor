@@ -124,4 +124,12 @@ public static class Utils {
         ((IDisposable) enumerator).Dispose();
         return types;
     }
+
+    public static void RunOnUiThread(Action action) {
+        Application.Current.Dispatcher.Invoke(action);
+    }
+
+    public static async Task RunOnUiThreadAsync(Action action) {
+        await Application.Current.Dispatcher.InvokeAsync(action);
+    }
 }

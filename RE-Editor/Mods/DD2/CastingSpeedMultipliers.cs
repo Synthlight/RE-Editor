@@ -8,13 +8,14 @@ using RE_Editor.Generated.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class CastingSpeedMultipliers : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Casting Speed Multipliers";
         const string description = "Casting speed multipliers.";
         const string version     = "1.3";
@@ -39,7 +40,7 @@ public class CastingSpeedMultipliers : IMod {
                                   .SetFiles(dataFiles[option])
                                   .SetAction(list => Mod(list, value))).ToList();
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData, ValueOptions option) {

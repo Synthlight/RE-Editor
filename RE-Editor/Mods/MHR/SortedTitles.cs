@@ -7,13 +7,14 @@ using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class SortedTitles : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name    = "Titles Sorted by Name";
         const string desc    = "Sorts all the guid card titles by their name.";
         const string version = "1.5.1";
@@ -35,7 +36,7 @@ public class SortedTitles : IMod {
                            })
                            .Cast<INexusMod>());
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void SortTitles(IEnumerable<RszObject> rszObjectData, Global.LangIndex lang) {

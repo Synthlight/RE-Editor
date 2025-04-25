@@ -6,13 +6,14 @@ using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class WeaponsPurpleSharpness : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Weapons - Max Purple Sharpness";
         const string description = "Weapons - Max Purple Sharpness.";
         const string version     = "1.2";
@@ -48,7 +49,7 @@ public class WeaponsPurpleSharpness : IMod {
                 .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxSharpness(List<RszObject> rszObjectData) {

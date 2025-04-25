@@ -8,6 +8,7 @@ using RE_Editor.Constants;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -17,7 +18,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class JobRequirementsCommission : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "No Job Requirements (Commission)";
         const string description = "Tweaks weapon & armor data to let you use any armor/weapon with any job.";
         const string version     = "1.1";
@@ -41,7 +42,7 @@ public class JobRequirementsCommission : IMod {
                 }),
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData) {

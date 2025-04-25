@@ -8,13 +8,14 @@ using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class DumpArmor : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         /*
          * Armor paths:
          * `natives/STM/Art/Model/Character/ch02/008/001/2/ch02_008_0012` (Chatacabra male chest.)

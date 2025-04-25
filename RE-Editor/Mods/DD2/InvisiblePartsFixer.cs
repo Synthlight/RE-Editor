@@ -6,6 +6,7 @@ using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -15,7 +16,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class InvisiblePartsFixer : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Invisible Parts Fixer";
         const string description = "Restores missing skin textures from mesh parts hidden by tweaking the armor swap database.";
         const string version     = "1.1";
@@ -49,6 +50,6 @@ public class InvisiblePartsFixer : IMod {
                    .SetAdditionalFiles(nulledMasks),
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 }

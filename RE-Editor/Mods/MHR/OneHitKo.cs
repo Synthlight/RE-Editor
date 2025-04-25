@@ -7,13 +7,14 @@ using RE_Editor.Generated.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class OneHitKo : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "OHKO";
         const string description = "Changes Defender I weapons to have 50k base damage.";
         const string version     = "1.1.1";
@@ -39,7 +40,7 @@ public class OneHitKo : IMod {
             }
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void ChangeDamage(IList<RszObject> rszObjectData) {

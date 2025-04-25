@@ -7,6 +7,7 @@ using RE_Editor.Constants;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -16,7 +17,7 @@ namespace RE_Editor.Mods;
 [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
 public class MorePortCrystalsShopTweaks : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Ferrystones and Portcrystals in Every Shop";
         const string description = "Adds both items to every single shop in the game.";
         const string version     = "1.7";
@@ -29,7 +30,7 @@ public class MorePortCrystalsShopTweaks : IMod {
             Action  = ShopData,
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true);
     }
 
     public static void ShopData(List<RszObject> rszObjectData) {

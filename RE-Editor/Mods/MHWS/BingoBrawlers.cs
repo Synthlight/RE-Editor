@@ -10,6 +10,7 @@ using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Mods.MHWS;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
@@ -51,7 +52,7 @@ namespace RE_Editor.Mods;
 [UsedImplicitly]
 public class BingoBrawlers : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Bingo Brawlers";
         const string description = "Bingo Brawlers stuff.";
         const string version     = "1.2.2";
@@ -113,7 +114,7 @@ public class BingoBrawlers : IMod {
                 .SetSkipPak(true),
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void ModRecipes(List<RszObject> rszObjectData, Dictionary<string, Dictionary<int, App_WeaponDef_SERIES_Fixed>> weaponToRecipeIdToSeriesIdMap, List<int> recipeIdsOfLastUpgradeInSeries) {

@@ -7,13 +7,14 @@ using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class MinMaxFishSizes : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Min-Max Legal Fish Sizes";
         const string description = "Guarantees a 50/50 min/max legal size for fish. Will be a crown if the size probabilities would allow it.";
         const string version     = "1.1";
@@ -27,7 +28,7 @@ public class MinMaxFishSizes : IMod {
             Image   = $@"{PathHelper.MODS_PATH}\{name}\Gold Crown.png"
         };
 
-        ModMaker.WriteMods([mod], name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true);
     }
 
     public static void ModProbabilities(IList<RszObject> rszObjectData) {

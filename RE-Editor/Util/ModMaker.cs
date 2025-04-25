@@ -9,6 +9,7 @@ using ICSharpCode.SharpZipLib.Zip;
 using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Models;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Util;
 
@@ -16,30 +17,35 @@ public static class ModMaker {
     /// <summary>
     /// Creates mod folders and archives.
     /// </summary>
+    /// <param name="mainWindow">The main window.</param>
     /// <param name="mods">All the mods to make under the root name `<param name="modFolderName"/>`.</param>
     /// <param name="modFolderName">Name without any path or `\` characters. Illegal characters will be replaced.</param>
     /// <param name="copyLooseToFluffy">If true, will copy the *loose* zip to FMM.</param>
     /// <param name="copyPakToFluffy">If true, will copy the *pak* zip to FMM.</param>
     /// <param name="noPakZip">Will skip the second zip containing pak files if true.</param>
     /// <param name="workingDir">Will build the mod here and copy the output zip to the normal dir.</param>
-    public static void WriteMods<T>(IEnumerable<T> mods, string modFolderName, bool copyLooseToFluffy = false, bool copyPakToFluffy = false, bool noPakZip = false, string? workingDir = null) where T : INexusMod {
+    public static void WriteMods<T>(MainWindow mainWindow, IEnumerable<T> mods, string modFolderName, bool copyLooseToFluffy = false, bool copyPakToFluffy = false, bool noPakZip = false, string? workingDir = null) where T : INexusMod {
 #if DD2
         var usedLuaFiles = new List<string>();
 #elif MHWS
         var usedLuaFiles = new List<string>();
 #endif
-        var bundles = new Dictionary<string, List<T>>();
+        var estimatedThreadCount = 0;
+        var threadHandler        = new ThreadHandler();
+        var bundles              = new Dictionary<string, List<T>>();
+
         foreach (var mod in mods) {
+            estimatedThreadCount++;
 #if DD2
             switch (mod) {
                 case ItemDbTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    ItemDbTweakWriter.WriteTweak(tweak, modFolderName);
+                    threadHandler.AddWorker(() => { ItemDbTweakWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
                 case SwapDbTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    SwapDbTweakWriter.WriteTweak(tweak, modFolderName);
+                    threadHandler.AddWorker(() => { SwapDbTweakWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
             }
@@ -47,7 +53,7 @@ public static class ModMaker {
             switch (mod) {
                 case VariousDataTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    VariousDataWriter.WriteTweak(tweak, modFolderName);
+                    threadHandler.AddWorker($"WriteTweak: {tweak.LuaName}", () => { VariousDataWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
             }
@@ -60,16 +66,16 @@ public static class ModMaker {
             bundles[bundle].Add(mod);
         }
 
-        var threads = new List<Thread>();
+        threadHandler.AddEstimatedDoCount(estimatedThreadCount);
+
         foreach (var (bundleName, entries) in bundles) {
-            var thread = new Thread(() => { CreateModBundle(modFolderName, copyLooseToFluffy, copyPakToFluffy, bundleName, entries, noPakZip, workingDir); });
-            threads.Add(thread);
-            thread.Start();
+            threadHandler.AddWorker($"CreateModBundle: {bundleName}", () => { CreateModBundle(threadHandler, modFolderName, copyLooseToFluffy, copyPakToFluffy, bundleName, entries, noPakZip, workingDir); });
         }
-        threads.JoinAll();
+
+        mainWindow.ShowThreadProgress(threadHandler, modFolderName);
     }
 
-    private static void CreateModBundle<T>(string modFolderName, bool copyLooseToFluffy, bool copyPakToFluffy, string? bundleName, List<T> entries, bool noPakZip, string? workingDir) where T : INexusMod {
+    private static void CreateModBundle<T>(ThreadHandler threadHandler, string modFolderName, bool copyLooseToFluffy, bool copyPakToFluffy, string? bundleName, List<T> entries, bool noPakZip, string? workingDir) where T : INexusMod {
         bundleName = bundleName == "" ? null : bundleName;
         var safeBundleName    = bundleName?.ToSafeName();
         var safeModFolderName = modFolderName.ToSafeName();
@@ -85,11 +91,11 @@ public static class ModMaker {
         if (File.Exists(zipPathNormal)) File.Delete(zipPathNormal);
         if (File.Exists(zipPathPak)) File.Delete(zipPathPak);
 
+        List<Thread>                   localThreads    = [];
         Dictionary<ReDataFile, byte[]> reDataFileCache = [];
-        List<Thread>                   entryThreads    = [];
 
         foreach (var mod in entries) {
-            var entryThread = new Thread(() => {
+            localThreads.Add(threadHandler.AddWorker(mod.Name, () => {
                 var    safeName = mod.Name.ToSafeName();
                 string modPath;
                 // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
@@ -238,18 +244,16 @@ public static class ModMaker {
                     pakFiles.Add(pakFile);
                 }
                 Debug.WriteLine($"Wrote: {mod.Name}");
-            });
-            entryThreads.Add(entryThread);
-            entryThread.Start();
+            }, addToCount: false));
         }
-        entryThreads.JoinAll();
+        localThreads.WaitAll();
+        localThreads.Clear();
 
-        var threads = new List<Thread> {new(() => { CompressTheMod(zipPathNormal, modFiles, nativesFiles, copyLooseToFluffy); })};
+        localThreads.Add(threadHandler.AddWorker($"Compress Bundle (Loose): {bundleName}", () => { CompressTheMod(zipPathNormal, modFiles, nativesFiles, copyLooseToFluffy); }));
         if (!noPakZip) {
-            threads.Add(new(() => { CompressTheMod(zipPathPak, modFiles, pakFiles, copyPakToFluffy); }));
+            localThreads.Add(threadHandler.AddWorker($"Compress Bundle (PAK): {bundleName}", () => { CompressTheMod(zipPathPak, modFiles, pakFiles, copyPakToFluffy); }));
         }
-        threads.StartAll();
-        threads.JoinAll();
+        localThreads.WaitAll();
 
         if (workingDir != null) {
             Directory.CreateDirectory(destRootPath);
@@ -292,13 +296,7 @@ public static class ModMaker {
                 .Replace('?', '？');
     }
 
-    private static void StartAll(this List<Thread> threads) {
-        foreach (var thread in threads) {
-            thread.Start();
-        }
-    }
-
-    private static void JoinAll(this List<Thread> threads) {
+    private static void WaitAll(this List<Thread> threads) {
         foreach (var thread in threads) {
             thread.Join();
         }

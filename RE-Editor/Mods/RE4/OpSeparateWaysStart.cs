@@ -10,13 +10,14 @@ using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class OpSeparateWaysStart : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "OP Separate Ways Start";
         const string description = "Max <all things stackable>/case size for Separate Ways starter inventories.";
         const string version     = "1.2";
@@ -48,7 +49,7 @@ public class OpSeparateWaysStart : IMod {
                 .SetAction(list => MakeNewInventory(list, Target.JUST_MONEY)),
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void MakeNewInventory(IEnumerable<RszObject> rszObjectData, Target target) {

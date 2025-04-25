@@ -6,13 +6,14 @@ using RE_Editor.Common.Models;
 using RE_Editor.Models;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
+using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class WeaponsMaxSlotsAndSkills : IMod {
     [UsedImplicitly]
-    public static void Make() {
+    public static void Make(MainWindow mainWindow) {
         const string name        = "Weapons - Max Slots & Skills";
         const string description = "Weapons - Max Slots & Skills.";
         const string version     = "1.3";
@@ -69,7 +70,7 @@ public class WeaponsMaxSlotsAndSkills : IMod {
                 })
         };
 
-        ModMaker.WriteMods(mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
     }
 
     public static void MaxSlots(List<RszObject> rszObjectData) {
