@@ -14,54 +14,38 @@ namespace RE_Editor.Mods;
 
 [UsedImplicitly]
 public class NpcOverNpc : IMod {
+    public const string NAME = "NPC Over NPC";
+
+    public static readonly List<string> NPC_OVERRIDES_TO_MOVE_TO_MAIN = [
+        "Alma",
+        "Nata"
+    ];
+
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
-        const string name        = "NPC Over NPC";
         const string description = "NPC over NPC options.";
-        const string version     = "1.1.1";
-
-        var npcIdsByName        = NpcTweaks.GetNpcIdsByName();
-        var visualSettingsFiles = NpcTweaks.GetAllVisualSettingsFiles();
-        var filesByNpcId        = NpcTweaks.GetAllFilesByNpcId(visualSettingsFiles);
-        var rootVisualFileByNpc = (from pair in filesByNpcId
-                                   let idName = Enum.GetName(pair.Key)
-                                   orderby pair.Key
-                                   from file in pair.Value
-                                   where file.EndsWith($"{idName}_VisualSetting.user.3")
-                                   select new KeyValuePair<App_NpcDef_ID_Fixed, string>(pair.Key, file)).ToDictionary(pair => pair.Key, pair => pair.Value);
-
-        HashSet<App_NpcDef_ID_Fixed> validNpcs = [];
-        foreach (var (npcId, files) in filesByNpcId) {
-            foreach (var file in files) {
-                var reDataFile = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{file}");
-                if (reDataFile.rsz.TryGetEntryObject<App_user_data_NpcVisualSetting>(out var entryObject)) {
-                    if (NpcTweaks.IsAllowed(entryObject)) {
-                        validNpcs.Add(npcId);
-                    }
-                }
-            }
-        }
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version = version,
             Desc    = description
         };
 
-        List<NexusMod> mods = [];
+        var mods = CreateNpcOverNpcMods(version, baseMod, blacklist: NPC_OVERRIDES_TO_MOVE_TO_MAIN);
 
-        // Generate a huge swathe of "NPC over NPC" mods.
-        const string overNpc = "NPC Over NPC";
-        mods.Add(new() {
-            Name          = overNpc,
-            AddonFor      = "NPC Outfit Tweaks",
-            Version       = version,
-            Desc          = NpcTweaks.PLACEHOLDER_ENTRY_TEXT,
-            Files         = [],
-            SkipPak       = true,
-            AlwaysInclude = true
-        });
+        ModMaker.WriteMods(mainWindow, mods, NAME, copyLooseToFluffy: false, workingDir: "Q:");
+    }
 
+    public static List<NexusMod> CreateNpcOverNpcMods(string version, NexusMod baseMod, List<string> whitelist = null, List<string> blacklist = null) {
+        var npcIdsByName        = NpcTweaks.GetNpcIdsByName();
+        var visualSettingsFiles = NpcTweaks.GetAllVisualSettingsFiles();
+        var filesByNpcId        = NpcTweaks.GetAllFilesByNpcId(visualSettingsFiles);
+        var rootVisualFileByNpc = GetRootVisualFileByNpc(filesByNpcId);
+        var validNpcs           = GetValidNpcs(filesByNpcId);
+
+        List<NexusMod>               mods                    = [];
         Dictionary<string, NexusMod> destinationPlaceholders = [];
+
         foreach (var (sourceNpcName, sourceNpcIds) in npcIdsByName) {
             if (sourceNpcName == NpcTweaks.UNUSED_KEY) continue;
             if (!validNpcs.Contains(sourceNpcIds[0])) continue;
@@ -75,6 +59,8 @@ public class NpcOverNpc : IMod {
                 if (sourceNpcName == destNpcName) continue;
                 //if (sourceNpcName != "Felicita") continue;
                 //if (destNpcName != "Nata" && destNpcName != "Alma") continue;
+                if (whitelist != null && !whitelist.Contains(destNpcName)) continue;
+                if (blacklist != null && blacklist.Contains(destNpcName)) continue;
 
                 var moddedVisualSourceToUse = moddedVisualSource;
                 if (destNpcName == "Nata") {
@@ -94,7 +80,7 @@ public class NpcOverNpc : IMod {
                 if (!destinationPlaceholders.ContainsKey(destNpcName)) {
                     destinationPlaceholders[destNpcName] = new() {
                         Name          = destGroup,
-                        AddonFor      = overNpc,
+                        AddonFor      = NpcOverNpc.NAME,
                         Version       = version,
                         Desc          = NpcTweaks.PLACEHOLDER_ENTRY_TEXT,
                         Files         = [],
@@ -110,8 +96,35 @@ public class NpcOverNpc : IMod {
                          .SetAdditionalFiles(files));
             }
         }
+
         mods.AddRange(destinationPlaceholders.Values); // Don't forget to add the root menu placeholders.
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, workingDir: "Q:");
+        return mods;
+    }
+
+    private static Dictionary<App_NpcDef_ID_Fixed, string> GetRootVisualFileByNpc(Dictionary<App_NpcDef_ID_Fixed, List<string>> filesByNpcId) {
+        var rootVisualFileByNpc = (from pair in filesByNpcId
+                                   let idName = Enum.GetName(pair.Key)
+                                   orderby pair.Key
+                                   from file in pair.Value
+                                   where file.EndsWith($"{idName}_VisualSetting.user.3")
+                                   select new KeyValuePair<App_NpcDef_ID_Fixed, string>(pair.Key, file)).ToDictionary(pair => pair.Key, pair => pair.Value);
+        return rootVisualFileByNpc;
+    }
+
+    private static HashSet<App_NpcDef_ID_Fixed> GetValidNpcs(Dictionary<App_NpcDef_ID_Fixed, List<string>> filesByNpcId) {
+        HashSet<App_NpcDef_ID_Fixed> validNpcs = [];
+        foreach (var (npcId, files) in filesByNpcId) {
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var file in files) {
+                var reDataFile = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{file}");
+                if (reDataFile.rsz.TryGetEntryObject<App_user_data_NpcVisualSetting>(out var entryObject)) {
+                    if (NpcTweaks.IsAllowed(entryObject)) {
+                        validNpcs.Add(npcId);
+                    }
+                }
+            }
+        }
+        return validNpcs;
     }
 }

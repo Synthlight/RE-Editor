@@ -36,14 +36,16 @@ public class NpcTweaks : IMod {
         "Nata",
         "Gemma",
         "Olivia",
-        "Werner"
+        "Werner",
+        "Y'sai",
+        "Zatoh"
     ];
 
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string name        = "NPC Outfit Tweaks";
         const string description = "NPC outfit tweaks - Makes all NPCs wear a given outfit.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         const string coreName = "Core (MUST ACTIVATE ONE FOR EACH GENDER USED!)";
 
@@ -197,7 +199,22 @@ public class NpcTweaks : IMod {
                  .SetFiles(unnamedFiles)
                  .SetFilteredAction(list => ChangeVisualSettings(list, IsAllowed)));
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        // The optional file will still use this mod as a base, so include this here.
+        mods.Add(new() {
+            Name          = NpcOverNpc.NAME,
+            AddonFor      = "NPC Outfit Tweaks",
+            Version       = version,
+            Desc          = PLACEHOLDER_ENTRY_TEXT,
+            Files         = [],
+            SkipPak       = true,
+            AlwaysInclude = true
+        });
+
+        // Include just the few most care about.
+        var npcOverNpcMods = NpcOverNpc.CreateNpcOverNpcMods(version, baseMod, whitelist: NpcOverNpc.NPC_OVERRIDES_TO_MOVE_TO_MAIN);
+        mods.AddRange(npcOverNpcMods);
+
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, workingDir: "Q:");
     }
 
     public static bool IsAllowed(App_user_data_NpcVisualSetting visualSettings) {
