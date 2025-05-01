@@ -40,12 +40,12 @@ public static class ModMaker {
             switch (mod) {
                 case ItemDbTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    threadHandler.AddWorker(() => { ItemDbTweakWriter.WriteTweak(tweak, modFolderName); });
+                    threadHandler.AddWorker($"WriteTweak: {tweak.LuaName}", () => { ItemDbTweakWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
                 case SwapDbTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    threadHandler.AddWorker(() => { SwapDbTweakWriter.WriteTweak(tweak, modFolderName); });
+                    threadHandler.AddWorker($"WriteTweak: {tweak.LuaName}", () => { SwapDbTweakWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
             }
