@@ -13,12 +13,18 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Resident Evil 4 Remake\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil 4 Remake\Fluffy Mod Manager\Games\RE4R\Mods";
-    public const string PAK_LIST         = "";
+    public const string PAK_LIST         = @"R:\Games\Resident Evil 4 Remake\re4_pak_names_release.list";
     public const string PAK_LIST_MSG     = "";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
 
-    public static readonly string[] PAK_PATHS = [];
+    public static readonly string[] PAK_PATHS = [
+        "re_chunk_000.pak",
+        "re_chunk_000.pak.patch_001.pak",
+        "re_chunk_000.pak.patch_002.pak",
+        "re_chunk_000.pak.patch_003.pak",
+        "re_chunk_000.pak.patch_004.pak"
+    ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [];
 
