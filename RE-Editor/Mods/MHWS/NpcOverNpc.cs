@@ -1,11 +1,9 @@
-﻿using System;
+﻿#nullable enable
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using RE_Editor.Common;
 using RE_Editor.Common.Models;
 using RE_Editor.Models;
-using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
 using RE_Editor.Util;
 using RE_Editor.Windows;
@@ -26,61 +24,130 @@ public class NpcOverNpc : IMod {
         const string description = "NPC over NPC options.";
         const string version     = "1.2";
 
+        var npcData = new NpcTweaksData();
+
         var baseMod = new NexusMod {
             Version = version,
             Desc    = description
         };
 
-        var mods = CreateNpcOverNpcMods(version, baseMod, blacklist: NPC_OVERRIDES_TO_MOVE_TO_MAIN);
+        var mods = CreateNpcOverNpcModsByDest(version, baseMod, npcData, blacklist: NPC_OVERRIDES_TO_MOVE_TO_MAIN);
 
         ModMaker.WriteMods(mainWindow, mods, NAME, copyLooseToFluffy: false, workingDir: "Q:");
     }
 
-    public static List<NexusMod> CreateNpcOverNpcMods(string version, NexusMod baseMod, List<string> whitelist = null, List<string> blacklist = null) {
-        var npcIdsByName        = NpcTweaks.GetNpcIdsByName();
-        var visualSettingsFiles = NpcTweaks.GetAllVisualSettingsFiles();
-        var filesByNpcId        = NpcTweaks.GetAllFilesByNpcId(visualSettingsFiles);
-        var rootVisualFileByNpc = GetRootVisualFileByNpc(filesByNpcId);
-        var validNpcs           = GetValidNpcs(filesByNpcId);
+    public static List<NexusMod> CreateNpcOverNpcModsBySource(string version, NexusMod baseMod, NpcTweaksData npcData, List<string> whitelist = null, List<string> blacklist = null) {
+        List<NexusMod> mods = [];
 
+        foreach (var (sourceNpcName, sourceNpcData) in npcData.npcDataByName) {
+            if (!sourceNpcData.IsAllowed()) continue;
+            var sourceVisualFile = sourceNpcData.rootVisualFile;
+            if (sourceVisualFile == null) continue;
+            var moddedVisualSource = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{sourceVisualFile}");
+            if (!NpcTweaks.ChangeVisualSettings(moddedVisualSource.rsz.objectData, NpcTweaksData.IsAllowed)) continue;
+
+            var bySourceName = $"Source NPC: {sourceNpcName}";
+            if (whitelist == null || !whitelist.Contains(sourceNpcName)) continue;
+
+            mods.Add(new() {
+                Name          = bySourceName,
+                AddonFor      = NAME,
+                Version       = version,
+                Desc          = NpcTweaks.PLACEHOLDER_ENTRY_TEXT,
+                Files         = [],
+                SkipPak       = true,
+                AlwaysInclude = true
+            });
+
+            // Named NPCs.
+            List<NexusMod> npcSpecificMods = [];
+            foreach (var (destNpcName, destNpcData) in npcData.npcDataByName) {
+                if (sourceNpcName == destNpcName) continue;
+                if (!destNpcData.IsAllowed()) continue;
+
+                var moddedVisualSourceToUse = GetModdedVisualSourceToUse(destNpcName, moddedVisualSource, sourceVisualFile);
+
+                Dictionary<string, object> files = [];
+                foreach (var file in destNpcData.visualSettingsData.Keys) {
+                    files[file] = moddedVisualSourceToUse;
+                }
+
+                var mod = baseMod
+                          .SetName($"{sourceNpcName} Over {destNpcName} (2)")
+                          .SetAddonFor(bySourceName)
+                          .SetFiles([])
+                          .SetAdditionalFiles(files);
+                mods.Add(mod);
+                npcSpecificMods.Add(mod);
+            }
+
+            // Unnamed NPCs.
+            {
+                Dictionary<string, object> files = [];
+                foreach (var (file, data) in npcData.unnamedData.visualSettingsData) {
+                    var visualSettings = data.rsz.GetEntryObject<App_user_data_NpcVisualSetting>();
+                    if (NpcTweaksData.IsAllowed(visualSettings)) {
+                        files[file] = moddedVisualSource; // Don't have a name, so we aren't correcting anything.
+                    }
+                }
+
+                mods.Add(baseMod
+                         .SetName($"_{sourceNpcName} Over Unnamed NPCs")
+                         .SetAddonFor(bySourceName)
+                         .SetFiles([])
+                         .SetAdditionalFiles(files));
+            }
+
+            // All in section.
+            {
+                Dictionary<string, object> files = [];
+                foreach (var mod in npcSpecificMods) {
+                    foreach (var (file, data) in mod.AdditionalFiles!) {
+                        files[file] = data;
+                    }
+                }
+
+                mods.Add(baseMod
+                         .SetName($"_{sourceNpcName} Over All Except Unnamed")
+                         .SetAddonFor(bySourceName)
+                         .SetFiles([])
+                         .SetAdditionalFiles(files));
+            }
+        }
+
+        return mods;
+    }
+
+    public static List<NexusMod> CreateNpcOverNpcModsByDest(string version, NexusMod baseMod, NpcTweaksData npcData, List<string> whitelist = null, List<string> blacklist = null) {
         List<NexusMod>               mods                    = [];
         Dictionary<string, NexusMod> destinationPlaceholders = [];
 
-        foreach (var (sourceNpcName, sourceNpcIds) in npcIdsByName) {
-            if (sourceNpcName == NpcTweaks.UNUSED_KEY) continue;
-            if (!validNpcs.Contains(sourceNpcIds[0])) continue;
-            if (!rootVisualFileByNpc.TryGetValue(sourceNpcIds[0], out var sourceVisualFile)) continue;
+        foreach (var (sourceNpcName, sourceNpcData) in npcData.npcDataByName) {
+            if (!sourceNpcData.IsAllowed()) continue;
+            var sourceVisualFile = sourceNpcData.rootVisualFile;
+            if (sourceVisualFile == null) continue;
             var moddedVisualSource = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{sourceVisualFile}");
-            if (!NpcTweaks.ChangeVisualSettings(moddedVisualSource.rsz.objectData, NpcTweaks.IsAllowed)) continue;
+            if (!NpcTweaks.ChangeVisualSettings(moddedVisualSource.rsz.objectData, NpcTweaksData.IsAllowed)) continue;
 
-            foreach (var (destNpcName, destNpcIds) in npcIdsByName) {
-                if (destNpcName == NpcTweaks.UNUSED_KEY) continue;
-                if (!validNpcs.Contains(destNpcIds[0])) continue;
+            foreach (var (destNpcName, destNpcData) in npcData.npcDataByName) {
                 if (sourceNpcName == destNpcName) continue;
-                //if (sourceNpcName != "Felicita") continue;
-                //if (destNpcName != "Nata" && destNpcName != "Alma") continue;
+                if (!destNpcData.IsAllowed()) continue;
+
                 if (whitelist != null && !whitelist.Contains(destNpcName)) continue;
                 if (blacklist != null && blacklist.Contains(destNpcName)) continue;
 
-                var moddedVisualSourceToUse = moddedVisualSource;
-                if (destNpcName == "Nata") {
-                    moddedVisualSourceToUse = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{sourceVisualFile}");
-                    NpcTweaks.ChangeVisualSettings(moddedVisualSourceToUse.rsz.objectData, NpcTweaks.IsAllowed);
-                    var visualSettings = moddedVisualSourceToUse.rsz.GetEntryObject<App_user_data_NpcVisualSetting>();
-                    visualSettings.STRUCT__OverwriteBodySize__HasValue = true;
-                    visualSettings.STRUCT__OverwriteBodySize__Value    = 150;
-                }
+                var moddedVisualSourceToUse = GetModdedVisualSourceToUse(destNpcName, moddedVisualSource, sourceVisualFile);
 
-                var files = (from npcId in destNpcIds
-                             where filesByNpcId.ContainsKey(npcId)
-                             from destVisualFile in filesByNpcId[npcId]
-                             select new KeyValuePair<string, object>(destVisualFile, moddedVisualSourceToUse)).ToDictionary(pair => pair.Key, pair => pair.Value);
+                Dictionary<string, object> files = [];
+                foreach (var file in destNpcData.visualSettingsData.Keys) {
+                    files[file] = moddedVisualSourceToUse;
+                }
 
                 var destGroup = $"Target NPC: {destNpcName}";
                 if (!destinationPlaceholders.ContainsKey(destNpcName)) {
                     destinationPlaceholders[destNpcName] = new() {
                         Name          = destGroup,
-                        AddonFor      = NpcOverNpc.NAME,
+                        AddonFor      = NAME,
                         Version       = version,
                         Desc          = NpcTweaks.PLACEHOLDER_ENTRY_TEXT,
                         Files         = [],
@@ -102,29 +169,15 @@ public class NpcOverNpc : IMod {
         return mods;
     }
 
-    private static Dictionary<App_NpcDef_ID_Fixed, string> GetRootVisualFileByNpc(Dictionary<App_NpcDef_ID_Fixed, List<string>> filesByNpcId) {
-        var rootVisualFileByNpc = (from pair in filesByNpcId
-                                   let idName = Enum.GetName(pair.Key)
-                                   orderby pair.Key
-                                   from file in pair.Value
-                                   where file.EndsWith($"{idName}_VisualSetting.user.3")
-                                   select new KeyValuePair<App_NpcDef_ID_Fixed, string>(pair.Key, file)).ToDictionary(pair => pair.Key, pair => pair.Value);
-        return rootVisualFileByNpc;
-    }
-
-    private static HashSet<App_NpcDef_ID_Fixed> GetValidNpcs(Dictionary<App_NpcDef_ID_Fixed, List<string>> filesByNpcId) {
-        HashSet<App_NpcDef_ID_Fixed> validNpcs = [];
-        foreach (var (npcId, files) in filesByNpcId) {
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var file in files) {
-                var reDataFile = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{file}");
-                if (reDataFile.rsz.TryGetEntryObject<App_user_data_NpcVisualSetting>(out var entryObject)) {
-                    if (NpcTweaks.IsAllowed(entryObject)) {
-                        validNpcs.Add(npcId);
-                    }
-                }
-            }
+    private static ReDataFile GetModdedVisualSourceToUse(string destNpcName, ReDataFile baseModdedVisualSource, string sourceVisualFile) {
+        if (destNpcName == "Nata") {
+            var moddedVisualSourceToUse = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{sourceVisualFile}");
+            NpcTweaks.ChangeVisualSettings(moddedVisualSourceToUse.rsz.objectData, NpcTweaksData.IsAllowed);
+            var visualSettings = moddedVisualSourceToUse.rsz.GetEntryObject<App_user_data_NpcVisualSetting>();
+            visualSettings.STRUCT__OverwriteBodySize__HasValue = true;
+            visualSettings.STRUCT__OverwriteBodySize__Value    = 150;
+            return moddedVisualSourceToUse;
         }
-        return validNpcs;
+        return baseModdedVisualSource;
     }
 }
