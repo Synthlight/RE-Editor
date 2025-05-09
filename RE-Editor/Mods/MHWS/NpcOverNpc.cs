@@ -36,7 +36,7 @@ public class NpcOverNpc : IMod {
         ModMaker.WriteMods(mainWindow, mods, NAME, copyLooseToFluffy: false, workingDir: "Q:");
     }
 
-    public static List<NexusMod> CreateNpcOverNpcModsBySource(string version, NexusMod baseMod, NpcTweaksData npcData, List<string> whitelist = null, List<string> blacklist = null) {
+    public static List<NexusMod> CreateNpcOverNpcModsBySource(string version, NexusMod baseMod, NpcTweaksData npcData, List<string>? whitelist = null, List<string>? blacklist = null) {
         List<NexusMod> mods = [];
 
         foreach (var (sourceNpcName, sourceNpcData) in npcData.npcDataByName) {
@@ -118,7 +118,7 @@ public class NpcOverNpc : IMod {
         return mods;
     }
 
-    public static List<NexusMod> CreateNpcOverNpcModsByDest(string version, NexusMod baseMod, NpcTweaksData npcData, List<string> whitelist = null, List<string> blacklist = null) {
+    public static List<NexusMod> CreateNpcOverNpcModsByDest(string version, NexusMod baseMod, NpcTweaksData npcData, List<string>? whitelist = null, List<string>? blacklist = null) {
         List<NexusMod>               mods                    = [];
         Dictionary<string, NexusMod> destinationPlaceholders = [];
 

@@ -258,7 +258,7 @@ public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
         // TODO: Fix enum value display at some point.
     }
 
-    private static DataTemplate CreateHeader(HeaderInfo headerInfo) {
+    private DataTemplate CreateHeader(HeaderInfo headerInfo) {
         var headerFilter = new FrameworkElementFactory(typeof(HeaderFilter));
 
         headerFilter.SetValue(HeaderFilter.HeaderInfoProperty, headerInfo);
@@ -297,13 +297,27 @@ public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
         }
     }
 
-    private static void On_FilterChanged(object sender, RoutedEventArgs e) {
+    private readonly Dictionary<string, DebounceDispatcher> filterDelays = [];
+
+    private void On_FilterChanged(object sender, RoutedEventArgs e) {
         try {
             var headerFilter = (HeaderFilter) e.OriginalSource;
             var headerInfo   = headerFilter.HeaderInfo;
-            var grid         = ((DependencyObject) e.OriginalSource).GetParent<AutoDataGridGeneric<T>>();
+            var grid         = ((DependencyObject) e.OriginalSource).GetParent<AutoDataGridGeneric<T>>()!;
             var listColView  = (ListCollectionView) grid.ItemsSource;
 
+            if (!filterDelays.ContainsKey(headerInfo.PropertyName)) {
+                filterDelays[headerInfo.PropertyName] = new();
+            }
+
+            filterDelays[headerInfo.PropertyName].Debounce(1000, () => { Utils.RunOnUiThread(() => { DoFilterGrid(grid, headerInfo, headerFilter, listColView); }); });
+        } catch (Exception err) when (!Debugger.IsAttached) {
+            MainWindow.ShowError(err, "Error Occurred");
+        }
+    }
+
+    private static void DoFilterGrid(AutoDataGridGeneric<T> grid, HeaderInfo headerInfo, HeaderFilter headerFilter, ListCollectionView listColView) {
+        try {
             grid.groupFilter.SetFilterValue(headerInfo.PropertyName, headerFilter.FilterText);
 
             // If we're editing, Refresh() throws InvalidOperationException. Try to commit the edit.
