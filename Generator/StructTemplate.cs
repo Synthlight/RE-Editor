@@ -58,6 +58,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         file.WriteLine("using System.Globalization;");
         file.WriteLine("using RE_Editor.Common;");
         file.WriteLine("using RE_Editor.Common.Attributes;");
+        file.WriteLine("using RE_Editor.Common.Controls.Models;");
         file.WriteLine("using RE_Editor.Common.Data;");
         file.WriteLine("using RE_Editor.Common.Models;");
         file.WriteLine("using RE_Editor.Common.Models.List_Wrappers;");
@@ -253,6 +254,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                     var lookupName = GetLookupForDataSourceType(buttonType);
                     file.WriteLine("");
                     file.WriteLine($"    [SortOrder({sortOrder})]");
+                    file.WriteLine($"    [CustomSorter(typeof(ButtonSorter))]");
                     file.WriteLine($"    [DisplayName(\"{newName}\")]");
                     file.WriteLine($"    public {modifier}string {unwrappedName}_button => {(negativeOneForEmpty ? $"{unwrappedName} == -1 ? \"<None>\".ToStringWithId({unwrappedName}) : " : "")}" +
                                    $"DataHelper.{lookupName}[Global.locale].TryGet(({buttonPrimitive}) {unwrappedName}).ToStringWithId({unwrappedName});");
@@ -265,6 +267,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 file.WriteLine($"    public {modifier}{primitiveName} {newName} {{ get; set; }}");
                 file.WriteLine("");
                 file.WriteLine($"    [SortOrder({sortOrder})]");
+                file.WriteLine($"    [CustomSorter(typeof(ButtonSorter))]");
                 file.WriteLine($"    [DisplayName(\"{newName}\")]");
 #if MHR
                 file.WriteLine($"    public {modifier}string {newName}_button => DataHelper.{lookupName}[Global.locale].TryGet(({buttonPrimitive}) {newName}).ToStringWithId({newName}{(buttonType == DataSourceType.ITEMS ? ", true" : "")});");
