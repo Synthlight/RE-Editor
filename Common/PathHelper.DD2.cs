@@ -18,7 +18,8 @@ public static partial class PathHelper {
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
         "user",
-        "pfb"
+        "pfb",
+        "msg"
     ];
 
     public static readonly string[] PAK_PATHS = [

@@ -16,3 +16,6 @@ Show column primitive type below the header text.
 
 Pre-generate properties to breakout enum flags.
 Figure out better enum flags parsing. Maybe check for entries that only change one bit.
+
+
+Allow re-ordering of rows.
