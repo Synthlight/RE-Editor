@@ -14,6 +14,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed AERIN = App_NpcDef_ID_Fixed.NPC112_13_072;
     public const App_NpcDef_ID_Fixed AIDA = App_NpcDef_ID_Fixed.NPC102_13_013;
     public const App_NpcDef_ID_Fixed AKEGARASU = App_NpcDef_ID_Fixed.NPC211_00_026;
+    public const App_NpcDef_ID_Fixed AKUMA = App_NpcDef_ID_Fixed.NPC101_50_024;
     public const App_NpcDef_ID_Fixed ALESSA = App_NpcDef_ID_Fixed.NPC112_00_021;
     public const App_NpcDef_ID_Fixed ALISTAIR = App_NpcDef_ID_Fixed.NPC111_01_041;
     public const App_NpcDef_ID_Fixed ALMA = App_NpcDef_ID_Fixed.NPC102_00_001;
@@ -88,6 +89,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed GRANA = App_NpcDef_ID_Fixed.NPC111_13_020;
     public const App_NpcDef_ID_Fixed GREENHORN = App_NpcDef_ID_Fixed.NPC320_12_042;
     public const App_NpcDef_ID_Fixed GREENHORN_2 = App_NpcDef_ID_Fixed.NPC320_12_542;
+    public const App_NpcDef_ID_Fixed GREENHORN_3 = App_NpcDef_ID_Fixed.NPC320_12_102;
     public const App_NpcDef_ID_Fixed GRIFFIN = App_NpcDef_ID_Fixed.NPC111_00_011;
     public const App_NpcDef_ID_Fixed HADEWYCH = App_NpcDef_ID_Fixed.NPC112_00_022;
     public const App_NpcDef_ID_Fixed HAMA = App_NpcDef_ID_Fixed.NPC112_13_040;

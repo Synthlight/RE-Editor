@@ -98,6 +98,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed LORDS_FURY = App_HunterDef_Skill_Fixed.HunterSkill_171;
     public const App_HunterDef_Skill_Fixed LORDS_SOUL = App_HunterDef_Skill_Fixed.HunterSkill_205;
     public const App_HunterDef_Skill_Fixed MARATHON_RUNNER = App_HunterDef_Skill_Fixed.HunterSkill_024;
+    public const App_HunterDef_Skill_Fixed MASTER_OF_THE_FIST = App_HunterDef_Skill_Fixed.HunterSkill_209;
     public const App_HunterDef_Skill_Fixed MASTERS_TOUCH = App_HunterDef_Skill_Fixed.HunterSkill_004;
     public const App_HunterDef_Skill_Fixed MAXIMUM_MIGHT = App_HunterDef_Skill_Fixed.HunterSkill_064;
     public const App_HunterDef_Skill_Fixed MINDS_EYE = App_HunterDef_Skill_Fixed.HunterSkill_018;
@@ -133,6 +134,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed RECOVERY_UP = App_HunterDef_Skill_Fixed.HunterSkill_069;
     public const App_HunterDef_Skill_Fixed RESENTMENT = App_HunterDef_Skill_Fixed.HunterSkill_060;
     public const App_HunterDef_Skill_Fixed REY_DAUS_VOLTAGE = App_HunterDef_Skill_Fixed.HunterSkill_176;
+    public const App_HunterDef_Skill_Fixed RICE_BALL = App_HunterDef_Skill_Fixed.HunterSkill_211;
     public const App_HunterDef_Skill_Fixed SCALE_LAYERING = App_HunterDef_Skill_Fixed.HunterSkill_167;
     public const App_HunterDef_Skill_Fixed SCALING_PROWESS = App_HunterDef_Skill_Fixed.HunterSkill_166;
     public const App_HunterDef_Skill_Fixed SELF_IMPROVEMENT = App_HunterDef_Skill_Fixed.HunterSkill_145;

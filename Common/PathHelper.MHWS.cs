@@ -29,10 +29,14 @@ public static partial class PathHelper {
         "re_chunk_000.pak.patch_001.pak",
         "re_chunk_000.pak.patch_002.pak",
         "re_chunk_000.pak.patch_003.pak",
+        "re_chunk_000.pak.patch_004.pak",
+        "re_chunk_000.pak.patch_005.pak",
         "re_chunk_000.pak.sub_000.pak",
         "re_chunk_000.pak.sub_000.pak.patch_001.pak",
         "re_chunk_000.pak.sub_000.pak.patch_002.pak",
-        "re_chunk_000.pak.sub_000.pak.patch_003.pak"
+        "re_chunk_000.pak.sub_000.pak.patch_003.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_004.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_005.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
@@ -51,6 +55,12 @@ public static partial class PathHelper {
         new(new(2025, 04, 16), "1.010.01.00", [
             "re_chunk_000.pak.patch_003.pak",
             "re_chunk_000.pak.sub_000.pak.patch_003.pak"
+        ]),
+        new(new(2025, 05, 27), "1.011.00.00", [
+            "re_chunk_000.pak.patch_004.pak",
+            "re_chunk_000.pak.patch_005.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_004.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_005.pak"
         ])
     ];
 

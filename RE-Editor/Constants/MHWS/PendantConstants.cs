@@ -15,6 +15,7 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed BARREL_BOWLING_STRAP = App_WeaponCharmDef_TYPE_Fixed.CHARM_0105;
     public const App_WeaponCharmDef_TYPE_Fixed BARREL_BOWLING_TROPHY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0104;
     public const App_WeaponCharmDef_TYPE_Fixed BLACK_CAT_BELL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0035;
+    public const App_WeaponCharmDef_TYPE_Fixed BLANKA_CHAN_DOLL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0098;
     public const App_WeaponCharmDef_TYPE_Fixed BLUE_FAIRY_LIGHT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0040;
     public const App_WeaponCharmDef_TYPE_Fixed DANCING_BLACK_CAT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0096;
     public const App_WeaponCharmDef_TYPE_Fixed DANCING_WHITE_CAT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0001;

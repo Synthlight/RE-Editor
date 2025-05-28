@@ -194,6 +194,11 @@ public static class ArmorConstants {
     public static readonly Guid DEATH_STENCH_GRIP_Α = Guid.Parse("7897db78-c127-4cee-84d8-6201303767cd");
     public static readonly Guid DEATH_STENCH_HEEL_Α = Guid.Parse("09437607-6dc1-48c1-a390-8ba85691caaf");
     public static readonly Guid DEATH_STENCH_MUSCLE_Α = Guid.Parse("fe5bd9e0-44dd-468e-97d3-fb1d6e735bc5");
+    public static readonly Guid DEMON_ARM_WRAPS_Α = Guid.Parse("204f27c7-68ec-4574-976d-ba8a1e4490a7");
+    public static readonly Guid DEMON_BELT_Α = Guid.Parse("23d41459-7c69-4aad-a67e-e78cdcb84835");
+    public static readonly Guid DEMON_GARB_Α = Guid.Parse("3e78f968-eb2b-40ec-9737-1d043b99243e");
+    public static readonly Guid DEMON_PANTS_Α = Guid.Parse("a8f48dfc-76f1-4f66-a5c7-9dc4b571cd2a");
+    public static readonly Guid DEMON_PRAYER_BEADS_Α = Guid.Parse("d352aaa1-c977-4b93-9d78-736152cff3ba");
     public static readonly Guid DOBER_COIL_Α = Guid.Parse("f3c950b2-a827-4120-9251-7593ecbb7d76");
     public static readonly Guid DOBER_GREAVES_Α = Guid.Parse("60b16dec-bda1-47c8-8225-8fb7854c4ab5");
     public static readonly Guid DOBER_HELM_Α = Guid.Parse("266acb99-ce66-4997-a13a-4439ca33ae34");
@@ -232,6 +237,7 @@ public static class ArmorConstants {
     public static readonly Guid DUNA_WILDMAIL_Β = Guid.Parse("082dbc60-4d0e-45f9-a4cd-da083a5dfc88");
     public static readonly Guid EARRINGS_OF_DEDICATION_Α = Guid.Parse("b2ec44f5-2d8e-45c7-a63d-ecefd029da18");
     public static readonly Guid EXPEDITION_HEADGEAR_Α = Guid.Parse("85e9e99d-151f-4611-9a1f-108bc06ad564");
+    public static readonly Guid FAUX_FELYNE_Α = Guid.Parse("c544b0af-40b2-4954-b6f2-9d0c52665b0e");
     public static readonly Guid G_ARKVELD_COIL = Guid.Parse("39ae91b5-38d3-4725-be4e-da964a4c2eec");
     public static readonly Guid G_ARKVELD_COIL_Α = Guid.Parse("9e121f49-2469-4a99-a326-a7d995716fce");
     public static readonly Guid G_ARKVELD_COIL_Β = Guid.Parse("de3cf404-8fe4-4113-8b2f-379e5f0c7db4");

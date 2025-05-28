@@ -53,6 +53,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed ARMOR_SPHERE_PLUS = App_ItemDef_ID_Fixed.ITEM_0649;
     public const App_ItemDef_ID_Fixed ARMORCHARM = App_ItemDef_ID_Fixed.ITEM_0179;
     public const App_ItemDef_ID_Fixed ARMORSKIN = App_ItemDef_ID_Fixed.ITEM_0197;
+    public const App_ItemDef_ID_Fixed ASSISTED_COMBO__AKUMA = App_ItemDef_ID_Fixed.ITEM_0807;
     public const App_ItemDef_ID_Fixed AURIC_OIL = App_ItemDef_ID_Fixed.ITEM_0272;
     public const App_ItemDef_ID_Fixed AZUZ_MEAL_VOUCHER = App_ItemDef_ID_Fixed.ITEM_0834;
     public const App_ItemDef_ID_Fixed AZUZ_TANNED_LEATHER = App_ItemDef_ID_Fixed.ITEM_0637;
@@ -174,6 +175,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed DREARISITE = App_ItemDef_ID_Fixed.ITEM_0692;
     public const App_ItemDef_ID_Fixed DREARISITE_SCRAPS = App_ItemDef_ID_Fixed.ITEM_0498;
     public const App_ItemDef_ID_Fixed DRIFTING_SEA_POT = App_ItemDef_ID_Fixed.ITEM_0288;
+    public const App_ItemDef_ID_Fixed DRIVE_IMPACT = App_ItemDef_ID_Fixed.ITEM_0809;
     public const App_ItemDef_ID_Fixed DROOLSHROOM = App_ItemDef_ID_Fixed.ITEM_0241;
     public const App_ItemDef_ID_Fixed DRUGGED_MEAT = App_ItemDef_ID_Fixed.ITEM_0212;
     public const App_ItemDef_ID_Fixed DUNG = App_ItemDef_ID_Fixed.ITEM_0122;
@@ -209,6 +211,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed EZ_TRANQ_BOMB = App_ItemDef_ID_Fixed.ITEM_0231;
     public const App_ItemDef_ID_Fixed FARCASTER = App_ItemDef_ID_Fixed.ITEM_0100;
     public const App_ItemDef_ID_Fixed FAUX_WHITEGLEAM_ORB = App_ItemDef_ID_Fixed.ITEM_0743;
+    public const App_ItemDef_ID_Fixed FELYNE_TICKET = App_ItemDef_ID_Fixed.ITEM_0805;
     public const App_ItemDef_ID_Fixed FIERY_SANDPEPPER = App_ItemDef_ID_Fixed.ITEM_0261;
     public const App_ItemDef_ID_Fixed FINE_ANTIMITE = App_ItemDef_ID_Fixed.ITEM_0274;
     public const App_ItemDef_ID_Fixed FINE_SCARLET_AMBER = App_ItemDef_ID_Fixed.ITEM_0266;
@@ -269,6 +272,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed GORE_MAGALA_SCALE_PLUS = App_ItemDef_ID_Fixed.ITEM_0588;
     public const App_ItemDef_ID_Fixed GORE_MAGALA_TAIL = App_ItemDef_ID_Fixed.ITEM_0592;
     public const App_ItemDef_ID_Fixed GORE_MAGALA_WING_PLUS = App_ItemDef_ID_Fixed.ITEM_0590;
+    public const App_ItemDef_ID_Fixed GOU_HADOKEN = App_ItemDef_ID_Fixed.ITEM_0808;
     public const App_ItemDef_ID_Fixed GRACIUM = App_ItemDef_ID_Fixed.ITEM_0724;
     public const App_ItemDef_ID_Fixed GRAVIOS_CARAPACE = App_ItemDef_ID_Fixed.ITEM_0568;
     public const App_ItemDef_ID_Fixed GRAVIOS_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0573;
@@ -562,6 +566,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed SCREAMER_POD = App_ItemDef_ID_Fixed.ITEM_0091;
     public const App_ItemDef_ID_Fixed SCREAMER_POD_2 = App_ItemDef_ID_Fixed.ITEM_0304;
     public const App_ItemDef_ID_Fixed SEALED_DRAGON_CLOTH = App_ItemDef_ID_Fixed.ITEM_0817;
+    public const App_ItemDef_ID_Fixed SF6_TICKET = App_ItemDef_ID_Fixed.ITEM_0806;
     public const App_ItemDef_ID_Fixed SHARP_FANG = App_ItemDef_ID_Fixed.ITEM_0119;
     public const App_ItemDef_ID_Fixed SHARP_KUNAFA_CHEESE = App_ItemDef_ID_Fixed.ITEM_0240;
     public const App_ItemDef_ID_Fixed SHINY_TREASURE = App_ItemDef_ID_Fixed.ITEM_0269;
@@ -659,6 +664,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed WINDWARD_ALOE = App_ItemDef_ID_Fixed.ITEM_0257;
     public const App_ItemDef_ID_Fixed WINGDRAKE_HIDE = App_ItemDef_ID_Fixed.ITEM_0120;
     public const App_ItemDef_ID_Fixed WINGDRAKE_HIDE_PLUS = App_ItemDef_ID_Fixed.ITEM_0518;
+    public const App_ItemDef_ID_Fixed WUDWUD_TREASURE = App_ItemDef_ID_Fixed.ITEM_0659;
     public const App_ItemDef_ID_Fixed WYLK_GEM = App_ItemDef_ID_Fixed.ITEM_0285;
     public const App_ItemDef_ID_Fixed WYLK_PEBBLE = App_ItemDef_ID_Fixed.ITEM_0284;
     public const App_ItemDef_ID_Fixed WYVERIA_LANTERN = App_ItemDef_ID_Fixed.ITEM_0280;

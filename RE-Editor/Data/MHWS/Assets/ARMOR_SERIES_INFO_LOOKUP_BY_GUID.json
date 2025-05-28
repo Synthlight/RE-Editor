@@ -95,6 +95,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "レダゼルトγ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "桜波α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "ブロッサムα",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "豪鬼α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "レウスα",
     "5a99883b-9794-40d2-9cea-444c7a914289": "レウスβ",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "シーウーα",
@@ -152,7 +153,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "シャドウアイα",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "知略の眼鏡α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "ラウンドアイα",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "スクエアグラスα"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "スクエアグラスα",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "アイルーフェイクα"
   },
   "eng": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -250,6 +252,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Rey Dau γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Sakuratide α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Blossom α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Rathalos α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Rathalos β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Xu Wu α",
@@ -307,7 +310,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Shadow Shades α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Strategist Spectacles α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Round Glasses α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Square Glasses α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Square Glasses α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Faux Felyne α"
   },
   "fre": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -405,6 +409,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Rey Dau γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Vague de sakura α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Floraison α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Rathalos α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Rathalos β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Xu Wu α",
@@ -462,7 +467,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Lunettes teintées α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Lunettes de stratège α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Lunettes rondes α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Lunettes carrées α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Lunettes carrées α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Faux Felyne α"
   },
   "ita": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -560,6 +566,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Rey Dau γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Onda di sakura α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Floreale α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Rathalos α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Rathalos β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Xu Wu α",
@@ -617,7 +624,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Occhiali del buio α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Occhiali da stratega α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Occhiali tondi α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Occhiali quadrati α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Occhiali quadrati α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Felyne fasullo α"
   },
   "ger": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "–",
@@ -715,6 +723,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Rey-Dau-Set γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Sakurawelle-Set α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Blüten-Set α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma-Set α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Rathalos-Set α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Rathalos-Set β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Xu-Wu-Set α",
@@ -772,7 +781,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Schattenbrille α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Strategiker-Brille α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Runde Brille α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Eckige Brille α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Eckige Brille α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Falsche Felyne α"
   },
   "spa": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -870,6 +880,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Rey Dau γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Marea Sakura α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Flores α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Rathalos α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Rathalos β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Xu Wu α",
@@ -927,7 +938,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Gafas oscuras α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Gafas de estratega α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Gafas redondas α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Gafas cuadradas α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Gafas cuadradas α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Falso Felyne α"
   },
   "rus": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -1025,6 +1037,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Рейдаловый γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Сезон сакуры α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Цветок α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Раталосовый α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Раталосовый β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Сювуловый α",
@@ -1082,7 +1095,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Теневые очки α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Очки стратега α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Круглые очки α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Квадратные очки α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Квадратные очки α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Фальшивый котт α"
   },
   "pol": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -1114,7 +1128,7 @@
     "f44a8ae4-b0d4-4716-8a8a-67b83a0fc859": "Uth Duna",
     "7565fab6-5915-4eaa-b463-5650bc2ae5ed": "Nu Udra",
     "8517a40a-e7ad-4a46-9de5-197c869f7d17": "Arkveld Strażnik α",
-    "30d3592f-b8c7-4a2e-b601-62d548c4c84d": "Str. Doshaguma",
+    "30d3592f-b8c7-4a2e-b601-62d548c4c84d": "Doshaguma Strażnik",
     "4582e81b-83ef-4c4e-9a5b-1d6c44db50c6": "Rathalos Strażnik",
     "fb121b27-c5b5-4948-a158-40139456ed07": "Hebanowy Str.",
     "19bb12d4-87f2-4f1c-95a3-d7c98bfa711d": "Arkveld Strażnik",
@@ -1180,6 +1194,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Rey Dau γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Fala sakury α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Kwiecia α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Rathalos α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Rathalos β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Xu Wu α",
@@ -1237,7 +1252,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Okulary cienia α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Okulary stratega α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Okrągłe okulary α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Kwad. okulary α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Kwad. okulary α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Pseudofelin α"
   },
   "ptB": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -1335,6 +1351,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "Rey Dau γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "Cerejeira α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "Florescer α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "Rathalos α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "Rathalos β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "Xu Wu α",
@@ -1392,7 +1409,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "Óculos das Sombras α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "Óculos de Estrategista α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "Óculos Circulares α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Óculos Quadrados α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "Óculos Quadrados α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "Felyno Falso α"
   },
   "kor": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -1490,6 +1508,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "레다젤트γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "앵파α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "블로섬α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "고우키α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "레우스α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "레우스β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "시이우α",
@@ -1547,7 +1566,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "섀도우아이α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "지략의 안경α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "라운드아이α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "스퀘어글라스α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "스퀘어글라스α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "아이루페이크α"
   },
   "chT": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -1645,6 +1665,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "煌雷龍γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "櫻浪α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "盛放α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "豪鬼α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "火龍α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "火龍β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "暗器鱆α",
@@ -1702,7 +1723,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "墨鏡α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "知性眼鏡α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "圓形眼鏡α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "方形眼鏡α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "方形眼鏡α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "艾路頭套α"
   },
   "chS": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -1800,6 +1822,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "煌雷龙γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "落樱缤纷α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "盛开α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "豪鬼α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "火龙α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "火龙β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "暗器蛸α",
@@ -1857,7 +1880,8 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "墨镜α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "知性眼镜α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "圆框眼镜α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "方形眼镜α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "方形眼镜α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "艾露猫头套α"
   },
   "ara": {
     "ddac217a-52a5-40b3-814c-a310e137df9b": "-",
@@ -1955,6 +1979,7 @@
     "b7a1c523-e3e1-4efd-bcb6-3440249369bf": "راي داو γ",
     "0f55d686-53b9-48ee-a70e-3b3d69ad5917": "ساكوراتايد α",
     "a29f1ef9-8b94-4bb6-a3c4-bbb5353cf56d": "إزدهار α",
+    "65a14ad9-419a-4f69-b0e6-8ba04924200b": "Akuma α",
     "37fde973-d41e-48ce-ad14-e1924af71fc4": "راثالوس α",
     "5a99883b-9794-40d2-9cea-444c7a914289": "راثالوس β",
     "1641854e-1d47-4479-a71a-2241ddedfa27": "شو وو α",
@@ -2012,6 +2037,7 @@
     "72b9cc1b-6868-48d6-b081-0ab115a46eab": "نظارة الظلال الشمسية α",
     "ba27a3ee-5fe8-44e9-9be4-d4121c756639": "نظارة الخبير الإستراتيجي α",
     "359345d5-61a8-45e9-ab60-788a43eb44d3": "نظارة دائرية α",
-    "0526729c-31c3-466c-a093-cc8b7d8234d6": "نظارة مربعة α"
+    "0526729c-31c3-466c-a093-cc8b7d8234d6": "نظارة مربعة α",
+    "faf28f20-b5a9-43f3-b1c1-37cbd20d55b7": "فيلاين زائف α"
   }
 }

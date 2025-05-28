@@ -13,6 +13,7 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed AJARAKAN = App_ArmorDef_SERIES_Fixed.ID_026;
     public const App_ArmorDef_SERIES_Fixed AJARAKAN_Α = App_ArmorDef_SERIES_Fixed.ID_089;
     public const App_ArmorDef_SERIES_Fixed AJARAKAN_Β = App_ArmorDef_SERIES_Fixed.ID_090;
+    public const App_ArmorDef_SERIES_Fixed AKUMA_Α = App_ArmorDef_SERIES_Fixed.ID_207;
     public const App_ArmorDef_SERIES_Fixed ALLOY = App_ArmorDef_SERIES_Fixed.ID_006;
     public const App_ArmorDef_SERIES_Fixed ALLOY_Α = App_ArmorDef_SERIES_Fixed.ID_063;
     public const App_ArmorDef_SERIES_Fixed AMSTRIGIAN_Α = App_ArmorDef_SERIES_Fixed.ID_210;
@@ -57,6 +58,7 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed DRAGONKING_Α = App_ArmorDef_SERIES_Fixed.ID_140;
     public const App_ArmorDef_SERIES_Fixed EARRINGS_OF_DEDICATION_Α = App_ArmorDef_SERIES_Fixed.ID_206;
     public const App_ArmorDef_SERIES_Fixed EXPEDITION_HEADGEAR_Α = App_ArmorDef_SERIES_Fixed.ID_161;
+    public const App_ArmorDef_SERIES_Fixed FAUX_FELYNE_Α = App_ArmorDef_SERIES_Fixed.ID_209;
     public const App_ArmorDef_SERIES_Fixed FENCERS_EYEPATCH = App_ArmorDef_SERIES_Fixed.ID_158;
     public const App_ArmorDef_SERIES_Fixed FEUDAL_SOLDIER = App_ArmorDef_SERIES_Fixed.ID_157;
     public const App_ArmorDef_SERIES_Fixed FLORESCENT_CIRCLET = App_ArmorDef_SERIES_Fixed.ID_174;
