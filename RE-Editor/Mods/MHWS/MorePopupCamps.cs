@@ -16,7 +16,7 @@ public class MorePopupCamps : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "More Safe Spaces";
         const string description = "Makes all camp areas safe and optionally increases the base limit.";
-        const string version     = "1.3";
+        const string version     = "1.4";
 
         var baseMod = new NexusMod {
             NameAsBundle = name,

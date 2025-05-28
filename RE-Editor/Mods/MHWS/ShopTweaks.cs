@@ -55,7 +55,7 @@ public class ShopTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.4.3";
+        const string version     = "1.5";
 
         var baseMod = new NexusMod {
             Version      = version,

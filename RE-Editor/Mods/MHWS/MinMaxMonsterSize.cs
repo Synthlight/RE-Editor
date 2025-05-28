@@ -17,7 +17,7 @@ public class MinMaxMonsterSize : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Min-Max Legal Monster Sizes";
         const string description = "Guarantees a 50/50 min/max legal size for monsters. Will be a crown if the size probabilities would allow it.";
-        const string version     = "1.2";
+        const string version     = "1.3";
 
         var mod = new NexusMod {
             Name    = name,
