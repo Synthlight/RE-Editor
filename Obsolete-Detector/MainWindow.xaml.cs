@@ -69,9 +69,13 @@ public partial class MainWindow {
 
     private void Browse_OnClick(object sender, RoutedEventArgs e) {
         try {
+            var initialDirectory = txt_path.Text;
+            if (!Directory.Exists(initialDirectory)) {
+                initialDirectory = "C:\\";
+            }
             var ofdResult = new CommonOpenFileDialog {
                 IsFolderPicker   = true,
-                InitialDirectory = txt_path.Text,
+                InitialDirectory = initialDirectory,
                 Multiselect      = false
             };
             var result = ofdResult.ShowDialog();
@@ -85,9 +89,13 @@ public partial class MainWindow {
 
     private void BrowseFmm_OnClick(object sender, RoutedEventArgs e) {
         try {
+            var initialDirectory = fmm_path.Text;
+            if (!Directory.Exists(initialDirectory)) {
+                initialDirectory = "C:\\";
+            }
             var ofdResult = new OpenFileDialog {
                 Filter           = "ModManager.exe|ModManager.exe",
-                InitialDirectory = fmm_path.Text,
+                InitialDirectory = initialDirectory,
                 Multiselect      = false
             };
             var result = ofdResult.ShowDialog();
