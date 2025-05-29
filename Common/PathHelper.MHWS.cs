@@ -61,7 +61,7 @@ public static partial class PathHelper {
             "re_chunk_000.pak.patch_005.pak",
             "re_chunk_000.pak.sub_000.pak.patch_004.pak",
             "re_chunk_000.pak.sub_000.pak.patch_005.pak"
-        ])
+        ]) {updateName = "Street Fighter 6 Special Collaboration"}
     ];
 
     public const string NEXUS_URL              = "";
