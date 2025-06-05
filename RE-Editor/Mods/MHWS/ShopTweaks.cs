@@ -105,6 +105,23 @@ public class ShopTweaks : IMod {
         };
 
         ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+
+
+        ModMaker.WriteMods(mainWindow, [
+            new NexusMod {
+                Name    = $"{name} - Normal (38)/Pierce (39)/Spread (40) Ammo",
+                Version = "1.0",
+                Desc    = "ONLY USE IF YOU HAVE BUGGED AMMO AND THEY ARE MISSING!!!!",
+                Image   = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png",
+                Files   = [PathHelper.ITEM_SHOP_DATA_PATH],
+                Action = data => {
+                    var shopData = (App_user_data_ItemShopData) data.First(entry => entry is App_user_data_ItemShopData);
+                    shopData.Values.Add(CreateItem(itemShopData.rsz, (int) ItemConstants.NORMAL_AMMO, true));
+                    shopData.Values.Add(CreateItem(itemShopData.rsz, (int) ItemConstants.PIERCE_AMMO, true));
+                    shopData.Values.Add(CreateItem(itemShopData.rsz, (int) ItemConstants.SPREAD_AMMO, true));
+                }
+            }
+        ], $"{name} - Ammo", copyLooseToFluffy: false);
     }
 
     private static Mode? GetMode(App_user_data_ItemData_cData item) {
@@ -163,8 +180,8 @@ public class ShopTweaks : IMod {
         }
     }
 
-    public static App_user_data_ItemShopData_cData CreateItem(RSZ rsz, int itemId) {
-        if (BLACKLIST.Contains((App_ItemDef_ID_Fixed) itemId)) {
+    public static App_user_data_ItemShopData_cData CreateItem(RSZ rsz, int itemId, bool ignoreBlacklist = false) {
+        if (!ignoreBlacklist && BLACKLIST.Contains((App_ItemDef_ID_Fixed) itemId)) {
             throw new($"Error: Blacklisted item `{itemId}` made it through.");
         }
         var shopEntry = App_user_data_ItemShopData_cData.Create(rsz);
