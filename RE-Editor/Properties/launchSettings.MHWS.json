@@ -51,6 +51,22 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Weapon/LongSword.user.3\""
         },
+        "OtomoArmorData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Otomo/DataParam/OtomoArmorData.user.3\""
+        },
+        "OtomoEquipSeriesData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Otomo/DataParam/OtomoEquipSeriesData.user.3\""
+        },
+        "OtomoOuterArmorData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Otomo/DataParam/OtomoOuterArmorData.user.3\""
+        },
+        "OuterArmorData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/OuterArmorData.user.3\""
+        },
         "PlayerItemParam.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Player/ActionData/Common/GlobalParam/PlayerItemParam.user.3\""

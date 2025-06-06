@@ -547,6 +547,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
             DataSourceType.ITEMS => nameof(DataHelper.ITEM_NAME_LOOKUP),
             DataSourceType.MEDALS => nameof(DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.NPCS => nameof(DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE),
+            DataSourceType.OTOMO_SERIES => nameof(DataHelper.OTOMO_SERIES_BY_ENUM_VALUE),
             DataSourceType.QUESTS => nameof(DataHelper.QUEST_INFO_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.PENDANTS => nameof(DataHelper.PENDANT_NAME_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.SKILLS => nameof(DataHelper.SKILL_NAME_BY_ENUM_VALUE),

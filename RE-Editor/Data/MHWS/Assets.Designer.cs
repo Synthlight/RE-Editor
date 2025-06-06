@@ -73,6 +73,26 @@ namespace RE_Editor.Data.MHWS {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ARMOR_LAYERED_INFO_LOOKUP_BY_GUID {
+            get {
+                object obj = ResourceManager.GetObject("ARMOR_LAYERED_INFO_LOOKUP_BY_GUID", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ARMOR_LAYERED_NAME_LOOKUP_BY_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("ARMOR_LAYERED_NAME_LOOKUP_BY_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ARMOR_SERIES_BY_ENUM_VALUE {
             get {
                 object obj = ResourceManager.GetObject("ARMOR_SERIES_BY_ENUM_VALUE", resourceCulture);
@@ -206,6 +226,66 @@ namespace RE_Editor.Data.MHWS {
         internal static byte[] OBSOLETE_BY_HASH {
             get {
                 object obj = ResourceManager.GetObject("OBSOLETE_BY_HASH", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OTOMO_INFO_LOOKUP_BY_GUID {
+            get {
+                object obj = ResourceManager.GetObject("OTOMO_INFO_LOOKUP_BY_GUID", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OTOMO_LAYERED_INFO_LOOKUP_BY_GUID {
+            get {
+                object obj = ResourceManager.GetObject("OTOMO_LAYERED_INFO_LOOKUP_BY_GUID", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OTOMO_LAYERED_NAME_LOOKUP_BY_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("OTOMO_LAYERED_NAME_LOOKUP_BY_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OTOMO_NAME_LOOKUP_BY_ENUM_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("OTOMO_NAME_LOOKUP_BY_ENUM_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OTOMO_SERIES_BY_ENUM_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("OTOMO_SERIES_BY_ENUM_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OTOMO_SERIES_INFO_LOOKUP_BY_GUID {
+            get {
+                object obj = ResourceManager.GetObject("OTOMO_SERIES_INFO_LOOKUP_BY_GUID", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -71,6 +71,7 @@ public static partial class PathHelper {
     public const string ARMOR_DATA_PATH                = @"\natives\STM\GameDesign\Common\Equip\ArmorData.user.3";
     public const string ARMOR_RECIPE_DATA_PATH         = @"\natives\STM\GameDesign\Common\Equip\ArmorRecipeData.user.3";
     public const string ARMOR_SERIES_DATA_PATH         = @"\natives\STM\GameDesign\Common\Equip\ArmorSeriesData.user.3";
+    public const string ARMOR_LAYERED_DATA_PATH        = @"\natives\STM\GameDesign\Common\Equip\OuterArmorData.user.3";
     public const string ARMOR_UPGRADE_DATA_PATH        = @"\natives\STM\GameDesign\Common\Equip\ArmorUpgradeData.user.3";
     public const string CHARGE_BLADE_PARAM_PATH        = @"\natives\STM\GameDesign\Player\ActionData\Wp09\GlobalParam\Wp09GlobalActionParam.user.3";
     public const string DECORATION_DATA_PATH           = @"\natives\STM\GameDesign\Common\Equip\AccessoryData.user.3";
@@ -83,6 +84,8 @@ public static partial class PathHelper {
     public const string MEDAL_DATA_PATH                = @"\natives\STM\GameDesign\HunterProfile\UserData\MedalData.user.3";
     public const string MONSTER_RANDOM_SIZES_PATH      = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSize.user.3";
     public const string OTOMO_ARMOR_DATA_PATH          = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoArmorData.user.3";
+    public const string OTOMO_ARMOR_SERIES_DATA_PATH   = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoEquipSeriesData.user.3";
+    public const string OTOMO_ARMOR_LAYERED_DATA_PATH  = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoOuterArmorData.user.3";
     public const string OTOMO_RECIPE_DATA_PATH         = @"\natives\STM\GameDesign\Facility\Data\OtomoEquipRecipe.user.3";
     public const string POPUP_CAMP_PATH                = @"\natives\STM\System\SystemSetting\CampManagerSetting.user.3";
     public const string PLAYER_ACTIVE_SKILL_PARAM_PATH = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\Part\PlayerActiveSkillParam.user.3";

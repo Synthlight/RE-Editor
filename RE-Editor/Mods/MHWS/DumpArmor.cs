@@ -28,12 +28,12 @@ public class DumpArmor : IMod {
         var list = new List<ArmorModelData>();
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var armor in armorData) {
-            if (armor.Series[0].Value == 1) continue;
+            if (armor.Series_Unwrapped == App_ArmorDef_SERIES_Fixed.ID_000) continue;
 
             var modelData = new ArmorModelData {
                 name   = armor.Name_,
-                series = armorSeriesData.First(series => series.Series[0].Value == armor.Series[0].Value),
-                part   = (App_ArmorDef_ARMOR_PARTS_Fixed) armor.PartsType[0].Value,
+                series = armorSeriesData.First(series => series.Series_Unwrapped == armor.Series_Unwrapped),
+                part   = armor.PartsType_Unwrapped,
             };
             list.Add(modelData);
         }
@@ -64,6 +64,7 @@ public class DumpArmor : IMod {
     }
 
     private static byte GetModelPathArmorPart(App_ArmorDef_ARMOR_PARTS_Fixed part) {
+        // ReSharper disable once SwitchExpressionHandlesSomeKnownEnumValuesWithExceptionInDefault
         return part switch {
             App_ArmorDef_ARMOR_PARTS_Fixed.HELM => 3,
             App_ArmorDef_ARMOR_PARTS_Fixed.BODY => 2,
@@ -71,7 +72,6 @@ public class DumpArmor : IMod {
             App_ArmorDef_ARMOR_PARTS_Fixed.WAIST => 5,
             App_ArmorDef_ARMOR_PARTS_Fixed.LEG => 4,
             App_ArmorDef_ARMOR_PARTS_Fixed.SLINGER => 6,
-            App_ArmorDef_ARMOR_PARTS_Fixed.MAX => throw new ArgumentOutOfRangeException(nameof(part), part, null),
             _ => throw new ArgumentOutOfRangeException(nameof(part), part, null)
         };
     }

@@ -121,6 +121,12 @@
   <data name="ARMOR_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\ARMOR_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ARMOR_LAYERED_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\ARMOR_LAYERED_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ARMOR_LAYERED_NAME_LOOKUP_BY_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\ARMOR_LAYERED_NAME_LOOKUP_BY_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="ARMOR_SERIES_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\ARMOR_SERIES_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -162,6 +168,24 @@
   </data>
   <data name="OBSOLETE_BY_HASH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\OBSOLETE_BY_HASH.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OTOMO_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OTOMO_LAYERED_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_LAYERED_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OTOMO_LAYERED_NAME_LOOKUP_BY_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_LAYERED_NAME_LOOKUP_BY_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OTOMO_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OTOMO_SERIES_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_SERIES_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OTOMO_SERIES_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_SERIES_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PENDANT_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\PENDANT_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

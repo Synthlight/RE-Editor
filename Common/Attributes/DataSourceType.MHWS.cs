@@ -10,6 +10,7 @@ public enum DataSourceType {
     ITEMS,
     MEDALS,
     NPCS,
+    OTOMO_SERIES,
     PENDANTS,
     QUESTS,
     SKILLS,

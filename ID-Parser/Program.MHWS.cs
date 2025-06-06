@@ -10,6 +10,7 @@ public static partial class Program {
     public static void Go() {
         ExtractArmorInfoByGuid();
         ExtractArmorSeriesInfoByGuid();
+        ExtractArmorLayeredInfoByGuid();
         ExtractArtianInfoByGuid();
         ExtractDecorationInfo();
         ExtractEnemyInfoByName();
@@ -18,6 +19,9 @@ public static partial class Program {
         ExtractMedalInfoByGuid();
         ExtractNpcInfoByName();
         ExtractPendantInfoByGuid();
+        ExtractOtomoInfoByGuid();
+        ExtractOtomoSeriesInfoByGuid();
+        ExtractOtomoLayeredInfoByGuid();
         ExtractQuestInfo();
         ExtractSkillInfoByName();
         ExtractTalismanInfoByGuid();
@@ -27,40 +31,56 @@ public static partial class Program {
     }
 
     private static void ExtractArmorInfoByGuid() {
-        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Armor.msg.{Global.MSG_VERSION}")
-                     .GetLangGuidMap();
-        DataHelper.ARMOR_INFO_LOOKUP_BY_GUID = msg;
-        CreateAssetFile(msg, "ARMOR_INFO_LOOKUP_BY_GUID");
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Armor.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.ARMOR_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "ARMOR_INFO_LOOKUP_BY_GUID");
 
         // Get only the names, no descriptions.
         var regex = new Regex(@"Armor_ID(\d+)");
-        msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Armor.msg.{Global.MSG_VERSION}")
-                 .GetLangRawMap<Guid>(name => {
-                     // ReSharper disable once ConvertIfStatementToReturnStatement
-                     if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
-                     return name.id1;
-                 });
-        CreateConstantsFile(msg[Global.LangIndex.eng].Flip(), "ArmorConstants");
+        var msgNamesByGuid = msg.GetLangRawMap<Guid>(name => {
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
+            return name.id1;
+        });
+        CreateConstantsFile(msgNamesByGuid[Global.LangIndex.eng].Flip(), "ArmorConstants");
     }
 
     private static void ExtractArmorSeriesInfoByGuid() {
-        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\ArmorSeries.msg.{Global.MSG_VERSION}")
-                     .GetLangGuidMap();
-        DataHelper.ARMOR_SERIES_INFO_LOOKUP_BY_GUID = msg;
-        CreateAssetFile(msg, "ARMOR_SERIES_INFO_LOOKUP_BY_GUID");
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\ArmorSeries.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.ARMOR_SERIES_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "ARMOR_SERIES_INFO_LOOKUP_BY_GUID");
 
         var regex = new Regex(@"ArmorSeries_(m?\d+)");
-        var msgByEnum = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\ArmorSeries.msg.{Global.MSG_VERSION}")
-                           .GetLangIdMap<App_ArmorDef_SERIES_Fixed>(name => {
-                               var match = regex.Match(name);
-                               if (!match.Success) return new(0, true);
-                               var value = match.Groups[1].Value.Replace('m', '-');
-                               return (App_ArmorDef_SERIES_Fixed) int.Parse(value);
-                           });
+        var msgByEnum = msg.GetLangIdMap<App_ArmorDef_SERIES_Fixed>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return (App_ArmorDef_SERIES_Fixed) int.Parse(value);
+        });
         var msgByValue = msgByEnum.ConvertTo<App_ArmorDef_SERIES_Fixed, int>();
         DataHelper.ARMOR_SERIES_BY_ENUM_VALUE = msgByValue;
         CreateAssetFile(msgByValue, "ARMOR_SERIES_BY_ENUM_VALUE");
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "ArmorSeriesConstants");
+    }
+
+    private static void ExtractArmorLayeredInfoByGuid() {
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\OuterArmor.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.ARMOR_LAYERED_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "ARMOR_LAYERED_INFO_LOOKUP_BY_GUID");
+
+        var regex = new Regex(@"OuterArmor_MALE(m?\d+)");
+        var msgByValue = msg.GetLangIdMap<int>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return int.Parse(value);
+        });
+        DataHelper.ARMOR_LAYERED_NAME_LOOKUP_BY_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "ARMOR_LAYERED_NAME_LOOKUP_BY_VALUE");
+        CreateConstantsFile(msgByValue[Global.LangIndex.eng].Flip(), "ArmorLayeredConstants");
     }
 
     private static void ExtractArtianInfoByGuid() {
@@ -208,6 +228,64 @@ public static partial class Program {
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "NpcConstants");
     }
 
+    private static void ExtractOtomoInfoByGuid() {
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\OtomoArmor.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.OTOMO_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "OTOMO_INFO_LOOKUP_BY_GUID");
+
+        // The armor file uses an int field for data ID. The enum does not go high enough.
+        var regex = new Regex(@"OtomoArmor_(m?\d+)");
+        var msgByValue = msg.GetLangIdMap<int>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return int.Parse(value);
+        });
+        DataHelper.OTOMO_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "OTOMO_NAME_LOOKUP_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByValue[Global.LangIndex.eng].Flip(), "OtomoArmorConstants");
+    }
+
+    private static void ExtractOtomoSeriesInfoByGuid() {
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\OtomoEquipSeries.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.OTOMO_SERIES_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "OTOMO_SERIES_INFO_LOOKUP_BY_GUID");
+
+        // The armor file uses an int field for data ID. The enum does not go high enough.
+        var regex = new Regex(@"OtomoEquipSeries_(m?\d+)");
+        var msgByEnum = msg.GetLangIdMap<App_OtEquipDef_EQUIP_DATA_ID_Fixed>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return (App_OtEquipDef_EQUIP_DATA_ID_Fixed) int.Parse(value);
+        });
+        var msgByValue = msgByEnum.ConvertTo<App_OtEquipDef_EQUIP_DATA_ID_Fixed, int>();
+        DataHelper.OTOMO_SERIES_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "OTOMO_SERIES_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByValue[Global.LangIndex.eng].Flip(), "OtomoArmorSeriesConstants");
+    }
+
+    private static void ExtractOtomoLayeredInfoByGuid() {
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\OtomoOuterArmor.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.OTOMO_LAYERED_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "OTOMO_LAYERED_INFO_LOOKUP_BY_GUID");
+
+        // The armor file uses an int field for data ID. The enum does not go high enough.
+        var regex = new Regex(@"OtomoOuterArmor_(m?\d+)");
+        var msgByValue = msg.GetLangIdMap<int>(name => {
+            var match = regex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return int.Parse(value);
+        });
+        DataHelper.OTOMO_LAYERED_NAME_LOOKUP_BY_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "OTOMO_LAYERED_NAME_LOOKUP_BY_VALUE");
+        CreateConstantsFile(msgByValue[Global.LangIndex.eng].Flip(), "OtomoArmorLayeredConstants");
+    }
+
     private static void ExtractPendantInfoByGuid() {
         var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Charm.msg.{Global.MSG_VERSION}");
         var msgByGuid = msg.GetLangGuidMap();
@@ -298,18 +376,17 @@ public static partial class Program {
         var allMsgs      = new List<Dictionary<Global.LangIndex, Dictionary<Guid, string>>>();
         var nameOnlyMsgs = new List<Dictionary<Global.LangIndex, Dictionary<Guid, string>>>();
         foreach (var weaponType in Global.WEAPON_TYPES) {
-            var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\{weaponType}.msg.{Global.MSG_VERSION}")
-                         .GetLangGuidMap();
-            allMsgs.Add(msg);
+            var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\{weaponType}.msg.{Global.MSG_VERSION}");
+            var msgByGuid = msg.GetLangGuidMap();
+            allMsgs.Add(msgByGuid);
 
             var regex = new Regex($@"{weaponType}_(\d+)");
-            msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\{weaponType}.msg.{Global.MSG_VERSION}")
-                     .GetLangRawMap<Guid>(name => {
-                         // ReSharper disable once ConvertIfStatementToReturnStatement
-                         if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
-                         return name.id1;
-                     });
-            nameOnlyMsgs.Add(msg);
+            var msgNameByGuid = msg.GetLangRawMap<Guid>(name => {
+                // ReSharper disable once ConvertIfStatementToReturnStatement
+                if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
+                return name.id1;
+            });
+            nameOnlyMsgs.Add(msgNameByGuid);
         }
         var mergedMsg = Merge(allMsgs);
         DataHelper.WEAPON_INFO_LOOKUP_BY_GUID = mergedMsg;
