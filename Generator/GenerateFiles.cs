@@ -225,6 +225,12 @@ public partial class GenerateFiles {
         // Because it's so much easier than writing whatever is needed to deserialize dictionary keys as hex string->uint.
         var structJsonAsString = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>(File.ReadAllText(STRUCT_JSON_PATH))!;
         structJson = structJsonAsString.KeyFromHexString();
+
+#if DD2
+        foreach (var (key, value) in STRUCT_OVERRIDES) {
+            structJson[key] = value;
+        }
+#endif
     }
 
     public void Go(string[] args) {
