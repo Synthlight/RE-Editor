@@ -18,6 +18,7 @@ public static class WeaponConstants {
     public static readonly Guid ABADDONIAN_ZHANGYU = Guid.Parse("acafb0a1-559b-45ad-8e33-d1bc420ecd2b");
     public static readonly Guid ABIDING_GAWAIN = Guid.Parse("a3408495-645c-4cfe-8d3c-e557a3d60ef1");
     public static readonly Guid ABLEBEN_ABZUG = Guid.Parse("e7c0bb72-d112-4849-b3bd-f2cca0307aba");
+    public static readonly Guid ACRUS_LANCE_I = Guid.Parse("61da2fb0-f3c4-4c13-95d5-2cc14ca85632");
     public static readonly Guid AERIAL_GLAIVE = Guid.Parse("10f18e21-3b44-4639-948a-e508f88af0bb");
     public static readonly Guid AETERNAL_PALAMEDES = Guid.Parse("5af12ddd-0a7a-4bdf-8a17-6cc6f2a61509");
     public static readonly Guid AJARA_GUNPIKE_I = Guid.Parse("ad481804-2884-4b18-b23a-bfd1c543af25");
@@ -39,6 +40,7 @@ public static class WeaponConstants {
     public static readonly Guid AJARA_PANTHAKA = Guid.Parse("c2c47335-fdab-4d08-b7f4-8ce6c5153672");
     public static readonly Guid AJARA_SUBINDA = Guid.Parse("7ff588c6-2fac-460c-a673-3be284553379");
     public static readonly Guid AKANESASU = Guid.Parse("a10b032d-7b96-4f2e-91b4-ba73416de30d");
+    public static readonly Guid AKSA_SWITCH_I = Guid.Parse("ee1f169c-70a2-489a-a062-3d4f3aa02a3c");
     public static readonly Guid ALABASTER_RATHMAUL = Guid.Parse("145ba3c3-4191-4273-bc17-83cf3a6414c6");
     public static readonly Guid ALBIRATH_BLADE_I = Guid.Parse("d18d7bd8-2997-4363-b0ab-0d63a938039f");
     public static readonly Guid ALBIRATH_BLADE_II = Guid.Parse("29229fa8-1491-4876-a09a-2c8851f60b63");
@@ -59,6 +61,9 @@ public static class WeaponConstants {
     public static readonly Guid ALBIRATH_TAIL_II = Guid.Parse("6b3c8317-6dea-4c58-8677-5fc4d6b85ec4");
     public static readonly Guid ALBIRATH_WING_I = Guid.Parse("35519822-db43-445e-a4b7-9bdfb3b6074e");
     public static readonly Guid ALBIRATH_WING_II = Guid.Parse("9d287e82-b53b-4072-8ac7-05ea017191b5");
+    public static readonly Guid ALLYSYL_MUSE = Guid.Parse("b8506823-c75f-4457-b4f7-6d701f403cb5");
+    public static readonly Guid ALTAIR_I = Guid.Parse("7515ee1a-cf4c-45b1-bd50-abe942eacf56");
+    public static readonly Guid ALTEAL = Guid.Parse("225e911f-1ad1-44e9-a4b8-ff1c61719596");
     public static readonly Guid ANGELBEIN = Guid.Parse("5db643f3-16f3-4cab-b5a1-083db4ea3db2");
     public static readonly Guid ANIMILATER = Guid.Parse("626560f2-79cc-4592-b750-2180577f6b07");
     public static readonly Guid ARACHNOSCALE_I = Guid.Parse("64816911-95b6-41cf-be7d-bf3135b7e49d");
@@ -66,6 +71,7 @@ public static class WeaponConstants {
     public static readonly Guid ARACHNOSCALE_III = Guid.Parse("5fda51c4-50fc-4a0a-a183-8bdbceb552da");
     public static readonly Guid ARACHNOSCYTHE = Guid.Parse("b1d524a2-980f-439d-81e7-8f5140caf226");
     public static readonly Guid ARGENESIS = Guid.Parse("bc4623c0-dadb-4d72-842f-86e3d66b4ab6");
+    public static readonly Guid ARGYL_HAMMER = Guid.Parse("7eaa4e9c-b492-4e7d-bd17-7194a7c12e1e");
     public static readonly Guid ARTIAN_BLADE_I = Guid.Parse("0953cf50-2f56-4183-8b90-0ecc89836a93");
     public static readonly Guid ARTIAN_BLADE_II = Guid.Parse("818082c5-85dc-4b3a-84d2-b248036c6fcf");
     public static readonly Guid ARTIAN_BLASTER_I = Guid.Parse("44327323-0a3c-4aae-a991-e3589abd3eb7");
@@ -94,6 +100,7 @@ public static class WeaponConstants {
     public static readonly Guid ARTIAN_SOUNDER_II = Guid.Parse("78e09cc5-d5fe-4c2b-8fde-069e2f3c476c");
     public static readonly Guid ARTIAN_SWORD_I = Guid.Parse("5f6eac96-0cac-4068-9ff6-3b440c4f7fe0");
     public static readonly Guid ARTIAN_SWORD_II = Guid.Parse("b585cf6b-8e2c-42bb-8e32-2d8fd1e05df0");
+    public static readonly Guid ASLAT_CHARGER_I = Guid.Parse("72739f26-384e-43df-9c64-d0cfc6acbc68");
     public static readonly Guid ASSAULT_CONGA_I = Guid.Parse("0917e766-7781-46f1-bc4e-68706063607d");
     public static readonly Guid ASSAULT_CONGA_II = Guid.Parse("427730b8-4a9b-496c-8987-dadf636d2e1e");
     public static readonly Guid ASTRAPI_CLAIRAXE = Guid.Parse("ccfaa57f-a8f2-43ed-98d6-135645141830");
@@ -123,6 +130,7 @@ public static class WeaponConstants {
     public static readonly Guid BALAHARA_LANCE_II = Guid.Parse("2f074a42-07a8-48f6-9da3-97ae11b06668");
     public static readonly Guid BALAHARA_LANCE_III = Guid.Parse("c965336e-7ea4-4496-8aea-f684c63508ca");
     public static readonly Guid BALAHARA_LANCE_IV = Guid.Parse("be85d437-696e-4f94-a84c-81ebaaf1ed43");
+    public static readonly Guid BARAN_DEFIANCE = Guid.Parse("c0ff593c-8240-4aac-a2d1-c67e752fca46");
     public static readonly Guid BARDICHION_BLADE = Guid.Parse("04b330c7-2a20-4689-9899-577b7b5f6189");
     public static readonly Guid BARINA_BOUCLIER_I = Guid.Parse("618dd0e8-d40e-492b-9e16-7d40278f0db9");
     public static readonly Guid BARINA_BOUCLIER_II = Guid.Parse("56b0618b-2d55-4024-b74e-622b9b29bdb7");
@@ -188,6 +196,8 @@ public static class WeaponConstants {
     public static readonly Guid BLOOD_CRY_II = Guid.Parse("2c9f3cb5-7012-41f2-880b-4ff965a5ae17");
     public static readonly Guid BLOOD_CRY_III = Guid.Parse("eaec2983-90d4-40bb-b2ff-f8537ef82bd3");
     public static readonly Guid BLOOD_SCREAM = Guid.Parse("7c76a183-6b43-43f0-839e-b790e55a280b");
+    public static readonly Guid BOLT_AXE_I = Guid.Parse("0409b85a-c603-49f7-9fc5-ae980fda46eb");
+    public static readonly Guid BOLTSENDER_I = Guid.Parse("efc105c0-8642-4248-98fd-216e63e29fc5");
     public static readonly Guid BONE_AXE_I = Guid.Parse("d419bbca-db37-43bb-8ee2-e1426cfa5f4a");
     public static readonly Guid BONE_AXE_II = Guid.Parse("19fb1237-e19f-473a-b43b-410b1a3467c8");
     public static readonly Guid BONE_AXE_III = Guid.Parse("832704b2-59fa-4b8b-9423-4b3e93eb1c24");
@@ -267,6 +277,7 @@ public static class WeaponConstants {
     public static readonly Guid CHATA_STRONGARM_II = Guid.Parse("b33402fd-b205-4700-b0f9-bdefd1fafbcd");
     public static readonly Guid CHATA_STRONGARM_III = Guid.Parse("080fc8c7-5b7e-42e2-961d-4eba61b3f518");
     public static readonly Guid CHATA_STRONGARM_IV = Guid.Parse("aa474403-605d-4e2b-8f3e-6babfd39f440");
+    public static readonly Guid CHEDA_BLADE_I = Guid.Parse("1920ba59-9348-4575-b317-ed42a73d37aa");
     public static readonly Guid CHICKEN_DECAPITATOR_I = Guid.Parse("08621e5b-8cbe-424f-95ab-4757edd4b53c");
     public static readonly Guid CHICKEN_DECAPITATOR_II = Guid.Parse("c3a614a5-766f-40be-bae1-a51fc3e83ad1");
     public static readonly Guid CHIEF_KUKRI = Guid.Parse("51d4ce87-9ee5-40f7-9c5e-ea9b1c845812");
@@ -293,6 +304,7 @@ public static class WeaponConstants {
     public static readonly Guid CLUSTER_HAMMER_III = Guid.Parse("95823526-0f98-498e-ae51-5573049319d5");
     public static readonly Guid COMBAT_CONGA = Guid.Parse("bf8baefc-53ac-41d5-ab0f-dc6f8efc23f6");
     public static readonly Guid CORDAYLES_REVOCATION = Guid.Parse("e93d6c90-1018-4d62-ac18-5f05bb3310aa");
+    public static readonly Guid CORNPOPPER = Guid.Parse("20614d02-5cbb-4ccb-9ffa-20608269a54c");
     public static readonly Guid CORONA = Guid.Parse("673a1726-05e5-4c58-9ea1-8bfc7f862f7a");
     public static readonly Guid CRASHING_FULGUR_I = Guid.Parse("2f67a0be-2478-4f3b-a709-35e23fb0de2b");
     public static readonly Guid CRAZED_MELODY = Guid.Parse("60aacd5c-0000-4d58-8018-4f7b848c7d80");
@@ -308,6 +320,7 @@ public static class WeaponConstants {
     public static readonly Guid DEBILITATING_TORPOR = Guid.Parse("a1cc5ecb-a2c7-455e-a4a6-b766cc23f7be");
     public static readonly Guid DESOLATE_MIST_I = Guid.Parse("546cc037-5e3a-401a-9fe0-4bfdcd23bdcb");
     public static readonly Guid DESTRUCTIVE_TORPOR = Guid.Parse("007d7b9c-6c99-4d1c-800a-3acfd5b91e32");
+    public static readonly Guid DIGMORE_WAR_PICK = Guid.Parse("12bb8d6c-2d4c-4ba2-ac04-be672943368e");
     public static readonly Guid DIMENSIUS = Guid.Parse("dde31d43-a973-4ebb-9c43-221bee37ed16");
     public static readonly Guid DIPRIELCHA = Guid.Parse("f89a10b4-11eb-4108-b778-8c1cb16d939a");
     public static readonly Guid DOSHA_FAITHBREAKER_I = Guid.Parse("faaf3f11-df23-468d-b01e-3a46f1e19cf5");
@@ -384,6 +397,7 @@ public static class WeaponConstants {
     public static readonly Guid ESPERANZA_STRONGARM = Guid.Parse("5c2ed035-c7f8-466a-8841-c4da003775ec");
     public static readonly Guid ESPERANZA_SWORD = Guid.Parse("06d25417-2e25-4908-bd38-c83aab01bc9e");
     public static readonly Guid EVENING_DUSK = Guid.Parse("a9d72ebb-6104-4cbf-a7c3-09bc6339bcf0");
+    public static readonly Guid EXLAGIA_GUNLANCE = Guid.Parse("a68c08fb-31f7-4e74-8684-f397c94eb10f");
     public static readonly Guid EXPIATING_CAIUS = Guid.Parse("abb44f66-a3b8-4ddc-96d8-4e6dc69b75fb");
     public static readonly Guid EXULTANT_BEDIVERE = Guid.Parse("4ee2009f-c251-430a-a330-f2f367d52294");
     public static readonly Guid FAITHBREAKER_LEIBOLKULE = Guid.Parse("55c80b72-0c43-4288-b17d-2ce1a59ebd25");
@@ -395,6 +409,7 @@ public static class WeaponConstants {
     public static readonly Guid FEARBRINGER_CALLISTOX = Guid.Parse("06a61cf2-469e-4535-87ea-92a3ec0c09a2");
     public static readonly Guid FELLING_FULGUR_I = Guid.Parse("58222e2d-1e22-4e1a-923c-baaea16a515c");
     public static readonly Guid FELLSLAYER_DANGEOM = Guid.Parse("c53de37d-262b-4740-907a-b28c8fb3a5ad");
+    public static readonly Guid FERAL_FANGS = Guid.Parse("2961fadd-ceab-47be-9bcd-e18aa86ad6a4");
     public static readonly Guid FIEBERSCHILD = Guid.Parse("e661ab00-94e9-4ba2-8eb4-cb2e9e63a26a");
     public static readonly Guid FIERCEBORER_DUBHANITH = Guid.Parse("f8b6c883-2916-4d54-b60a-9a44c853a95a");
     public static readonly Guid FINAL_BATTLEAXES = Guid.Parse("c2052911-6f9b-4272-a09e-77854d568c19");
@@ -412,6 +427,7 @@ public static class WeaponConstants {
     public static readonly Guid FLESHHACKER_YAOGAHAAC = Guid.Parse("ea7b7711-f186-444f-b4b2-7d0037fdeb25");
     public static readonly Guid FOND_FAREWELL_I = Guid.Parse("85d97c23-0b92-4e15-96fa-a551527e3dd5");
     public static readonly Guid FOX_HALBERD_I = Guid.Parse("cda49316-795b-48d1-b9a4-fce287e3f3ff");
+    public static readonly Guid FRACTAL_GLAIVE_BOLTLAGIA = Guid.Parse("d2d621d9-8144-481c-aa1b-830e646accaa");
     public static readonly Guid FREEZER_SPEARTUNA = Guid.Parse("84e97df7-7f6d-41bd-9ff3-b2ca092a06d5");
     public static readonly Guid FROZEN_SPEARTUNA_I = Guid.Parse("7c5f9c64-655b-4ef4-bde3-1c17c87dbe02");
     public static readonly Guid FROZEN_SPEARTUNA_II = Guid.Parse("cc6d9d9a-d737-4c42-bdb5-360e19e8365b");
@@ -515,6 +531,7 @@ public static class WeaponConstants {
     public static readonly Guid HANA_MO_HANA_NARE_I = Guid.Parse("2a6e725e-b1d0-4180-88e7-2a061537180d");
     public static readonly Guid HANA_NO_NAGORIWO_I = Guid.Parse("4ca23a28-4121-4718-8b3d-519270c6e6fe");
     public static readonly Guid HANAYAKO_YOHINO_I = Guid.Parse("f9ef3052-c922-49b7-a531-bb4e61ccaae2");
+    public static readonly Guid HARBAH_LANCE_I = Guid.Parse("bfe2b47b-ec9d-423e-8661-5c10b0940f30");
     public static readonly Guid HARD_BONE_LANCE = Guid.Parse("87029a08-9fc0-477d-98fb-218da14e8c29");
     public static readonly Guid HARD_BONE_SHOTEL = Guid.Parse("773b398d-fad1-45a9-a247-a82a6665567d");
     public static readonly Guid HARD_BONE_STRONGARM = Guid.Parse("e0a0c89c-1d2f-4e62-902a-10fc47f3ff5e");
@@ -523,9 +540,16 @@ public static class WeaponConstants {
     public static readonly Guid HARDENED_BONE_HORN = Guid.Parse("cf0a711f-a67b-482d-aa78-bc75aff3fc65");
     public static readonly Guid HEAT_EDGE_I = Guid.Parse("5735d4fd-f667-4b1f-ba5a-e7c325e65bf4");
     public static readonly Guid HEAVENS_MANNA = Guid.Parse("38ade197-7580-4d91-a6a5-11b8cfb78b60");
+    public static readonly Guid HEAVENS_THUNDER = Guid.Parse("ab388ce0-bd64-4a95-8cc4-d1587bbfab73");
     public static readonly Guid HEAVY_BONE_BLUDGEON = Guid.Parse("7b9bb096-d984-4638-ab8f-c2dd3c10df36");
     public static readonly Guid HEAVY_SHOOTER = Guid.Parse("06c1b36b-3f27-46fb-bbee-4d3a839c0601");
+    public static readonly Guid HIGH_ACRUS_LANCE = Guid.Parse("9e6abd6a-380f-4583-9afc-3accfcbef140");
+    public static readonly Guid HIGH_BOLT_AXE = Guid.Parse("f02c3da2-3073-416f-97a3-331a7d148f10");
     public static readonly Guid HIGH_CHAIN_BLITZ = Guid.Parse("d105be78-e287-4d7f-bd4d-16330024117c");
+    public static readonly Guid HIGH_LAGIA_BLADE = Guid.Parse("5f521eb6-0f9f-4496-bbe1-92fb18f48014");
+    public static readonly Guid HIGH_LAGIA_SWORD = Guid.Parse("8f85fe17-9cd1-452e-b781-6aebb0579201");
+    public static readonly Guid HIGH_VOLTSENDER = Guid.Parse("ea7c485b-adfe-4309-b4c8-2a0633241949");
+    public static readonly Guid HIGH_VORTEX_HAMMER = Guid.Parse("4fe458d1-474f-496f-9eb1-361b54142320");
     public static readonly Guid HOPE_AXE_I = Guid.Parse("dc09aba8-3b8e-4836-9d81-55b9a65ca3f9");
     public static readonly Guid HOPE_AXE_II = Guid.Parse("00572e25-333e-4174-9988-23295ff10dbe");
     public static readonly Guid HOPE_AXE_III = Guid.Parse("13e8c4f8-da3d-4d9d-926b-d7a871289064");
@@ -615,9 +639,12 @@ public static class WeaponConstants {
     public static readonly Guid IMMANE_BLADE_II = Guid.Parse("b29288b9-4751-4b81-b5d7-8b20cc260435");
     public static readonly Guid IMMANE_BLADE_III = Guid.Parse("e2ce826a-c972-488e-aa65-dbb3dbc2d474");
     public static readonly Guid IMMOLATOR_BLADE = Guid.Parse("9e528683-142e-4738-8972-1003f91ee642");
+    public static readonly Guid IMPUDENT_CHEDA = Guid.Parse("deb4ef72-4ec9-41fe-aa15-1c25d263de7e");
     public static readonly Guid INDOMITABLE_PERCEVAL = Guid.Parse("80af0904-83b6-4ed7-9b91-bc0f7f70b8e7");
     public static readonly Guid INDRA_CLAIRLANCE = Guid.Parse("7f9c6e5c-e7b8-4015-aefa-764af617a92d");
     public static readonly Guid INSPIRED_YWAIN = Guid.Parse("34cc428c-72fa-48e4-97b7-4443b0cfa6d0");
+    public static readonly Guid INSURGENT_BOW = Guid.Parse("4d4a0abd-b4cd-43d0-a3ee-bd6b9d56f597");
+    public static readonly Guid INSURRECTION_CANNON = Guid.Parse("112ebaff-a8eb-4b51-8f1c-9f996f950294");
     public static readonly Guid IRON_ACCELERATOR_I = Guid.Parse("45eeb691-0f1b-4d13-9ad2-ab0d307488eb");
     public static readonly Guid IRON_ACCELERATOR_II = Guid.Parse("49092c75-3d28-4c71-9080-d74363e5accc");
     public static readonly Guid IRON_ACCELERATOR_III = Guid.Parse("caca4f9f-c918-4e1e-a897-d755116a1877");
@@ -643,6 +670,7 @@ public static class WeaponConstants {
     public static readonly Guid JAIL_HAMMER_III = Guid.Parse("97dba991-31bf-4345-9256-ce29223b8f0f");
     public static readonly Guid JAIL_HAMMER_IV = Guid.Parse("c6fab002-0e82-4888-97b5-29b0f53890b9");
     public static readonly Guid JAWBLADE_I = Guid.Parse("16b540be-6916-4cd2-b705-85ed337733f8");
+    public static readonly Guid JAYA_GUNLANCE_I = Guid.Parse("e37632e6-eb4f-4ae2-af3c-8cff15257b73");
     public static readonly Guid JIN_DHAANG_I = Guid.Parse("0aaf15cb-cd26-4693-8c85-e4583bb7ba51");
     public static readonly Guid JIN_DHACHHAD = Guid.Parse("4dd03f37-1174-4ef1-9890-aca650e039ee");
     public static readonly Guid JIN_DHAKLAB_I = Guid.Parse("3f190963-54b3-4263-be5a-26c086edb2ed");
@@ -654,6 +682,8 @@ public static class WeaponConstants {
     public static readonly Guid KAE_JINS_LAMENT = Guid.Parse("3b266963-ecc6-42ce-a8a7-b9a01cfa2b99");
     public static readonly Guid KAKARU_KUMO_NAKI_I = Guid.Parse("93e807e9-bac2-40e2-85ea-f727931df68f");
     public static readonly Guid KEEN_EDGE = Guid.Parse("72f9681a-8337-4870-b3c7-09dba0fef3d4");
+    public static readonly Guid KHANGA_EDGE_I = Guid.Parse("d1827462-e597-48e1-ac03-0eba63c5c355");
+    public static readonly Guid KHANGA_REBELLION = Guid.Parse("0935560b-6670-40f1-9af9-b6bbadc61191");
     public static readonly Guid KHLUNDA_OF_THE_WAVES = Guid.Parse("4f0b348f-68eb-4be1-b11d-0c1f960f888b");
     public static readonly Guid KHVILUK_OF_THE_WAVES = Guid.Parse("0a07bce0-5983-4520-b6bf-5c8e00300ac1");
     public static readonly Guid KIMI_GA_KIRU = Guid.Parse("aa5257bd-52a0-4ed9-9fd6-62ce23301f27");
@@ -675,6 +705,13 @@ public static class WeaponConstants {
     public static readonly Guid KUT_KU_THWAP = Guid.Parse("c5af5f97-c7d0-4cf4-a129-a241436bd413");
     public static readonly Guid KUT_KUS_SONG_I = Guid.Parse("6ba652b0-d308-43a4-9d11-6674d630526c");
     public static readonly Guid KUT_KUS_SONG_II = Guid.Parse("efbd6cfc-bb41-4157-9be2-dadd06fd94ff");
+    public static readonly Guid LAGIA_BLITZ_I = Guid.Parse("1593fbbd-9724-4af8-845e-2ae61b9ac3ec");
+    public static readonly Guid LAGIA_BURST_I = Guid.Parse("829e6f9c-195f-43ef-a677-8ac1785d2663");
+    public static readonly Guid LAGIA_HORN_I = Guid.Parse("5a99dcf4-efd9-4505-8f70-fa1498e5e7be");
+    public static readonly Guid LAGIA_STORM_I = Guid.Parse("28d80ec3-6e0d-4181-812f-3fc2adceb9ca");
+    public static readonly Guid LAGIA_SWORD_I = Guid.Parse("6af5a4f5-d678-4fd8-8972-ec26d1922537");
+    public static readonly Guid LAGIA_THUNDERPEAL = Guid.Parse("9418f492-eb7f-4481-8cc5-cbb5114276a4");
+    public static readonly Guid LAGIACRUS_BLADE_I = Guid.Parse("1b89658a-bf5c-44fe-a651-d03dc8502688");
     public static readonly Guid LALA_ACANTHOPELM = Guid.Parse("a7004099-4f3f-4b59-a487-754a0bc3d48f");
     public static readonly Guid LALA_AVICULARI = Guid.Parse("57ddc6fa-53ca-4efe-959d-d2fe0ded6899");
     public static readonly Guid LALA_EUMENOPHOR = Guid.Parse("6f13cf84-025d-4f17-a939-b1eb986046ff");
@@ -686,11 +723,16 @@ public static class WeaponConstants {
     public static readonly Guid LEIDENSKRAFT = Guid.Parse("a8559735-ba74-477c-ab6b-bfff22382b98");
     public static readonly Guid LEUMUNDSGIFT = Guid.Parse("a66eb7c4-f41f-4194-90ad-e5ae73388ece");
     public static readonly Guid LEUMUNDSLIST = Guid.Parse("5d67c27a-af72-4375-b5a3-6f3c850b2775");
+    public static readonly Guid LEVIN_ACRUS = Guid.Parse("74c4bd6b-188f-4829-aa9d-7152459e7a83");
+    public static readonly Guid MAD_SCAVENGER_PICKAXE = Guid.Parse("52e9058d-78d1-49a4-8ce4-e413c187b92d");
     public static readonly Guid MASTER_SABERS = Guid.Parse("465863ab-5748-4f50-b382-346e463fff12");
+    public static readonly Guid MATRACA_HAMMER_I = Guid.Parse("acbc4417-278b-4b78-bd5f-d6476dadfd2e");
     public static readonly Guid MELTING_POINT = Guid.Parse("7531d869-2069-486e-a61c-bd7eb62aa7b0");
     public static readonly Guid METAL_BAGPIPE_I = Guid.Parse("e65389d0-9c7d-4859-962a-ba2eb5fe58ee");
     public static readonly Guid METAL_BAGPIPE_II = Guid.Parse("7bfc6c41-ab3b-4748-b846-121278feac11");
     public static readonly Guid METAL_BAGPIPE_III = Guid.Parse("178b8b77-c17d-4826-907a-04f9c77090dc");
+    public static readonly Guid MIGHTY_CORNPOPPER = Guid.Parse("38942cea-dbab-4ac8-b35a-fc67b6dfc006");
+    public static readonly Guid MINING_PICKAXE = Guid.Parse("4586831e-b6fd-448a-92bb-fe8e128d453c");
     public static readonly Guid MIZUMORI = Guid.Parse("f710fcf5-b119-4804-b612-b48ef170129f");
     public static readonly Guid MIZUNIYA_DRILL_I = Guid.Parse("68015a97-fba5-449b-bd93-b45d23fb2a31");
     public static readonly Guid MORNING_DAWN_I = Guid.Parse("1b831d30-33c1-441b-a3fd-aa2c8c8c41a2");
@@ -698,6 +740,7 @@ public static class WeaponConstants {
     public static readonly Guid MOTEURVANKEL = Guid.Parse("0b259bd3-6e20-4de4-bca6-d83b7148d825");
     public static readonly Guid MOUNTAINOUS_ROAR = Guid.Parse("86067072-9580-43f1-9e1b-d25685e7d481");
     public static readonly Guid MUNDUS_ALTUS = Guid.Parse("bb2cc2e9-ef4b-4e31-89ca-5cd46688a9cc");
+    public static readonly Guid NAAB_SWORD_I = Guid.Parse("2c4394bc-5ec5-475e-a800-0f1109d7d61e");
     public static readonly Guid NER_BUSTERGUN_I = Guid.Parse("b4c823b1-ffdb-4058-a2cc-6ba9cc67ede2");
     public static readonly Guid NER_BUSTERGUN_II = Guid.Parse("889d7cfa-3390-4d03-9cec-9efd98678207");
     public static readonly Guid NER_BUSTERGUN_III = Guid.Parse("4090d107-be0b-4c59-9a03-99aad5890733");
@@ -756,7 +799,7 @@ public static class WeaponConstants {
     public static readonly Guid POISONED_CAPRI_I = Guid.Parse("5bfb8472-ecb8-4b25-a6ab-8a4e1a1f9ece");
     public static readonly Guid POISONED_CAPRI_II = Guid.Parse("b62503da-9798-4b55-a29d-4fbd91624e0f");
     public static readonly Guid POWER_RIFLE = Guid.Parse("0baa73f4-03ed-46d2-8891-e6e7d3163f3f");
-    public static readonly Guid POWER_STINGER = Guid.Parse("5d48c6d3-7f66-40ce-8263-837118064727");
+    public static readonly Guid POWER_STINGER_I = Guid.Parse("5d48c6d3-7f66-40ce-8263-837118064727");
     public static readonly Guid POWER_STINGER_II = Guid.Parse("1efb4fd9-45be-4b7c-b58e-41ddb4876ac6");
     public static readonly Guid PRECIPICE_GEUMGEL = Guid.Parse("60fd4f76-51b1-4a64-98ef-4a22bfd539ba");
     public static readonly Guid PRECIPICE_KOVIRA = Guid.Parse("26ccbd45-36b2-49b6-9299-fd0504465172");
@@ -813,6 +856,7 @@ public static class WeaponConstants {
     public static readonly Guid QUEMATRICE_SILEXES_II = Guid.Parse("1be3200a-e92d-477e-ada9-5cf848729763");
     public static readonly Guid QUEMATRICE_SILEXES_III = Guid.Parse("0539fdc6-2fd4-48ab-b4ac-fd8fde9d5b6c");
     public static readonly Guid QUEMATRICE_SILEXES_IV = Guid.Parse("354423d5-b29e-438a-b767-0cac16f328a9");
+    public static readonly Guid RASASA_BOWGUN_I = Guid.Parse("9455f6cb-83e1-406f-aa1a-2b0b101b1d85");
     public static readonly Guid RATH_BLAZE_SPLITTER = Guid.Parse("0a36c102-9eea-42c6-988a-51b1a5488fcb");
     public static readonly Guid RATH_FLAMESPLITTER_I = Guid.Parse("1a5d9ba6-58b5-4ea9-8cfd-b5ce57224b2b");
     public static readonly Guid RATHALOS_FEROCE = Guid.Parse("491eb4b7-b649-41b8-b9a2-9b9b798eb2af");
@@ -821,6 +865,8 @@ public static class WeaponConstants {
     public static readonly Guid RATHLING_PHOENIX = Guid.Parse("cc86abd1-7495-4086-87de-1b0c514b2a4a");
     public static readonly Guid RATHMAUL_I = Guid.Parse("43f093e0-c0d9-4fd1-988d-78bd17cd78c1");
     public static readonly Guid RAVAGER_BLADE = Guid.Parse("8a91bb02-51ea-4f53-bc4e-f583968a1af1");
+    public static readonly Guid REBEL_STOPPER = Guid.Parse("7542c975-9c24-4245-b6b2-6a4a1afbf20d");
+    public static readonly Guid REBELLIOUS_CHARGER = Guid.Parse("9d05b1e3-b0e1-4a19-9ad4-708813a81b64");
     public static readonly Guid RED_BLUDGEON_I = Guid.Parse("46fa02bb-a8db-417c-b263-682979758a6a");
     public static readonly Guid RED_ROOK_I = Guid.Parse("6da133d6-ab41-4426-8e60-2cc38e44736b");
     public static readonly Guid RED_TAIL_I = Guid.Parse("713c279e-5fd3-473d-9eaa-a30b19a03ee5");
@@ -854,6 +900,7 @@ public static class WeaponConstants {
     public static readonly Guid REY_TONITRUS_II = Guid.Parse("39035724-a667-413e-a998-da0791b0ed78");
     public static readonly Guid REY_TONITRUS_III = Guid.Parse("498ea505-528b-4866-8a60-a2ef256e96fe");
     public static readonly Guid RIGHTEOUS_LANCELOT = Guid.Parse("f25ba34d-68fe-46ed-a402-758d64721cd5");
+    public static readonly Guid RIOTOUS_GUNLANCE = Guid.Parse("970023e4-2f8b-4975-b20d-d0854e4bf143");
     public static readonly Guid RISING_FULGUR_I = Guid.Parse("f9a99ef9-07ec-4434-865e-4d06d2f5e6a1");
     public static readonly Guid ROMPO_DENDROTOX = Guid.Parse("63af348b-11eb-4685-a330-40643b87ab39");
     public static readonly Guid ROMPO_HACKER_I = Guid.Parse("024ac967-e577-4ea5-80c1-a2115b1e8f5a");
@@ -883,13 +930,16 @@ public static class WeaponConstants {
     public static readonly Guid SANDSEA_UCHALTIYA = Guid.Parse("c195e0e4-5755-41bd-b42f-05c294941095");
     public static readonly Guid SANDSEA_VISPONAN = Guid.Parse("b94484dc-da66-46ae-b290-c9a0bff5092d");
     public static readonly Guid SAWBILL_AXE = Guid.Parse("3ab63f9a-4d74-40fb-a07d-715029660a01");
+    public static readonly Guid SAYYAD_CANNON_I = Guid.Parse("f96de0d1-9ade-4472-a762-3c7a835ea000");
     public static readonly Guid SCALY_SWORD_I = Guid.Parse("d90ddffb-2abe-45a4-a3af-92e2d575b9ab");
     public static readonly Guid SCALY_SWORD_II = Guid.Parse("1488286e-d1a1-4d70-b63a-442521d5e1a7");
     public static readonly Guid SCALY_SWORD_III = Guid.Parse("ce6b5885-1d58-484e-b6dd-3abc616b41ce");
+    public static readonly Guid SCAVENGER_PICKAXE = Guid.Parse("e3d1cebb-121b-4c14-8443-eded57c68c0b");
     public static readonly Guid SCHATTENSTOLZ_I = Guid.Parse("ba08e119-979b-4cd3-b215-6732579c1423");
     public static readonly Guid SCYLLA_FIST_I = Guid.Parse("159b1dbe-a413-4b16-8ce2-cb740b7b0f6c");
     public static readonly Guid SCYLLA_FIST_II = Guid.Parse("4a9eaf71-9e71-4e70-9abe-7943fa9be7c4");
     public static readonly Guid SCYLLA_FIST_III = Guid.Parse("55ea6f38-f029-4b99-897c-897576497486");
+    public static readonly Guid SHALYA_BOW_I = Guid.Parse("b9a4e32e-b43d-4f7c-acdb-bbd93a1bb622");
     public static readonly Guid SHELL_GUNBERD_I = Guid.Parse("9e51d6d0-ba26-4fa6-9174-59bcfac1dc5c");
     public static readonly Guid SHELL_GUNBERD_II = Guid.Parse("871ea09a-945d-497d-aba1-c4bf1673e486");
     public static readonly Guid SHELL_GUNBERD_III = Guid.Parse("8b4798fb-843f-47e2-9f41-d3fe89ea61ac");
@@ -938,6 +988,12 @@ public static class WeaponConstants {
     public static readonly Guid TANKMAGE_I = Guid.Parse("eee16785-0a21-4252-99cc-72cf02ce2e6d");
     public static readonly Guid TANKMAGE_II = Guid.Parse("b390ced6-f44d-4002-b27e-1abc77ee852e");
     public static readonly Guid TANKSORCERER = Guid.Parse("fb858d35-f37a-466d-a62e-e8eaa8f6099d");
+    public static readonly Guid TERRIBLE_TWINS = Guid.Parse("9c85c3a6-c5e5-4a29-a930-17bee8c2abb5");
+    public static readonly Guid THUNDACRUS_I = Guid.Parse("d07087df-9402-4505-8f42-6503f437ebe6");
+    public static readonly Guid THUNDACRUS_REX = Guid.Parse("8f925d40-3caf-4bc4-9450-4b4082f9bf51");
+    public static readonly Guid THUNDER_GLAIVE_TRIACRUS_I = Guid.Parse("446924dc-e977-4252-a944-57d4b1a4f1ab");
+    public static readonly Guid THUNDERBLITZ_CANNON = Guid.Parse("d8dd83d0-b34f-4b88-aa4a-da9dae3f4fcc");
+    public static readonly Guid THUNDERCLAP_I = Guid.Parse("0fb7768a-435a-45ae-b4d1-70af71a22435");
     public static readonly Guid TILTKREISE = Guid.Parse("fa6f1c54-f7e5-47e6-a3e9-6b4b08a6f3ad");
     public static readonly Guid TITAN_LAUNCHER_I = Guid.Parse("aab3bdf4-067c-4e7b-9c0e-14df62ae4664");
     public static readonly Guid TITAN_PANZER = Guid.Parse("f439c5ad-943c-4de5-9824-e4975d7ec4e9");
@@ -950,6 +1006,8 @@ public static class WeaponConstants {
     public static readonly Guid TRIPLE_BAYONET_III = Guid.Parse("f38598c5-d789-4704-a2df-d2f56643069c");
     public static readonly Guid TRIUMVIRATE_EDGE = Guid.Parse("34e8b2d3-551c-46c5-a48d-0e1df255d8de");
     public static readonly Guid TRUE_DRAGON_PERFORATOR = Guid.Parse("8f4b397b-1ca7-4500-b970-75206a3e90e0");
+    public static readonly Guid TURBULENT_LANCE = Guid.Parse("042ac14c-9c2c-4087-b2e1-b252ad2a3db3");
+    public static readonly Guid TWIN_ACRUS_I = Guid.Parse("990eddc7-8599-46cd-afd1-2663a2b1265e");
     public static readonly Guid TWIN_ALBIRATHS_I = Guid.Parse("e7a19831-968f-4908-bd46-a4204df147cf");
     public static readonly Guid TWIN_ALBIRATHS_II = Guid.Parse("3b39771b-e631-4618-9e23-52aa28991564");
     public static readonly Guid TWIN_FLAMES_I = Guid.Parse("f5fa3559-8f00-45c8-9079-7a230bf12b1c");
@@ -976,6 +1034,7 @@ public static class WeaponConstants {
     public static readonly Guid UTH_VALEROJE_I = Guid.Parse("e397d205-22aa-41ad-ab67-f269c8d55cb3");
     public static readonly Guid UTH_VALEROJE_II = Guid.Parse("223e0f38-0bae-4299-a206-ee9c2399b494");
     public static readonly Guid UTH_VALEROJE_III = Guid.Parse("4c8d3924-153e-4c2a-b964-e34d86564ad6");
+    public static readonly Guid VADYA_MUSE_I = Guid.Parse("ef66d33a-557b-4371-aeba-e38f5544d1f1");
     public static readonly Guid VALEROJE_OF_THE_WAVES = Guid.Parse("f9d8cdd3-bc41-4561-98ca-7f00a1927075");
     public static readonly Guid VALKYRIE_BLADE_I = Guid.Parse("5a2ddece-8466-4964-8284-d78c8366a580");
     public static readonly Guid VALKYRIE_BLADE_II = Guid.Parse("3b056739-e6c0-490b-b819-8f86d3193437");
@@ -984,6 +1043,9 @@ public static class WeaponConstants {
     public static readonly Guid VALKYRIE_FIRE_I = Guid.Parse("73bac24f-704f-45de-90f2-2ff23926fdd2");
     public static readonly Guid VALKYRIE_FIRE_II = Guid.Parse("18cf90c1-4958-448d-88ad-92f9a4c4a352");
     public static readonly Guid VALKYRIE_FLAME = Guid.Parse("93d83e7f-573e-4971-bdd1-7f932792e5a6");
+    public static readonly Guid VANGUARDS_GLAIVE = Guid.Parse("4a26f100-67d5-471a-b204-494306288c30");
+    public static readonly Guid VANGUARDS_PRIDE = Guid.Parse("13872093-9ff7-4817-8c3a-b02d7b4c5af7");
+    public static readonly Guid VANKROM_BLADE = Guid.Parse("c760d4e1-8ad5-4055-90f9-681367ff66b4");
     public static readonly Guid VARIANZA = Guid.Parse("d567db63-65ed-4f7b-a4fe-3d2f97598bba");
     public static readonly Guid VELDIAN_ARCUM_I = Guid.Parse("03e5b065-cb9a-4396-b1e4-a384edd10c7f");
     public static readonly Guid VELDIAN_ENSIS_I = Guid.Parse("81ccabbe-b1f5-4a17-ac8c-3a913d212f84");
@@ -1008,6 +1070,7 @@ public static class WeaponConstants {
     public static readonly Guid VERRÄTERARM = Guid.Parse("200efc08-252e-4d98-ad8a-03d9da695208");
     public static readonly Guid VERZWEIFLUNG = Guid.Parse("f2983289-b269-4531-a56f-10be21c2de0e");
     public static readonly Guid VIPERINE_SABER = Guid.Parse("ff056890-783a-447e-978b-fbdb669dcc6c");
+    public static readonly Guid VORTEX_HAMMER_I = Guid.Parse("6fc293bf-5feb-4755-acb9-669a0d3019a0");
     public static readonly Guid WAHNSCHLEUDER = Guid.Parse("48f7f04a-e5c4-48a4-94b1-6f301771c558");
     public static readonly Guid WAR_BONGO_I = Guid.Parse("e68c3d72-f6f1-4a3c-a486-4cbbadc9adc6");
     public static readonly Guid WAR_BONGO_II = Guid.Parse("52031727-ddd4-4ba1-89c8-c8c5e82f9259");
@@ -1061,6 +1124,7 @@ public static class WeaponConstants {
     public static readonly Guid YIAN_KUT_KU_CANNON_I = Guid.Parse("bc6455c6-a8bc-41ba-893f-5fc410fe5e1c");
     public static readonly Guid YIAN_KUT_KU_CANNON_II = Guid.Parse("47bdb532-c86c-482f-8109-3812bfc601e1");
     public static readonly Guid ZACCIOS_EXECUTION = Guid.Parse("5bc4e835-9762-453f-ae81-771621829de8");
+    public static readonly Guid ZAKUN_TWINS_I = Guid.Parse("08e25de0-1664-4f6e-b14c-b2fb18fdac93");
     public static readonly Guid ZOH_GARIEL_I = Guid.Parse("99c2ca86-de17-402c-8d76-e77b60247b72");
     public static readonly Guid ZOH_KAIAH_I = Guid.Parse("0ebdd80f-72bf-46d6-83ad-77e54257f208");
     public static readonly Guid ZOH_KATIR_I = Guid.Parse("fa608be0-9a08-4a5f-afdb-8c5c297ecf65");

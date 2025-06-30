@@ -100,7 +100,7 @@
 	<!-- MHWS -->
 	<PropertyGroup Condition="$(Configuration.StartsWith('MHWS'))">
 		<AssemblyName>MHWS-Obsolete-Detector</AssemblyName>
-		<AssemblyVersion>1.1.0.0</AssemblyVersion>
+		<AssemblyVersion>1.2.0.0</AssemblyVersion>
 	</PropertyGroup>
 	<ItemGroup Condition="$(Configuration.StartsWith('MHWS'))">
 		<Compile Update="Data\MHWS\Assets.Designer.cs">

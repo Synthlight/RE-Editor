@@ -70,11 +70,13 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed BARREL_BOMB = App_ItemDef_ID_Fixed.ITEM_0012;
     public const App_ItemDef_ID_Fixed BARREL_BOWLING_VOUCHER = App_ItemDef_ID_Fixed.ITEM_0810;
     public const App_ItemDef_ID_Fixed BASIC_MATERIAL = App_ItemDef_ID_Fixed.ITEM_0496;
+    public const App_ItemDef_ID_Fixed BEACH_BARREL_BOMB = App_ItemDef_ID_Fixed.ITEM_0829;
     public const App_ItemDef_ID_Fixed BEAST_GEM = App_ItemDef_ID_Fixed.ITEM_0036;
     public const App_ItemDef_ID_Fixed BINOCULARS = App_ItemDef_ID_Fixed.ITEM_0021;
     public const App_ItemDef_ID_Fixed BIRD_WYVERN_GEM = App_ItemDef_ID_Fixed.ITEM_0560;
     public const App_ItemDef_ID_Fixed BITTERBUG_BROTH = App_ItemDef_ID_Fixed.ITEM_0028;
     public const App_ItemDef_ID_Fixed BLACKEMBER_MASS = App_ItemDef_ID_Fixed.ITEM_0745;
+    public const App_ItemDef_ID_Fixed BLADESCALE_POD = App_ItemDef_ID_Fixed.ITEM_0839;
     public const App_ItemDef_ID_Fixed BLANGO_PELT_PLUS = App_ItemDef_ID_Fixed.ITEM_0603;
     public const App_ItemDef_ID_Fixed BLANGONGA_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0567;
     public const App_ItemDef_ID_Fixed BLANGONGA_FANG_PLUS = App_ItemDef_ID_Fixed.ITEM_0564;
@@ -155,6 +157,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed DEMONDRUG = App_ItemDef_ID_Fixed.ITEM_0194;
     public const App_ItemDef_ID_Fixed DEODORANT = App_ItemDef_ID_Fixed.ITEM_0238;
     public const App_ItemDef_ID_Fixed DEVILS_BLIGHT = App_ItemDef_ID_Fixed.ITEM_0155;
+    public const App_ItemDef_ID_Fixed DIVING_TICKET = App_ItemDef_ID_Fixed.ITEM_0792;
     public const App_ItemDef_ID_Fixed DOSHAGUMA_CERTIFICATE = App_ItemDef_ID_Fixed.ITEM_0342;
     public const App_ItemDef_ID_Fixed DOSHAGUMA_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0347;
     public const App_ItemDef_ID_Fixed DOSHAGUMA_CLAW = App_ItemDef_ID_Fixed.ITEM_0034;
@@ -165,6 +168,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed DOSHAGUMA_FUR_PLUS = App_ItemDef_ID_Fixed.ITEM_0343;
     public const App_ItemDef_ID_Fixed DOSHAGUMA_HIDE = App_ItemDef_ID_Fixed.ITEM_0032;
     public const App_ItemDef_ID_Fixed DOSHAGUMA_HIDE_PLUS = App_ItemDef_ID_Fixed.ITEM_0344;
+    public const App_ItemDef_ID_Fixed DOSHAGUMA_SKETCH = App_ItemDef_ID_Fixed.ITEM_0820;
     public const App_ItemDef_ID_Fixed DRAGON_AMMO = App_ItemDef_ID_Fixed.ITEM_0056;
     public const App_ItemDef_ID_Fixed DRAGON_POD = App_ItemDef_ID_Fixed.ITEM_0313;
     public const App_ItemDef_ID_Fixed DRAGONBONE_RELIC = App_ItemDef_ID_Fixed.ITEM_0083;
@@ -223,6 +227,9 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed FIRST_AID_MED_PLUS = App_ItemDef_ID_Fixed.ITEM_0224;
     public const App_ItemDef_ID_Fixed FISHING_ROD = App_ItemDef_ID_Fixed.ITEM_0188;
     public const App_ItemDef_ID_Fixed FLAME_SAC = App_ItemDef_ID_Fixed.ITEM_0619;
+    public const App_ItemDef_ID_Fixed FLAMEFETE_CATALOG = App_ItemDef_ID_Fixed.ITEM_0793;
+    public const App_ItemDef_ID_Fixed FLAMEFETE_TICKET = App_ItemDef_ID_Fixed.ITEM_0791;
+    public const App_ItemDef_ID_Fixed FLAMEFETE_VOUCHER = App_ItemDef_ID_Fixed.ITEM_0812;
     public const App_ItemDef_ID_Fixed FLAMING_AMMO = App_ItemDef_ID_Fixed.ITEM_0052;
     public const App_ItemDef_ID_Fixed FLASH_POD = App_ItemDef_ID_Fixed.ITEM_0014;
     public const App_ItemDef_ID_Fixed FLASHBUG_PHOSPHOR = App_ItemDef_ID_Fixed.ITEM_0029;
@@ -342,6 +349,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed HEAVY_EXPLOSION_POD = App_ItemDef_ID_Fixed.ITEM_0495;
     public const App_ItemDef_ID_Fixed HEAVY_PIERCING_POD = App_ItemDef_ID_Fixed.ITEM_0501;
     public const App_ItemDef_ID_Fixed HEAVY_SLICING_POD = App_ItemDef_ID_Fixed.ITEM_0494;
+    public const App_ItemDef_ID_Fixed HELIX_PIERCING_POD = App_ItemDef_ID_Fixed.ITEM_0838;
     public const App_ItemDef_ID_Fixed HERB = App_ItemDef_ID_Fixed.ITEM_0025;
     public const App_ItemDef_ID_Fixed HERBAL_MEDICINE = App_ItemDef_ID_Fixed.ITEM_0200;
     public const App_ItemDef_ID_Fixed HERBAL_POWDER = App_ItemDef_ID_Fixed.ITEM_0201;
@@ -388,6 +396,14 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed KUT_KU_EAR = App_ItemDef_ID_Fixed.ITEM_0550;
     public const App_ItemDef_ID_Fixed KUT_KU_SCALE_PLUS = App_ItemDef_ID_Fixed.ITEM_0548;
     public const App_ItemDef_ID_Fixed KUT_KU_WING = App_ItemDef_ID_Fixed.ITEM_0552;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0754;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_CLAW_PLUS = App_ItemDef_ID_Fixed.ITEM_0760;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_HIDE_PLUS = App_ItemDef_ID_Fixed.ITEM_0756;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_HORN_PLUS = App_ItemDef_ID_Fixed.ITEM_0758;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_SAPPHIRE = App_ItemDef_ID_Fixed.ITEM_0761;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_SCALE_PLUS = App_ItemDef_ID_Fixed.ITEM_0755;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_SHOCKSPIKE = App_ItemDef_ID_Fixed.ITEM_0757;
+    public const App_ItemDef_ID_Fixed LAGIACRUS_TAIL = App_ItemDef_ID_Fixed.ITEM_0759;
     public const App_ItemDef_ID_Fixed LALA_BARINA_CARAPACE = App_ItemDef_ID_Fixed.ITEM_0333;
     public const App_ItemDef_ID_Fixed LALA_BARINA_CERTIFICATE = App_ItemDef_ID_Fixed.ITEM_0302;
     public const App_ItemDef_ID_Fixed LALA_BARINA_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0336;
@@ -436,6 +452,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed MYSTERY_BONE = App_ItemDef_ID_Fixed.ITEM_0079;
     public const App_ItemDef_ID_Fixed MYSTERY_ORB___ARMOR = App_ItemDef_ID_Fixed.ITEM_0182;
     public const App_ItemDef_ID_Fixed MYSTERY_ORB___SWORD = App_ItemDef_ID_Fixed.ITEM_0645;
+    public const App_ItemDef_ID_Fixed NECKLACE_TICKET = App_ItemDef_ID_Fixed.ITEM_0819;
     public const App_ItemDef_ID_Fixed NERSCYLLA_CARAPACE = App_ItemDef_ID_Fixed.ITEM_0544;
     public const App_ItemDef_ID_Fixed NERSCYLLA_CERTIFICATE = App_ItemDef_ID_Fixed.ITEM_0543;
     public const App_ItemDef_ID_Fixed NERSCYLLA_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0547;
@@ -566,6 +583,14 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed SCREAMER_POD = App_ItemDef_ID_Fixed.ITEM_0091;
     public const App_ItemDef_ID_Fixed SCREAMER_POD_2 = App_ItemDef_ID_Fixed.ITEM_0304;
     public const App_ItemDef_ID_Fixed SEALED_DRAGON_CLOTH = App_ItemDef_ID_Fixed.ITEM_0817;
+    public const App_ItemDef_ID_Fixed SEREGIOS_AIRBLADE = App_ItemDef_ID_Fixed.ITEM_0575;
+    public const App_ItemDef_ID_Fixed SEREGIOS_BREACHER = App_ItemDef_ID_Fixed.ITEM_0578;
+    public const App_ItemDef_ID_Fixed SEREGIOS_CARVER = App_ItemDef_ID_Fixed.ITEM_0576;
+    public const App_ItemDef_ID_Fixed SEREGIOS_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0581;
+    public const App_ItemDef_ID_Fixed SEREGIOS_DISSENTER = App_ItemDef_ID_Fixed.ITEM_0580;
+    public const App_ItemDef_ID_Fixed SEREGIOS_IMPALER = App_ItemDef_ID_Fixed.ITEM_0577;
+    public const App_ItemDef_ID_Fixed SEREGIOS_SCRAPER = App_ItemDef_ID_Fixed.ITEM_0579;
+    public const App_ItemDef_ID_Fixed SEREGIOS_SLAVESCALE = App_ItemDef_ID_Fixed.ITEM_0574;
     public const App_ItemDef_ID_Fixed SF6_TICKET = App_ItemDef_ID_Fixed.ITEM_0806;
     public const App_ItemDef_ID_Fixed SHARP_FANG = App_ItemDef_ID_Fixed.ITEM_0119;
     public const App_ItemDef_ID_Fixed SHARP_KUNAFA_CHEESE = App_ItemDef_ID_Fixed.ITEM_0240;
@@ -620,6 +645,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed TIME_HONED_WYLK_GEM = App_ItemDef_ID_Fixed.ITEM_0286;
     public const App_ItemDef_ID_Fixed TINGED_MEAT = App_ItemDef_ID_Fixed.ITEM_0234;
     public const App_ItemDef_ID_Fixed TOADSTOOL = App_ItemDef_ID_Fixed.ITEM_0139;
+    public const App_ItemDef_ID_Fixed TOE_BEAN_TICKET = App_ItemDef_ID_Fixed.ITEM_0821;
     public const App_ItemDef_ID_Fixed TORCH_POD = App_ItemDef_ID_Fixed.ITEM_0215;
     public const App_ItemDef_ID_Fixed TORRENT_SAC = App_ItemDef_ID_Fixed.ITEM_0622;
     public const App_ItemDef_ID_Fixed TOUGH_GUARDIAN_BONE = App_ItemDef_ID_Fixed.ITEM_0614;
@@ -633,6 +659,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed TURBID_SHRIMP = App_ItemDef_ID_Fixed.ITEM_0244;
     public const App_ItemDef_ID_Fixed UTH_DUNA_CERTIFICATE = App_ItemDef_ID_Fixed.ITEM_0354;
     public const App_ItemDef_ID_Fixed UTH_DUNA_CERTIFICATE_S = App_ItemDef_ID_Fixed.ITEM_0361;
+    public const App_ItemDef_ID_Fixed UTH_DUNA_CERTIFICATE_Γ = App_ItemDef_ID_Fixed.ITEM_0784;
     public const App_ItemDef_ID_Fixed UTH_DUNA_CILIA = App_ItemDef_ID_Fixed.ITEM_0350;
     public const App_ItemDef_ID_Fixed UTH_DUNA_CILIA_PLUS = App_ItemDef_ID_Fixed.ITEM_0357;
     public const App_ItemDef_ID_Fixed UTH_DUNA_CLAW = App_ItemDef_ID_Fixed.ITEM_0352;
@@ -664,6 +691,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed WINDWARD_ALOE = App_ItemDef_ID_Fixed.ITEM_0257;
     public const App_ItemDef_ID_Fixed WINGDRAKE_HIDE = App_ItemDef_ID_Fixed.ITEM_0120;
     public const App_ItemDef_ID_Fixed WINGDRAKE_HIDE_PLUS = App_ItemDef_ID_Fixed.ITEM_0518;
+    public const App_ItemDef_ID_Fixed WORN_PICKAXE = App_ItemDef_ID_Fixed.ITEM_0794;
     public const App_ItemDef_ID_Fixed WUDWUD_TREASURE = App_ItemDef_ID_Fixed.ITEM_0659;
     public const App_ItemDef_ID_Fixed WYLK_GEM = App_ItemDef_ID_Fixed.ITEM_0285;
     public const App_ItemDef_ID_Fixed WYLK_PEBBLE = App_ItemDef_ID_Fixed.ITEM_0284;

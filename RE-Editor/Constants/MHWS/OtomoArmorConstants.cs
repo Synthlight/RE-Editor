@@ -54,10 +54,14 @@ public static class OtomoArmorConstants {
     public const int F_ROMPOPOLO_BRAIN_Α = 63;
     public const int F_ROMPOPOLO_SUIT = 22;
     public const int F_ROMPOPOLO_SUIT_Α = 64;
+    public const int FELYNE_AFI_FIREMANE_Α = 159;
+    public const int FELYNE_AFI_FIREPELT_Α = 160;
     public const int FELYNE_ALLOY_HELM = 9;
     public const int FELYNE_ALLOY_HELM_Α = 49;
     public const int FELYNE_ALLOY_MAIL = 10;
     public const int FELYNE_ALLOY_MAIL_Α = 50;
+    public const int FELYNE_ALOHA_SHIRT_Α = 162;
+    public const int FELYNE_ALOHA_STRAW_HAT_Α = 161;
     public const int FELYNE_ARKVELD_HELM_Α = 105;
     public const int FELYNE_ARKVELD_MAIL_Α = 106;
     public const int FELYNE_ARTIAN_CORE_Α = 121;
@@ -72,6 +76,7 @@ public static class OtomoArmorConstants {
     public const int FELYNE_BARINA_DRESS_Α = 56;
     public const int FELYNE_BARINA_WIG = 11;
     public const int FELYNE_BARINA_WIG_Α = 55;
+    public const int FELYNE_BELL_COLLAR_Α = 180;
     public const int FELYNE_BLANGO_BODY_Α = 88;
     public const int FELYNE_BLANGO_HEAD_Α = 87;
     public const int FELYNE_BONE_HELM = 3;
@@ -97,8 +102,10 @@ public static class OtomoArmorConstants {
     public const int FELYNE_DUFFEL_HOOD = 125;
     public const int FELYNE_DUNA_CAPE = 20;
     public const int FELYNE_DUNA_CAPE_Α = 98;
+    public const int FELYNE_DUNA_CAPE_Γ = 148;
     public const int FELYNE_DUNA_MASK = 19;
     public const int FELYNE_DUNA_MASK_Α = 97;
+    public const int FELYNE_DUNA_MASK_Γ = 147;
     public const int FELYNE_GORE_GHOST_Α = 102;
     public const int FELYNE_GORE_HORROR_Α = 101;
     public const int FELYNE_GRAV_ARMOR_Α = 92;
@@ -117,6 +124,8 @@ public static class OtomoArmorConstants {
     public const int FELYNE_KUNAFA_SUIT_Α = 112;
     public const int FELYNE_KUT_KU_MASK_Α = 59;
     public const int FELYNE_KUT_KU_WEAR_Α = 60;
+    public const int FELYNE_LAGIA_MAIL_Α = 140;
+    public const int FELYNE_LAGIA_TRICORNE_Α = 139;
     public const int FELYNE_LEATHER_CAP = 123;
     public const int FELYNE_LEATHER_VEST = 124;
     public const int FELYNE_QUEMA_HELM = 7;
@@ -131,6 +140,8 @@ public static class OtomoArmorConstants {
     public const int FELYNE_SCYLLA_MAIL_Α = 68;
     public const int FELYNE_SCYLLA_MASK = 25;
     public const int FELYNE_SCYLLA_MASK_Α = 67;
+    public const int FELYNE_SEREGIOS_HELM_Α = 141;
+    public const int FELYNE_SEREGIOS_MAIL_Α = 142;
     public const int FELYNE_SILD_HOOD_Α = 119;
     public const int FELYNE_SILD_SUIT_Α = 120;
     public const int FELYNE_SUJA_FROG_Α = 117;

@@ -31,12 +31,14 @@ public static partial class PathHelper {
         "re_chunk_000.pak.patch_003.pak",
         "re_chunk_000.pak.patch_004.pak",
         "re_chunk_000.pak.patch_005.pak",
+        "re_chunk_000.pak.patch_006.pak",
         "re_chunk_000.pak.sub_000.pak",
         "re_chunk_000.pak.sub_000.pak.patch_001.pak",
         "re_chunk_000.pak.sub_000.pak.patch_002.pak",
         "re_chunk_000.pak.sub_000.pak.patch_003.pak",
         "re_chunk_000.pak.sub_000.pak.patch_004.pak",
-        "re_chunk_000.pak.sub_000.pak.patch_005.pak"
+        "re_chunk_000.pak.sub_000.pak.patch_005.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_006.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
@@ -61,7 +63,11 @@ public static partial class PathHelper {
             "re_chunk_000.pak.patch_005.pak",
             "re_chunk_000.pak.sub_000.pak.patch_004.pak",
             "re_chunk_000.pak.sub_000.pak.patch_005.pak"
-        ]) {updateName = "Street Fighter 6 Special Collaboration"}
+        ]) {updateName = "Street Fighter 6 Special Collaboration"},
+        new(new(2025, 06, 30), "1.020.00.00", [
+            "re_chunk_000.pak.patch_006.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_006.pak"
+        ]) {updateName = "Title Update 2"}
     ];
 
     public const string NEXUS_URL              = "";

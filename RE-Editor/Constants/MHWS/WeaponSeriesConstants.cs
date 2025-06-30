@@ -28,6 +28,8 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed GYPCEROS_TREE = App_WeaponDef_SERIES_Fixed.ID_025;
     public const App_WeaponDef_SERIES_Fixed HIRABAMI_TREE = App_WeaponDef_SERIES_Fixed.ID_014;
     public const App_WeaponDef_SERIES_Fixed JIN_DAHAAD_TREE = App_WeaponDef_SERIES_Fixed.ID_019;
+    public const App_WeaponDef_SERIES_Fixed KUNAFA_TREE = App_WeaponDef_SERIES_Fixed.ID_046;
+    public const App_WeaponDef_SERIES_Fixed LAGIACRUS_TREE = App_WeaponDef_SERIES_Fixed.ID_040;
     public const App_WeaponDef_SERIES_Fixed LALA_BARINA_TREE = App_WeaponDef_SERIES_Fixed.ID_006;
     public const App_WeaponDef_SERIES_Fixed MIZUTSUNE_TREE = App_WeaponDef_SERIES_Fixed.ID_039;
     public const App_WeaponDef_SERIES_Fixed NERSCYLLA_TREE = App_WeaponDef_SERIES_Fixed.ID_013;
@@ -39,6 +41,7 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed RATHIAN_TREE = App_WeaponDef_SERIES_Fixed.ID_026;
     public const App_WeaponDef_SERIES_Fixed REY_DAU_TREE = App_WeaponDef_SERIES_Fixed.ID_012;
     public const App_WeaponDef_SERIES_Fixed ROMPOPOLO_TREE = App_WeaponDef_SERIES_Fixed.ID_011;
+    public const App_WeaponDef_SERIES_Fixed SEREGIOS_TREE = App_WeaponDef_SERIES_Fixed.ID_029;
     public const App_WeaponDef_SERIES_Fixed SPEARTUNA_TREE = App_WeaponDef_SERIES_Fixed.ID_043;
     public const App_WeaponDef_SERIES_Fixed UTH_DUNA_TREE = App_WeaponDef_SERIES_Fixed.ID_010;
     public const App_WeaponDef_SERIES_Fixed VESPOID_TREE = App_WeaponDef_SERIES_Fixed.ID_044;

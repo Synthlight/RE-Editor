@@ -85,6 +85,7 @@ public static class EnemyConstants {
     public const App_EnemyDef_ID_Fixed JEWEL_SCARAB = App_EnemyDef_ID_Fixed.EM5211_00_0;
     public const App_EnemyDef_ID_Fixed JIN_DAHAAD = App_EnemyDef_ID_Fixed.EM0162_00_0;
     public const App_EnemyDef_ID_Fixed KRANODATH = App_EnemyDef_ID_Fixed.EM1158_00_0;
+    public const App_EnemyDef_ID_Fixed LAGIACRUS = App_EnemyDef_ID_Fixed.EM0046_00_0;
     public const App_EnemyDef_ID_Fixed LALA_BARINA = App_EnemyDef_ID_Fixed.EM0154_00_0;
     public const App_EnemyDef_ID_Fixed LANDLIGHT_SHRIMP = App_EnemyDef_ID_Fixed.EM5202_00_0;
     public const App_EnemyDef_ID_Fixed LEAFLUGGER_ANT = App_EnemyDef_ID_Fixed.EM5102_00_0;
@@ -124,6 +125,7 @@ public static class EnemyConstants {
     public const App_EnemyDef_ID_Fixed SANDSTAR = App_EnemyDef_ID_Fixed.EM5219_00_0;
     public const App_EnemyDef_ID_Fixed SCALEBAT = App_EnemyDef_ID_Fixed.EM5220_00_0;
     public const App_EnemyDef_ID_Fixed SCARLET_JOYPERCH = App_EnemyDef_ID_Fixed.EM5215_00_0;
+    public const App_EnemyDef_ID_Fixed SEREGIOS = App_EnemyDef_ID_Fixed.EM0077_00_0;
     public const App_EnemyDef_ID_Fixed SLEEPTOAD = App_EnemyDef_ID_Fixed.EM5001_20_0;
     public const App_EnemyDef_ID_Fixed SMOKESHROUD_GEKKO = App_EnemyDef_ID_Fixed.EM5217_00_0;
     public const App_EnemyDef_ID_Fixed SOLANARIA = App_EnemyDef_ID_Fixed.EM5223_00_0;

@@ -27,6 +27,7 @@ public static class EnemyConstantsLarge {
     public const App_EnemyDef_ID_Fixed HIGH_PURRFORMANCE_BARREL_PUNCHER = App_EnemyDef_ID_Fixed.EM0165_00_0;
     public const App_EnemyDef_ID_Fixed HIRABAMI = App_EnemyDef_ID_Fixed.EM0161_00_0;
     public const App_EnemyDef_ID_Fixed JIN_DAHAAD = App_EnemyDef_ID_Fixed.EM0162_00_0;
+    public const App_EnemyDef_ID_Fixed LAGIACRUS = App_EnemyDef_ID_Fixed.EM0046_00_0;
     public const App_EnemyDef_ID_Fixed LALA_BARINA = App_EnemyDef_ID_Fixed.EM0154_00_0;
     public const App_EnemyDef_ID_Fixed MIZUTSUNE = App_EnemyDef_ID_Fixed.EM0082_00_0;
     public const App_EnemyDef_ID_Fixed NERSCYLLA = App_EnemyDef_ID_Fixed.EM0070_00_0;
@@ -36,6 +37,7 @@ public static class EnemyConstantsLarge {
     public const App_EnemyDef_ID_Fixed RATHIAN = App_EnemyDef_ID_Fixed.EM0001_00_0;
     public const App_EnemyDef_ID_Fixed REY_DAU = App_EnemyDef_ID_Fixed.EM0156_00_0;
     public const App_EnemyDef_ID_Fixed ROMPOPOLO = App_EnemyDef_ID_Fixed.EM0155_00_0;
+    public const App_EnemyDef_ID_Fixed SEREGIOS = App_EnemyDef_ID_Fixed.EM0077_00_0;
     public const App_EnemyDef_ID_Fixed UTH_DUNA = App_EnemyDef_ID_Fixed.EM0157_00_0;
     public const App_EnemyDef_ID_Fixed XU_WU = App_EnemyDef_ID_Fixed.EM0163_00_0;
     public const App_EnemyDef_ID_Fixed YIAN_KUT_KU = App_EnemyDef_ID_Fixed.EM0008_00_0;

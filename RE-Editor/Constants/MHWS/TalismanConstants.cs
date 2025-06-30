@@ -42,6 +42,7 @@ public static class TalismanConstants {
     public static readonly Guid COUNTER_CHARM_III = Guid.Parse("9fc076ab-982d-4087-abb4-08da8798c466");
     public static readonly Guid COUNTERATTACK_CHARM_I = Guid.Parse("b71c0d5e-45b5-4a52-9c05-b85703dc0f14");
     public static readonly Guid COUNTERATTACK_CHARM_II = Guid.Parse("1ce651e2-7381-46bc-ae71-6f4559136a48");
+    public static readonly Guid COUNTERATTACK_CHARM_III = Guid.Parse("4a1a20b0-3c95-4e69-a9ed-9f57270da2d0");
     public static readonly Guid DEFENSE_CHARM_I = Guid.Parse("e3c79f36-f382-42dd-a6b1-f5034c734b1f");
     public static readonly Guid DEFENSE_CHARM_II = Guid.Parse("f3a4341b-8371-4fed-a6d2-c51d337adc27");
     public static readonly Guid DEFENSE_CHARM_III = Guid.Parse("cb06b57a-edd5-4bd4-8d19-0b9e281e71f7");
@@ -80,6 +81,7 @@ public static class TalismanConstants {
     public static readonly Guid FRIENDSHIP_CHARM_II = Guid.Parse("f611262a-134a-4c0d-8627-30f621f09b05");
     public static readonly Guid FRIENDSHIP_CHARM_III = Guid.Parse("d069ebe8-9e26-42f4-bfe5-fefaf164f9b7");
     public static readonly Guid FRIENDSHIP_CHARM_IV = Guid.Parse("899d1c50-ad17-44d3-9d9e-45e330ae2eab");
+    public static readonly Guid FRIENDSHIP_CHARM_V = Guid.Parse("f80fa215-4a21-4d9e-a916-b414a98679e4");
     public static readonly Guid FURY_CHARM_I = Guid.Parse("2f9724f7-f246-4a39-90b8-53b889c1030f");
     public static readonly Guid FURY_CHARM_II = Guid.Parse("80793aa4-1a5a-43c4-8f9b-f581b4d42ad3");
     public static readonly Guid GEOLOGY_CHARM_I = Guid.Parse("e83b93cd-855e-4d51-b114-a8d5f762c76b");
@@ -91,6 +93,7 @@ public static class TalismanConstants {
     public static readonly Guid GRIT_CHARM_I = Guid.Parse("75078d8b-3958-449c-bbf7-2625da67a80e");
     public static readonly Guid GRIT_CHARM_II = Guid.Parse("df5e3c7e-772b-4818-b90c-cb61863dc14b");
     public static readonly Guid GRIT_CHARM_III = Guid.Parse("7edd1ef3-6b9f-4193-ae7c-6f67072f127e");
+    public static readonly Guid GRIT_CHARM_IV = Guid.Parse("023afd3a-6a37-4284-bfb6-1c9021446910");
     public static readonly Guid GUARD_CHARM_I = Guid.Parse("b8b0a736-cb7c-4242-9abd-481e7cdddaa2");
     public static readonly Guid GUARD_CHARM_II = Guid.Parse("314bef68-8bb2-4061-86bf-830bf8006ad5");
     public static readonly Guid GUARD_CHARM_III = Guid.Parse("ca776008-8d87-4da0-9306-64d82e973388");
@@ -102,6 +105,7 @@ public static class TalismanConstants {
     public static readonly Guid ICE_CHARM_II = Guid.Parse("9dcf5d51-9431-4f52-aa2b-fd14ebec2dfc");
     public static readonly Guid ICE_CHARM_III = Guid.Parse("499cab14-a15a-454b-92c6-b07adf06a703");
     public static readonly Guid IMBIBE_CHARM_I = Guid.Parse("ada6842c-cb93-4323-9d96-387b52096111");
+    public static readonly Guid IMBIBE_CHARM_II = Guid.Parse("e0de77db-be2b-4641-846e-30f4b275bdb0");
     public static readonly Guid IMPACT_CHARM_I = Guid.Parse("7fd43c3d-f686-4c28-95c8-a2e3d7c9b4bd");
     public static readonly Guid IMPACT_CHARM_II = Guid.Parse("dea20e0b-df6f-455b-bc5a-88cdb2494668");
     public static readonly Guid IMPACT_CHARM_III = Guid.Parse("f6d93594-ec34-44d1-8498-12f3bec4dc37");
@@ -117,6 +121,7 @@ public static class TalismanConstants {
     public static readonly Guid MAINTENANCE_CHARM_I = Guid.Parse("15c7bf7b-3beb-429a-8453-6dab207ec128");
     public static readonly Guid MAINTENANCE_CHARM_II = Guid.Parse("f09cc008-112e-4524-8c20-4ff2c2b47cf3");
     public static readonly Guid MAINTENANCE_CHARM_III = Guid.Parse("3dcdedd3-1551-4a51-94df-9d037b4581a5");
+    public static readonly Guid MAINTENANCE_CHARM_IV = Guid.Parse("5f31e832-532f-43eb-9482-92670adc1fd5");
     public static readonly Guid MARATHON_CHARM_I = Guid.Parse("e33f2711-f784-4030-92d8-062905b76265");
     public static readonly Guid MARATHON_CHARM_II = Guid.Parse("bc7cbc9c-8288-4b6a-a237-7efc0a7bc013");
     public static readonly Guid MARATHON_CHARM_III = Guid.Parse("b760fced-112e-4028-b9c6-247f73c2bd9a");
@@ -170,6 +175,7 @@ public static class TalismanConstants {
     public static readonly Guid TREMOR_CHARM_III = Guid.Parse("5d126d78-d3dc-4009-88e2-203a30fb5dda");
     public static readonly Guid UNSCATHED_CHARM_I = Guid.Parse("c1f70474-ca08-4a79-87dc-e75b043d5fcd");
     public static readonly Guid UNSCATHED_CHARM_II = Guid.Parse("ab7e4f53-901d-4b04-b762-d05b0bb4e33a");
+    public static readonly Guid UNSCATHED_CHARM_III = Guid.Parse("ae04dd6c-e202-471a-a0f7-fb891ef24f90");
     public static readonly Guid WATER_CHARM_I = Guid.Parse("6c66d7d7-d00c-4da2-8b81-39ac7d745b46");
     public static readonly Guid WATER_CHARM_II = Guid.Parse("1c47577f-101d-4bd2-80e9-6c87499329fe");
     public static readonly Guid WATER_CHARM_III = Guid.Parse("3ab72106-31c0-4fb2-98ab-c473e226dae6");

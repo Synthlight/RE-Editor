@@ -25,7 +25,7 @@ public class NpcTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "NPC Outfit Tweaks";
         const string description = "NPC outfit tweaks - Makes all NPCs wear a given outfit.";
-        const string version     = "1.3";
+        const string version     = "1.4";
 
         const string coreName = "Core (MUST ACTIVATE ONE FOR EACH GENDER USED!)";
 

@@ -22,7 +22,7 @@ public class NpcOverNpc : IMod {
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string description = "NPC over NPC options.";
-        const string version     = "1.3";
+        const string version     = "1.4";
 
         var npcData = new NpcTweaksData();
 
