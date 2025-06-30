@@ -155,9 +155,9 @@ public class RszObject : OnPropertyChangedBase {
                     }
                     SetList(strings, fieldSetMethod, rszObject);
                 } else if (isNonPrimitive) { // Array of embedded objects. (Built-in types like via.vec2.)
-                    reader.BaseStream.Align(field.align);
                     var objects = new List<IViaType>(arrayCount);
                     for (var s = 0; s < arrayCount; s++) {
+                        reader.BaseStream.Align(field.align);
                         var instance = (IViaType) Activator.CreateInstance(viaType!)!;
                         instance.Read(reader);
                         objects.Add(instance);
@@ -412,8 +412,8 @@ public class RszObject : OnPropertyChangedBase {
                 } else if (isNonPrimitive) { // Array of embedded objects. (Built-in types like via.vec2.)
                     var list = (IList) fieldGetMethod.Invoke(this, null)!;
                     writer.Write(list.Count);
-                    writer.BaseStream.Align(field.align);
                     foreach (var obj in list) {
+                        writer.BaseStream.Align(field.align);
                         ((IViaType) obj).Write(writer);
                     }
                 } else { // Primitive array.
