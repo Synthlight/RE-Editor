@@ -55,7 +55,7 @@ public class BingoBrawlers : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Bingo Brawlers";
         const string description = "Bingo Brawlers stuff.";
-        const string version     = "1.2.2";
+        const string version     = "1.3.0";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -274,6 +274,9 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.LALA_BARINA_Α:
             case ArmorSeriesConstants.LALA_BARINA_Β:
                 return ItemConstants.LALA_BARINA_CERTIFICATE_S;
+            case ArmorSeriesConstants.LAGIACRUS_Α:
+            case ArmorSeriesConstants.LAGIACRUS_Β:
+                return ItemConstants.LAGIACRUS_CERTIFICATE_S;
             case ArmorSeriesConstants.MIZUTSUNE_Α:
             case ArmorSeriesConstants.MIZUTSUNE_Β:
                 return ItemConstants.MIZUTSUNE_CERTIFICATE_S;
@@ -304,9 +307,13 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.ROMPOPOLO_Α:
             case ArmorSeriesConstants.ROMPOPOLO_Β:
                 return ItemConstants.ROMPOPOLO_CERTIFICATE_S;
+            case ArmorSeriesConstants.SEREGIOS_Α:
+            case ArmorSeriesConstants.SEREGIOS_Β:
+                return ItemConstants.SEREGIOS_CERTIFICATE_S;
             case ArmorSeriesConstants.UTH_DUNA:
             case ArmorSeriesConstants.UTH_DUNA_Α:
             case ArmorSeriesConstants.UTH_DUNA_Β:
+            case ArmorSeriesConstants.UTH_DUNA_Γ:
                 return ItemConstants.UTH_DUNA_CERTIFICATE_S;
             case ArmorSeriesConstants.XU_WU:
             case ArmorSeriesConstants.XU_WU_Α:
@@ -320,6 +327,8 @@ public class BingoBrawlers : IMod {
                 return ItemConstants.ZOH_SHIA_CERTIFICATE_S;
             // Generic:
             // And whilst `default` would cover it, I'm copying the others as I find them to make it easier to identify.
+            case ArmorSeriesConstants.AFI_Α:
+            case ArmorSeriesConstants.AKUMA_Α:
             case ArmorSeriesConstants.ALLOY:
             case ArmorSeriesConstants.ALLOY_Α:
             case ArmorSeriesConstants.ARTIAN_Α:
@@ -334,17 +343,23 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.COMAQCHI_Α:
             case ArmorSeriesConstants.COMAQCHI_Β:
             case ArmorSeriesConstants.COMMISSION_Α:
+            case ArmorSeriesConstants.CYPURRPUNK:
             case ArmorSeriesConstants.DAMASCUS_Α:
             case ArmorSeriesConstants.DEATH_STENCH_Α:
+            case ArmorSeriesConstants.DIVER_Α:
             case ArmorSeriesConstants.DOBER_Α:
+            case ArmorSeriesConstants.DOSHAGUMASK_Α:
             case ArmorSeriesConstants.DRAGONKING_Α:
             case ArmorSeriesConstants.EXPEDITION_HEADGEAR_Α:
+            case ArmorSeriesConstants.FAUX_FELYNE_Α:
             case ArmorSeriesConstants.FENCERS_EYEPATCH:
             case ArmorSeriesConstants.FEUDAL_SOLDIER:
             case ArmorSeriesConstants.GAJAU:
             case ArmorSeriesConstants.GAJAU_Α:
             case ArmorSeriesConstants.GUILD_ACE_Α:
             case ArmorSeriesConstants.GUILD_KNIGHT:
+            case ArmorSeriesConstants.HALF_RIM_GLASSES_Α:
+            case ArmorSeriesConstants.HAWKHEART_JACKET_Α:
             case ArmorSeriesConstants.HIGH_METAL_Α:
             case ArmorSeriesConstants.INGOT:
             case ArmorSeriesConstants.INGOT_Α:
@@ -354,9 +369,11 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.KRANODATH_Β:
             case ArmorSeriesConstants.LEATHER:
             case ArmorSeriesConstants.LEATHER_Α:
+            case ArmorSeriesConstants.LOVELY_SHADES_Α:
             case ArmorSeriesConstants.MELAHOA_Α:
             case ArmorSeriesConstants.MIMIPHYTA_Α:
             case ArmorSeriesConstants.ONI_HORNS_WIG:
+            case ArmorSeriesConstants.PINION_NECKLACE_Α:
             case ArmorSeriesConstants.PIRAGILL:
             case ArmorSeriesConstants.PIRAGILL_Α:
             case ArmorSeriesConstants.PIRAGILL_Β:
@@ -365,6 +382,7 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.TALIOTH:
             case ArmorSeriesConstants.TALIOTH_Α:
             case ArmorSeriesConstants.TALIOTH_Β:
+            case ArmorSeriesConstants.TOE_BEAN_MITTENS_Α:
             case ArmorSeriesConstants.VESPOID:
             case ArmorSeriesConstants.VESPOID_Α:
             case ArmorSeriesConstants.VESPOID_Β:
@@ -415,6 +433,8 @@ public class BingoBrawlers : IMod {
             case WeaponSeriesConstants.LALA_BARINA_TREE:
             case WeaponSeriesConstants.PARALYSIS_TREE: // It's made with Lala B. parts.
                 return ItemConstants.LALA_BARINA_CERTIFICATE_S;
+            case WeaponSeriesConstants.LAGIACRUS_TREE:
+                return ItemConstants.LAGIACRUS_CERTIFICATE_S;
             case WeaponSeriesConstants.MIZUTSUNE_TREE:
                 return ItemConstants.MIZUTSUNE_CERTIFICATE_S;
             case WeaponSeriesConstants.NERSCYLLA_TREE:
@@ -431,6 +451,8 @@ public class BingoBrawlers : IMod {
                 return ItemConstants.REY_DAU_CERTIFICATE_S;
             case WeaponSeriesConstants.ROMPOPOLO_TREE:
                 return ItemConstants.ROMPOPOLO_CERTIFICATE_S;
+            case WeaponSeriesConstants.SEREGIOS_TREE:
+                return ItemConstants.SEREGIOS_CERTIFICATE_S;
             case WeaponSeriesConstants.UTH_DUNA_TREE:
                 return ItemConstants.UTH_DUNA_CERTIFICATE_S;
             case WeaponSeriesConstants.XU_WU_TREE:
@@ -443,6 +465,7 @@ public class BingoBrawlers : IMod {
             // And whilst `default` would cover it, I'm copying the others as I find them to make it easier to identify.
             case WeaponSeriesConstants.BONE_TREE:
             case WeaponSeriesConstants.EXPEDITION_TREE:
+            case WeaponSeriesConstants.KUNAFA_TREE:
             case WeaponSeriesConstants.ORE_TREE:
             case WeaponSeriesConstants.SPEARTUNA_TREE:
             case WeaponSeriesConstants.VESPOID_TREE:

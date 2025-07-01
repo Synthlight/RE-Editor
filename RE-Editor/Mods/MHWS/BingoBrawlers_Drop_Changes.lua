@@ -68,9 +68,9 @@ function FixRewards(ptr, mode) -- List<cSendItemInfo>
             and tableContains(EnemyConstants, sendItemInfo[0]:get_field("<EnemyId>k__BackingField"))) then
         log.info(mode .. ": Making carves mega potions.")
 
-            for i = 0, count - 1 do
-                sendItemInfo[i]:set_field("<ItemId>k__BackingField", ItemConstants.MEGA_POTION)
-            end
+        for i = 0, count - 1 do
+            sendItemInfo[i]:set_field("<ItemId>k__BackingField", ItemConstants.MEGA_POTION)
+        end
     end
 
     if (LOG_DEBUG and count > 0) then 
@@ -104,6 +104,7 @@ function GetMonsterSpecificReward(enemyId)
     elseif (enemyId == EnemyConstants.HIRABAMI) then return ItemConstants.HIRABAMI_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.JIN_DAHAAD) then return ItemConstants.JIN_DAHAAD_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.LALA_BARINA) then return ItemConstants.LALA_BARINA_CERTIFICATE_S
+    elseif (enemyId == EnemyConstants.LAGIACRUS) then return ItemConstants.LAGIACRUS_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.MIZUTSUNE) then return ItemConstants.MIZUTSUNE_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.NERSCYLLA) then return ItemConstants.NERSCYLLA_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.NU_UDRA) then return ItemConstants.NU_UDRA_CERTIFICATE_S
@@ -112,6 +113,7 @@ function GetMonsterSpecificReward(enemyId)
     elseif (enemyId == EnemyConstants.RATHIAN) then return ItemConstants.RATHIAN_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.REY_DAU) then return ItemConstants.REY_DAU_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.ROMPOPOLO) then return ItemConstants.ROMPOPOLO_CERTIFICATE_S
+    elseif (enemyId == EnemyConstants.SEREGIOS) then return ItemConstants.SEREGIOS_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.UTH_DUNA) then return ItemConstants.UTH_DUNA_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.XU_WU) then return ItemConstants.XU_WU_CERTIFICATE_S
     elseif (enemyId == EnemyConstants.YIAN_KUT_KU) then return ItemConstants.YIAN_KUT_KU_CERTIFICATE_S
@@ -197,6 +199,7 @@ ItemConstants = {
     ARMOR_SPHERE_PLUS = 622,
     ARMORCHARM = 152,
     ARMORSKIN = 170,
+    ASSISTED_COMBO__AKUMA = 780,
     AURIC_OIL = 245,
     AZUZ_MEAL_VOUCHER = 807,
     AZUZ_TANNED_LEATHER = 610,
@@ -213,11 +216,13 @@ ItemConstants = {
     BARREL_BOMB = 13,
     BARREL_BOWLING_VOUCHER = 783,
     BASIC_MATERIAL = 469,
+    BEACH_BARREL_BOMB = 802,
     BEAST_GEM = 36,
     BINOCULARS = 22,
     BIRD_WYVERN_GEM = 533,
     BITTERBUG_BROTH = 28,
     BLACKEMBER_MASS = 718,
+    BLADESCALE_POD = 812,
     BLANGO_PELT_PLUS = 576,
     BLANGONGA_CERTIFICATE_S = 540,
     BLANGONGA_FANG_PLUS = 537,
@@ -298,6 +303,7 @@ ItemConstants = {
     DEMONDRUG = 167,
     DEODORANT = 211,
     DEVILS_BLIGHT = 128,
+    DIVING_TICKET = 765,
     DOSHAGUMA_CERTIFICATE = 315,
     DOSHAGUMA_CERTIFICATE_S = 320,
     DOSHAGUMA_CLAW = 34,
@@ -308,6 +314,7 @@ ItemConstants = {
     DOSHAGUMA_FUR_PLUS = 316,
     DOSHAGUMA_HIDE = 32,
     DOSHAGUMA_HIDE_PLUS = 317,
+    DOSHAGUMA_SKETCH = 793,
     DRAGON_AMMO = 46,
     DRAGON_POD = 286,
     DRAGONBONE_RELIC = 61,
@@ -318,6 +325,7 @@ ItemConstants = {
     DREARISITE = 665,
     DREARISITE_SCRAPS = 471,
     DRIFTING_SEA_POT = 261,
+    DRIVE_IMPACT = 782,
     DROOLSHROOM = 214,
     DRUGGED_MEAT = 185,
     DUNG = 98,
@@ -353,6 +361,7 @@ ItemConstants = {
     EZ_TRANQ_BOMB = 204,
     FARCASTER = 76,
     FAUX_WHITEGLEAM_ORB = 716,
+    FELYNE_TICKET = 778,
     FIERY_SANDPEPPER = 234,
     FINE_ANTIMITE = 247,
     FINE_SCARLET_AMBER = 239,
@@ -364,6 +373,9 @@ ItemConstants = {
     FIRST_AID_MED_PLUS = 197,
     FISHING_ROD = 161,
     FLAME_SAC = 592,
+    FLAMEFETE_CATALOG = 766,
+    FLAMEFETE_TICKET = 764,
+    FLAMEFETE_VOUCHER = 785,
     FLAMING_AMMO = 42,
     FLASH_POD = 15,
     FLASHBUG_PHOSPHOR = 29,
@@ -413,6 +425,7 @@ ItemConstants = {
     GORE_MAGALA_SCALE_PLUS = 561,
     GORE_MAGALA_TAIL = 565,
     GORE_MAGALA_WING_PLUS = 563,
+    GOU_HADOKEN = 781,
     GRACIUM = 697,
     GRAVIOS_CARAPACE = 541,
     GRAVIOS_CERTIFICATE_S = 546,
@@ -482,6 +495,7 @@ ItemConstants = {
     HEAVY_EXPLOSION_POD = 468,
     HEAVY_PIERCING_POD = 474,
     HEAVY_SLICING_POD = 467,
+    HELIX_PIERCING_POD = 811,
     HERB = 25,
     HERBAL_MEDICINE = 173,
     HERBAL_POWDER = 174,
@@ -528,6 +542,14 @@ ItemConstants = {
     KUT_KU_EAR = 523,
     KUT_KU_SCALE_PLUS = 521,
     KUT_KU_WING = 525,
+    LAGIACRUS_CERTIFICATE_S = 727,
+    LAGIACRUS_CLAW_PLUS = 733,
+    LAGIACRUS_HIDE_PLUS = 729,
+    LAGIACRUS_HORN_PLUS = 731,
+    LAGIACRUS_SAPPHIRE = 734,
+    LAGIACRUS_SCALE_PLUS = 728,
+    LAGIACRUS_SHOCKSPIKE = 730,
+    LAGIACRUS_TAIL = 732,
     LALA_BARINA_CARAPACE = 306,
     LALA_BARINA_CERTIFICATE = 275,
     LALA_BARINA_CERTIFICATE_S = 309,
@@ -576,6 +598,7 @@ ItemConstants = {
     MYSTERY_BONE = 57,
     MYSTERY_ORB___ARMOR = 155,
     MYSTERY_ORB___SWORD = 618,
+    NECKLACE_TICKET = 792,
     NERSCYLLA_CARAPACE = 517,
     NERSCYLLA_CERTIFICATE = 516,
     NERSCYLLA_CERTIFICATE_S = 520,
@@ -677,7 +700,7 @@ ItemConstants = {
     REY_DAU_CARAPACE = 347,
     REY_DAU_CERTIFICATE = 345,
     REY_DAU_CERTIFICATE_S = 351,
-    --REY_DAU_CERTIFICATE_Γ = 756,
+    REY_DAU_CERTIFICATE_GAMMA = 756,
     REY_DAU_FULGURTALON = 349,
     REY_DAU_PLATE = 143,
     REY_DAU_SCALE = 138,
@@ -706,6 +729,15 @@ ItemConstants = {
     SCREAMER_POD = 69,
     SCREAMER_POD_2 = 277,
     SEALED_DRAGON_CLOTH = 790,
+    SEREGIOS_AIRBLADE = 548,
+    SEREGIOS_BREACHER = 551,
+    SEREGIOS_CARVER = 549,
+    SEREGIOS_CERTIFICATE_S = 554,
+    SEREGIOS_DISSENTER = 553,
+    SEREGIOS_IMPALER = 550,
+    SEREGIOS_SCRAPER = 552,
+    SEREGIOS_SLAVESCALE = 547,
+    SF6_TICKET = 779,
     SHARP_FANG = 95,
     SHARP_KUNAFA_CHEESE = 213,
     SHINY_TREASURE = 242,
@@ -759,6 +791,7 @@ ItemConstants = {
     TIME_HONED_WYLK_GEM = 259,
     TINGED_MEAT = 207,
     TOADSTOOL = 112,
+    TOE_BEAN_TICKET = 794,
     TORCH_POD = 188,
     TORRENT_SAC = 595,
     TOUGH_GUARDIAN_BONE = 587,
@@ -772,6 +805,7 @@ ItemConstants = {
     TURBID_SHRIMP = 217,
     UTH_DUNA_CERTIFICATE = 327,
     UTH_DUNA_CERTIFICATE_S = 334,
+    UTH_DUNA_CERTIFICATE_GAMMA = 757,
     UTH_DUNA_CILIA = 323,
     UTH_DUNA_CILIA_PLUS = 330,
     UTH_DUNA_CLAW = 325,
@@ -803,6 +837,8 @@ ItemConstants = {
     WINDWARD_ALOE = 230,
     WINGDRAKE_HIDE = 96,
     WINGDRAKE_HIDE_PLUS = 491,
+    WORN_PICKAXE = 767,
+    WUDWUD_TREASURE = 632,
     WYLK_GEM = 258,
     WYLK_PEBBLE = 257,
     WYVERIA_LANTERN = 253,
@@ -856,6 +892,7 @@ EnemyConstants = {
     HIGH_PURRFORMANCE_BARREL_PUNCHER = 33,
     HIRABAMI = 29,
     JIN_DAHAAD = 30,
+    LAGIACRUS = 8,
     LALA_BARINA = 21,
     MIZUTSUNE = 13,
     NERSCYLLA = 9,
@@ -865,6 +902,7 @@ EnemyConstants = {
     RATHIAN = 0,
     REY_DAU = 23,
     ROMPOPOLO = 22,
+    SEREGIOS = 11,
     UTH_DUNA = 24,
     XU_WU = 31,
     YIAN_KUT_KU = 4,

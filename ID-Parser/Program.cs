@@ -140,7 +140,10 @@ public static partial class Program {
                                 .Replace('}', '_')
                                 .Replace('[', '_')
                                 .Replace(']', '_')
-                                .Replace('!', '_');
+                                .Replace('!', '_')
+                                .Replace("Α", "ALPHA")
+                                .Replace("Β", "BETA")
+                                .Replace("Γ", "GAMMA");
             if (regex.Match(constName).Success) constName = $"_{constName}";
             if (namesUsed.Contains(constName)) continue;
             namesUsed.Add(constName);
