@@ -22,16 +22,15 @@ public class NpcOverNpc : IMod {
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string description = "NPC over NPC options.";
-        const string version     = "1.4";
 
         var npcData = new NpcTweaksData();
 
         var baseMod = new NexusMod {
-            Version = version,
+            Version = NpcTweaks.VERSION,
             Desc    = description
         };
 
-        var mods = CreateNpcOverNpcModsByDest(version, baseMod, npcData, blacklist: NPC_OVERRIDES_TO_MOVE_TO_MAIN);
+        var mods = CreateNpcOverNpcModsByDest(NpcTweaks.VERSION, baseMod, npcData, blacklist: NPC_OVERRIDES_TO_MOVE_TO_MAIN);
 
         ModMaker.WriteMods(mainWindow, mods, NAME, copyLooseToFluffy: false, workingDir: "Q:");
     }
@@ -169,7 +168,7 @@ public class NpcOverNpc : IMod {
         return mods;
     }
 
-    private static ReDataFile GetModdedVisualSourceToUse(string destNpcName, ReDataFile baseModdedVisualSource, string sourceVisualFile) {
+    public static ReDataFile GetModdedVisualSourceToUse(string destNpcName, ReDataFile baseModdedVisualSource, string sourceVisualFile) {
         if (destNpcName == "Nata") {
             var moddedVisualSourceToUse = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{sourceVisualFile}");
             NpcTweaks.ChangeVisualSettings(moddedVisualSourceToUse.rsz.objectData, NpcTweaksData.IsAllowed);

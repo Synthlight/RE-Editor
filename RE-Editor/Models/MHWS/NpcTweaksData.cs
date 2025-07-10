@@ -42,6 +42,7 @@ public class NpcTweaksData {
     public readonly Dictionary<App_NpcDef_ID_Fixed, string>        rootVisualFileByNpcId  = [];
     public readonly Dictionary<string, NpcVisualData>              npcDataByName          = [];
     public readonly Dictionary<App_NpcDef_ID_Fixed, NpcVisualData> npcDataByNpcId         = [];
+    public readonly Dictionary<App_NpcDef_ID_Fixed, NpcVisualData> npcDataByUnknownNpcId  = [];
     public readonly NpcVisualData                                  unnamedData;
 
     public NpcTweaksData() {
@@ -94,6 +95,15 @@ public class NpcTweaksData {
             foreach (var id in ids) {
                 npcDataByNpcId[id] = data;
             }
+        }
+
+        foreach (var id in npcIdsWithoutAName) {
+            var ids         = new List<App_NpcDef_ID_Fixed> {id};
+            var npcFiles    = GetNpcFilesForIds(ids);
+            var npcRootFile = GetNpcRootFile(ids);
+            if (npcFiles.Count == 0) continue;
+            var data = new NpcVisualData(null, ids, npcFiles, npcRootFile);
+            npcDataByUnknownNpcId[id] = data;
         }
 
         var unnamedNpcFiles    = GetNpcFilesForIds(npcIdsWithoutAName);

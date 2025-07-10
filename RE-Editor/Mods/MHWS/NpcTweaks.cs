@@ -20,26 +20,26 @@ public class NpcTweaks : IMod {
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_FEMALE = @"GameDesign/NPC/Data/Master_Female_NpcHunterEquipData.user";
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_MALE   = @"GameDesign/NPC/Data/Master_Male_NpcHunterEquipData.user";
     public const  string PLACEHOLDER_ENTRY_TEXT                = "Activating this entry does nothing, it exists solely to create the submenu.";
+    public const  string VERSION                               = "1.4";
 
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string name        = "NPC Outfit Tweaks";
         const string description = "NPC outfit tweaks - Makes all NPCs wear a given outfit.";
-        const string version     = "1.4";
 
         const string coreName = "Core (MUST ACTIVATE ONE FOR EACH GENDER USED!)";
 
         var npcData = new NpcTweaksData();
 
         var baseMod = new NexusMod {
-            Version = version,
+            Version = VERSION,
             Desc    = description
         };
 
         var mods = new List<NexusMod> {
             new() {
                 Name          = name,
-                Version       = version,
+                Version       = VERSION,
                 Desc          = PLACEHOLDER_ENTRY_TEXT,
                 Files         = [],
                 SkipPak       = true,
@@ -49,7 +49,7 @@ public class NpcTweaks : IMod {
             new() {
                 Name          = coreName,
                 AddonFor      = name,
-                Version       = version,
+                Version       = VERSION,
                 Desc          = PLACEHOLDER_ENTRY_TEXT,
                 Files         = [],
                 SkipPak       = true,
@@ -134,7 +134,7 @@ public class NpcTweaks : IMod {
         mods.Add(new() {
             Name          = byNameGroup,
             AddonFor      = name,
-            Version       = version,
+            Version       = VERSION,
             Desc          = PLACEHOLDER_ENTRY_TEXT,
             Files         = [],
             SkipPak       = true,
@@ -182,7 +182,7 @@ public class NpcTweaks : IMod {
         mods.Add(new() {
             Name          = NpcOverNpc.NAME,
             AddonFor      = "NPC Outfit Tweaks",
-            Version       = version,
+            Version       = VERSION,
             Desc          = PLACEHOLDER_ENTRY_TEXT,
             Files         = [],
             SkipPak       = true,
@@ -190,12 +190,12 @@ public class NpcTweaks : IMod {
         });
 
         // Include just the few most care about.
-        var npcOverNpcMods = NpcOverNpc.CreateNpcOverNpcModsByDest(version, baseMod, npcData, whitelist: NpcOverNpc.NPC_OVERRIDES_TO_MOVE_TO_MAIN);
+        var npcOverNpcMods = NpcOverNpc.CreateNpcOverNpcModsByDest(VERSION, baseMod, npcData, whitelist: NpcOverNpc.NPC_OVERRIDES_TO_MOVE_TO_MAIN);
         mods.AddRange(npcOverNpcMods);
 
         ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, workingDir: "Q:");
 
-        var bySourceNpcMods = NpcOverNpc.CreateNpcOverNpcModsBySource(version, baseMod, npcData, whitelist: [
+        var bySourceNpcMods = NpcOverNpc.CreateNpcOverNpcModsBySource(VERSION, baseMod, npcData, whitelist: [
             "Felicita"
         ]);
 
