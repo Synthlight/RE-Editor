@@ -73,7 +73,7 @@ function FixRewards(ptr, mode) -- List<cSendItemInfo>
         end
     end
 
-    if (LOG_DEBUG and count > 0) then 
+    if (LOG_DEBUG and count > 0) then
         for i = 0, count - 1 do
             log.info(mode .. ": ItemId: " .. toStrinOrNull(sendItemInfo[i]:get_field("<ItemId>k__BackingField"))
                 .. ", EnemyId: " .. toStrinOrNull(sendItemInfo[i]:get_field("<EnemyId>k__BackingField"))

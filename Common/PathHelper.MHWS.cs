@@ -99,6 +99,7 @@ public static partial class PathHelper {
     public const string OTOMO_ARMOR_SERIES_DATA_PATH   = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoEquipSeriesData.user.3";
     public const string OTOMO_ARMOR_LAYERED_DATA_PATH  = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoOuterArmorData.user.3";
     public const string OTOMO_RECIPE_DATA_PATH         = @"\natives\STM\GameDesign\Facility\Data\OtomoEquipRecipe.user.3";
+    public const string PENDANT_DATA_PATH              = @"\natives\STM\GameDesign\Common\Equip\Charm.user.3";
     public const string POPUP_CAMP_PATH                = @"\natives\STM\System\SystemSetting\CampManagerSetting.user.3";
     public const string PLAYER_ACTIVE_SKILL_PARAM_PATH = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\Part\PlayerActiveSkillParam.user.3";
     public const string PLAYER_GLOBAL_PARAM_PATH       = @"\natives\STM\GameDesign\Player\ActionData\Common\GlobalParam\PlayerGlobalParam.user.3";

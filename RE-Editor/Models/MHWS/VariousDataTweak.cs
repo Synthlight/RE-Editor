@@ -47,6 +47,7 @@ public struct VariousDataTweak : IVariousDataTweak {
         PALICO_ARMOR_DATA,
         PALICO_WEAPON_DATA,
         PALICO_RECIPE_DATA,
+        PENDANT_DATA,
         SKILL_DATA,
         TALISMAN_DATA,
         TALISMAN_RECIPE_DATA,
