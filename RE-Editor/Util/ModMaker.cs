@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -162,6 +163,9 @@ public static class ModMaker {
                         var outFile = @$"{modPath}\{dest}";
                         Directory.CreateDirectory(Path.GetDirectoryName(outFile)!);
                         switch (obj) {
+                            case CustomCopy customCopy:
+                                customCopy.DoCopy(outFile);
+                                break;
                             case string sourceFile:
                                 File.Copy(sourceFile, outFile);
                                 break;
@@ -299,6 +303,15 @@ public static class ModMaker {
     private static void WaitAll(this List<Thread> threads) {
         foreach (var thread in threads) {
             thread.Join();
+        }
+    }
+
+    public class CustomCopy(string sourceFile, Action<string, string> doCopy) {
+        public readonly string                 sourceFile = sourceFile;
+        public readonly Action<string, string> doCopy     = doCopy;
+
+        public void DoCopy(string destFile) {
+            doCopy.Invoke(sourceFile, destFile);
         }
     }
 }

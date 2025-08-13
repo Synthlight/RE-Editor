@@ -20,7 +20,7 @@ public class NpcTweaks : IMod {
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_FEMALE = @"GameDesign/NPC/Data/Master_Female_NpcHunterEquipData.user";
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_MALE   = @"GameDesign/NPC/Data/Master_Male_NpcHunterEquipData.user";
     public const  string PLACEHOLDER_ENTRY_TEXT                = "Activating this entry does nothing, it exists solely to create the submenu.";
-    public const  string VERSION                               = "1.4";
+    public const  string VERSION                               = "1.5";
 
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {

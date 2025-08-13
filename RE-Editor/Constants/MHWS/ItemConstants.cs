@@ -262,6 +262,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed GLOAMGRASS_BUD = App_ItemDef_ID_Fixed.ITEM_0151;
     public const App_ItemDef_ID_Fixed GLOWING_ORB___ARMOR = App_ItemDef_ID_Fixed.ITEM_0183;
     public const App_ItemDef_ID_Fixed GLOWING_ORB___SWORD = App_ItemDef_ID_Fixed.ITEM_0646;
+    public const App_ItemDef_ID_Fixed GLOWING_STONE = App_ItemDef_ID_Fixed.ITEM_0847;
     public const App_ItemDef_ID_Fixed GOBLETWEED = App_ItemDef_ID_Fixed.ITEM_0290;
     public const App_ItemDef_ID_Fixed GODBUG_ESSENCE = App_ItemDef_ID_Fixed.ITEM_0030;
     public const App_ItemDef_ID_Fixed GOLD_MELDING_TICKET = App_ItemDef_ID_Fixed.ITEM_0688;
@@ -602,6 +603,7 @@ public static class ItemConstants {
     public const App_ItemDef_ID_Fixed SILVER_EGG = App_ItemDef_ID_Fixed.ITEM_0678;
     public const App_ItemDef_ID_Fixed SILVER_MELDING_TICKET = App_ItemDef_ID_Fixed.ITEM_0674;
     public const App_ItemDef_ID_Fixed SILVER_RELIC_TICKET = App_ItemDef_ID_Fixed.ITEM_0676;
+    public const App_ItemDef_ID_Fixed SILVER_TALISMAN_TICKET = App_ItemDef_ID_Fixed.ITEM_0849;
     public const App_ItemDef_ID_Fixed SINISTER_CLOTH = App_ItemDef_ID_Fixed.ITEM_0255;
     public const App_ItemDef_ID_Fixed SLASHBERRY = App_ItemDef_ID_Fixed.ITEM_0157;
     public const App_ItemDef_ID_Fixed SLEEP_AMMO = App_ItemDef_ID_Fixed.ITEM_0061;
