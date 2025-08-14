@@ -50,6 +50,8 @@ public struct VariousDataTweak : IVariousDataTweak {
         PENDANT_DATA,
         SKILL_DATA,
         TALISMAN_DATA,
+        TALISMAN_GENERATION_SKILL_DATA,
+        TALISMAN_GENERATION_SLOT_DATA,
         TALISMAN_RECIPE_DATA,
         WEAPON_DATA,
         WEAPON_RECIPE_DATA,
