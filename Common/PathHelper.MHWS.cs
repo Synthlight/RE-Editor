@@ -82,10 +82,13 @@ public static partial class PathHelper {
             "re_chunk_000.pak.patch_008.pak",
             "re_chunk_000.pak.sub_000.pak.patch_008.pak"
         ]) {updateName = "Title Update 2.5"},
-        new(new(2025, 08, 14), "1.021.01.00", [
+        // Re-released later in patches.
+        // new(2025, 08, 14), "1.021.01.00"
+        // new(2025, 08, 18), "1.021.02.00"
+        new(new(2025, 08, 21), "1.021.03.00", [
             "re_chunk_000.pak.patch_009.pak",
             "re_chunk_000.pak.sub_000.pak.patch_009.pak"
-        ])
+        ]) {updateName = "1.021.01.00-1.021.03.00"}
     ];
 
     public const string NEXUS_URL              = "";
