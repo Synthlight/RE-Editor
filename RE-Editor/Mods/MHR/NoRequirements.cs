@@ -16,7 +16,7 @@ public class NoRequirements : IMod {
         const string name = "No Crafting Requirements";
 
         var baseMod = new NexusMod {
-            Version      = "1.14.1",
+            Version      = "1.15",
             NameAsBundle = name,
             Desc         = "Removes the item requirements when crafting."
         };
@@ -99,9 +99,29 @@ public class NoRequirements : IMod {
                 ])
                 .SetAction(CheatMod.NoCost),
             baseMod
+                .SetName("Cat/Dog (Armor/Weapons, Ignore Unlock Flags)")
+                .SetFiles([
+                    PathHelper.CAT_ARMOR_RECIPE_PATH,
+                    PathHelper.CAT_WEAPON_RECIPE_PATH,
+                    PathHelper.DOG_ARMOR_RECIPE_PATH,
+                    PathHelper.DOG_WEAPON_RECIPE_PATH,
+                    PathHelper.CAT_DOG_SERIES_DATA_PATH
+                ])
+                .SetAction(list => {
+                    CheatMod.NoCost(list);
+                    CheatMod.NoUnlockFlag(list);
+                }),
+            baseMod
                 .SetName("Cat/Dog (Layered Armor)")
                 .SetFiles([PathHelper.CAT_DOG_LAYERED_ARMOR_RECIPE_PATH])
                 .SetAction(CheatMod.NoCost),
+            baseMod
+                .SetName("Cat/Dog (Layered Armor, Ignore Unlock Flags)")
+                .SetFiles([PathHelper.CAT_DOG_LAYERED_ARMOR_RECIPE_PATH])
+                .SetAction(list => {
+                    CheatMod.NoCost(list);
+                    CheatMod.NoUnlockFlag(list);
+                }),
             baseMod
                 .SetName("Augment/Qurio Craft")
                 .SetFiles([

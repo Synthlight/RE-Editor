@@ -282,6 +282,20 @@ public class CheatMod : IMod {
                     wpLayeredProdData.EnemyFlag    = Snow_enemy_EnemyDef_EmTypes.EmTypeNoData;
                     wpLayeredProdData.ProgressFlag = Snow_data_DataDef_UnlockProgressTypes.None;
                     break;
+                case Snow_data_OtEquipSeriesUserData_Param otomoNormalParam:
+                    foreach (var item in otomoNormalParam.UnlockItem) {
+                        item.Value = (uint) Snow_data_ContentsIdSystem_ItemId.I_Unclassified_None;
+                    }
+                    otomoNormalParam.UnlockEnemy    = Snow_enemy_EnemyDef_EmTypes.EmTypeNoData;
+                    otomoNormalParam.UnlockProgress = Snow_data_DataDef_UnlockProgressTypes.None;
+                    break;
+                case Snow_equip_OtOverwearRecipeUserData_Param otomoLayeredParam:
+                    foreach (var item in otomoLayeredParam.UnlockItem) {
+                        item.Value = (uint) Snow_data_ContentsIdSystem_ItemId.I_Unclassified_None;
+                    }
+                    otomoLayeredParam.UnlockEnemy    = Snow_enemy_EnemyDef_EmTypes.EmTypeNoData;
+                    otomoLayeredParam.UnlockProgress = Snow_data_DataDef_UnlockProgressTypes.None;
+                    break;
             }
         }
     }

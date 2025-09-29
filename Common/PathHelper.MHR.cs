@@ -68,6 +68,7 @@ public static partial class PathHelper {
     public const string CAT_DOG_LAYERED_ARMOR_RECIPE_PATH = @"\natives\STM\data\Define\Otomo\Equip\Overwear\OtOverwearRecipeData.user.2";
     public const string CAT_WEAPON_RECIPE_PATH            = @"\natives\STM\data\Define\Otomo\Equip\Weapon\OtAirouWeaponProductData.user.2";
     public const string DOG_WEAPON_RECIPE_PATH            = @"\natives\STM\data\Define\Otomo\Equip\Weapon\OtDogWeaponProductData.user.2";
+    public const string CAT_DOG_SERIES_DATA_PATH          = @"\natives\STM\data\Define\Otomo\Equip\OtEquipSeriesData.user.2";
     public const string ITEM_DATA_PATH                    = @"\natives\STM\data\System\ContentsIdSystem\Item\Normal\ItemData.user.2";
     public const string PETALACE_DATA_PATH                = @"\natives\STM\data\System\ContentsIdSystem\LvBuffCage\Normal\NormalLvBuffCageBaseData.user.2";
 
