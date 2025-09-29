@@ -14,7 +14,7 @@ namespace RE_Editor.Mods;
 public class DumpWeapons : IMod {
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
-        var writer = new StreamWriter(File.Open($@"{PathHelper.MODS_PATH}\..\Weapon Models.csv", FileMode.Create, FileAccess.Write, FileShare.Read));
+        var writer = new StreamWriter(File.Open($@"{PathHelper.MODS_PATH}\..\Dumped Data\Weapon Models.csv", FileMode.Create, FileAccess.Write, FileShare.Read));
         writer.WriteLine("Weapon Type,Name,Path");
 
         var weaponTypes = Enum.GetValues<WeaponType>();

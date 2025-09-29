@@ -23,9 +23,10 @@ public class DumpArmor : IMod {
          */
 
         var armorData       = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}{PathHelper.ARMOR_DATA_PATH}").rsz.GetEntryObject<App_user_data_ArmorData>().Values.Cast<App_user_data_ArmorData_cData>().ToList();
+        var armorOuterData  = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}{PathHelper.ARMOR_LAYERED_DATA_PATH}").rsz.GetEntryObject<App_user_data_OuterArmorData>().Values.Cast<App_user_data_OuterArmorData_cData>().ToList();
         var armorSeriesData = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}{PathHelper.ARMOR_SERIES_DATA_PATH}").rsz.GetEntryObject<App_user_data_ArmorSeriesData>().Values.Cast<App_user_data_ArmorSeriesData_cData>().ToList();
 
-        var list = new List<ArmorModelData>();
+        var list = new HashSet<ArmorModelData>();
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var armor in armorData) {
             if (armor.Series_Unwrapped == App_ArmorDef_SERIES_Fixed.ID_000) continue;
@@ -37,8 +38,19 @@ public class DumpArmor : IMod {
             };
             list.Add(modelData);
         }
+        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var outerArmor in armorOuterData) {
+            if (outerArmor.Series_Unwrapped == App_ArmorDef_SERIES_Fixed.ID_000) continue;
 
-        var writer = new StreamWriter(File.Open($@"{PathHelper.MODS_PATH}\..\Armor Models.csv", FileMode.Create, FileAccess.Write, FileShare.Read));
+            var modelData = new ArmorModelData {
+                name   = string.IsNullOrWhiteSpace(outerArmor.Name_Male) ? outerArmor.Name_Female : outerArmor.Name_Male,
+                series = armorSeriesData.First(series => series.Series_Unwrapped == outerArmor.Series_Unwrapped),
+                part   = outerArmor.PartsType_Unwrapped,
+            };
+            list.Add(modelData);
+        }
+
+        var writer = new StreamWriter(File.Open($@"{PathHelper.MODS_PATH}\..\Dumped Data\Armor Models.csv", FileMode.Create, FileAccess.Write, FileShare.Read));
         writer.WriteLine("Name,Equip Gender,Style Gender,Path");
         foreach (var data in list) {
             WritePart(writer, data.name, data, Gender.Male, Gender.Male);
@@ -76,10 +88,30 @@ public class DumpArmor : IMod {
         };
     }
 
-    private struct ArmorModelData {
+    private struct ArmorModelData : IEquatable<ArmorModelData> {
         public string                              name;
         public App_user_data_ArmorSeriesData_cData series;
         public App_ArmorDef_ARMOR_PARTS_Fixed      part;
+
+        public bool Equals(ArmorModelData other) {
+            return name == other.name && Equals(series.Series_Unwrapped, other.series.Series_Unwrapped) && part == other.part;
+        }
+
+        public override bool Equals(object obj) {
+            return obj is ArmorModelData other && Equals(other);
+        }
+
+        public override int GetHashCode() {
+            return HashCode.Combine(name, series.Series_Unwrapped, (int) part);
+        }
+
+        public static bool operator ==(ArmorModelData left, ArmorModelData right) {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(ArmorModelData left, ArmorModelData right) {
+            return !left.Equals(right);
+        }
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
