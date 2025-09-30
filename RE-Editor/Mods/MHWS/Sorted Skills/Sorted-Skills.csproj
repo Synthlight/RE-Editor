@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<RootNamespace>Sorted_Skills</RootNamespace>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="ImGui.NET">
+			<HintPath>O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\managed\dependencies\ImGui.NET.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="REFramework.NET">
+			<HintPath>O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\REFramework.NET.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="application">
+			<HintPath>O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\managed\generated\REFramework.NET.application.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="viacore">
+			<HintPath>O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\managed\generated\REFramework.NET.viacore.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="_System.Private.CoreLib">
+			<HintPath>O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\managed\generated\REFramework.NET._System.Private.CoreLib.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Assets\Assets.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Assets.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Assets\Assets.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Assets.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="copy /y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\managed\&quot;" />
+	</Target>
+</Project>

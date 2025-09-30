@@ -169,6 +169,11 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>ModResources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+		<!-- Remove the Sorted Skills subproject. -->
+		<Page Remove="Mods\MHWS\Sorted Skills\**"/>
+		<Compile Remove="Mods\MHWS\Sorted Skills\**"/>
+		<EmbeddedResource Remove="Mods\MHWS\Sorted Skills\**"/>
+		<None Remove="Mods\MHWS\Sorted Skills\**"/>
 	</ItemGroup>
 	<ItemGroup Condition="'!$(Configuration.StartsWith(`MHWS`))'">
 		<Compile Remove="Constants\MHWS\**"/>
