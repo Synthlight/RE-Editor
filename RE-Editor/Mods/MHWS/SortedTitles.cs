@@ -33,11 +33,12 @@ public class SortedTitles : IMod {
 
         List<INexusMod> mods = [
             new NexusMod {
-                Name    = name,
-                Version = version,
-                Desc    = "Activating this entry does nothing, it exists solely to create the submenu.",
-                Files   = [],
-                SkipPak = true
+                Name          = name,
+                Version       = version,
+                Desc          = "Activating this entry does nothing, it exists solely to create the submenu.",
+                Files         = [],
+                SkipPak       = true,
+                AlwaysInclude = true
             }
         ];
 
@@ -46,12 +47,13 @@ public class SortedTitles : IMod {
 
             mods.AddRange(new List<INexusMod> {
                 new NexusMod {
-                    Name     = langGroupName,
-                    AddonFor = name,
-                    Version  = version,
-                    Desc     = "Activating this entry does nothing, it exists solely to create the second submenu.",
-                    Files    = [],
-                    SkipPak  = true
+                    Name          = langGroupName,
+                    AddonFor      = name,
+                    Version       = version,
+                    Desc          = "Activating this entry does nothing, it exists solely to create the second submenu.",
+                    Files         = [],
+                    SkipPak       = true,
+                    AlwaysInclude = true
                 }
             });
 

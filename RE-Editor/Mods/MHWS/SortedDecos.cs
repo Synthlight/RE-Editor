@@ -32,21 +32,22 @@ public class SortedDecos : IMod {
 
         var baseMod = new NexusMod {
             Version = version,
-            Image = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png"
+            Image   = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png"
         };
 
         var baseLuaMod = new VariousDataTweak {
             Version = version,
-            Image = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png"
+            Image   = $@"{PathHelper.MODS_PATH}\{name}\Thumb.png"
         };
 
         List<INexusMod> mods = [
             new NexusMod {
-                Name    = name,
-                Version = version,
-                Desc    = "Activating this entry does nothing, it exists solely to create the submenu.",
-                Files   = [],
-                SkipPak = true
+                Name          = name,
+                Version       = version,
+                Desc          = "Activating this entry does nothing, it exists solely to create the submenu.",
+                Files         = [],
+                SkipPak       = true,
+                AlwaysInclude = true
             }
         ];
 
@@ -55,12 +56,13 @@ public class SortedDecos : IMod {
 
             mods.AddRange(new List<INexusMod> {
                 new NexusMod {
-                    Name     = langGroupName,
-                    AddonFor = name,
-                    Version  = version,
-                    Desc     = "Activating this entry does nothing, it exists solely to create the second submenu.",
-                    Files    = [],
-                    SkipPak  = true
+                    Name          = langGroupName,
+                    AddonFor      = name,
+                    Version       = version,
+                    Desc          = "Activating this entry does nothing, it exists solely to create the second submenu.",
+                    Files         = [],
+                    SkipPak       = true,
+                    AlwaysInclude = true
                 }
             });
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.IO;
 using RE_Editor.Common.Models;
 
@@ -56,6 +57,11 @@ public struct VariousDataTweak : IVariousDataTweak {
         WEAPON_DATA,
         WEAPON_RECIPE_DATA,
         WEAPON_TREE_DATA
+    }
+
+    [Pure]
+    public readonly override string ToString() {
+        return $"{NameAsBundle} :: {Name}";
     }
 }
 
