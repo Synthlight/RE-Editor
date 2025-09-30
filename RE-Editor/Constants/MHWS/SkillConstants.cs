@@ -51,11 +51,13 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed CRITICAL_ELEMENT = App_HunterDef_Skill_Fixed.HunterSkill_003;
     public const App_HunterDef_Skill_Fixed CRITICAL_EYE = App_HunterDef_Skill_Fixed.HunterSkill_001;
     public const App_HunterDef_Skill_Fixed CRITICAL_STATUS = App_HunterDef_Skill_Fixed.HunterSkill_056;
+    public const App_HunterDef_Skill_Fixed DARKSIDE = App_HunterDef_Skill_Fixed.HunterSkill_233;
     public const App_HunterDef_Skill_Fixed DEFENSE_BOOST = App_HunterDef_Skill_Fixed.HunterSkill_067;
     public const App_HunterDef_Skill_Fixed DIVINE_BLESSING = App_HunterDef_Skill_Fixed.HunterSkill_068;
     public const App_HunterDef_Skill_Fixed DOSHAGUMAS_MIGHT = App_HunterDef_Skill_Fixed.HunterSkill_175;
     public const App_HunterDef_Skill_Fixed DRAGON_ATTACK = App_HunterDef_Skill_Fixed.HunterSkill_009;
     public const App_HunterDef_Skill_Fixed DRAGON_RESISTANCE = App_HunterDef_Skill_Fixed.HunterSkill_081;
+    public const App_HunterDef_Skill_Fixed DREAMSPELL_PRAYER = App_HunterDef_Skill_Fixed.HunterSkill_223;
     public const App_HunterDef_Skill_Fixed EARPLUGS = App_HunterDef_Skill_Fixed.HunterSkill_072;
     public const App_HunterDef_Skill_Fixed EBONY_ODOGARONS_POWER = App_HunterDef_Skill_Fixed.HunterSkill_186;
     public const App_HunterDef_Skill_Fixed ELEMENTAL_ABSORPTION = App_HunterDef_Skill_Fixed.HunterSkill_190;
@@ -80,6 +82,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed GLORYS_FAVOR = App_HunterDef_Skill_Fixed.HunterSkill_227;
     public const App_HunterDef_Skill_Fixed GORE_MAGALAS_TYRANNY = App_HunterDef_Skill_Fixed.HunterSkill_183;
     public const App_HunterDef_Skill_Fixed GRAVIOSS_PROTECTION = App_HunterDef_Skill_Fixed.HunterSkill_181;
+    public const App_HunterDef_Skill_Fixed GRILLMASTER = App_HunterDef_Skill_Fixed.HunterSkill_231;
     public const App_HunterDef_Skill_Fixed GUARD = App_HunterDef_Skill_Fixed.HunterSkill_026;
     public const App_HunterDef_Skill_Fixed GUARD_UP = App_HunterDef_Skill_Fixed.HunterSkill_027;
     public const App_HunterDef_Skill_Fixed GUARDIAN_ARKVELDS_VITALITY = App_HunterDef_Skill_Fixed.HunterSkill_184;
@@ -116,6 +119,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed NORMAL_SHOTS = App_HunterDef_Skill_Fixed.HunterSkill_038;
     public const App_HunterDef_Skill_Fixed NU_UDRAS_MUTINY = App_HunterDef_Skill_Fixed.HunterSkill_178;
     public const App_HunterDef_Skill_Fixed OFFENSIVE_GUARD = App_HunterDef_Skill_Fixed.HunterSkill_028;
+    public const App_HunterDef_Skill_Fixed OMEGA_RESONANCE = App_HunterDef_Skill_Fixed.HunterSkill_237;
     public const App_HunterDef_Skill_Fixed OPENING_SHOT = App_HunterDef_Skill_Fixed.HunterSkill_198;
     public const App_HunterDef_Skill_Fixed OUTDOORSMAN = App_HunterDef_Skill_Fixed.HunterSkill_126;
     public const App_HunterDef_Skill_Fixed PALICO_RALLY = App_HunterDef_Skill_Fixed.HunterSkill_130;
@@ -153,6 +157,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed SLEEP_RESISTANCE = App_HunterDef_Skill_Fixed.HunterSkill_085;
     public const App_HunterDef_Skill_Fixed SLICKED_BLADE = App_HunterDef_Skill_Fixed.HunterSkill_202;
     public const App_HunterDef_Skill_Fixed SLUGGER = App_HunterDef_Skill_Fixed.HunterSkill_032;
+    public const App_HunterDef_Skill_Fixed SOUL_OF_THE_DARK_KNIGHT = App_HunterDef_Skill_Fixed.HunterSkill_236;
     public const App_HunterDef_Skill_Fixed SPECIAL_AMMO_BOOST = App_HunterDef_Skill_Fixed.HunterSkill_037;
     public const App_HunterDef_Skill_Fixed SPEED_EATING = App_HunterDef_Skill_Fixed.HunterSkill_071;
     public const App_HunterDef_Skill_Fixed SPEED_SHARPENING = App_HunterDef_Skill_Fixed.HunterSkill_046;
@@ -162,6 +167,8 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed STENCH_RESISTANCE = App_HunterDef_Skill_Fixed.HunterSkill_122;
     public const App_HunterDef_Skill_Fixed STUN_RESISTANCE = App_HunterDef_Skill_Fixed.HunterSkill_086;
     public const App_HunterDef_Skill_Fixed SURVIVAL_EXPERT = App_HunterDef_Skill_Fixed.HunterSkill_134;
+    public const App_HunterDef_Skill_Fixed SYNERGY = App_HunterDef_Skill_Fixed.HunterSkill_235;
+    public const App_HunterDef_Skill_Fixed SYNTHETIC_SHIELD = App_HunterDef_Skill_Fixed.HunterSkill_234;
     public const App_HunterDef_Skill_Fixed TETRAD_SHOT = App_HunterDef_Skill_Fixed.HunterSkill_197;
     public const App_HunterDef_Skill_Fixed THUNDER_ATTACK = App_HunterDef_Skill_Fixed.HunterSkill_008;
     public const App_HunterDef_Skill_Fixed THUNDER_RESISTANCE = App_HunterDef_Skill_Fixed.HunterSkill_080;

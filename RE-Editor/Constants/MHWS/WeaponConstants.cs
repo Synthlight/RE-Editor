@@ -776,6 +776,8 @@ public static class WeaponConstants {
     public static readonly Guid NU_ZHANGYU_I = Guid.Parse("0499536f-9fee-452d-8656-19c55b692fc6");
     public static readonly Guid NU_ZHANGYU_II = Guid.Parse("cb305de6-d600-45b4-bed0-ed2ccb1ac6b3");
     public static readonly Guid OLACHA_OF_THE_WAVES = Guid.Parse("1613d0f3-30e6-4503-90fd-ee870975b46c");
+    public static readonly Guid OMEGAS_ROD = Guid.Parse("e095f8eb-67e6-4105-9b02-d49fded21f5d");
+    public static readonly Guid OMEGAS_SWORD = Guid.Parse("3bc65834-48b6-477c-8091-5d3c200b24ea");
     public static readonly Guid OMILTIKA = Guid.Parse("30065d93-0a5b-4d65-8793-8c097bff0b1b");
     public static readonly Guid ORTLINDE = Guid.Parse("becb8822-0d30-4948-a17c-05d4ae470ae0");
     public static readonly Guid PALADIN_LANCE_I = Guid.Parse("f8ed5ef5-3ec1-45eb-b135-2a1c45606dd9");
@@ -939,6 +941,7 @@ public static class WeaponConstants {
     public static readonly Guid SCYLLA_FIST_I = Guid.Parse("159b1dbe-a413-4b16-8ce2-cb740b7b0f6c");
     public static readonly Guid SCYLLA_FIST_II = Guid.Parse("4a9eaf71-9e71-4e70-9abe-7943fa9be7c4");
     public static readonly Guid SCYLLA_FIST_III = Guid.Parse("55ea6f38-f029-4b99-897c-897576497486");
+    public static readonly Guid SHADOWBRINGER = Guid.Parse("c441f980-bcc7-45c7-98b2-35303fd06403");
     public static readonly Guid SHALYA_BOW_I = Guid.Parse("b9a4e32e-b43d-4f7c-acdb-bbd93a1bb622");
     public static readonly Guid SHELL_GUNBERD_I = Guid.Parse("9e51d6d0-ba26-4fa6-9174-59bcfac1dc5c");
     public static readonly Guid SHELL_GUNBERD_II = Guid.Parse("871ea09a-945d-497d-aba1-c4bf1673e486");
@@ -988,6 +991,7 @@ public static class WeaponConstants {
     public static readonly Guid TANKMAGE_I = Guid.Parse("eee16785-0a21-4252-99cc-72cf02ce2e6d");
     public static readonly Guid TANKMAGE_II = Guid.Parse("b390ced6-f44d-4002-b27e-1abc77ee852e");
     public static readonly Guid TANKSORCERER = Guid.Parse("fb858d35-f37a-466d-a62e-e8eaa8f6099d");
+    public static readonly Guid TASTY_BLADES = Guid.Parse("70acb3d7-ed2a-41db-94d9-c8943e81b9bd");
     public static readonly Guid TERRIBLE_TWINS = Guid.Parse("9c85c3a6-c5e5-4a29-a930-17bee8c2abb5");
     public static readonly Guid THUNDACRUS_I = Guid.Parse("d07087df-9402-4505-8f42-6503f437ebe6");
     public static readonly Guid THUNDACRUS_REX = Guid.Parse("8f925d40-3caf-4bc4-9450-4b4082f9bf51");
@@ -1006,6 +1010,9 @@ public static class WeaponConstants {
     public static readonly Guid TRIPLE_BAYONET_III = Guid.Parse("f38598c5-d789-4704-a2df-d2f56643069c");
     public static readonly Guid TRIUMVIRATE_EDGE = Guid.Parse("34e8b2d3-551c-46c5-a48d-0e1df255d8de");
     public static readonly Guid TRUE_DRAGON_PERFORATOR = Guid.Parse("8f4b397b-1ca7-4500-b970-75206a3e90e0");
+    public static readonly Guid TRUE_OMEGAS_ROD = Guid.Parse("6cb09489-30ce-44ef-a6a9-55f97496b703");
+    public static readonly Guid TRUE_OMEGAS_SWORD = Guid.Parse("3d0997b9-4b05-4072-b8cf-13d7ed7b9ffe");
+    public static readonly Guid TRUE_SHADOWBRINGER = Guid.Parse("3546120f-8ca2-4bf6-88a8-40764fac41f2");
     public static readonly Guid TURBULENT_LANCE = Guid.Parse("042ac14c-9c2c-4087-b2e1-b252ad2a3db3");
     public static readonly Guid TWIN_ACRUS_I = Guid.Parse("990eddc7-8599-46cd-afd1-2663a2b1265e");
     public static readonly Guid TWIN_ALBIRATHS_I = Guid.Parse("e7a19831-968f-4908-bd46-a4204df147cf");
@@ -1076,6 +1083,7 @@ public static class WeaponConstants {
     public static readonly Guid WAR_BONGO_II = Guid.Parse("52031727-ddd4-4ba1-89c8-c8c5e82f9259");
     public static readonly Guid WAR_CONGA = Guid.Parse("7fcc09f2-f6ad-4b7d-ab26-732a60de49eb");
     public static readonly Guid WARRING_FULGUR_I = Guid.Parse("da769d7d-e94c-43cf-a8fb-f09fc51ebd55");
+    public static readonly Guid WELL_DONE_BLADES = Guid.Parse("9890de32-b156-4a78-85ac-291e0864f443");
     public static readonly Guid WHIRLING_FULGUR_I = Guid.Parse("9326060b-b725-42e9-888a-579a696f590d");
     public static readonly Guid WHITE_CANNON = Guid.Parse("48851c8d-e23c-4d0a-bd72-bd08884cd198");
     public static readonly Guid WHITE_GUNLANCE_I = Guid.Parse("9a71ae70-9c0b-48d5-9919-5f12f3232536");

@@ -106,6 +106,7 @@ public static class OtomoArmorConstants {
     public const int FELYNE_DUNA_MASK = 19;
     public const int FELYNE_DUNA_MASK_Α = 97;
     public const int FELYNE_DUNA_MASK_Γ = 147;
+    public const int FELYNE_GHOST_GARB_Α = 166;
     public const int FELYNE_GORE_GHOST_Α = 102;
     public const int FELYNE_GORE_HORROR_Α = 101;
     public const int FELYNE_GRAV_ARMOR_Α = 92;
@@ -120,6 +121,8 @@ public static class OtomoArmorConstants {
     public const int FELYNE_HOPE_HELM_Α = 45;
     public const int FELYNE_HOPE_SUIT = 2;
     public const int FELYNE_HOPE_SUIT_Α = 46;
+    public const int FELYNE_HYMSTRIGIAN_COAT_Α = 110;
+    public const int FELYNE_HYMSTRIGIAN_HOOD_Α = 109;
     public const int FELYNE_KUNAFA_HOOD_Α = 111;
     public const int FELYNE_KUNAFA_SUIT_Α = 112;
     public const int FELYNE_KUT_KU_MASK_Α = 59;
@@ -128,6 +131,7 @@ public static class OtomoArmorConstants {
     public const int FELYNE_LAGIA_TRICORNE_Α = 139;
     public const int FELYNE_LEATHER_CAP = 123;
     public const int FELYNE_LEATHER_VEST = 124;
+    public const int FELYNE_MEOWLOWEEN_MASK_Α = 165;
     public const int FELYNE_QUEMA_HELM = 7;
     public const int FELYNE_QUEMA_HELM_Α = 53;
     public const int FELYNE_QUEMA_MAIL = 8;
@@ -148,12 +152,18 @@ public static class OtomoArmorConstants {
     public const int FELYNE_SUJA_VEST_Α = 118;
     public const int FELYNE_UDRA_HEAD = 31;
     public const int FELYNE_UDRA_HEAD_Α = 99;
+    public const int FELYNE_UDRA_HEAD_Γ = 149;
     public const int FELYNE_UDRA_TENTACLES = 32;
     public const int FELYNE_UDRA_TENTACLES_Α = 100;
+    public const int FELYNE_UDRA_TENTACLES_Γ = 150;
     public const int FELYNE_XU_WU_SUIT = 40;
     public const int FELYNE_XU_WU_SUIT_Α = 86;
     public const int FELYNE_XU_WU_VEIL = 39;
     public const int FELYNE_XU_WU_VEIL_Α = 85;
+    public const int MEOWRIONETTE_BODY_Α = 164;
+    public const int MEOWRIONETTE_HEAD_Α = 163;
+    public const int MORBOL_SEEDLING_BODY_Α = 176;
+    public const int MORBOL_SEEDLING_HEAD_Α = 175;
     public const int WACKY_WUDWUD_BODY_Α = 178;
     public const int WACKY_WUDWUD_MASK_Α = 177;
     public const int WUDWUD_BODY_Α = 114;

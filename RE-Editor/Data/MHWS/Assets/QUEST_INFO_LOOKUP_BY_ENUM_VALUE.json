@@ -77,6 +77,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -127,6 +129,10 @@
     "12864": "蒼海共震",
     "31315": "晴れの日、時々砂嵐",
     "10021": "晴れの日、時々砂嵐",
+    "30114": "侵攻の烽火",
+    "9340": "侵攻の烽火",
+    "7044": "星惑いの侵攻者",
+    "29336": "星惑いの侵攻者",
     "76622584": "簡易版クエスト"
   },
   "eng": {
@@ -207,6 +213,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -257,6 +265,10 @@
     "12864": "Trembling Blue Currents",
     "31315": "Clear with a Chance of Sandstorm",
     "10021": "Clear with a Chance of Sandstorm",
+    "30114": "The Beacon of Invasion",
+    "9340": "The Beacon of Invasion",
+    "7044": "Invader from the Stars",
+    "29336": "Invader from the Stars",
     "76622584": "Casual Quest"
   },
   "fre": {
@@ -337,6 +349,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -386,7 +400,11 @@
     "19179": "Courants bleus frémissants",
     "12864": "Courants bleus frémissants",
     "31315": "Beau temps, quelques tempêtes",
-    "10021": "Beau temps, quelques tempêtes"
+    "10021": "Beau temps, quelques tempêtes",
+    "30114": "L'invasion commence",
+    "9340": "L'invasion commence",
+    "7044": "La menace venue des étoiles",
+    "29336": "La menace venue des étoiles"
   },
   "ita": {
     "-1560088960": "Cavalcatori del deserto",
@@ -466,6 +484,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -515,7 +535,11 @@
     "19179": "Correnti blu agitate",
     "12864": "Correnti blu agitate",
     "31315": "Sabbie ribelli",
-    "10021": "Sabbie ribelli"
+    "10021": "Sabbie ribelli",
+    "30114": "L'araldo dell'invasione",
+    "9340": "L'araldo dell'invasione",
+    "7044": "Invasore dalle stelle",
+    "29336": "Invasore dalle stelle"
   },
   "ger": {
     "-1560088960": "Wüstenwanderer",
@@ -595,6 +619,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -644,7 +670,11 @@
     "19179": "Unter Strom",
     "12864": "Unter Strom",
     "31315": "Teils klar, teils Sandsturm",
-    "10021": "Teils klar, teils Sandsturm"
+    "10021": "Teils klar, teils Sandsturm",
+    "30114": "Ankündiger der Invasion",
+    "9340": "Ankündiger der Invasion",
+    "7044": "Galaktischer Eindringling",
+    "29336": "Galaktischer Eindringling"
   },
   "spa": {
     "-1560088960": "Trotamundos del desierto",
@@ -724,6 +754,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -773,7 +805,11 @@
     "19179": "Tremor en tierra y mar",
     "12864": "Tremor en tierra y mar",
     "31315": "Despejado, con tormentas de arena",
-    "10021": "Despejado, con tormentas de arena"
+    "10021": "Despejado, con tormentas de arena",
+    "30114": "La señal de la invasión",
+    "9340": "La señal de la invasión",
+    "7044": "Invasor de las estrellas",
+    "29336": "Invasor de las estrellas"
   },
   "rus": {
     "-1560088960": "Корабль в пустыне",
@@ -853,6 +889,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -902,7 +940,11 @@
     "19179": "Разверзшаяся пучина",
     "12864": "Разверзшаяся пучина",
     "31315": "Ясно, возможны песчаные бури",
-    "10021": "Ясно, возможны песчаные бури"
+    "10021": "Ясно, возможны песчаные бури",
+    "30114": "Маяк вторжения",
+    "9340": "Маяк вторжения",
+    "7044": "Звёздный захватчик",
+    "29336": "Звёздный захватчик"
   },
   "pol": {
     "-1560088960": "Pustynny kłus",
@@ -982,6 +1024,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -1031,7 +1075,11 @@
     "19179": "Drżące niebieskie prądy",
     "12864": "Drżące niebieskie prądy",
     "31315": "Pogodnie z szansą na burzę piaskową",
-    "10021": "Bezchmurnie z możliwymi burzami piaskowymi"
+    "10021": "Bezchmurnie z możliwymi burzami piaskowymi",
+    "30114": "Sygnał inwazji",
+    "9340": "Sygnał inwazji",
+    "7044": "Najeźdźca z gwiazd",
+    "29336": "Najeźdźca z gwiazd"
   },
   "ptB": {
     "-1560088960": "Andarilhos do Deserto",
@@ -1111,6 +1159,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -1160,7 +1210,11 @@
     "19179": "Trêmulas Correntes Azuis",
     "12864": "Trêmulas Correntes Azuis",
     "31315": "Sol com Pancadas de Areia",
-    "10021": "Sol com Pancadas de Areia"
+    "10021": "Sol com Pancadas de Areia",
+    "30114": "O Sinalizador da Invasão",
+    "9340": "O Sinalizador da Invasão",
+    "7044": "Invasor das Estrelas",
+    "29336": "Invasor das Estrelas"
   },
   "kor": {
     "-1560088960": "모래 평원을 누비는 자",
@@ -1240,6 +1294,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -1289,7 +1345,11 @@
     "19179": "짙푸른 공진",
     "12864": "짙푸른 공진",
     "31315": "맑음, 때때로 모래 폭풍",
-    "10021": "맑음, 때때로 모래 폭풍"
+    "10021": "맑음, 때때로 모래 폭풍",
+    "30114": "침공의 봉화",
+    "9340": "침공의 봉화",
+    "7044": "별을 떠도는 침략자",
+    "29336": "별을 떠도는 침략자"
   },
   "chT": {
     "-1560088960": "疾馳沙原",
@@ -1369,6 +1429,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -1418,7 +1480,11 @@
     "19179": "蒼海共震",
     "12864": "蒼海共震",
     "31315": "天晴時有沙塵暴",
-    "10021": "天晴時有沙塵暴"
+    "10021": "天晴時有沙塵暴",
+    "30114": "侵略的烽火",
+    "9340": "侵略的烽火",
+    "7044": "來自行星的侵略者",
+    "29336": "來自行星的侵略者"
   },
   "chS": {
     "-1560088960": "驰骋沙原者",
@@ -1498,6 +1564,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -1547,7 +1615,11 @@
     "19179": "苍海共震",
     "12864": "苍海共震",
     "31315": "天气晴朗，偶有沙尘暴",
-    "10021": "天气晴朗，偶有沙尘暴"
+    "10021": "天气晴朗，偶有沙尘暴",
+    "30114": "侵略的烽火",
+    "9340": "侵略的烽火",
+    "7044": "来自行星的侵略者",
+    "29336": "来自行星的侵略者"
   },
   "ara": {
     "-1560088960": "آثار الصحراء",
@@ -1627,6 +1699,8 @@
     "29292": "#Rejected#",
     "27964": "#Rejected#",
     "11209": "#Rejected#",
+    "14616": "#Rejected#",
+    "25302": "#Rejected#",
     "30423": "#Rejected#",
     "5668": "#Rejected#",
     "14710": "#Rejected#",
@@ -1676,6 +1750,10 @@
     "19179": "تيارات زرقاء مضطربة",
     "12864": "تيارات زرقاء مضطربة",
     "31315": "سماء صافية مع احتمال هبوب عاصفة رملية",
-    "10021": "سماء صافية مع احتمال هبوب عاصفة رملية"
+    "10021": "سماء صافية مع احتمال هبوب عاصفة رملية",
+    "30114": "منارة الغزو",
+    "9340": "منارة الغزو",
+    "7044": "الغازي القادم من الفضاء",
+    "29336": "الغازي القادم من الفضاء"
   }
 }

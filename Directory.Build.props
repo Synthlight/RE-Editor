@@ -1,6 +1,6 @@
 <Project>
 	<PropertyGroup>
-		<TargetFramework>net6.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 		<LangVersion>latest</LangVersion>

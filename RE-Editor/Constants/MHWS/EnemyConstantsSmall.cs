@@ -24,6 +24,7 @@ public static class EnemyConstantsSmall {
     public const App_EnemyDef_ID_Fixed HARPIOS = App_EnemyDef_ID_Fixed.EM1157_00_0;
     public const App_EnemyDef_ID_Fixed KRANODATH = App_EnemyDef_ID_Fixed.EM1158_00_0;
     public const App_EnemyDef_ID_Fixed NERSCYLLA_HATCHLING = App_EnemyDef_ID_Fixed.EM1163_00_0;
+    public const App_EnemyDef_ID_Fixed OMEGA_MICROS = App_EnemyDef_ID_Fixed.EM1165_00_0;
     public const App_EnemyDef_ID_Fixed PIRAGILL = App_EnemyDef_ID_Fixed.EM1156_00_0;
     public const App_EnemyDef_ID_Fixed PORKEPLUME = App_EnemyDef_ID_Fixed.EM1162_00_0;
     public const App_EnemyDef_ID_Fixed RAFMA = App_EnemyDef_ID_Fixed.EM1161_00_0;

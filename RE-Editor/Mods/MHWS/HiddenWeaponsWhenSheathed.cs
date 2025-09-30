@@ -38,7 +38,12 @@ public class HiddenWeaponsWhenSheathed : IMod {
             switch (obj) {
                 case App_user_data_PlayerWeaponVisualParam data:
                     var wasAltered = ModWeaponAttachInfo(data.AttachInfo[0]);
-                    wasAltered = ModWeaponAttachInfo(data.SquatttachInfo[0]) || wasAltered;
+                    wasAltered = ModWeaponAttachInfo(data.SquatttachInfo[0]) || wasAltered; // Crouching.
+                    wasAltered = ModWeaponAttachInfo(data.PorterRideAttachInfo[0]) || wasAltered; // Seikret.
+                    wasAltered = ModWeaponAttachInfo(data.PorterRideTopSpeedAttachInfo[0]) || wasAltered; // Seikret.
+                    wasAltered = ModWeaponAttachInfo(data.PorterRideTiltLeftAttachInfo[0]) || wasAltered; // Seikret.
+                    wasAltered = ModWeaponAttachInfo(data.PorterRideTiltRightAttachInfo[0]) || wasAltered; // Seikret.
+                    wasAltered = ModWeaponAttachInfo(data.PorterRideDashAttachInfo[0]) || wasAltered; // Seikret.
                     return wasAltered;
             }
         }

@@ -25,6 +25,7 @@ public static class EnemyConstants {
     public const App_EnemyDef_ID_Fixed BOMB_BEETLE = App_EnemyDef_ID_Fixed.EM5004_10_0;
     public const App_EnemyDef_ID_Fixed BULAQCHI = App_EnemyDef_ID_Fixed.EM1152_00_0;
     public const App_EnemyDef_ID_Fixed BURST_AROWANA = App_EnemyDef_ID_Fixed.EM5309_00_0;
+    public const App_EnemyDef_ID_Fixed CACTUAR = App_EnemyDef_ID_Fixed.EM5010_00_0;
     public const App_EnemyDef_ID_Fixed CERATONOTH_FEMALE = App_EnemyDef_ID_Fixed.EM1150_00_1;
     public const App_EnemyDef_ID_Fixed CERATONOTH_MALE = App_EnemyDef_ID_Fixed.EM1150_00_0;
     public const App_EnemyDef_ID_Fixed CHATACABRA = App_EnemyDef_ID_Fixed.EM0152_00_0;
@@ -91,6 +92,7 @@ public static class EnemyConstants {
     public const App_EnemyDef_ID_Fixed LEAFLUGGER_ANT = App_EnemyDef_ID_Fixed.EM5102_00_0;
     public const App_EnemyDef_ID_Fixed MIMIPHYTA = App_EnemyDef_ID_Fixed.EM5214_00_0;
     public const App_EnemyDef_ID_Fixed MIZUTSUNE = App_EnemyDef_ID_Fixed.EM0082_00_0;
+    public const App_EnemyDef_ID_Fixed MORBOL_SEEDLING = App_EnemyDef_ID_Fixed.EM5011_00_0;
     public const App_EnemyDef_ID_Fixed MYRIADS = App_EnemyDef_ID_Fixed.EM5210_00_0;
     public const App_EnemyDef_ID_Fixed MYRIADS_2 = App_EnemyDef_ID_Fixed.EM5210_10_0;
     public const App_EnemyDef_ID_Fixed NERSCYLLA = App_EnemyDef_ID_Fixed.EM0070_00_0;
@@ -99,6 +101,8 @@ public static class EnemyConstants {
     public const App_EnemyDef_ID_Fixed NOTHPECKER = App_EnemyDef_ID_Fixed.EM5201_00_0;
     public const App_EnemyDef_ID_Fixed NU_UDRA = App_EnemyDef_ID_Fixed.EM0158_00_0;
     public const App_EnemyDef_ID_Fixed NU_YAYA = App_EnemyDef_ID_Fixed.EM5222_00_0;
+    public const App_EnemyDef_ID_Fixed OMEGA_MICROS = App_EnemyDef_ID_Fixed.EM1165_00_0;
+    public const App_EnemyDef_ID_Fixed OMEGA_PLANETES = App_EnemyDef_ID_Fixed.EM0166_00_0;
     public const App_EnemyDef_ID_Fixed OMENFLY = App_EnemyDef_ID_Fixed.EM5213_00_0;
     public const App_EnemyDef_ID_Fixed PALLBUG = App_EnemyDef_ID_Fixed.EM5205_00_0;
     public const App_EnemyDef_ID_Fixed PARATOAD = App_EnemyDef_ID_Fixed.EM5001_00_0;

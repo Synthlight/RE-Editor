@@ -18,8 +18,10 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed ALISTAIR = App_NpcDef_ID_Fixed.NPC111_01_041;
     public const App_NpcDef_ID_Fixed ALMA = App_NpcDef_ID_Fixed.NPC102_00_001;
     public const App_NpcDef_ID_Fixed ALMA_2 = App_NpcDef_ID_Fixed.NPC102_00_906;
+    public const App_NpcDef_ID_Fixed ALPHA = App_NpcDef_ID_Fixed.NPC510_50_025;
     public const App_NpcDef_ID_Fixed AMONE = App_NpcDef_ID_Fixed.NPC112_11_039;
     public const App_NpcDef_ID_Fixed ANOLIA = App_NpcDef_ID_Fixed.NPC112_15_012;
+    public const App_NpcDef_ID_Fixed ANVAR = App_NpcDef_ID_Fixed.NPC310_00_027;
     public const App_NpcDef_ID_Fixed APAR = App_NpcDef_ID_Fixed.NPC212_14_021;
     public const App_NpcDef_ID_Fixed ARAKIE = App_NpcDef_ID_Fixed.NPC112_11_042;
     public const App_NpcDef_ID_Fixed ARDENI = App_NpcDef_ID_Fixed.NPC111_15_007;
@@ -108,6 +110,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed JEAN = App_NpcDef_ID_Fixed.NPC111_22_003;
     public const App_NpcDef_ID_Fixed JORDAN = App_NpcDef_ID_Fixed.NPC111_21_037;
     public const App_NpcDef_ID_Fixed JUTTA = App_NpcDef_ID_Fixed.NPC212_01_016;
+    public const App_NpcDef_ID_Fixed KAI = App_NpcDef_ID_Fixed.NPC111_00_016;
     public const App_NpcDef_ID_Fixed KAISA = App_NpcDef_ID_Fixed.NPC112_11_028;
     public const App_NpcDef_ID_Fixed KALAMON = App_NpcDef_ID_Fixed.NPC111_15_005;
     public const App_NpcDef_ID_Fixed KANYA = App_NpcDef_ID_Fixed.NPC102_00_031;
@@ -130,6 +133,8 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed LEGEND = App_NpcDef_ID_Fixed.NPC221_01_008;
     public const App_NpcDef_ID_Fixed LEMUEL = App_NpcDef_ID_Fixed.NPC111_25_001;
     public const App_NpcDef_ID_Fixed LERH = App_NpcDef_ID_Fixed.NPC211_00_901;
+    public const App_NpcDef_ID_Fixed LEVEL_CHECKER = App_NpcDef_ID_Fixed.NPC510_50_027;
+    public const App_NpcDef_ID_Fixed LEVEL_CHECKER_2 = App_NpcDef_ID_Fixed.NPC510_50_028;
     public const App_NpcDef_ID_Fixed LI_LEE = App_NpcDef_ID_Fixed.NPC112_00_034;
     public const App_NpcDef_ID_Fixed LOTTA = App_NpcDef_ID_Fixed.NPC112_01_002;
     public const App_NpcDef_ID_Fixed LOUHI = App_NpcDef_ID_Fixed.NPC310_50_010;
@@ -167,6 +172,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed NEMEKA = App_NpcDef_ID_Fixed.NPC112_13_068;
     public const App_NpcDef_ID_Fixed NEMMO = App_NpcDef_ID_Fixed.NPC131_11_049;
     public const App_NpcDef_ID_Fixed NERUP = App_NpcDef_ID_Fixed.NPC111_13_060;
+    public const App_NpcDef_ID_Fixed NIGHTMIST = App_NpcDef_ID_Fixed.NPC112_00_024;
     public const App_NpcDef_ID_Fixed NIKIYA = App_NpcDef_ID_Fixed.NPC112_21_049;
     public const App_NpcDef_ID_Fixed NINA = App_NpcDef_ID_Fixed.NPC112_00_902;
     public const App_NpcDef_ID_Fixed NONA = App_NpcDef_ID_Fixed.NPC102_11_067;
@@ -178,6 +184,8 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed OLA = App_NpcDef_ID_Fixed.NPC222_14_026;
     public const App_NpcDef_ID_Fixed OLD_NANA = App_NpcDef_ID_Fixed.NPC102_11_068;
     public const App_NpcDef_ID_Fixed OLIVIA = App_NpcDef_ID_Fixed.NPC102_00_007;
+    public const App_NpcDef_ID_Fixed OMEGA = App_NpcDef_ID_Fixed.NPC510_50_026;
+    public const App_NpcDef_ID_Fixed OMEGA_PLANETES = App_NpcDef_ID_Fixed.NPC510_50_030;
     public const App_NpcDef_ID_Fixed ORKISA = App_NpcDef_ID_Fixed.NPC112_15_016;
     public const App_NpcDef_ID_Fixed PINO = App_NpcDef_ID_Fixed.NPC310_01_046;
     public const App_NpcDef_ID_Fixed PISTA = App_NpcDef_ID_Fixed.NPC310_24_002;

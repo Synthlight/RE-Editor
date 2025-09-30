@@ -10,6 +10,7 @@ namespace RE_Editor.Constants;
 [SuppressMessage("ReSharper", "IdentifierTypo")]
 public static class OtomoArmorSeriesConstants {
     public const int ATHOS_Α = -1062790016;
+    public const int AZURE_FANTASY_WUDWUD = 3122;
     public const int BLANKA_CHAN_Α = 13675;
     public const int FELYNE_AFI_Α = 8198;
     public const int FELYNE_AJARAKAN = -15275857;
@@ -46,6 +47,8 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_G_FULGUR_Α = 719980864;
     public const int FELYNE_G_RATHALOS = 1111438208;
     public const int FELYNE_G_RATHALOS_Α = 906124864;
+    public const int FELYNE_GAWKIE = 20252;
+    public const int FELYNE_GHOST_Α = 21352;
     public const int FELYNE_GORE_Α = 1372825472;
     public const int FELYNE_GRAVIOS_Α = 1733217536;
     public const int FELYNE_GYPCEROS_Α = -630507648;
@@ -53,6 +56,7 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_HIRABAMI_Α = -1583474560;
     public const int FELYNE_HOPE = -2038254976;
     public const int FELYNE_HOPE_Α = 1067805760;
+    public const int FELYNE_HYMSTRIGIAN_Α = -1114549376;
     public const int FELYNE_KUNAFA_Α = 945585792;
     public const int FELYNE_KUT_KU_Α = 1018946048;
     public const int FELYNE_LAGIACRUS_Α = 19884;
@@ -78,11 +82,14 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_SEREGIOS_Α = 6690;
     public const int FELYNE_SILD_Α = -1932970112;
     public const int FELYNE_SUJA_Α = 707825664;
+    public const int FELYNE_UDRA_Γ = 24912;
     public const int FELYNE_UTH_DUNA = -2050214272;
     public const int FELYNE_UTH_DUNA_Α = 1116020224;
     public const int FELYNE_UTH_DUNA_Γ = 26605;
     public const int FELYNE_XU_WU = 1949446528;
     public const int FELYNE_XU_WU_Α = 1167423232;
+    public const int MEOWRIONETTE_Α = 2632;
+    public const int MORBOL_SEEDLING_Α = 27389;
     public const int WACKY_WUDWUD_Α = 2419;
     public const int WUDWUD_GUISE_Α = -385188320;
 }

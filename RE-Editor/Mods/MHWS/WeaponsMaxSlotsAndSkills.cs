@@ -16,7 +16,7 @@ public class WeaponsMaxSlotsAndSkills : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Weapons - Max Slots & Skills";
         const string description = "Weapons - Max Slots & Skills.";
-        const string version     = "1.8";
+        const string version     = "1.9";
 
         var baseMod = new NexusMod {
             Version      = version,

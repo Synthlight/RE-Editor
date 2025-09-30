@@ -18,6 +18,7 @@ public static class EnemyConstantsEndemic {
     public const App_EnemyDef_ID_Fixed BOMB_AROWANA = App_EnemyDef_ID_Fixed.EM5310_00_0;
     public const App_EnemyDef_ID_Fixed BOMB_BEETLE = App_EnemyDef_ID_Fixed.EM5004_10_0;
     public const App_EnemyDef_ID_Fixed BURST_AROWANA = App_EnemyDef_ID_Fixed.EM5309_00_0;
+    public const App_EnemyDef_ID_Fixed CACTUAR = App_EnemyDef_ID_Fixed.EM5010_00_0;
     public const App_EnemyDef_ID_Fixed CHILLMANTLE_BUG = App_EnemyDef_ID_Fixed.EM5005_10_0;
     public const App_EnemyDef_ID_Fixed CRUDESHELL_CRAB = App_EnemyDef_ID_Fixed.EM5216_10_0;
     public const App_EnemyDef_ID_Fixed CURIOSHELL_CRAB = App_EnemyDef_ID_Fixed.EM5216_09_0;
@@ -56,6 +57,7 @@ public static class EnemyConstantsEndemic {
     public const App_EnemyDef_ID_Fixed LANDLIGHT_SHRIMP = App_EnemyDef_ID_Fixed.EM5202_00_0;
     public const App_EnemyDef_ID_Fixed LEAFLUGGER_ANT = App_EnemyDef_ID_Fixed.EM5102_00_0;
     public const App_EnemyDef_ID_Fixed MIMIPHYTA = App_EnemyDef_ID_Fixed.EM5214_00_0;
+    public const App_EnemyDef_ID_Fixed MORBOL_SEEDLING = App_EnemyDef_ID_Fixed.EM5011_00_0;
     public const App_EnemyDef_ID_Fixed MYRIADS = App_EnemyDef_ID_Fixed.EM5210_00_0;
     public const App_EnemyDef_ID_Fixed MYRIADS_2 = App_EnemyDef_ID_Fixed.EM5210_10_0;
     public const App_EnemyDef_ID_Fixed NITROTOAD = App_EnemyDef_ID_Fixed.EM5001_10_0;

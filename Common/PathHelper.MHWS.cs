@@ -35,6 +35,7 @@ public static partial class PathHelper {
         "re_chunk_000.pak.patch_007.pak",
         "re_chunk_000.pak.patch_008.pak",
         "re_chunk_000.pak.patch_009.pak",
+        "re_chunk_000.pak.patch_010.pak",
         "re_chunk_000.pak.sub_000.pak",
         "re_chunk_000.pak.sub_000.pak.patch_001.pak",
         "re_chunk_000.pak.sub_000.pak.patch_002.pak",
@@ -44,7 +45,8 @@ public static partial class PathHelper {
         "re_chunk_000.pak.sub_000.pak.patch_006.pak",
         "re_chunk_000.pak.sub_000.pak.patch_007.pak",
         "re_chunk_000.pak.sub_000.pak.patch_008.pak",
-        "re_chunk_000.pak.sub_000.pak.patch_009.pak"
+        "re_chunk_000.pak.sub_000.pak.patch_009.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_010.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
@@ -88,7 +90,11 @@ public static partial class PathHelper {
         new(new(2025, 08, 21), "1.021.03.00", [
             "re_chunk_000.pak.patch_009.pak",
             "re_chunk_000.pak.sub_000.pak.patch_009.pak"
-        ]) {updateName = "1.021.01.00-1.021.03.00"}
+        ]) {updateName = "1.021.01.00-1.021.03.00"},
+        new(new(2025, 09, 28), "1.030.00.00", [
+            "re_chunk_000.pak.patch_010.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_010.pak"
+        ]) {updateName = "Title Update 3"}
     ];
 
     public const string NEXUS_URL              = "";

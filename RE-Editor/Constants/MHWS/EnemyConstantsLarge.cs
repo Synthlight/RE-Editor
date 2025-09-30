@@ -32,6 +32,7 @@ public static class EnemyConstantsLarge {
     public const App_EnemyDef_ID_Fixed MIZUTSUNE = App_EnemyDef_ID_Fixed.EM0082_00_0;
     public const App_EnemyDef_ID_Fixed NERSCYLLA = App_EnemyDef_ID_Fixed.EM0070_00_0;
     public const App_EnemyDef_ID_Fixed NU_UDRA = App_EnemyDef_ID_Fixed.EM0158_00_0;
+    public const App_EnemyDef_ID_Fixed OMEGA_PLANETES = App_EnemyDef_ID_Fixed.EM0166_00_0;
     public const App_EnemyDef_ID_Fixed QUEMATRICE = App_EnemyDef_ID_Fixed.EM0153_00_0;
     public const App_EnemyDef_ID_Fixed RATHALOS = App_EnemyDef_ID_Fixed.EM0002_00_0;
     public const App_EnemyDef_ID_Fixed RATHIAN = App_EnemyDef_ID_Fixed.EM0001_00_0;

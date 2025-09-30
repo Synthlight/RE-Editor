@@ -22,6 +22,7 @@ EnemyConstantsNormalLarge = {
     MIZUTSUNE = 13,
     NERSCYLLA = 9,
     NU_UDRA = 25,
+    OMEGA_PLANETES = 34,
     QUEMATRICE = 20,
     RATHALOS = 1,
     RATHIAN = 0,

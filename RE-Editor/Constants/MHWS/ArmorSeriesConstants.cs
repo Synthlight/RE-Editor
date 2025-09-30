@@ -21,10 +21,12 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed ARKVELD_Α = App_ArmorDef_SERIES_Fixed.ID_121;
     public const App_ArmorDef_SERIES_Fixed ARKVELD_Β = App_ArmorDef_SERIES_Fixed.ID_122;
     public const App_ArmorDef_SERIES_Fixed ARTIAN_Α = App_ArmorDef_SERIES_Fixed.ID_133;
+    public const App_ArmorDef_SERIES_Fixed AVIATOR_SHADES_Α = App_ArmorDef_SERIES_Fixed.ID_192;
     public const App_ArmorDef_SERIES_Fixed AZUZ_Α = App_ArmorDef_SERIES_Fixed.ID_124;
     public const App_ArmorDef_SERIES_Fixed BALAHARA = App_ArmorDef_SERIES_Fixed.ID_021;
     public const App_ArmorDef_SERIES_Fixed BALAHARA_Α = App_ArmorDef_SERIES_Fixed.ID_073;
     public const App_ArmorDef_SERIES_Fixed BALAHARA_Β = App_ArmorDef_SERIES_Fixed.ID_074;
+    public const App_ArmorDef_SERIES_Fixed BALE_ARMOR_Α = App_ArmorDef_SERIES_Fixed.ID_171;
     public const App_ArmorDef_SERIES_Fixed BATTLE_Α = App_ArmorDef_SERIES_Fixed.ID_131;
     public const App_ArmorDef_SERIES_Fixed BLANGO_Α = App_ArmorDef_SERIES_Fixed.ID_091;
     public const App_ArmorDef_SERIES_Fixed BLANGO_Β = App_ArmorDef_SERIES_Fixed.ID_092;
@@ -60,14 +62,18 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed DOSHAGUMA_Β = App_ArmorDef_SERIES_Fixed.ID_080;
     public const App_ArmorDef_SERIES_Fixed DOSHAGUMASK_Α = App_ArmorDef_SERIES_Fixed.ID_202;
     public const App_ArmorDef_SERIES_Fixed DRAGONKING_Α = App_ArmorDef_SERIES_Fixed.ID_140;
+    public const App_ArmorDef_SERIES_Fixed DREAMWALKER_Α = App_ArmorDef_SERIES_Fixed.ID_181;
     public const App_ArmorDef_SERIES_Fixed EARRINGS_OF_DEDICATION_Α = App_ArmorDef_SERIES_Fixed.ID_206;
     public const App_ArmorDef_SERIES_Fixed EXPEDITION_HEADGEAR_Α = App_ArmorDef_SERIES_Fixed.ID_161;
     public const App_ArmorDef_SERIES_Fixed FAUX_FELYNE_Α = App_ArmorDef_SERIES_Fixed.ID_209;
     public const App_ArmorDef_SERIES_Fixed FENCERS_EYEPATCH = App_ArmorDef_SERIES_Fixed.ID_158;
     public const App_ArmorDef_SERIES_Fixed FEUDAL_SOLDIER = App_ArmorDef_SERIES_Fixed.ID_157;
     public const App_ArmorDef_SERIES_Fixed FLORESCENT_CIRCLET = App_ArmorDef_SERIES_Fixed.ID_174;
+    public const App_ArmorDef_SERIES_Fixed FLUFFY_EARS = App_ArmorDef_SERIES_Fixed.ID_178;
+    public const App_ArmorDef_SERIES_Fixed FLUFFY_TAIL = App_ArmorDef_SERIES_Fixed.ID_180;
     public const App_ArmorDef_SERIES_Fixed GAJAU = App_ArmorDef_SERIES_Fixed.ID_139;
     public const App_ArmorDef_SERIES_Fixed GAJAU_Α = App_ArmorDef_SERIES_Fixed.ID_134;
+    public const App_ArmorDef_SERIES_Fixed GELIDRON_Α = App_ArmorDef_SERIES_Fixed.ID_219;
     public const App_ArmorDef_SERIES_Fixed GORE_Α = App_ArmorDef_SERIES_Fixed.ID_107;
     public const App_ArmorDef_SERIES_Fixed GORE_Β = App_ArmorDef_SERIES_Fixed.ID_108;
     public const App_ArmorDef_SERIES_Fixed GOURMANDS_EARRING_Α = App_ArmorDef_SERIES_Fixed.ID_205;
@@ -96,6 +102,7 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed GYPCEROS_Α = App_ArmorDef_SERIES_Fixed.ID_059;
     public const App_ArmorDef_SERIES_Fixed GYPCEROS_Β = App_ArmorDef_SERIES_Fixed.ID_060;
     public const App_ArmorDef_SERIES_Fixed HALF_RIM_GLASSES_Α = App_ArmorDef_SERIES_Fixed.ID_188;
+    public const App_ArmorDef_SERIES_Fixed HARVEST_Α = App_ArmorDef_SERIES_Fixed.ID_183;
     public const App_ArmorDef_SERIES_Fixed HAWKHEART_JACKET_Α = App_ArmorDef_SERIES_Fixed.ID_215;
     public const App_ArmorDef_SERIES_Fixed HIGH_METAL_Α = App_ArmorDef_SERIES_Fixed.ID_130;
     public const App_ArmorDef_SERIES_Fixed HIRABAMI = App_ArmorDef_SERIES_Fixed.ID_025;
@@ -106,6 +113,7 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed INGOT = App_ArmorDef_SERIES_Fixed.ID_007;
     public const App_ArmorDef_SERIES_Fixed INGOT_Α = App_ArmorDef_SERIES_Fixed.ID_085;
     public const App_ArmorDef_SERIES_Fixed KING_BEETLE_Α = App_ArmorDef_SERIES_Fixed.ID_129;
+    public const App_ArmorDef_SERIES_Fixed KITTEN_FRAMES_Α = App_ArmorDef_SERIES_Fixed.ID_199;
     public const App_ArmorDef_SERIES_Fixed KRANODATH = App_ArmorDef_SERIES_Fixed.ID_013;
     public const App_ArmorDef_SERIES_Fixed KRANODATH_Α = App_ArmorDef_SERIES_Fixed.ID_051;
     public const App_ArmorDef_SERIES_Fixed KRANODATH_Β = App_ArmorDef_SERIES_Fixed.ID_052;
@@ -131,8 +139,10 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed NU_UDRA = App_ArmorDef_SERIES_Fixed.ID_030;
     public const App_ArmorDef_SERIES_Fixed NU_UDRA_Α = App_ArmorDef_SERIES_Fixed.ID_119;
     public const App_ArmorDef_SERIES_Fixed NU_UDRA_Β = App_ArmorDef_SERIES_Fixed.ID_120;
+    public const App_ArmorDef_SERIES_Fixed NU_UDRA_Γ = App_ArmorDef_SERIES_Fixed.ID_196;
     public const App_ArmorDef_SERIES_Fixed NUMINOUS_Α = App_ArmorDef_SERIES_Fixed.ID_162;
     public const App_ArmorDef_SERIES_Fixed NUMINOUS_Β = App_ArmorDef_SERIES_Fixed.ID_163;
+    public const App_ArmorDef_SERIES_Fixed OMEGA_ATTIRE_Α = App_ArmorDef_SERIES_Fixed.ID_170;
     public const App_ArmorDef_SERIES_Fixed ONI_HORNS_WIG = App_ArmorDef_SERIES_Fixed.ID_159;
     public const App_ArmorDef_SERIES_Fixed PINION_NECKLACE_Α = App_ArmorDef_SERIES_Fixed.ID_214;
     public const App_ArmorDef_SERIES_Fixed PIRAGILL = App_ArmorDef_SERIES_Fixed.ID_012;
@@ -160,6 +170,7 @@ public static class ArmorSeriesConstants {
     public const App_ArmorDef_SERIES_Fixed SEREGIOS_Β = App_ArmorDef_SERIES_Fixed.ID_102;
     public const App_ArmorDef_SERIES_Fixed SHADOW_SHADES_Α = App_ArmorDef_SERIES_Fixed.ID_213;
     public const App_ArmorDef_SERIES_Fixed SILD_Α = App_ArmorDef_SERIES_Fixed.ID_126;
+    public const App_ArmorDef_SERIES_Fixed SKULL_MASK_Α = App_ArmorDef_SERIES_Fixed.ID_211;
     public const App_ArmorDef_SERIES_Fixed SQUARE_GLASSES_Α = App_ArmorDef_SERIES_Fixed.ID_186;
     public const App_ArmorDef_SERIES_Fixed STRATEGIST_SPECTACLES_Α = App_ArmorDef_SERIES_Fixed.ID_200;
     public const App_ArmorDef_SERIES_Fixed SUJA_Α = App_ArmorDef_SERIES_Fixed.ID_125;

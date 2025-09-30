@@ -16,6 +16,7 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed BONE_TREE = App_WeaponDef_SERIES_Fixed.ID_003;
     public const App_WeaponDef_SERIES_Fixed CHATACABRA_TREE = App_WeaponDef_SERIES_Fixed.ID_004;
     public const App_WeaponDef_SERIES_Fixed CONGALALA_TREE = App_WeaponDef_SERIES_Fixed.ID_007;
+    public const App_WeaponDef_SERIES_Fixed DARK_KNIGHT_TREE = App_WeaponDef_SERIES_Fixed.ID_048;
     public const App_WeaponDef_SERIES_Fixed DOSHAGUMA_TREE = App_WeaponDef_SERIES_Fixed.ID_009;
     public const App_WeaponDef_SERIES_Fixed EXPEDITION_TREE = App_WeaponDef_SERIES_Fixed.ID_000;
     public const App_WeaponDef_SERIES_Fixed G_ARKVELD_TREE = App_WeaponDef_SERIES_Fixed.ID_022;
@@ -34,6 +35,7 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed MIZUTSUNE_TREE = App_WeaponDef_SERIES_Fixed.ID_039;
     public const App_WeaponDef_SERIES_Fixed NERSCYLLA_TREE = App_WeaponDef_SERIES_Fixed.ID_013;
     public const App_WeaponDef_SERIES_Fixed NU_UDRA_TREE = App_WeaponDef_SERIES_Fixed.ID_016;
+    public const App_WeaponDef_SERIES_Fixed OMEGA_TREE = App_WeaponDef_SERIES_Fixed.ID_047;
     public const App_WeaponDef_SERIES_Fixed ORE_TREE = App_WeaponDef_SERIES_Fixed.ID_001;
     public const App_WeaponDef_SERIES_Fixed PARALYSIS_TREE = App_WeaponDef_SERIES_Fixed.ID_037;
     public const App_WeaponDef_SERIES_Fixed QUEMATRICE_TREE = App_WeaponDef_SERIES_Fixed.ID_005;
