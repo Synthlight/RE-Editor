@@ -29,19 +29,19 @@
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
-	  <Compile Update="Assets\Assets.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Assets.resx</DependentUpon>
-	  </Compile>
+		<Compile Update="Assets\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Update="Assets\Assets.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Assets.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+		<EmbeddedResource Update="Assets\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="copy /y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\managed\&quot;" />
+		<Exec Command="copy /y &quot;$(OutDir)\$(TargetName).dll&quot; &quot;O:\SteamLibrary\steamapps\common\MonsterHunterWilds\reframework\plugins\managed\&quot;"/>
 	</Target>
 </Project>
