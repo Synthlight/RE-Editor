@@ -237,7 +237,7 @@ public static class ModMaker {
                 }
 
                 if (mod.SkipPak) return;
-                var processStartInfo = new ProcessStartInfo(@"R:\Games\Monster Hunter Rise\REtool\REtool.exe", $"{Global.PAK_CREATE_ARGS} -c \"{modPath}\"") {
+                var processStartInfo = new ProcessStartInfo(PathHelper.RETOOL_PATH, $"{Global.PAK_CREATE_ARGS} -c \"{modPath}\"") {
                     WorkingDirectory = $@"{modPath}\..",
                     CreateNoWindow   = true
                 };
