@@ -23,8 +23,8 @@ public class TestUserFiles {
         return PathHelper.GetCachedFileList(FileListCacheType.USER).Select(s => new object[] {s});
     }
 
-    [DynamicData(nameof(GetFilesToTest), DynamicDataSourceType.Method)]
-    [DataTestMethod]
+    [DynamicData(nameof(GetFilesToTest))]
+    [TestMethod]
     public void TestReadUserFile(string path) {
         try {
             if (pakData.Any()) {
@@ -38,8 +38,8 @@ public class TestUserFiles {
         }
     }
 
-    [DynamicData(nameof(GetFilesToTest), DynamicDataSourceType.Method)]
-    [DataTestMethod]
+    [DynamicData(nameof(GetFilesToTest))]
+    [TestMethod]
     public void TestWriteUserFile(string path) {
         try {
             ReDataFile data;

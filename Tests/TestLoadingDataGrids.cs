@@ -22,8 +22,8 @@ public class TestLoadingDataGrids {
         return PathHelper.GetCachedFileList(FileListCacheType.USER).Select(s => new object[] {s});
     }
 
-    [DynamicData(nameof(GetFilesToTest), DynamicDataSourceType.Method)]
-    [DataTestMethod]
+    [DynamicData(nameof(GetFilesToTest))]
+    [TestMethod]
     public void TestLoadingDataGrid(string path) {
         ReDataFile data;
         try {

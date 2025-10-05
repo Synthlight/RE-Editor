@@ -21,8 +21,8 @@ public class TestMsgFiles {
         return PathHelper.GetCachedFileList(FileListCacheType.MSG).Select(s => new object[] {s});
     }
 
-    [DynamicData(nameof(GetFilesToTest), DynamicDataSourceType.Method)]
-    [DataTestMethod]
+    [DynamicData(nameof(GetFilesToTest))]
+    [TestMethod]
     public void TestReadTextFile(string path) {
         try {
             if (pakData.Any()) {
