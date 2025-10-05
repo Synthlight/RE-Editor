@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
@@ -25,9 +26,7 @@ public partial class ColoredTextBox : IOnPropertyChanged {
         InitializeComponent();
     }
 
-#pragma warning disable CS0067 // The event is never used
     public event PropertyChangedEventHandler? PropertyChanged;
-#pragma warning restore CS0067
 
     public void OnPropertyChanged(PropertyChangedEventArgs eventArgs) {
         PropertyChanged?.Invoke(this, eventArgs);
