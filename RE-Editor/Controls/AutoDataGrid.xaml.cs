@@ -223,7 +223,16 @@ public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
             e.Column.Header = displayName;
         }
 
-        if (isList || e.PropertyType.IsGenericType && e.PropertyType.GetGenericTypeDefinition().Is(typeof(ObservableCollection<>))) {
+        if (!isList && e.PropertyType.Is(typeof(Common.Structs.Color))) {
+            var col     = new DataGridTemplateColumn();
+            var color   = new FrameworkElementFactory(typeof(ColoredTextBox));
+            var binding = new Binding(e.PropertyName) {ValidatesOnExceptions = true};
+            color.SetBinding(ColoredTextBox.ColorProperty, binding);
+
+            col.CellTemplate = new() {VisualTree = color};
+            e.Column         = col;
+            e.Column.Header  = displayName ?? propertyInfo?.Name;
+        } else if (isList || e.PropertyType.IsGenericType && e.PropertyType.GetGenericTypeDefinition().Is(typeof(ObservableCollection<>))) {
             var col  = new DataGridTemplateColumn();
             var btn1 = new FrameworkElementFactory(typeof(Button));
 

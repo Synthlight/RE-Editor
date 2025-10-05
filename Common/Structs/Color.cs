@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Windows.Media;
 using RE_Editor.Common.Models;
 
 namespace RE_Editor.Common.Structs;
@@ -22,8 +23,28 @@ public class Color : RszObject, IViaType {
             } else {
                 throw new("Color input must be `#{8 hex chars}`.");
             }
+            OnPropertyChanged(nameof(AsBrush));
         }
     }
+
+    public System.Windows.Media.Color AsColor {
+        get {
+            var r = byte.Parse(RGBA[1..3], NumberStyles.HexNumber);
+            var g = byte.Parse(RGBA[3..5], NumberStyles.HexNumber);
+            var b = byte.Parse(RGBA[5..7], NumberStyles.HexNumber);
+            var a = byte.Parse(RGBA[7..9], NumberStyles.HexNumber);
+            return System.Windows.Media.Color.FromArgb(a, r, g, b);
+        }
+        set {
+            var r = value.R;
+            var g = value.G;
+            var b = value.B;
+            var a = value.A;
+            RGBA = $"#{r:x2}{g:x2}{b:x2}{a:x2}";
+        }
+    }
+
+    public Brush AsBrush => new SolidColorBrush(AsColor);
 
     public void Read(BinaryReader reader) {
         var r = reader.ReadByte();

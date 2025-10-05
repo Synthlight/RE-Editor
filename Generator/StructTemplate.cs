@@ -3,6 +3,7 @@ using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Models;
 using RE_Editor.Common.Structs;
 using RE_Editor.Generator.Models;
+using Color = RE_Editor.Common.Structs.Color;
 using Guid = RE_Editor.Common.Structs.Guid;
 
 #if DD2
@@ -136,14 +137,6 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
         }
 
         file.WriteLine("");
-
-        /*
-        if (field.name!.ToLower() == "_id") {
-            file.WriteLine("    [ShowAsHex]");
-            isEnumType = false;
-        }
-        */
-
         file.WriteLine($"    // {field.name}");
         file.WriteLine($"    // {field.originalType}");
         if (typeName!.StartsWith("System_ValueTuple")) {
@@ -223,8 +216,26 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
                 throw new InvalidDataException("Not a primitive, enum, or object array type.");
             }
         } else {
-            // Special case for MHWS's fucked enum wrapping nonsense.
-            if (PathHelper.CONFIG_NAME == "MHWS" && isObjectType && typeName?.EndsWith("_Serializable") == true && generator.structTypes[typeName].structInfo.fields![0].type != nameof(Object)) {
+            if (viaType == nameof(Color)) {
+                // Unwrap color fields.
+
+                file.WriteLine($"    [SortOrder({sortOrder})]");
+                file.WriteLine("    [DisplayName(\"\")]");
+                file.WriteLine($"    public {modifier}ObservableCollection<{viaType}> {newName} {{ get; set; }}");
+
+                file.WriteLine("");
+                file.WriteLine($"    [SortOrder({sortOrder + 5})]");
+                file.WriteLine($"    [DisplayName(\"{newName}\")]");
+                file.WriteLine($"    public {modifier}{viaType} {newName}_Unwrapped {{");
+                file.WriteLine("        get {");
+                file.WriteLine($"            return {newName}[0];");
+                file.WriteLine("        }");
+                file.WriteLine("        set {");
+                file.WriteLine($"             {newName}[0] = value;");
+                file.WriteLine("        }");
+                file.WriteLine("    }");
+            } else if (PathHelper.CONFIG_NAME == "MHWS" && isObjectType && typeName?.EndsWith("_Serializable") == true && generator.structTypes[typeName].structInfo.fields![0].type != nameof(Object)) {
+                // Special case for MHWS's fucked enum wrapping nonsense.
                 var unwrappedName      = $"{newName}_Unwrapped";
                 var unwrappedType      = typeName.ToFixedEnumName();
                 var wrappedStructInfo  = generator.structTypes[typeName];

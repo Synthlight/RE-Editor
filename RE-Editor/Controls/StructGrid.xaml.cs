@@ -143,6 +143,11 @@ public class StructGridGeneric<T> : StructGrid, IStructGrid<T> {
                 checkBox.SetBinding(ToggleButton.IsCheckedProperty, new Binding(propertyName) {Source = Item, ValidatesOnExceptions = true});
 
                 row.value = checkBox;
+            } else if (!isList && propertyInfo.PropertyType.Is(typeof(Common.Structs.Color))) {
+                var color   = new ColoredTextBox();
+                var binding = new Binding(propertyName) {Source = Item, ValidatesOnExceptions = true};
+                color.SetBinding(ColoredTextBox.ColorProperty, binding);
+                row.value = color;
             } else if (isList || genericTypeDef?.Is(typeof(ObservableCollection<>)) == true) {
                 var button = new Button {Content = "Open"};
                 button.Click += (_, _) => OpenGrid(propertyInfo, displayName);
