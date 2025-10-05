@@ -130,6 +130,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             case "App_MissionIDList_ID_Serializable.Value": return DataSourceType.QUESTS;
             case "App_NpcDef_ID_Serializable.Value": return DataSourceType.NPCS;
             case "App_OtEquipDef_EQUIP_DATA_ID_Serializable.Value": return DataSourceType.OTOMO_SERIES;
+            case "App_user_data_EffectManagerSetting_cHitmarkColor.EnemyID_Fixed": return DataSourceType.ENEMIES;
             case "App_WeaponCharmDef_TYPE_Serializable.Value": return DataSourceType.PENDANTS;
             case "App_WeaponDef_SERIES_Serializable.Value": return DataSourceType.WEAPON_SERIES;
 #endif
