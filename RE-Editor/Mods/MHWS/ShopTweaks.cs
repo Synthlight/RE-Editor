@@ -41,6 +41,9 @@ public class ShopTweaks : IMod {
         ItemConstants.HEAVY_SLICING_POD,
         ItemConstants.HEAVY_EXPLOSION_POD,
         ItemConstants.HEAVY_PIERCING_POD,
+        ItemConstants.HELIX_PIERCING_POD,
+        ItemConstants.BLADESCALE_POD,
+        ItemConstants.SHIELD_GENERATOR,
         ItemConstants.CLOSE_RANGE_COATING,
         ItemConstants.POWER_COATING,
         ItemConstants.PIERCE_COATING,
@@ -48,14 +51,13 @@ public class ShopTweaks : IMod {
         ItemConstants.POISON_COATING,
         ItemConstants.SLEEP_COATING,
         ItemConstants.BLAST_COATING,
-        ItemConstants.EXHAUST_COATING
     ];
 
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string name        = "Shop Tweaks";
         const string description = "Various shop lists.";
-        const string version     = "1.8";
+        const string version     = "1.9";
 
         var baseMod = new NexusMod {
             Version      = version,
