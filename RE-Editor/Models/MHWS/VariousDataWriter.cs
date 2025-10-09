@@ -8,6 +8,8 @@ using RE_Editor.Common;
 namespace RE_Editor.Models;
 
 public static class VariousDataWriter {
+    public static readonly List<string> WEAPON_TYPES_GUNS_ONLY = ["LightBowgun", "HeavyBowgun"];
+
     public static void WriteTweak(VariousDataTweak tweak, string modFolderName) {
         var luaName = tweak.LuaName;
         var luaPath = $@"{PathHelper.MODS_PATH}\{modFolderName}\{luaName}";
@@ -40,6 +42,12 @@ public static class VariousDataWriter {
                     }
                     break;
                 }
+                case VariousDataTweak.Target.WEAPON_DATA_GUNS_ONLY: {
+                    foreach (var type in WEAPON_TYPES_GUNS_ONLY) {
+                        writer.WriteLine($"local {type}Data = variousDataManager._Setting._EquipDatas._Weapon{type}._Values");
+                    }
+                    break;
+                }
                 case VariousDataTweak.Target.WEAPON_RECIPE_DATA: {
                     foreach (var type in Global.WEAPON_TYPES) {
                         writer.WriteLine($"local {type}RecipeData = variousDataManager._Setting._EquipDatas._Weapon{type}Recipe._Values");
@@ -63,6 +71,19 @@ public static class VariousDataWriter {
             switch (target) {
                 case VariousDataTweak.Target.WEAPON_DATA: {
                     foreach (var type in Global.WEAPON_TYPES) {
+                        writer.WriteLine("");
+                        writer.WriteLine($"for _, entry in pairs({type}Data) do");
+
+                        foreach (var change in changes) {
+                            change.Action(writer);
+                        }
+
+                        writer.WriteLine("end");
+                    }
+                    break;
+                }
+                case VariousDataTweak.Target.WEAPON_DATA_GUNS_ONLY: {
+                    foreach (var type in WEAPON_TYPES_GUNS_ONLY) {
                         writer.WriteLine("");
                         writer.WriteLine($"for _, entry in pairs({type}Data) do");
 
@@ -126,6 +147,9 @@ public static class VariousDataWriter {
             VariousDataTweak.Target.TALISMAN_GENERATION_SLOT_DATA => "talismanGenerationSlotData",
             VariousDataTweak.Target.TALISMAN_RECIPE_DATA => "talismanRecipeData",
             VariousDataTweak.Target.WEAPON_DATA => throw new("Can't get a single name here, it's split into separate fields; one for each weapon."),
+            VariousDataTweak.Target.WEAPON_DATA_LBG => "LightBowgunData",
+            VariousDataTweak.Target.WEAPON_DATA_HBG => "HeavyBowgunData",
+            VariousDataTweak.Target.WEAPON_DATA_GUNS_ONLY => throw new("Can't get a single name here, it's split into separate fields; one for each weapon."),
             VariousDataTweak.Target.WEAPON_RECIPE_DATA => throw new("Can't get a single name here, it's split into separate fields; one for each weapon."),
             VariousDataTweak.Target.WEAPON_TREE_DATA => throw new("Can't get a single name here, it's split into separate fields; one for each weapon."),
             _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
@@ -151,6 +175,9 @@ public static class VariousDataWriter {
             VariousDataTweak.Target.TALISMAN_GENERATION_SLOT_DATA => "variousDataManager._Setting._RandomAmuletAccSlot._Values",
             VariousDataTweak.Target.TALISMAN_RECIPE_DATA => "variousDataManager._Setting._EquipDatas._AmuletRecipe._Values",
             VariousDataTweak.Target.WEAPON_DATA => throw new("Can't get a single path here, it's split into separate fields; one for each weapon."),
+            VariousDataTweak.Target.WEAPON_DATA_LBG => "variousDataManager._Setting._EquipDatas._WeaponLightBowgun._Values",
+            VariousDataTweak.Target.WEAPON_DATA_HBG => "variousDataManager._Setting._EquipDatas._WeaponHeavyBowgun._Values",
+            VariousDataTweak.Target.WEAPON_DATA_GUNS_ONLY => throw new("Can't get a single path here, it's split into separate fields; one for each weapon."),
             VariousDataTweak.Target.WEAPON_RECIPE_DATA => throw new("Can't get a single path here, it's split into separate fields; one for each weapon."),
             VariousDataTweak.Target.WEAPON_TREE_DATA => throw new("Can't get a single path here, it's split into separate fields; one for each weapon."),
             _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)

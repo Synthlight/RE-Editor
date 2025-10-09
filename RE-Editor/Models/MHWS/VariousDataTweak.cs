@@ -55,6 +55,9 @@ public struct VariousDataTweak : IVariousDataTweak {
         TALISMAN_GENERATION_SLOT_DATA,
         TALISMAN_RECIPE_DATA,
         WEAPON_DATA,
+        WEAPON_DATA_LBG,
+        WEAPON_DATA_HBG,
+        WEAPON_DATA_GUNS_ONLY,
         WEAPON_RECIPE_DATA,
         WEAPON_TREE_DATA
     }
