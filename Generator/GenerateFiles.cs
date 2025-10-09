@@ -27,7 +27,6 @@ public partial class GenerateFiles {
         "Cylinder",
         "Ellipsoid",
         "Frustum",
-        "KeyFrame",
         "LineSegment",
         "Rect",
         "Rect3D",

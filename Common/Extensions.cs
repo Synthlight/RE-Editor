@@ -504,6 +504,8 @@ public static class Extensions {
         // Debug.Assert(!name.Contains('!'), source); Catches too many things too early. Most are eliminated anyways.
 
         if (name == "System_UInt32") name = "GenericWrapper<uint>";
+        if (name == "System_Single") name = "float";
+        if (name == "System_String") name = "string";
 
         if (fixTypos) {
             name = name.Replace("Cariable", "Carryable")
