@@ -169,10 +169,18 @@ public partial class MainWindow {
                 if (result is MessageBoxResult.No or MessageBoxResult.Cancel) return;
             }
 
-            if (DataHelper.OBSOLETE_BY_HASH.Any()) {
+            if (DataHelper.OBSOLETE_BY_HASH.Count > 0) {
                 var bytes = File.ReadAllBytes(target);
                 var hash  = PakFileHash.GetChecksum(bytes);
-                if (DataHelper.OBSOLETE_BY_HASH.TryGetValue(hash, out var fileInfo)) { // If found, it's an outdated file, since good hashes aren't stored.
+                if (DataHelper.OBSOLETE_BY_HASH.TryGetValue(hash, out var fileInfo) // If found, it's an outdated file, since good hashes aren't stored.
+                    // ReSharper disable once CommentTypo
+                    /*
+                    MHWS:
+                    `Em0022_00_Param_Legendary.user.3` used to have a hash of `523C61F18F1C79D131CA09E0715F54D174EB32755C4A2BED1B4AAD4BC52FB530`.
+                    This was updated to `840CDF9E5D3C9DF69D5F44418CBDEB8A380A1C6A1CAD0D9027E755F3FE6933AD` in PAK 10.
+                    `Em0002_00_Param_Legendary.user.3` still has the old hash, and is incorrectly matched as obsolete.
+                    */
+                    && !(target.Contains("em0002_00_param_legendary.user.3", StringComparison.InvariantCultureIgnoreCase) && hash == "523C61F18F1C79D131CA09E0715F54D174EB32755C4A2BED1B4AAD4BC52FB530")) {
                     var result = MessageBox.Show($"This file is outdated. It comes from PAK {fileInfo.sourcePak}, and the latest version of it is in {fileInfo.knownGoodPak}.\n" +
                                                  "Reading an outdated file is unsupported, and might fail.\n" +
                                                  "It will probably also just cause the game to blackscreen on startup. I STRONGLY recommend against using it.\n\n" +
