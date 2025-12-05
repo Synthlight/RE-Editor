@@ -72,7 +72,7 @@ public static class VariousDataWriter {
                 case VariousDataTweak.Target.WEAPON_DATA: {
                     foreach (var type in Global.WEAPON_TYPES) {
                         writer.WriteLine("");
-                        writer.WriteLine($"for _, entry in pairs({type}Data) do");
+                        writer.WriteLine($"for baseIndex, entry in pairs({type}Data) do");
 
                         foreach (var change in changes) {
                             change.Action(writer);
@@ -85,7 +85,7 @@ public static class VariousDataWriter {
                 case VariousDataTweak.Target.WEAPON_DATA_GUNS_ONLY: {
                     foreach (var type in WEAPON_TYPES_GUNS_ONLY) {
                         writer.WriteLine("");
-                        writer.WriteLine($"for _, entry in pairs({type}Data) do");
+                        writer.WriteLine($"for baseIndex, entry in pairs({type}Data) do");
 
                         foreach (var change in changes) {
                             change.Action(writer);
@@ -98,7 +98,7 @@ public static class VariousDataWriter {
                 case VariousDataTweak.Target.WEAPON_RECIPE_DATA: {
                     foreach (var type in Global.WEAPON_TYPES) {
                         writer.WriteLine("");
-                        writer.WriteLine($"for _, entry in pairs({type}RecipeData) do");
+                        writer.WriteLine($"for baseIndex, entry in pairs({type}RecipeData) do");
 
                         foreach (var change in changes) {
                             change.Action(writer);
@@ -116,7 +116,7 @@ public static class VariousDataWriter {
                 }
                 default: {
                     writer.WriteLine("");
-                    writer.WriteLine($"for _, entry in pairs({GetTargetName(target)}) do");
+                    writer.WriteLine($"for baseIndex, entry in pairs({GetTargetName(target)}) do");
 
                     foreach (var change in changes) {
                         change.Action(writer);
@@ -134,6 +134,7 @@ public static class VariousDataWriter {
             VariousDataTweak.Target.ARMOR_DATA => "armorData",
             VariousDataTweak.Target.ARMOR_RECIPE_DATA => "armorRecipeData",
             VariousDataTweak.Target.DECORATION_DATA => "decorationData",
+            VariousDataTweak.Target.FACILITY_MELD_DECORATION_DATA => "facilityMeldDecorationData",
             VariousDataTweak.Target.ITEM_DATA => "itemData",
             VariousDataTweak.Target.INSECT_DATA => "insectData",
             VariousDataTweak.Target.INSECT_RECIPE_DATA => "insectRecipeData",
@@ -162,6 +163,7 @@ public static class VariousDataWriter {
             VariousDataTweak.Target.ARMOR_DATA => "variousDataManager._Setting._EquipDatas._ArmorData._Values",
             VariousDataTweak.Target.ARMOR_RECIPE_DATA => "variousDataManager._Setting._EquipDatas._ArmorRecipe._Values",
             VariousDataTweak.Target.DECORATION_DATA => "variousDataManager._Setting._EquipDatas._AccessoryData._Values",
+            VariousDataTweak.Target.FACILITY_MELD_DECORATION_DATA => "variousDataManager._Setting._FacilitySetting._MakaSetting._MakaAccessoryData._Values",
             VariousDataTweak.Target.ITEM_DATA => "variousDataManager._Setting._ItemSetting._ItemData._Values",
             VariousDataTweak.Target.INSECT_DATA => "variousDataManager._Setting._EquipDatas._RodInsectData._Values",
             VariousDataTweak.Target.INSECT_RECIPE_DATA => "variousDataManager._Setting._EquipDatas._RodInsectRecipeData._Values",

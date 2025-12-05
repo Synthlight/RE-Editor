@@ -168,7 +168,7 @@ public class SortedDecos : IMod {
         return dict;
     }
 
-    private static Dictionary<App_EquipDef_ACCESSORY_ID_Fixed, int> GetDecoSortedByDecoName(Global.LangIndex lang, List<App_user_data_AccessoryData_cData> decoData) {
+    public static Dictionary<App_EquipDef_ACCESSORY_ID_Fixed, int> GetDecoSortedByDecoName(Global.LangIndex lang, List<App_user_data_AccessoryData_cData> decoData) {
         var sortedDecos = (from deco in decoData
                            orderby DataHelper.DECORATION_INFO_LOOKUP_BY_GUID[lang][deco.Name.Value]
                            select deco.AccessoryId_Unwrapped).ToList();

@@ -42,6 +42,7 @@ public struct VariousDataTweak : IVariousDataTweak {
         ARMOR_DATA,
         ARMOR_RECIPE_DATA,
         DECORATION_DATA,
+        FACILITY_MELD_DECORATION_DATA,
         ITEM_DATA,
         INSECT_DATA,
         INSECT_RECIPE_DATA,
