@@ -123,6 +123,32 @@
 		<Page Remove="Data\MHWS\**"/>
 		<None Remove="Data\MHWS\**"/>
 	</ItemGroup>
+	<!-- PRAGMATA -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('PRAGMATA'))">
+		<AssemblyName>PRAGMATA-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('PRAGMATA'))">
+		<Compile Update="Data\PRAGMATA\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\PRAGMATA\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\PRAGMATA\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`PRAGMATA`))'">
+		<Compile Remove="Data\PRAGMATA\**"/>
+		<EmbeddedResource Remove="Data\PRAGMATA\**"/>
+		<Page Remove="Data\PRAGMATA\**"/>
+		<None Remove="Data\PRAGMATA\**"/>
+	</ItemGroup>
 	<!-- RE2 -->
 	<PropertyGroup Condition="$(Configuration.StartsWith('RE2'))">
 		<AssemblyName>RE2-Obsolete-Detector</AssemblyName>

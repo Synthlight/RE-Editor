@@ -38,6 +38,13 @@
 		<Compile Remove="Models\MHWS\**"/>
 		<Compile Remove="Structs\MHWS\**"/>
 	</ItemGroup>
+	<!-- PRAGMATA -->
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`PRAGMATA`))'">
+		<Compile Remove="Enums\PRAGMATA\**"/>
+		<Compile Remove="Manual\PRAGMATA\Structs\**"/>
+		<Compile Remove="Models\PRAGMATA\**"/>
+		<Compile Remove="Structs\PRAGMATA\**"/>
+	</ItemGroup>
 	<!-- RE2 -->
 	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE2`))'">
 		<Compile Remove="Enums\RE2\**"/>

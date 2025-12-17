@@ -108,6 +108,8 @@ public static class Global {
     public const string MSG_VERSION = "539100710";
 #elif MHWS
     public const string MSG_VERSION = "23";
+#elif PRAGMATA
+    public const string MSG_VERSION = "23";
 #elif RE2
     public const string MSG_VERSION = "50397457";
 #elif RE3
@@ -126,6 +128,8 @@ public static class Global {
     public const string USER_VERSION = "2";
 #elif MHWS
     public const string USER_VERSION = "3";
+#elif PRAGMATA
+    public const string USER_VERSION = "3";
 #elif RE2
     public const string USER_VERSION = "2";
 #elif RE3
@@ -143,6 +147,8 @@ public static class Global {
 #elif MHR
     public const string PAK_CREATE_ARGS = "";
 #elif MHWS
+    public const string PAK_CREATE_ARGS = "-version 4 1";
+#elif PRAGMATA
     public const string PAK_CREATE_ARGS = "-version 4 1";
 #elif RE2
     public const string PAK_CREATE_ARGS = "";
@@ -162,6 +168,8 @@ public static class Global {
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif MHWS
     public const string CURRENT_GAME_VERSION = "v1.030.01.00";
+#elif PRAGMATA
+    public const string CURRENT_GAME_VERSION = "Demo v1 (Unknown)";
 #elif RE2
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif RE3

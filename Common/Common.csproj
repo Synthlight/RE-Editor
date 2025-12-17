@@ -50,6 +50,16 @@
 		<Compile Remove="Enums\**"/>
 		<Compile Remove="PathHelper.MHWS.cs"/>
 	</ItemGroup>
+	<!-- PRAGMATA -->
+	<ItemGroup Condition="'$(Configuration.StartsWith(`PRAGMATA`))'">
+		<Compile Remove="Attributes\DataSourceType.cs"/>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`PRAGMATA`))'">
+		<Compile Remove="Attributes\DataSourceType.PRAGMATA.cs"/>
+		<Compile Remove="Data\DataHelper.PRAGMATA.cs"/>
+		<Compile Remove="Enums\**"/>
+		<Compile Remove="PathHelper.PRAGMATA.cs"/>
+	</ItemGroup>
 	<!-- RE2 -->
 	<ItemGroup Condition="'$(Configuration.StartsWith(`RE2`))'">
 		<Compile Remove="Attributes\DataSourceType.cs"/>

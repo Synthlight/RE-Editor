@@ -1,0 +1,1 @@
+call Test-Result-Parser.bat PRAGMATA

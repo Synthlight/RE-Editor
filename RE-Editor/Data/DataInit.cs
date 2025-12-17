@@ -17,6 +17,8 @@ using RE_Editor.Data.DRDR;
 using RE_Editor.Data.MHR;
 #elif MHWS
 using RE_Editor.Data.MHWS;
+#elif PRAGMATA
+using RE_Editor.Data.PRAGMATA;
 #elif RE2
 using RE_Editor.Data.RE2;
 #elif RE3

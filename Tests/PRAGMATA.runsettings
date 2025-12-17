@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<RunSettings>
+	<RunConfiguration>
+		<Parallelize>
+			<Workers>50</Workers>
+			<Scope>MethodLevel</Scope>
+		</Parallelize>
+		<ResultsDirectory>..\TestResults\PRAGMATA\</ResultsDirectory>
+	</RunConfiguration>
+	<LoggerRunSettings>
+		<Loggers>
+			<Logger friendlyName="html" enabled="True">
+				<Configuration>
+					<LogFileName>Results.html</LogFileName>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="trx" enabled="True">
+				<Configuration>
+					<LogFileName>Results.trx</LogFileName>
+				</Configuration>
+			</Logger>
+		</Loggers>
+	</LoggerRunSettings>
+	<MSTest>
+		<DeleteDeploymentDirectoryAfterTestRunIsComplete>True</DeleteDeploymentDirectoryAfterTestRunIsComplete>
+	</MSTest>
+</RunSettings>

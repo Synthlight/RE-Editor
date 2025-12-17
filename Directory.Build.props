@@ -4,7 +4,7 @@
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 		<LangVersion>latest</LangVersion>
-		<Configurations>DD2-Debug;DD2-Release;DRDR-Debug;DRDR-Release;MHR-Debug;MHR-Release;MHWS-Debug;MHWS-Release;RE2-Debug;RE2-Release;RE3-Debug;RE3-Release;RE4-Debug;RE4-Release;RE8-Debug;RE8-Release</Configurations>
+		<Configurations>DD2-Debug;DD2-Release;DRDR-Debug;DRDR-Release;MHR-Debug;MHR-Release;MHWS-Debug;MHWS-Release;PRAGMATA-Debug;PRAGMATA-Release;RE2-Debug;RE2-Release;RE3-Debug;RE3-Release;RE4-Debug;RE4-Release;RE8-Debug;RE8-Release</Configurations>
 		<BaseOutputPath>$(SolutionDir)\bin\$(MSBuildProjectName)\</BaseOutputPath>
 		<BaseIntermediateOutputPath>$(SolutionDir)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
 	</PropertyGroup>

@@ -29,6 +29,10 @@
 	<ItemGroup Condition="'!$(Configuration.StartsWith(`MHWS`))'">
 		<Compile Remove="Program.MHWS.cs"/>
 	</ItemGroup>
+	<!-- PRAGMATA -->
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`PRAGMATA`))'">
+		<Compile Remove="Program.PRAGMATA.cs"/>
+	</ItemGroup>
 	<!-- RE2 -->
 	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE2`))'">
 		<Compile Remove="Program.RE2.cs"/>

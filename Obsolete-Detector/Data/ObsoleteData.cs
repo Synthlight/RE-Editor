@@ -17,6 +17,8 @@ using RE_Editor.Obsolete_Detector.Data.DRDR;
 using RE_Editor.Obsolete_Detector.Data.MHR;
 #elif MHWS
 using RE_Editor.Obsolete_Detector.Data.MHWS;
+#elif PRAGMATA
+using RE_Editor.Obsolete_Detector.Data.PRAGMATA;
 #elif RE2
 using RE_Editor.Obsolete_Detector.Data.RE2;
 #elif RE3

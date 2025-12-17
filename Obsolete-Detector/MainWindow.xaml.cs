@@ -29,6 +29,9 @@ public partial class MainWindow {
 #elif MHWS
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\MonsterHunterWilds";
     public const string FMM_GAME_FOLDER   = "MonsterHunterWilds";
+#elif PRAGMATA
+    public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\PRAGMATA SKETCHBOOK";
+    public const string FMM_GAME_FOLDER   = "Pragmata";
 #elif RE2
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\RESIDENT EVIL 2  BIOHAZARD RE2";
     public const string FMM_GAME_FOLDER   = "";

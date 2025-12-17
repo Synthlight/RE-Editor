@@ -61,6 +61,8 @@ public partial class GenerateFiles {
         "app.user_data.OptionDisplayData.cSetting`",
         "app.user_data.OptionGraphicsData.cItem`",
         "app.user_data.OptionGraphicsData.cSetting`",
+#elif PRAGMATA
+        "app.ContextIDRef`1[",
 #elif RE2
         "app.ropeway.camera.CameraCurveUserData.CurveParamTable`",
         "app.ropeway.CorrespondGroup`",
@@ -160,6 +162,14 @@ public partial class GenerateFiles {
         "app.user_data.ConcertLightSetting.cSeasonPattern`",
         "app.user_data.PorterRopesData`",
         "soundlib.SoundStateApp`",
+        "soundlib.SoundSwitchApp`",
+        "System.Nullable`",
+#elif PRAGMATA
+        "app.AppEventCatalogBase`",
+        "app.ContextIDRef`1<",
+        "app.EnumLikeArrayMessageData`",
+        "app.WeaponParameter.ReinforceParameter`",
+        "app.WeaponParameter.ReinforceParamValue`",
         "soundlib.SoundSwitchApp`",
         "System.Nullable`",
 #elif RE2

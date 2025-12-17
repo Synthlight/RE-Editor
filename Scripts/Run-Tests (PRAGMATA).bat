@@ -1,0 +1,1 @@
+call Run-Tests.bat PRAGMATA

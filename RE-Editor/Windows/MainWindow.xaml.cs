@@ -47,6 +47,8 @@ public partial class MainWindow {
     private const string TITLE = "MHR Editor";
 #elif MHWS
     private const string TITLE = "MHWS Editor";
+#elif PRAGMATA
+    private const string TITLE = "Pragmata Editor";
 #elif RE2
     private const string TITLE = "RE2 Editor";
 #elif RE3
