@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Reflection;
 using Newtonsoft.Json;
 
 namespace RE_Editor.Common.Models;
@@ -12,20 +11,15 @@ public class Settings {
 }
 
 public static class SettingsController {
+    private static readonly string SETTINGS_DIR  = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\RE-Editor";
     private const           string SETTINGS_FILE = "Settings.json";
-    private static readonly string JSON_PATH     = "";
+    private static readonly string JSON_PATH     = $@"{SETTINGS_DIR}\{SETTINGS_FILE}";
 
     static SettingsController() {
-        try {
-            var exePath = Assembly.GetEntryAssembly()!.Location;
-            JSON_PATH = $@"{Path.GetDirectoryName(exePath)}\{SETTINGS_FILE}";
-        } catch (Exception e) {
-            Global.Log($"Error getting settings json path: {e.Message}");
-        }
+        Directory.CreateDirectory(SETTINGS_DIR);
     }
 
     public static void Load() {
-        if (JSON_PATH == "") return;
         if (File.Exists(JSON_PATH)) {
             var json = File.ReadAllText(JSON_PATH);
             Global.settings = JsonConvert.DeserializeObject<Settings>(json)!;
@@ -33,7 +27,6 @@ public static class SettingsController {
     }
 
     public static void Save() {
-        if (JSON_PATH == "") return;
         var json = JsonConvert.SerializeObject(Global.settings);
         File.WriteAllText(JSON_PATH, json);
     }
