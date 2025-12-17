@@ -18,9 +18,9 @@ public class PakData(PakList pakList) {
 
         if (header.magic != 0x414B504B) throw new("[ERROR]: Invalid magic of PAK archive file");
 
-        if (header.majorVersion != 2 && header.majorVersion != 4 || header.minorVersion != 0 && header.minorVersion != 1) throw new($"[ERROR]: Invalid version of PAK archive file -> {header.majorVersion}.{header.minorVersion}, expected 2.0, 4.0 & 4.1");
+        if (header.majorVersion != 2 && header.majorVersion != 4 || header.minorVersion != 0 && header.minorVersion != 1 && header.minorVersion != 2) throw new($"[ERROR]: Invalid version of PAK archive file -> {header.majorVersion}.{header.minorVersion}, expected 2.0, 4.0, 4.1, 4.2");
 
-        if (header.feature != 0 && header.feature != 8 && header.feature != 24) throw new("[ERROR]: Archive is encrypted (obfuscated) with an unsupported algorithm");
+        if (header.feature != 0 && header.feature != 8 && header.feature != 24 && header.feature != 40) throw new("[ERROR]: Archive is encrypted (obfuscated) with an unsupported algorithm");
 
         // ReSharper disable once ConvertSwitchStatementToSwitchExpression
         switch (header.majorVersion) {
@@ -30,7 +30,7 @@ public class PakData(PakList pakList) {
 
         var decryptedEntryData = pakStream.ReadBytes(header.totalFiles * entrySize);
 
-        if (header.feature is 8 or 24) {
+        if (header.feature is 8 or 24 or 40) {
             if (header.feature == 24) pakStream.BaseStream.Seek(4, SeekOrigin.Current); // 0
 
             var encryptedKey = pakStream.ReadBytes(128);
@@ -51,7 +51,7 @@ public class PakData(PakList pakList) {
                 entry.compressedSize   = 0;
                 entry.compressionType  = 0;
                 entry.checksum         = 0;
-            } else if (header is {majorVersion: 4, minorVersion: 0} || header.minorVersion == 1) {
+            } else if (header is {majorVersion: 4, minorVersion: 0} || header.minorVersion == 1 || header.minorVersion == 2) {
                 entry.hashNameLower    = entryReader.ReadUInt32();
                 entry.hashNameUpper    = entryReader.ReadUInt32();
                 entry.offset           = entryReader.ReadInt64();
