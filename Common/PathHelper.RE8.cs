@@ -13,12 +13,26 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Resident Evil Village\Mods";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil Village\Fluffy Mod Manager\Games\RE8\Mods";
-    public const string PAK_LIST         = "";
+    public const string PAK_LIST         = @"R:\Games\Resident Evil Village\RE8_PC_Release.list";
     public const string PAK_LIST_MSG     = "";
+    public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszre8.json";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
 
-    public static readonly string[] PAK_PATHS = [];
+    public static readonly string[] PAK_PATHS = [
+        "re_chunk_000.pak",
+        "re_chunk_000.pak.patch_001.pak",
+        "re_chunk_000.pak.patch_002.pak",
+        "re_chunk_000.pak.patch_003.pak",
+        "re_chunk_000.pak.patch_004.pak",
+        "re_chunk_000.pak.patch_005.pak",
+        "re_chunk_000.pak.patch_006.pak",
+        "re_chunk_000.pak.patch_007.pak",
+        "re_chunk_000.pak.patch_008.pak",
+        "re_chunk_000.pak.patch_009.pak",
+        "re_chunk_000.pak.patch_010.pak",
+        "re_chunk_000.pak.patch_011.pak"
+    ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [];
 

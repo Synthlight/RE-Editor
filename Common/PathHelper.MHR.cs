@@ -16,6 +16,7 @@ public static partial class PathHelper {
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Rise\modmanager\Games\MHRISE\Mods";
     public const string PAK_LIST         = @"R:\Games\Monster Hunter Rise\MHR_STM.list";
     public const string PAK_LIST_MSG     = @"R:\Games\Monster Hunter Rise\MHR_MSG.list";
+    public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszmhrise.json";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
         "user",

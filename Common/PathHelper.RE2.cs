@@ -13,12 +13,17 @@ public static partial class PathHelper {
     public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
     public const string MODS_PATH        = @"R:\Games\Resident Evil 2 Remake\Mods\_RTX";
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil 2 Remake\Fluffy Manager 5000\Games\RE2R\Mods";
-    public const string PAK_LIST         = "";
+    public const string PAK_LIST         = @"R:\Games\Resident Evil 2 Remake\RE2_RT_PC_Release.list";
     public const string PAK_LIST_MSG     = "";
+    public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszre2rt.json";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
 
-    public static readonly string[] PAK_PATHS = [];
+    public static readonly string[] PAK_PATHS = [
+        "re_chunk_000.pak",
+        "re_chunk_000.pak.patch_001.pak",
+        "re_chunk_000.pak.patch_002.pak"
+    ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [];
 

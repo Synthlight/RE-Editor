@@ -15,6 +15,7 @@ public static partial class PathHelper {
     public const string FLUFFY_MODS_PATH = @"R:\Games\Dragons Dogma 2\Fluffy Mod Manager\Games\DragonsDogma2\Mods";
     public const string PAK_LIST         = @"R:\Games\Dragons Dogma 2\DD2_PC_Release.list";
     public const string PAK_LIST_MSG     = "";
+    public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszdd2.json";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
         "user",

@@ -15,6 +15,7 @@ public static partial class PathHelper {
     public const string FLUFFY_MODS_PATH = @"R:\Games\Dead Rising Deluxe Remaster\Fluffy Mod Manager\Games\DRDR\Mods";
     public const string PAK_LIST         = "";
     public const string PAK_LIST_MSG     = "";
+    public const string R_EASY_RSZ       = "";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
 

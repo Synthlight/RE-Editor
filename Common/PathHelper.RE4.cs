@@ -15,6 +15,7 @@ public static partial class PathHelper {
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil 4 Remake\Fluffy Mod Manager\Games\RE4R\Mods";
     public const string PAK_LIST         = @"R:\Games\Resident Evil 4 Remake\re4_pak_names_release.list";
     public const string PAK_LIST_MSG     = "";
+    public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszre4.json";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
 

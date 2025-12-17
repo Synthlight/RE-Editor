@@ -9,13 +9,13 @@ Short | Long | Latest Release | Files Passing Write Tests
 --- | --- | --- | ---
 DD2 | Dragon Age 2 | [v1.2.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/DD2-Editor_v1.2.1.0) | 99%
 DRDR | Dead Rising Deluxe Remaster | [v1.0.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/DRDR-Editor_v1.0.1.0) | 81%
-MHR | Monster Hunter Rise | [v1.5.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/MHR-Editor_v1.5.1.0) | 96%
+MHR | Monster Hunter Rise | [v1.5.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/MHR-Editor_v1.5.1.0) | 97%
 MHWS | Monster Hunter Wilds | [v1.5.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/MHWS-Editor_v1.5.1.0) | 94%
 PRAGMATA | Pragmata | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/PRAGMATA-Editor_v1.0.0.0) | 89%
-RE2 | Resident Evil 2 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE2-Editor_v1.0.0.0) | 79%
+RE2 | Resident Evil 2 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE2-Editor_v1.0.0.0) | 95%
 RE3 | Resident Evil 3 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE3-Editor_v1.0.0.0) | 96%
-RE4 | Resident Evil 4 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE4-Editor_v1.0.0.0) | 89%
-RE8 | Resident Evil Village | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE8-Editor_v1.0.0.0) | 94%
+RE4 | Resident Evil 4 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE4-Editor_v1.0.0.0) | 95%
+RE8 | Resident Evil Village | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE8-Editor_v1.0.0.0) | 98%
 
 (Almost everything in the code and prog arguments use the short name; case sensitive.)<br>
 To build for a game, switch to that configuration: `{Game} - Debug/Release`

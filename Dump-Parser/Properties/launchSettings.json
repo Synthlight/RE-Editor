@@ -11,6 +11,10 @@
     "Part 2": {
       "commandName": "Project",
       "commandLineArgs": "Part2"
+    },
+    "From REasy RSZ": {
+      "commandName": "Project",
+      "commandLineArgs": "REasyRSZ"
     }
   }
 }

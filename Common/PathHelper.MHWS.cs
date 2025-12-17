@@ -17,6 +17,7 @@ public static partial class PathHelper {
     public const string FLUFFY_MODS_PATH = @"R:\Games\Monster Hunter Wilds\FMM\Games\MonsterHunterWilds\Mods";
     public const string PAK_LIST         = @"R:\Games\Monster Hunter Wilds\MHWs.list";
     public const string PAK_LIST_MSG     = "";
+    public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszmhwilds.json";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
         "user",

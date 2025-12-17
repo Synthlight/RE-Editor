@@ -684,9 +684,10 @@ public static class Extensions {
         return dictionary;
     }
 
-    public static Dictionary<uint, V> KeyFromHexString<V>(this Dictionary<string, V> dict) where V : notnull {
+    public static Dictionary<uint, V> KeyFromHexString<V>(this Dictionary<string, V> dict, bool skipMetadata = false) where V : notnull {
         var dictionary = new Dictionary<uint, V>();
         foreach (var (key, value) in dict) {
+            if (skipMetadata && key == "metadata") continue; // It's added to the REasy RSZ JSON files, and we need to skip it.
             dictionary[uint.Parse(key, NumberStyles.HexNumber)] = value;
         }
         return dictionary;
