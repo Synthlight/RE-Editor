@@ -41,7 +41,7 @@ public class SortedTitles : IMod {
 
     public static void SortTitles(IEnumerable<RszObject> rszObjectData, Global.LangIndex lang) {
         var currentLang = Global.locale;
-        Global.locale = lang;
+        Global.settings.locale = lang;
         var titles = rszObjectData.OfType<Snow_data_AchievementUserData_Param>().Where(gem => gem.SortID > 0).ToList();
         var titlesInOrder = from title in titles
                             orderby title.RealName
@@ -50,6 +50,6 @@ public class SortedTitles : IMod {
         foreach (var title in titlesInOrder) {
             title.SortID = sortId++;
         }
-        Global.locale = currentLang;
+        Global.settings.locale = currentLang;
     }
 }

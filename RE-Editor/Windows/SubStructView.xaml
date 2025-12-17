@@ -7,5 +7,6 @@
         Width="800"
         Height="450"
         ShowInTaskbar="False"
+        Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"/>

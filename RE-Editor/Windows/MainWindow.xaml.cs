@@ -60,50 +60,10 @@ public partial class MainWindow {
 #endif
 
     [CanBeNull] private CancellationTokenSource savedTimer;
-    [CanBeNull] private ReDataFile              file;
+    [CanBeNull] public  ReDataFile              file;
     public static       string                  targetFile { get; private set; }
     public readonly     string                  filter            = $"RE Data Files|{string.Join(";", Global.FILE_TYPES)}";
-    public readonly     List<MethodInfo>        allMakeModMethods = new();
-
-    public Global.LangIndex Locale {
-        get => Global.locale;
-        set {
-            Global.locale = value;
-            if (file?.rsz.objectData == null) return;
-            foreach (var grid in GetGrids().OfType<AutoDataGrid>()) {
-                grid.RefreshHeaderText();
-            }
-            foreach (var item in file!.rsz.objectData) {
-                if (item is OnPropertyChangedBase io) {
-                    foreach (var propertyInfo in io.GetType().GetProperties()) {
-                        if (propertyInfo.Name == "Name"
-                            || propertyInfo.Name.EndsWith("_button")) {
-                            io.OnPropertyChanged(propertyInfo.Name);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public bool ShowIdBeforeName {
-        get => Global.showIdBeforeName;
-        set {
-            Global.showIdBeforeName = value;
-            if (file?.rsz.objectData == null) return;
-            foreach (var item in file.rsz.objectData) {
-                if (item is OnPropertyChangedBase io) {
-                    foreach (var propertyInfo in io.GetType().GetProperties()) {
-                        if (propertyInfo.Name.EndsWith("_button")) {
-                            io.OnPropertyChanged(propertyInfo.Name);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static bool SingleClickToEditMode { get; set; } = true;
+    public readonly     List<MethodInfo>        allMakeModMethods = [];
 
     public MainWindow() {
         var args = Environment.GetCommandLineArgs();
@@ -114,8 +74,6 @@ public partial class MainWindow {
 
         Width  = SystemParameters.MaximizedPrimaryScreenWidth * 0.8;
         Height = SystemParameters.MaximizedPrimaryScreenHeight * 0.5;
-
-        cbx_localization.ItemsSource = Global.LANGUAGE_NAME_LOOKUP;
 
         SetupKeybind(new KeyGesture(Key.S, ModifierKeys.Control), (_,                      _) => Save());
         SetupKeybind(new KeyGesture(Key.S, ModifierKeys.Control | ModifierKeys.Shift), (_, _) => Save(true));

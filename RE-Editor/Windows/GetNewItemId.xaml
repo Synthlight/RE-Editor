@@ -10,6 +10,7 @@
         DataContext="{x:Reference this}"
         ResizeMode="NoResize"
         SizeToContent="Height"
+        Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="Manual"
         WindowStyle="None"
         mc:Ignorable="d">

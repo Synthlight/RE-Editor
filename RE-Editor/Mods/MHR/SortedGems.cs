@@ -57,7 +57,7 @@ public class SortedGems : IMod {
 
     public static void SortGems(IEnumerable<RszObject> rszObjectData, GemSortType sortType, Global.LangIndex lang) {
         var currentLang = Global.locale;
-        Global.locale = lang;
+        Global.settings.locale = lang;
         var gems = rszObjectData.OfType<IGem>().Where(gem => gem.SortId > 0).ToList();
         var gemsInNameOrder = sortType switch {
             GemSortType.GEM_NAME => from gem in gems
@@ -75,6 +75,6 @@ public class SortedGems : IMod {
         foreach (var gem in gemsInNameOrder) {
             gem.SortId = sortId++;
         }
-        Global.locale = currentLang;
+        Global.settings.locale = currentLang;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using RE_Editor.Common.Models;
 
 #if MHR
 using System.Windows.Markup;
@@ -13,8 +14,11 @@ namespace RE_Editor.Common;
 public static class Global {
     public const BindingFlags FLAGS = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.FlattenHierarchy;
 
-    public static bool      showIdBeforeName = true;
-    public static LangIndex locale           = LangIndex.eng;
+    public static Settings  settings = new();
+    public static LangIndex locale                => settings.locale;
+    public static bool      showIdBeforeName      => settings.showIdBeforeName;
+    public static bool      singleClickToEditMode => settings.singleClickToEditMode;
+    public static ThemeType theme                 => settings.theme;
 
     public static readonly string[] FILE_TYPES = [
         $"*.user.{USER_VERSION}"
@@ -192,6 +196,10 @@ public static class Global {
     public const string BITSET_FIELD_NAME = BITSET_NAME;
 #endif
 // @formatter:on
+
+    static Global() {
+        SettingsController.Load();
+    }
 
     public static void Log(string msg) {
         Console.WriteLine(msg);

@@ -12,6 +12,7 @@
         AllowDrop="True"
         DataContext="{x:Reference this}"
         Drop="OnDragDrop"
+        Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid Name="main_grid">
@@ -65,16 +66,11 @@
                        VerticalAlignment="Stretch">
                 <StackPanel HorizontalAlignment="Center"
                             Orientation="Horizontal">
-                    <CheckBox Margin="8,0,0,0"
-                              HorizontalAlignment="Right"
-                              VerticalAlignment="Center"
-                              Content="Single Click to Edit Mode"
-                              IsChecked="{Binding SingleClickToEditMode}"/>
-                    <CheckBox Margin="8,0,0,0"
-                              HorizontalAlignment="Right"
-                              VerticalAlignment="Center"
-                              Content="Show Id Before Name"
-                              IsChecked="{Binding ShowIdBeforeName}"/>
+                    <Button Margin="8,0,0,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Click="BtnSettingsClick"
+                            Content="Settings"/>
                 </StackPanel>
             </DockPanel>
             <DockPanel Grid.Row="0"
@@ -160,13 +156,6 @@
                             </xctk:SplitButton>
                         </mc:Choice>
                     </mc:AlternateContent>
-                    <ComboBox Name="cbx_localization"
-                              Margin="8,0,0,0"
-                              HorizontalAlignment="Right"
-                              DisplayMemberPath="Value"
-                              SelectedValue="{Binding Locale}"
-                              SelectedValuePath="Key"
-                              Visibility="Visible"/>
                 </StackPanel>
             </DockPanel>
         </Grid>

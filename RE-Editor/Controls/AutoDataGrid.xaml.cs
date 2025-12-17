@@ -347,7 +347,7 @@ public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
             if (e.OriginalSource is DataGridCell cell) {
                 ColorCell(cell);
 
-                if (MainWindow.SingleClickToEditMode) {
+                if (Global.singleClickToEditMode) {
                     // Needs to only happen when it's a button. If not, we stop regular fields from working.
                     if (CheckCellForButtonTypeAndHandleClick(cell)) return;
 

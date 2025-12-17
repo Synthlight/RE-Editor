@@ -35,4 +35,12 @@ public partial class MainWindow {
             Console.Error.WriteLine(err);
         }
     }
+
+    private void BtnSettingsClick(object sender, RoutedEventArgs e) {
+        try {
+            new SettingsWindow().ShowDialog();
+        } catch (Exception err) {
+            Console.Error.WriteLine(err);
+        }
+    }
 }
