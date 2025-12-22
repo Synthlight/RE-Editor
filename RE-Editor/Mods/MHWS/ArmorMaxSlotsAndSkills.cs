@@ -16,7 +16,7 @@ public class ArmorMaxSlotsAndSkills : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Armor - Max Slots & Skills";
         const string description = "Armor - Max Slots & Skills.";
-        const string version     = "1.9";
+        const string version     = "1.10";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -34,7 +34,7 @@ public class ArmorMaxSlotsAndSkills : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Armor - Max Slots Only (PAK)")
+                .SetName("Armor - Max Slots Only (loose)")
                 .SetFiles([PathHelper.ARMOR_DATA_PATH])
                 .SetAction(MaxSlots),
             baseLuaMod
@@ -48,7 +48,7 @@ public class ArmorMaxSlotsAndSkills : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Armor - Max Skills Only (PAK)")
+                .SetName("Armor - Max Skills Only (loose)")
                 .SetFiles([PathHelper.ARMOR_DATA_PATH])
                 .SetAction(MaxSkills),
             baseLuaMod
@@ -62,7 +62,7 @@ public class ArmorMaxSlotsAndSkills : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Armor - Max Slots & Skills (PAK)")
+                .SetName("Armor - Max Slots & Skills (loose)")
                 .SetFiles([PathHelper.ARMOR_DATA_PATH])
                 .SetAction(data => {
                     MaxSlots(data);

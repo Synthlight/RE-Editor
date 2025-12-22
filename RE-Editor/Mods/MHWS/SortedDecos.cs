@@ -26,7 +26,7 @@ public class SortedDecos : IMod {
         const string name               = "Sorted Decos";
         const string descriptionByDeco  = "Resorts decorations by the name of the decoration.";
         const string descriptionBySkill = "Resorts decorations by the name of the skill, ordering by either the first or second skill, for decos with two skills.";
-        const string version            = "1.1";
+        const string version            = "1.2";
 
         var decoData = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.DECORATION_DATA_PATH).rsz.objectData.OfType<App_user_data_AccessoryData_cData>().ToList();
 
@@ -80,7 +80,7 @@ public class SortedDecos : IMod {
 
         mods.AddRange(new List<INexusMod> {
             baseMod
-                .SetName($"Sort Decos by Skill Name (Skill1, Skill2) (PAK, {lang})")
+                .SetName($"Sort Decos by Skill Name (Skill1, Skill2) (loose, {lang})")
                 .SetDesc(description)
                 .SetAddonFor(langGroupName)
                 .SetFiles([
@@ -90,7 +90,7 @@ public class SortedDecos : IMod {
                 ])
                 .SetAction(list => ApplyDecoSort(list, decosSortedByFirstSkillName)),
             baseMod
-                .SetName($"Sort Decos by Skill Name (Skill2, Skill1) (PAK, {lang})")
+                .SetName($"Sort Decos by Skill Name (Skill2, Skill1) (loose, {lang})")
                 .SetDesc(description)
                 .SetAddonFor(langGroupName)
                 .SetFiles([

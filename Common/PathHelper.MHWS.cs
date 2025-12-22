@@ -38,6 +38,8 @@ public static partial class PathHelper {
         "re_chunk_000.pak.patch_009.pak",
         "re_chunk_000.pak.patch_010.pak",
         "re_chunk_000.pak.patch_011.pak",
+        "re_chunk_000.pak.patch_012.pak",
+        "re_chunk_000.pak.patch_013.pak",
         "re_chunk_000.pak.sub_000.pak",
         "re_chunk_000.pak.sub_000.pak.patch_001.pak",
         "re_chunk_000.pak.sub_000.pak.patch_002.pak",
@@ -49,7 +51,9 @@ public static partial class PathHelper {
         "re_chunk_000.pak.sub_000.pak.patch_008.pak",
         "re_chunk_000.pak.sub_000.pak.patch_009.pak",
         "re_chunk_000.pak.sub_000.pak.patch_010.pak",
-        "re_chunk_000.pak.sub_000.pak.patch_011.pak"
+        "re_chunk_000.pak.sub_000.pak.patch_011.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_012.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_013.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
@@ -98,9 +102,23 @@ public static partial class PathHelper {
             "re_chunk_000.pak.patch_010.pak",
             "re_chunk_000.pak.sub_000.pak.patch_010.pak"
         ]) {updateName = "Title Update 3"},
-        new(new(2025, 09, 30), "1.030.01.00", [
+        // Re-released later in patches.
+        // new(2025, 09, 30), "1.030.01.00"
+        // new(2025, 10, 23), "1.030.02.00"
+        // new(2025, 10, 29), "1.030.02.01"
+        new(new(2025, 11, 19), "1.030.02.02", [
             "re_chunk_000.pak.patch_011.pak",
             "re_chunk_000.pak.sub_000.pak.patch_011.pak"
+        ]),
+        new(new(2025, 12, 16), "1.040.00.00", [
+            "re_chunk_000.pak.patch_012.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_012.pak"
+        ]) {updateName = "Title Update 4"},
+        // Re-released later in patches.
+        // new(2025, 12, 17), "1.040.01.00"
+        new(new(2025, 12, 18), "1.040.02.00", [
+            "re_chunk_000.pak.patch_013.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_013.pak"
         ])
     ];
 
@@ -115,8 +133,11 @@ public static partial class PathHelper {
     public const string ARMOR_UPGRADE_DATA_PATH             = @"\natives\STM\GameDesign\Common\Equip\ArmorUpgradeData.user.3";
     public const string CHARGE_BLADE_PARAM_PATH             = @"\natives\STM\GameDesign\Player\ActionData\Wp09\GlobalParam\Wp09GlobalActionParam.user.3";
     public const string DECORATION_DATA_PATH                = @"\natives\STM\GameDesign\Common\Equip\AccessoryData.user.3";
+    public const string FACILITY_MELD_DECORATION_DATA_PATH  = @"\natives\STM\GameDesign\Facility\MakaAccessoryData.user.3";
+    public const string FACILITY_MELD_RELIC_DATA_PATH       = @"\natives\STM\GameDesign\Facility\MakaData.user.3";
     public const string FISH_RANDOM_SIZES_PATH              = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSizeFish.user.3";
     public const string GIMMICK_REWARD_DATA_PATH            = @"\natives\STM\GameDesign\Gimmick\Common\GimmickRewardData.user.3";
+    public const string GOG_SKILL_GROUP_DATA_PATH           = @"\natives\STM\GameDesign\Common\Equip\ArtianSkillGroupData.user.3";
     public const string ITEM_DATA_PATH                      = @"\natives\STM\GameDesign\Common\Item\ItemData.user.3";
     public const string ITEM_RECIPE_DATA_PATH               = @"\natives\STM\GameDesign\Common\Item\ItemRecipe.user.3";
     public const string ITEM_SHOP_DATA_PATH                 = @"\natives\STM\GameDesign\Facility\ItemShopData.user.3";

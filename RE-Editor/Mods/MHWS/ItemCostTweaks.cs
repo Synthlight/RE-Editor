@@ -21,7 +21,7 @@ public class ItemCostTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Item Cost Tweaks - Buy for 1z, sell for 99999z";
         const string description = "Buy for 1z, sell for 99999z.";
-        const string version     = "1.7";
+        const string version     = "1.8";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -39,7 +39,7 @@ public class ItemCostTweaks : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Item Cost Tweaks - Buy Price Only (PAK)")
+                .SetName("Item Cost Tweaks - Buy Price Only (loose)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(list => ItemCostTweak(list, Mode.BUY_PRICE)),
             baseLuaMod
@@ -53,7 +53,7 @@ public class ItemCostTweaks : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Item Cost Tweaks - Sell Price Only (PAK)")
+                .SetName("Item Cost Tweaks - Sell Price Only (loose)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(list => ItemCostTweak(list, Mode.SELL_PRICE)),
             baseLuaMod
@@ -67,7 +67,7 @@ public class ItemCostTweaks : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Item Cost Tweaks - Sell & Buy Price (PAK)")
+                .SetName("Item Cost Tweaks - Sell & Buy Price (loose)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(list => ItemCostTweak(list, Mode.BUY_PRICE | Mode.SELL_PRICE))
         };

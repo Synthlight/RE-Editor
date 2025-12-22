@@ -36,6 +36,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed BLAZEJ = App_NpcDef_ID_Fixed.NPC111_00_008;
     public const App_NpcDef_ID_Fixed BRUNTZO = App_NpcDef_ID_Fixed.NPC111_13_021;
     public const App_NpcDef_ID_Fixed CAPH = App_NpcDef_ID_Fixed.NPC310_50_001;
+    public const App_NpcDef_ID_Fixed CASEY = App_NpcDef_ID_Fixed.NPC112_01_122;
     public const App_NpcDef_ID_Fixed CATHERINE = App_NpcDef_ID_Fixed.NPC112_01_004;
     public const App_NpcDef_ID_Fixed CHARO = App_NpcDef_ID_Fixed.NPC131_13_076;
     public const App_NpcDef_ID_Fixed CHOMBER = App_NpcDef_ID_Fixed.NPC320_12_504;
@@ -48,6 +49,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed CRUZ = App_NpcDef_ID_Fixed.NPC111_00_012;
     public const App_NpcDef_ID_Fixed DANZAMUFFIN = App_NpcDef_ID_Fixed.NPC320_12_022;
     public const App_NpcDef_ID_Fixed DAREEL = App_NpcDef_ID_Fixed.NPC211_21_053;
+    public const App_NpcDef_ID_Fixed DAWN = App_NpcDef_ID_Fixed.NPC310_00_029;
     public const App_NpcDef_ID_Fixed DESI = App_NpcDef_ID_Fixed.NPC111_00_020;
     public const App_NpcDef_ID_Fixed DOGARD = App_NpcDef_ID_Fixed.NPC101_13_012;
     public const App_NpcDef_ID_Fixed DOLER = App_NpcDef_ID_Fixed.NPC111_13_033;
@@ -99,6 +101,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed HADEWYCH = App_NpcDef_ID_Fixed.NPC112_00_022;
     public const App_NpcDef_ID_Fixed HAMA = App_NpcDef_ID_Fixed.NPC112_13_040;
     public const App_NpcDef_ID_Fixed HAZEL = App_NpcDef_ID_Fixed.NPC310_23_002;
+    public const App_NpcDef_ID_Fixed HELM = App_NpcDef_ID_Fixed.NPC310_01_111;
     public const App_NpcDef_ID_Fixed HISMO = App_NpcDef_ID_Fixed.NPC211_14_009;
     public const App_NpcDef_ID_Fixed HYDORAN = App_NpcDef_ID_Fixed.NPC111_15_009;
     public const App_NpcDef_ID_Fixed ICHIU = App_NpcDef_ID_Fixed.NPC211_14_008;
@@ -133,6 +136,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed LEGEND = App_NpcDef_ID_Fixed.NPC221_01_008;
     public const App_NpcDef_ID_Fixed LEMUEL = App_NpcDef_ID_Fixed.NPC111_25_001;
     public const App_NpcDef_ID_Fixed LERH = App_NpcDef_ID_Fixed.NPC211_00_901;
+    public const App_NpcDef_ID_Fixed LEV = App_NpcDef_ID_Fixed.NPC310_01_112;
     public const App_NpcDef_ID_Fixed LEVEL_CHECKER = App_NpcDef_ID_Fixed.NPC510_50_027;
     public const App_NpcDef_ID_Fixed LEVEL_CHECKER_2 = App_NpcDef_ID_Fixed.NPC510_50_028;
     public const App_NpcDef_ID_Fixed LI_LEE = App_NpcDef_ID_Fixed.NPC112_00_034;
@@ -163,11 +167,13 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed MURTABAK = App_NpcDef_ID_Fixed.NPC111_11_011;
     public const App_NpcDef_ID_Fixed MUSHARPEYE = App_NpcDef_ID_Fixed.NPC320_12_018;
     public const App_NpcDef_ID_Fixed MYRTLE = App_NpcDef_ID_Fixed.NPC112_21_050;
+    public const App_NpcDef_ID_Fixed NADIA = App_NpcDef_ID_Fixed.NPC102_00_041;
     public const App_NpcDef_ID_Fixed NAHGI = App_NpcDef_ID_Fixed.NPC212_14_016;
     public const App_NpcDef_ID_Fixed NATA = App_NpcDef_ID_Fixed.NPC101_00_003;
     public const App_NpcDef_ID_Fixed NATA_2 = App_NpcDef_ID_Fixed.NPC101_00_004;
     public const App_NpcDef_ID_Fixed NEBY = App_NpcDef_ID_Fixed.NPC132_11_057;
     public const App_NpcDef_ID_Fixed NEEPAS = App_NpcDef_ID_Fixed.NPC221_14_022;
+    public const App_NpcDef_ID_Fixed NEERO = App_NpcDef_ID_Fixed.NPC310_01_114;
     public const App_NpcDef_ID_Fixed NELIAN = App_NpcDef_ID_Fixed.NPC112_13_042;
     public const App_NpcDef_ID_Fixed NEMEKA = App_NpcDef_ID_Fixed.NPC112_13_068;
     public const App_NpcDef_ID_Fixed NEMMO = App_NpcDef_ID_Fixed.NPC131_11_049;
@@ -237,6 +243,7 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed SIMEON = App_NpcDef_ID_Fixed.NPC111_01_017;
     public const App_NpcDef_ID_Fixed SNIFFLEUR = App_NpcDef_ID_Fixed.NPC320_12_014;
     public const App_NpcDef_ID_Fixed SOBAE = App_NpcDef_ID_Fixed.NPC221_14_023;
+    public const App_NpcDef_ID_Fixed SOHNI = App_NpcDef_ID_Fixed.NPC310_01_117;
     public const App_NpcDef_ID_Fixed SOLE = App_NpcDef_ID_Fixed.NPC300_00_033;
     public const App_NpcDef_ID_Fixed SONORA = App_NpcDef_ID_Fixed.NPC112_13_024;
     public const App_NpcDef_ID_Fixed SOROL = App_NpcDef_ID_Fixed.NPC111_01_009;
@@ -276,12 +283,14 @@ public static class NpcConstants {
     public const App_NpcDef_ID_Fixed WAFFLE = App_NpcDef_ID_Fixed.NPC310_01_001;
     public const App_NpcDef_ID_Fixed WERNER = App_NpcDef_ID_Fixed.NPC101_00_009;
     public const App_NpcDef_ID_Fixed WERNER_2 = App_NpcDef_ID_Fixed.NPC111_50_008;
+    public const App_NpcDef_ID_Fixed WERNER_3 = App_NpcDef_ID_Fixed.NPC111_50_029;
     public const App_NpcDef_ID_Fixed WUDWOMP = App_NpcDef_ID_Fixed.NPC320_12_040;
     public const App_NpcDef_ID_Fixed WUDWOMP_2 = App_NpcDef_ID_Fixed.NPC320_12_540;
     public const App_NpcDef_ID_Fixed YJI = App_NpcDef_ID_Fixed.NPC121_11_046;
     public const App_NpcDef_ID_Fixed YSAI = App_NpcDef_ID_Fixed.NPC101_11_066;
     public const App_NpcDef_ID_Fixed YABRAN = App_NpcDef_ID_Fixed.NPC101_13_011;
     public const App_NpcDef_ID_Fixed YATEH = App_NpcDef_ID_Fixed.NPC211_00_039;
+    public const App_NpcDef_ID_Fixed YUME = App_NpcDef_ID_Fixed.NPC310_01_113;
     public const App_NpcDef_ID_Fixed YURELEE = App_NpcDef_ID_Fixed.NPC112_11_036;
     public const App_NpcDef_ID_Fixed ZANZA = App_NpcDef_ID_Fixed.NPC111_11_010;
     public const App_NpcDef_ID_Fixed ZAREH = App_NpcDef_ID_Fixed.NPC111_11_070;

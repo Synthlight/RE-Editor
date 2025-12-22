@@ -10,17 +10,23 @@ namespace RE_Editor.Constants;
 [SuppressMessage("ReSharper", "IdentifierTypo")]
 public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed ARKVELD__MARK_OF_RESOLVE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0005;
+    public const App_WeaponCharmDef_TYPE_Fixed ATHOS_BALLOON = App_WeaponCharmDef_TYPE_Fixed.CHARM_0077;
     public const App_WeaponCharmDef_TYPE_Fixed AVIAN_WIND_CHIME = App_WeaponCharmDef_TYPE_Fixed.CHARM_0007;
     public const App_WeaponCharmDef_TYPE_Fixed AZUZ__MARK_OF_GRATITUDE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0006;
     public const App_WeaponCharmDef_TYPE_Fixed BARREL_BOWLING_STRAP = App_WeaponCharmDef_TYPE_Fixed.CHARM_0105;
     public const App_WeaponCharmDef_TYPE_Fixed BARREL_BOWLING_TROPHY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0104;
     public const App_WeaponCharmDef_TYPE_Fixed BLACK_CAT_BELL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0035;
+    public const App_WeaponCharmDef_TYPE_Fixed BLACK_ROCK_A_BABY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0072;
+    public const App_WeaponCharmDef_TYPE_Fixed BLACK_TUBBY_TURNTAIL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0143;
+    public const App_WeaponCharmDef_TYPE_Fixed BLACK_TURNTAIL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0142;
     public const App_WeaponCharmDef_TYPE_Fixed BLANKA_CHAN_DOLL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0098;
     public const App_WeaponCharmDef_TYPE_Fixed BLUE_FAIRY_LIGHT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0040;
     public const App_WeaponCharmDef_TYPE_Fixed BLUE_FLAMEFETE_SPIRIT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0044;
     public const App_WeaponCharmDef_TYPE_Fixed BLUE_LALA_DRESS_DOLL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0092;
     public const App_WeaponCharmDef_TYPE_Fixed BLUE_POLTERCAT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0058;
+    public const App_WeaponCharmDef_TYPE_Fixed BLUE_ROCK_A_BABY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0069;
     public const App_WeaponCharmDef_TYPE_Fixed COMMON_WOOD_MINNOW = App_WeaponCharmDef_TYPE_Fixed.CHARM_0144;
+    public const App_WeaponCharmDef_TYPE_Fixed COSMOLOID_CORE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0174;
     public const App_WeaponCharmDef_TYPE_Fixed DANCING_BLACK_CAT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0096;
     public const App_WeaponCharmDef_TYPE_Fixed DANCING_WHITE_CAT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0001;
     public const App_WeaponCharmDef_TYPE_Fixed DOSHAGUMA__MARK_OF_BRAVERY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0080;
@@ -30,6 +36,10 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed DREAMSPELL_FELYNE_TEDDY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0101;
     public const App_WeaponCharmDef_TYPE_Fixed DUSTER_RIG = App_WeaponCharmDef_TYPE_Fixed.CHARM_0148;
     public const App_WeaponCharmDef_TYPE_Fixed EMERALD_JITTERBAIT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0146;
+    public const App_WeaponCharmDef_TYPE_Fixed F_ARKVELD_BALLOON = App_WeaponCharmDef_TYPE_Fixed.CHARM_0074;
+    public const App_WeaponCharmDef_TYPE_Fixed F_BARINA_BALLOON = App_WeaponCharmDef_TYPE_Fixed.CHARM_0076;
+    public const App_WeaponCharmDef_TYPE_Fixed F_HOPE_BALLOON = App_WeaponCharmDef_TYPE_Fixed.CHARM_0073;
+    public const App_WeaponCharmDef_TYPE_Fixed F_ROMPOPOLO_BALLOON = App_WeaponCharmDef_TYPE_Fixed.CHARM_0075;
     public const App_WeaponCharmDef_TYPE_Fixed FELYNE_CARAMEL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0107;
     public const App_WeaponCharmDef_TYPE_Fixed FELYNE_DUNA_BOBBLE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0003;
     public const App_WeaponCharmDef_TYPE_Fixed FELYNE_DUNA_Γ_BOBBLE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0150;
@@ -41,6 +51,7 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed FLOATING_HONEY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0138;
     public const App_WeaponCharmDef_TYPE_Fixed FLOATING_OMG = App_WeaponCharmDef_TYPE_Fixed.CHARM_0129;
     public const App_WeaponCharmDef_TYPE_Fixed FLOATING_POTIONS = App_WeaponCharmDef_TYPE_Fixed.CHARM_0139;
+    public const App_WeaponCharmDef_TYPE_Fixed FLOATING_RATH_BALLOON = App_WeaponCharmDef_TYPE_Fixed.CHARM_0078;
     public const App_WeaponCharmDef_TYPE_Fixed FLOATING_SPARKLES = App_WeaponCharmDef_TYPE_Fixed.CHARM_0136;
     public const App_WeaponCharmDef_TYPE_Fixed FLOATING_WELL_DONE_STEAKS = App_WeaponCharmDef_TYPE_Fixed.CHARM_0137;
     public const App_WeaponCharmDef_TYPE_Fixed FLUTTERING_MYRIADS = App_WeaponCharmDef_TYPE_Fixed.CHARM_0123;
@@ -49,6 +60,7 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed GREEN_FAIRY_LIGHT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0039;
     public const App_WeaponCharmDef_TYPE_Fixed GREEN_FLAMEFETE_SPIRIT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0046;
     public const App_WeaponCharmDef_TYPE_Fixed GREEN_POLTERCAT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0059;
+    public const App_WeaponCharmDef_TYPE_Fixed GREEN_ROCK_A_BABY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0070;
     public const App_WeaponCharmDef_TYPE_Fixed HAPPY_GO_CONGAKART = App_WeaponCharmDef_TYPE_Fixed.CHARM_0169;
     public const App_WeaponCharmDef_TYPE_Fixed HOPE_SCARF_G__BLACK = App_WeaponCharmDef_TYPE_Fixed.CHARM_0025;
     public const App_WeaponCharmDef_TYPE_Fixed HOPE_SCARF_G__BLUE_RED = App_WeaponCharmDef_TYPE_Fixed.CHARM_0023;
@@ -71,8 +83,14 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed HOPE_SCARF__PEACH = App_WeaponCharmDef_TYPE_Fixed.CHARM_0015;
     public const App_WeaponCharmDef_TYPE_Fixed HOPE_SCARF__SAFFRON = App_WeaponCharmDef_TYPE_Fixed.CHARM_0014;
     public const App_WeaponCharmDef_TYPE_Fixed HOPE_SCARF__TEAL_ORANGE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0009;
+    public const App_WeaponCharmDef_TYPE_Fixed JIN_DAHAAD__MARK_OF_BRAVERY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0116;
+    public const App_WeaponCharmDef_TYPE_Fixed JIN_DAHAAD__MARK_OF_CONTEST = App_WeaponCharmDef_TYPE_Fixed.CHARM_0115;
+    public const App_WeaponCharmDef_TYPE_Fixed JIN_DAHAAD__MARK_OF_MASTERY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0117;
+    public const App_WeaponCharmDef_TYPE_Fixed KFC_BUCKET_FELYNE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0061;
+    public const App_WeaponCharmDef_TYPE_Fixed KFC_COLONEL_FELYNE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0062;
     public const App_WeaponCharmDef_TYPE_Fixed KUT_KU_PLUSHIE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0000;
     public const App_WeaponCharmDef_TYPE_Fixed LAGIACRUS_PLUSHIE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0160;
+    public const App_WeaponCharmDef_TYPE_Fixed LUMENHYMN_FELYNE_TEDDY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0102;
     public const App_WeaponCharmDef_TYPE_Fixed MIZUTSUNE__MARK_OF_BRAVERY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0086;
     public const App_WeaponCharmDef_TYPE_Fixed MIZUTSUNE__MARK_OF_CONTEST = App_WeaponCharmDef_TYPE_Fixed.CHARM_0085;
     public const App_WeaponCharmDef_TYPE_Fixed MIZUTSUNE__MARK_OF_MASTERY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0087;
@@ -84,6 +102,8 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed PINK_FAIRY_LIGHT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0042;
     public const App_WeaponCharmDef_TYPE_Fixed PINK_FLAMEFETE_SPIRIT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0047;
     public const App_WeaponCharmDef_TYPE_Fixed PINK_LALA_DRESS_DOLL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0093;
+    public const App_WeaponCharmDef_TYPE_Fixed PINK_ROCK_A_BABY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0068;
+    public const App_WeaponCharmDef_TYPE_Fixed PURPLE_ROCK_A_BABY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0071;
     public const App_WeaponCharmDef_TYPE_Fixed RED_FAIRY_LIGHT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0038;
     public const App_WeaponCharmDef_TYPE_Fixed RED_FLAMEFETE_SPIRIT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0043;
     public const App_WeaponCharmDef_TYPE_Fixed RED_LALA_DRESS_DOLL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0091;
@@ -92,6 +112,8 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed REY_DAU__MARK_OF_CONTEST = App_WeaponCharmDef_TYPE_Fixed.CHARM_0082;
     public const App_WeaponCharmDef_TYPE_Fixed REY_DAU__MARK_OF_MASTERY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0084;
     public const App_WeaponCharmDef_TYPE_Fixed ROLLING_POOGIE__MONOCHROME = App_WeaponCharmDef_TYPE_Fixed.CHARM_0162;
+    public const App_WeaponCharmDef_TYPE_Fixed ROLLING_POOGIE__SEASONAL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0164;
+    public const App_WeaponCharmDef_TYPE_Fixed ROLLING_POOGIE__TAKOYAKI = App_WeaponCharmDef_TYPE_Fixed.CHARM_0163;
     public const App_WeaponCharmDef_TYPE_Fixed ROLLING_POOGIE__TWO_TONE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0161;
     public const App_WeaponCharmDef_TYPE_Fixed SAKURA_FELYNE_TEDDY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0099;
     public const App_WeaponCharmDef_TYPE_Fixed SAKURA_POSY__COLORFUL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0032;
@@ -111,6 +133,7 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed TENTACLE_JIG = App_WeaponCharmDef_TYPE_Fixed.CHARM_0149;
     public const App_WeaponCharmDef_TYPE_Fixed TROT_ALONG_CACTUAR = App_WeaponCharmDef_TYPE_Fixed.CHARM_0133;
     public const App_WeaponCharmDef_TYPE_Fixed TROT_ALONG_CRAKE = App_WeaponCharmDef_TYPE_Fixed.CHARM_0132;
+    public const App_WeaponCharmDef_TYPE_Fixed TROT_ALONG_FLEDGLING = App_WeaponCharmDef_TYPE_Fixed.CHARM_0158;
     public const App_WeaponCharmDef_TYPE_Fixed TUFF_JOINT_BAIT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0147;
     public const App_WeaponCharmDef_TYPE_Fixed UTH_DUNA__MARK_OF_BRAVERY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0089;
     public const App_WeaponCharmDef_TYPE_Fixed UTH_DUNA__MARK_OF_CONTEST = App_WeaponCharmDef_TYPE_Fixed.CHARM_0088;
@@ -124,4 +147,7 @@ public static class PendantConstants {
     public const App_WeaponCharmDef_TYPE_Fixed WHITE_FAIRY_LIGHT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0037;
     public const App_WeaponCharmDef_TYPE_Fixed WHITE_FLAMEFETE_SPIRIT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0048;
     public const App_WeaponCharmDef_TYPE_Fixed WHITE_POLTERCAT = App_WeaponCharmDef_TYPE_Fixed.CHARM_0055;
+    public const App_WeaponCharmDef_TYPE_Fixed WHITE_ROCK_A_BABY = App_WeaponCharmDef_TYPE_Fixed.CHARM_0067;
+    public const App_WeaponCharmDef_TYPE_Fixed WHITE_TUBBY_TURNTAIL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0141;
+    public const App_WeaponCharmDef_TYPE_Fixed WHITE_TURNTAIL = App_WeaponCharmDef_TYPE_Fixed.CHARM_0140;
 }

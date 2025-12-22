@@ -10,6 +10,20 @@ using RE_Editor.Windows;
 
 namespace RE_Editor.Mods;
 
+/*
+ * Support NPCs that you should probably avoid overwriting.
+ * (At least, replacing them will crash the Gog event quest.)
+ * Alessa
+ * Fabius
+ * Griffin
+ * Kai
+ * Mina
+ * Nadia
+ * Nightmist
+ * Olivia
+ * Rosso
+ */
+
 [UsedImplicitly]
 public class NpcOverNpc : IMod {
     public const string NAME = "NPC Over NPC";

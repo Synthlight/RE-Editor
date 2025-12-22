@@ -37,6 +37,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed BOTANIST = App_HunterDef_Skill_Fixed.HunterSkill_089;
     public const App_HunterDef_Skill_Fixed BURST = App_HunterDef_Skill_Fixed.HunterSkill_114;
     public const App_HunterDef_Skill_Fixed BUTTERY_LEATHERCRAFT = App_HunterDef_Skill_Fixed.HunterSkill_165;
+    public const App_HunterDef_Skill_Fixed CATBURGLAR = App_HunterDef_Skill_Fixed.HunterSkill_238;
     public const App_HunterDef_Skill_Fixed CHARGE_MASTER = App_HunterDef_Skill_Fixed.HunterSkill_048;
     public const App_HunterDef_Skill_Fixed CHARGE_UP = App_HunterDef_Skill_Fixed.HunterSkill_057;
     public const App_HunterDef_Skill_Fixed CLIFFHANGER = App_HunterDef_Skill_Fixed.HunterSkill_109;
@@ -80,6 +81,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed FULGUR_ANJANATHS_WILL = App_HunterDef_Skill_Fixed.HunterSkill_187;
     public const App_HunterDef_Skill_Fixed GEOLOGIST = App_HunterDef_Skill_Fixed.HunterSkill_090;
     public const App_HunterDef_Skill_Fixed GLORYS_FAVOR = App_HunterDef_Skill_Fixed.HunterSkill_227;
+    public const App_HunterDef_Skill_Fixed GOGMAPOCALYPSE = App_HunterDef_Skill_Fixed.HunterSkill_239;
     public const App_HunterDef_Skill_Fixed GORE_MAGALAS_TYRANNY = App_HunterDef_Skill_Fixed.HunterSkill_183;
     public const App_HunterDef_Skill_Fixed GRAVIOSS_PROTECTION = App_HunterDef_Skill_Fixed.HunterSkill_181;
     public const App_HunterDef_Skill_Fixed GRILLMASTER = App_HunterDef_Skill_Fixed.HunterSkill_231;
@@ -107,6 +109,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed LORDS_FAVOR = App_HunterDef_Skill_Fixed.HunterSkill_170;
     public const App_HunterDef_Skill_Fixed LORDS_FURY = App_HunterDef_Skill_Fixed.HunterSkill_171;
     public const App_HunterDef_Skill_Fixed LORDS_SOUL = App_HunterDef_Skill_Fixed.HunterSkill_205;
+    public const App_HunterDef_Skill_Fixed LUMENHYMN_PRAYER = App_HunterDef_Skill_Fixed.HunterSkill_225;
     public const App_HunterDef_Skill_Fixed MARATHON_RUNNER = App_HunterDef_Skill_Fixed.HunterSkill_024;
     public const App_HunterDef_Skill_Fixed MASTER_OF_THE_FIST = App_HunterDef_Skill_Fixed.HunterSkill_209;
     public const App_HunterDef_Skill_Fixed MASTERS_TOUCH = App_HunterDef_Skill_Fixed.HunterSkill_004;

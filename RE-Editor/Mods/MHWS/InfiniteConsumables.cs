@@ -65,7 +65,7 @@ public class InfiniteConsumables : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName($"{name} (PAK)")
+                .SetName($"{name} (loose)")
                 .SetFiles([PathHelper.ITEM_DATA_PATH])
                 .SetAction(InfiniteConsumableItems),
             baseLuaMod

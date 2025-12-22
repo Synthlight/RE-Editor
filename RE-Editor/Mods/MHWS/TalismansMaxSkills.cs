@@ -16,7 +16,7 @@ public class TalismansMaxSkills : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Talismans - Max Skills";
         const string description = "Talismans - Max Skills.";
-        const string version     = "1.9";
+        const string version     = "1.10";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -32,7 +32,7 @@ public class TalismansMaxSkills : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Talismans - Max Skills (PAK)")
+                .SetName("Talismans - Max Skills (loose)")
                 .SetFiles([PathHelper.TALISMAN_DATA_PATH])
                 .SetAction(MaxSkills),
             baseLuaMod

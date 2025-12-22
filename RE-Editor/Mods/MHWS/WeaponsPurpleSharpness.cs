@@ -16,7 +16,7 @@ public class WeaponsPurpleSharpness : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Weapons - Max Purple Sharpness";
         const string description = "Weapons - Max Purple Sharpness.";
-        const string version     = "1.6";
+        const string version     = "1.7";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -34,7 +34,7 @@ public class WeaponsPurpleSharpness : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName($"{name} (PAK)")
+                .SetName($"{name} (loose)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(MaxSharpness),
             baseLuaMod

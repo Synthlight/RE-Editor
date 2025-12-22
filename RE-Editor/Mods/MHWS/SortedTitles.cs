@@ -59,12 +59,12 @@ public class SortedTitles : IMod {
 
             mods.AddRange(new List<INexusMod> {
                 baseMod
-                    .SetName($"Titles Sorted by Name (PAK, {lang})")
+                    .SetName($"Titles Sorted by Name (loose, {lang})")
                     .SetAddonFor(langGroupName)
                     .SetFiles([PathHelper.TITLE_WORD_DATA_PATH])
                     .SetAction(SortTitles),
                 baseMod
-                    .SetName($"Conjunctions Sorted by Name (PAK, {lang})")
+                    .SetName($"Conjunctions Sorted by Name (loose, {lang})")
                     .SetAddonFor(langGroupName)
                     .SetFiles([PathHelper.TITLE_CONJUNCTION_DATA_PATH])
                     .SetAction(SortTitles)

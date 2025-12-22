@@ -16,7 +16,7 @@ public class OneDecoToMaxSkill : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "One Deco to Max Skill";
         const string description = "One Deco to Max Skill.";
-        const string version     = "1.2";
+        const string version     = "1.3";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -34,7 +34,7 @@ public class OneDecoToMaxSkill : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("One Deco to Max Skill (PAK)")
+                .SetName("One Deco to Max Skill (loose)")
                 .SetFiles([PathHelper.DECORATION_DATA_PATH])
                 .SetAction(MaxSkills),
             baseLuaMod

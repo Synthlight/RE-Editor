@@ -16,6 +16,7 @@ public static class EnemyConstantsLarge {
     public const App_EnemyDef_ID_Fixed CHATACABRA = App_EnemyDef_ID_Fixed.EM0152_00_0;
     public const App_EnemyDef_ID_Fixed CONGALALA = App_EnemyDef_ID_Fixed.EM0021_00_0;
     public const App_EnemyDef_ID_Fixed DOSHAGUMA = App_EnemyDef_ID_Fixed.EM0150_00_0;
+    public const App_EnemyDef_ID_Fixed GOGMAZIOS = App_EnemyDef_ID_Fixed.EM0078_00_0;
     public const App_EnemyDef_ID_Fixed GORE_MAGALA = App_EnemyDef_ID_Fixed.EM0071_00_0;
     public const App_EnemyDef_ID_Fixed GRAVIOS = App_EnemyDef_ID_Fixed.EM0005_00_0;
     public const App_EnemyDef_ID_Fixed GUARDIAN_ARKVELD = App_EnemyDef_ID_Fixed.EM0160_50_0;

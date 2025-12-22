@@ -17,7 +17,7 @@ public class TalismansGeneratedMaxSlotsAndSkills : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Talismans (Generated) - Max Slots & Skills";
         const string description = "Talismans (Generate/Appraised only) - Max Slots & Skills.";
-        const string version     = "1.7";
+        const string version     = "1.8";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -33,7 +33,7 @@ public class TalismansGeneratedMaxSlotsAndSkills : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Talismans (Generated) - Max Slots & Skills (PAK)")
+                .SetName("Talismans (Generated) - Max Slots & Skills (loose)")
                 .SetFiles([
                     PathHelper.TALISMAN_GENERATED_SKILLS_DATA_PATH,
                     PathHelper.TALISMAN_GENERATED_SLOTS_DATA_PATH

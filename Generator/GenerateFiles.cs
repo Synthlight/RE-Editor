@@ -233,6 +233,40 @@ public partial class GenerateFiles {
     public GenerateFiles() {
         // Because it's so much easier than writing whatever is needed to deserialize dictionary keys as hex string->uint.
         var structJsonAsString = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>(File.ReadAllText(STRUCT_JSON_PATH))!;
+
+        /*
+        {
+            // Temp fix for RSZ json dump all having the same wrong CRC of `1FF`.
+            // This was needed for a bit when TU 4 came out and REF had been partially updated. I'm leaving it here just in-case it ever comes up again.
+
+            Global.Log($"Building a map of all hashes to CRCs used in: {PathHelper.GAME_PATH}\\*.pak");
+
+            Dictionary<uint, uint> hashCrcMapTemp = [];
+
+            foreach (var fileData in PathHelper.ForEachFileInPaks(FileListCacheType.USER)) {
+                var rsz = ReDataFile.Read(fileData.bytes, justReadHashes: true);
+                var instanceInfos = from instanceInfo in rsz.rsz.instanceInfo
+                                    select instanceInfo;
+                instanceInfos = instanceInfos.Distinct();
+                foreach (var (hash, crc) in instanceInfos) {
+                    hashCrcMapTemp.TryAdd(hash, crc);
+                }
+            }
+
+            var hashCrcMap    = hashCrcMapTemp.KeyToHexString();
+            var hashesUpdated = 0;
+            foreach (var (hash, crc) in hashCrcMap) {
+                var lowerHash = hash.ToLower();
+                if (structJsonAsString.TryGetValue(lowerHash, out var value)) {
+                    value.crc = crc;
+                    hashesUpdated++;
+                }
+            }
+            Global.Log($"Updated {hashesUpdated}/{structJsonAsString.Count} CRCs.");
+            File.WriteAllText(STRUCT_JSON_PATH, JsonConvert.SerializeObject(structJsonAsString, Formatting.Indented));
+        }
+        */
+
         structJson = structJsonAsString.KeyFromHexString(true);
 
 #if DD2

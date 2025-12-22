@@ -16,7 +16,7 @@ public class WeaponsMaxSlotsAndSkills : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Weapons - Max Slots & Skills";
         const string description = "Weapons - Max Slots & Skills.";
-        const string version     = "1.9";
+        const string version     = "1.10";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -34,7 +34,7 @@ public class WeaponsMaxSlotsAndSkills : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Weapons - Max Slots Only (PAK)")
+                .SetName("Weapons - Max Slots Only (loose)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(MaxSlots),
             baseLuaMod
@@ -48,7 +48,7 @@ public class WeaponsMaxSlotsAndSkills : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Weapons - Max Skills Only (PAK)")
+                .SetName("Weapons - Max Skills Only (loose)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(MaxSkills),
             baseLuaMod
@@ -62,7 +62,7 @@ public class WeaponsMaxSlotsAndSkills : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Weapons - Max Slots & Skills (PAK)")
+                .SetName("Weapons - Max Slots & Skills (loose)")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Base))
                 .SetAction(data => {
                     MaxSlots(data);

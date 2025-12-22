@@ -59,6 +59,7 @@ public static class EnemyConstants {
     public const App_EnemyDef_ID_Fixed GLASS_PAREXUS = App_EnemyDef_ID_Fixed.EM5314_00_0;
     public const App_EnemyDef_ID_Fixed GLOOM_GEKKO = App_EnemyDef_ID_Fixed.EM5217_10_0;
     public const App_EnemyDef_ID_Fixed GODBUG = App_EnemyDef_ID_Fixed.EM5101_10_0;
+    public const App_EnemyDef_ID_Fixed GOGMAZIOS = App_EnemyDef_ID_Fixed.EM0078_00_0;
     public const App_EnemyDef_ID_Fixed GOLD_HERCUDROME = App_EnemyDef_ID_Fixed.EM5208_10_0;
     public const App_EnemyDef_ID_Fixed GOLDENFISH = App_EnemyDef_ID_Fixed.EM5307_00_0;
     public const App_EnemyDef_ID_Fixed GOLDENFRY = App_EnemyDef_ID_Fixed.EM5306_00_0;

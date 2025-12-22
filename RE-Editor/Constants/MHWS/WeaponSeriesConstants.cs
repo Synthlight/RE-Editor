@@ -19,6 +19,7 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed DARK_KNIGHT_TREE = App_WeaponDef_SERIES_Fixed.ID_048;
     public const App_WeaponDef_SERIES_Fixed DOSHAGUMA_TREE = App_WeaponDef_SERIES_Fixed.ID_009;
     public const App_WeaponDef_SERIES_Fixed EXPEDITION_TREE = App_WeaponDef_SERIES_Fixed.ID_000;
+    public const App_WeaponDef_SERIES_Fixed FELYNE_TREE = App_WeaponDef_SERIES_Fixed.ID_049;
     public const App_WeaponDef_SERIES_Fixed G_ARKVELD_TREE = App_WeaponDef_SERIES_Fixed.ID_022;
     public const App_WeaponDef_SERIES_Fixed G_DOSHAGUMA_TREE = App_WeaponDef_SERIES_Fixed.ID_017;
     public const App_WeaponDef_SERIES_Fixed G_EBONY_TREE = App_WeaponDef_SERIES_Fixed.ID_020;

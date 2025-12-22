@@ -6,6 +6,7 @@ EnemyConstantsNormalLarge = {
     CHATACABRA = 19,
     CONGALALA = 6,
     DOSHAGUMA = 16,
+    GOGMAZIOS = 12,
     GORE_MAGALA = 10,
     GRAVIOS = 3,
     GUARDIAN_ARKVELD = 28,

@@ -89,8 +89,11 @@ public static class OtomoArmorLayeredConstants {
     public const int FELYNE_CONGA_HEAD_Α = 13;
     public const int FELYNE_CONGA_TAMBOURINE_Α = 141;
     public const int FELYNE_DAHAAD_CORONA_Α = 49;
+    public const int FELYNE_DAHAAD_CORONA_Γ = 103;
     public const int FELYNE_DAHAAD_GOWN_Α = 50;
+    public const int FELYNE_DAHAAD_GOWN_Γ = 104;
     public const int FELYNE_DAHAAD_MACE_Α = 159;
+    public const int FELYNE_DAHAAD_MACE_Γ = 177;
     public const int FELYNE_DAU_ARMOR_Α = 52;
     public const int FELYNE_DAU_ARMOR_Γ = 98;
     public const int FELYNE_DAU_HELM_Α = 51;
@@ -112,6 +115,8 @@ public static class OtomoArmorLayeredConstants {
     public const int FELYNE_GAWKIE_HOOD = 129;
     public const int FELYNE_GAWKIE_POMPOMS = 187;
     public const int FELYNE_GHOST_GARB_Α = 118;
+    public const int FELYNE_GOG_BURDEN_Α = 95;
+    public const int FELYNE_GOG_PRISON_Α = 96;
     public const int FELYNE_GORE_GHOST_Α = 58;
     public const int FELYNE_GORE_HORROR_Α = 57;
     public const int FELYNE_GRAV_ARMOR_Α = 48;
@@ -143,6 +148,7 @@ public static class OtomoArmorLayeredConstants {
     public const int FELYNE_MATRICE_SPEAR_Α = 139;
     public const int FELYNE_MEOWLOWEEN_MASK_Α = 117;
     public const int FELYNE_NERSCYLLA_WEDGE_Α = 146;
+    public const int FELYNE_PAW_PUNCH_Α = 192;
     public const int FELYNE_QUEMA_HELM_Α = 9;
     public const int FELYNE_QUEMA_MAIL_Α = 10;
     public const int FELYNE_RATHALOS_BLADE_Α = 157;
@@ -158,6 +164,9 @@ public static class OtomoArmorLayeredConstants {
     public const int FELYNE_SEREGIOS_MAIL_Α = 94;
     public const int FELYNE_SILD_HOOD_Α = 75;
     public const int FELYNE_SILD_SUIT_Α = 76;
+    public const int FELYNE_SNOWCAT_BELL_Α = 182;
+    public const int FELYNE_SNOWCAT_HEAD_Α = 119;
+    public const int FELYNE_SNOWCAT_SUIT_Α = 120;
     public const int FELYNE_SUJA_FROG_Α = 73;
     public const int FELYNE_SUJA_VEST_Α = 74;
     public const int FELYNE_UDRA_HEAD_Α = 55;
@@ -169,10 +178,15 @@ public static class OtomoArmorLayeredConstants {
     public const int FELYNE_XU_WU_ORB_Α = 155;
     public const int FELYNE_XU_WU_SUIT_Α = 42;
     public const int FELYNE_XU_WU_VEIL_Α = 41;
+    public const int FIENDLYNE_FETTER_Α = 173;
     public const int MEOWRIONETTE_BODY_Α = 116;
     public const int MEOWRIONETTE_HEAD_Α = 115;
     public const int MORBOL_SEEDLING_BODY_Α = 128;
     public const int MORBOL_SEEDLING_HEAD_Α = 127;
+    public const int OUR_LIL_SEIKRET_BODY_Α = 122;
+    public const int OUR_LIL_SEIKRET_HEAD_Α = 121;
+    public const int THIEFS_SECRET_POUCH_Α = 191;
+    public const int THIEFS_THIEVIN_SCARF_Α = 190;
     public const int TWINFLIGHT_BUTTERFLIES_Α = 186;
     public const int WACKY_WUDWUD_BODY_Α = 132;
     public const int WACKY_WUDWUD_MASK_Α = 131;

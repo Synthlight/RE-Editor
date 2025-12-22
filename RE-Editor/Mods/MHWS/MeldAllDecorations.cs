@@ -20,7 +20,7 @@ public class MeldAllDecorations : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name           = "Meld All Decorations";
         const string description    = "Adds all decorations to the \"Meld Decorations\" list, with various config options.";
-        const string version        = "1.0";
+        const string version        = "1.1";
         const bool   includeReSorts = false;
 
         var decoData        = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.DECORATION_DATA_PATH).rsz.objectData.OfType<App_user_data_AccessoryData_cData>().ToList();
@@ -99,7 +99,7 @@ public class MeldAllDecorations : IMod {
             Image   = $@"{PathHelper.MODS_PATH}\{name}\Page 1.png"
         };
 
-        const string baseName = $"{name} (Base)";
+        const string baseName = $"{name} (Base, loose)";
 
         var mods = new List<INexusMod> {
             baseMod

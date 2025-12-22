@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using RE_Editor.Common;
 using RE_Editor.Common.Models;
-using RE_Editor.Common.Models.List_Wrappers;
 using RE_Editor.Models;
 using RE_Editor.Models.Enums;
 using RE_Editor.Models.Structs;
@@ -17,7 +16,7 @@ public class RiceBallCharmRecipe : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Rice Ball Charm Recipe (Not Replacer)";
         const string description = "Adds a Rice Ball Charm recipe to the recipe list.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var mod = new NexusMod {
             Name    = name,
@@ -43,16 +42,16 @@ public class RiceBallCharmRecipe : IMod {
                     riceBall.KeyStoryNo     = (int) App_MissionIDList_ID_Fixed.INVALID;
                     riceBall.FlagHunterRank = 0;
                     riceBall.ItemId = new([
-                        new DataSourceWrapper<int>(0, (int) App_ItemDef_ID_Fixed.NONE, null!),
-                        new DataSourceWrapper<int>(0, (int) App_ItemDef_ID_Fixed.NONE, null!),
-                        new DataSourceWrapper<int>(0, (int) App_ItemDef_ID_Fixed.NONE, null!),
-                        new DataSourceWrapper<int>(0, (int) App_ItemDef_ID_Fixed.NONE, null!)
+                        new(0, (int) App_ItemDef_ID_Fixed.NONE, null!),
+                        new(0, (int) App_ItemDef_ID_Fixed.NONE, null!),
+                        new(0, (int) App_ItemDef_ID_Fixed.NONE, null!),
+                        new(0, (int) App_ItemDef_ID_Fixed.NONE, null!)
                     ]);
                     riceBall.ItemNum = new([
-                        new GenericWrapper<uint>(0, 0),
-                        new GenericWrapper<uint>(0, 0),
-                        new GenericWrapper<uint>(0, 0),
-                        new GenericWrapper<uint>(0, 0)
+                        new(0, 0),
+                        new(0, 0),
+                        new(0, 0),
+                        new(0, 0)
                     ]);
                     recipeData.Values.Add(riceBall);
                     break;

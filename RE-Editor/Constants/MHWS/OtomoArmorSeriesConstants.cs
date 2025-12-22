@@ -34,6 +34,7 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_CONGA = 94603784;
     public const int FELYNE_CONGA_Α = -1244823552;
     public const int FELYNE_DAHAAD_Α = 241576736;
+    public const int FELYNE_DAHAAD_Γ = 26791;
     public const int FELYNE_DEATH_STENCH_Α = 1716827392;
     public const int FELYNE_DOSHAGUMA = -1746895360;
     public const int FELYNE_DOSHAGUMA_Α = 1772605824;
@@ -49,6 +50,7 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_G_RATHALOS_Α = 906124864;
     public const int FELYNE_GAWKIE = 20252;
     public const int FELYNE_GHOST_Α = 21352;
+    public const int FELYNE_GOG_Α = 2650;
     public const int FELYNE_GORE_Α = 1372825472;
     public const int FELYNE_GRAVIOS_Α = 1733217536;
     public const int FELYNE_GYPCEROS_Α = -630507648;
@@ -81,6 +83,7 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_ROMPOPOLO_Α = -1475684864;
     public const int FELYNE_SEREGIOS_Α = 6690;
     public const int FELYNE_SILD_Α = -1932970112;
+    public const int FELYNE_SNOWCAT_Α = 2543;
     public const int FELYNE_SUJA_Α = 707825664;
     public const int FELYNE_UDRA_Γ = 24912;
     public const int FELYNE_UTH_DUNA = -2050214272;
@@ -90,6 +93,8 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_XU_WU_Α = 1167423232;
     public const int MEOWRIONETTE_Α = 2632;
     public const int MORBOL_SEEDLING_Α = 27389;
+    public const int OUR_LIL_SEIKRET_Α = 14696;
+    public const int THIEF_Α = 30183;
     public const int WACKY_WUDWUD_Α = 2419;
     public const int WUDWUD_GUISE_Α = -385188320;
 }

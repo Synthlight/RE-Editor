@@ -18,7 +18,7 @@ public class NoCraftingRequirements : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "No Crafting Requirements";
         const string description = "No Crafting Requirements.";
-        const string version     = "1.7";
+        const string version     = "1.8";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -34,7 +34,7 @@ public class NoCraftingRequirements : IMod {
 
         var mods = new List<INexusMod> {
             baseMod
-                .SetName("Armor (PAK)")
+                .SetName("Armor (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Armor.png")
                 .SetFiles([PathHelper.ARMOR_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL)),
@@ -50,7 +50,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Armor (Ignore Unlock Flags) (PAK)")
+                .SetName("Armor (Ignore Unlock Flags) (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Armor.png")
                 .SetFiles([PathHelper.ARMOR_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL | Mode.IGNORE_UNLOCK_FLAGS)),
@@ -66,7 +66,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Kinsects (PAK)")
+                .SetName("Kinsects (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Kinsects.png")
                 .SetFiles([PathHelper.KINSECT_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL)),
@@ -82,7 +82,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Kinsects (Ignore Unlock Flags) (PAK)")
+                .SetName("Kinsects (Ignore Unlock Flags) (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Kinsects.png")
                 .SetFiles([PathHelper.KINSECT_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL | Mode.IGNORE_UNLOCK_FLAGS)),
@@ -98,7 +98,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Palico (PAK)")
+                .SetName("Palico (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Otomo.png")
                 .SetFiles([PathHelper.OTOMO_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL)),
@@ -114,7 +114,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Palico (Ignore Unlock Flags) (PAK)")
+                .SetName("Palico (Ignore Unlock Flags) (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Otomo.png")
                 .SetFiles([PathHelper.OTOMO_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL | Mode.IGNORE_UNLOCK_FLAGS)),
@@ -130,7 +130,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Talismans (PAK)")
+                .SetName("Talismans (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Talismans.png")
                 .SetFiles([PathHelper.TALISMAN_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL)),
@@ -146,7 +146,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Talismans (Ignore Unlock Flags) (PAK)")
+                .SetName("Talismans (Ignore Unlock Flags) (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Talismans.png")
                 .SetFiles([PathHelper.TALISMAN_RECIPE_DATA_PATH])
                 .SetAction(list => NoRequirements(list, Mode.NORMAL | Mode.IGNORE_UNLOCK_FLAGS)),
@@ -162,7 +162,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Weapons (PAK)")
+                .SetName("Weapons (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Weapons.png")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Recipe))
                 .SetAction(list => NoRequirements(list, Mode.NORMAL)),
@@ -178,7 +178,7 @@ public class NoCraftingRequirements : IMod {
                 ])
                 .SetSkipPak(true),
             baseMod
-                .SetName("Weapons (Ignore Unlock Flags) (PAK)")
+                .SetName("Weapons (Ignore Unlock Flags) (loose)")
                 .SetImage($@"{PathHelper.MODS_PATH}\{name}\Weapons.png")
                 .SetFiles(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Recipe)
                                     .Append(PathHelper.GetAllWeaponFilePaths(PathHelper.WeaponDataType.Tree)))

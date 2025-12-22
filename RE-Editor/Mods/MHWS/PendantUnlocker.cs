@@ -18,7 +18,7 @@ public class PendantUnlocker : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Pendant Unlocker";
         const string description = "Unlock individual pendants.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var data     = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\{PathHelper.PENDANT_DATA_PATH}");
         var pendants = data.rsz.GetEntryObject<App_user_data_CharmData>().Values.Cast<App_user_data_CharmData_cData>();
