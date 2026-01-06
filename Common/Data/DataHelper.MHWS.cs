@@ -17,10 +17,14 @@ public static partial class DataHelper {
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  DECORATION_INFO_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  ENEMY_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> ITEM_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> GIMMICK_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<int, string>>  GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<uint, string>> ITEM_NAME_LOOKUP;
     public static Dictionary<Global.LangIndex, Dictionary<uint, string>> ITEM_DESC_LOOKUP;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> MEDAL_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  MEDAL_NAME_LOOKUP_BY_ENUM_VALUE;
+    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> MENU_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<int, string>>  MENU_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  NPC_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> OTOMO_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  OTOMO_NAME_LOOKUP_BY_ENUM_VALUE;
@@ -36,4 +40,5 @@ public static partial class DataHelper {
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> TITLE_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> WEAPON_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  WEAPON_SERIES_BY_ENUM_VALUE;
+    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> WEAPON_LAYERED_INFO_LOOKUP_BY_GUID;
 }

@@ -124,6 +124,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             case "App_ArmorDef_SERIES_Serializable.Value": return DataSourceType.ARMOR_SERIES;
             case "App_EquipDef_ACCESSORY_ID_Serializable.Value": return DataSourceType.DECORATIONS;
             case "App_EnemyDef_ID_Fixed.Value": return DataSourceType.ENEMIES;
+            case "App_GimmickDef_ID_Fixed.Value": return DataSourceType.GIMMICKS;
             case "App_HunterDef_Skill_Serializable.Value": return DataSourceType.SKILLS;
             case "App_HunterProfileDef_MEDAL_ID_Serializable.Value": return DataSourceType.MEDALS;
             case "App_ItemDef_ID_Serializable.Value": return DataSourceType.ITEMS;
@@ -157,6 +158,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             DataSourceType.ARMOR_SERIES => "int",
             DataSourceType.DECORATIONS => "int",
             DataSourceType.ENEMIES => "int",
+            DataSourceType.GIMMICKS => "int",
             DataSourceType.MEDALS => "int",
             DataSourceType.NPCS => "int",
             DataSourceType.OTOMO_SERIES => "int",

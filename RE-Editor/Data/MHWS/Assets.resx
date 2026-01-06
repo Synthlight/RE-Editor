@@ -145,6 +145,12 @@
   <data name="ENEMY_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\ENEMY_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="GIMMICK_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\GIMMICK_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="GP_CRC_OVERRIDE_INFO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\GP_CRC_OVERRIDE_INFO.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -162,6 +168,9 @@
   </data>
   <data name="MEDAL_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\MEDAL_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MENU_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\MENU_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="NPC_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\NPC_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -213,6 +222,9 @@
   </data>
   <data name="WEAPON_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\WEAPON_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WEAPON_LAYERED_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\WEAPON_LAYERED_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WEAPON_SERIES_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\WEAPON_SERIES_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -7,6 +7,7 @@ public enum DataSourceType {
     ARMOR_SERIES,
     DECORATIONS,
     ENEMIES,
+    GIMMICKS,
     ITEMS,
     MEDALS,
     NPCS,

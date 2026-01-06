@@ -33,9 +33,9 @@ public partial class App_user_data_WeaponData_cData {
         if (SlashAxe != App_WeaponDef_SlashAxeId_Fixed.INVALID) return (int) SlashAxe;
         if (ChargeAxe != App_WeaponDef_ChargeAxeId_Fixed.INVALID) return (int) ChargeAxe;
         if (Rod != App_WeaponDef_RodId_Fixed.INVALID) return (int) Rod;
-        if (Bow != App_WeaponDef_BowId_Fixed.INVALID) return (int) Bow;
-        if (HeavyBowgun != App_WeaponDef_HeavyBowgunId_Fixed.INVALID) return (int) HeavyBowgun;
         if (LightBowgun != App_WeaponDef_LightBowgunId_Fixed.INVALID) return (int) LightBowgun;
+        if (HeavyBowgun != App_WeaponDef_HeavyBowgunId_Fixed.INVALID) return (int) HeavyBowgun;
+        if (Bow != App_WeaponDef_BowId_Fixed.INVALID) return (int) Bow;
         throw new NotImplementedException("No valid weapon enum value found.");
     }
 
@@ -51,9 +51,24 @@ public partial class App_user_data_WeaponData_cData {
         if (SlashAxe != App_WeaponDef_SlashAxeId_Fixed.INVALID) return "SlashAxe";
         if (ChargeAxe != App_WeaponDef_ChargeAxeId_Fixed.INVALID) return "ChargeAxe";
         if (Rod != App_WeaponDef_RodId_Fixed.INVALID) return "Rod";
-        if (Bow != App_WeaponDef_BowId_Fixed.INVALID) return "Bow";
-        if (HeavyBowgun != App_WeaponDef_HeavyBowgunId_Fixed.INVALID) return "HeavyBowgun";
         if (LightBowgun != App_WeaponDef_LightBowgunId_Fixed.INVALID) return "LightBowgun";
+        if (HeavyBowgun != App_WeaponDef_HeavyBowgunId_Fixed.INVALID) return "HeavyBowgun";
+        if (Bow != App_WeaponDef_BowId_Fixed.INVALID) return "Bow";
         throw new NotImplementedException("No valid weapon enum value found.");
     }
+}
+
+[SuppressMessage("ReSharper", "InconsistentNaming")]
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+[SuppressMessage("ReSharper", "UnusedType.Global")]
+public partial class App_user_data_OuterWeaponData_cData {
+    [SortOrder(50)]
+    public string Name_ => DataHelper.WEAPON_LAYERED_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Name.Value);
+
+    public override string ToString() {
+        return Name_;
+    }
+
+    // I'd put `GetUsedEnumIdValue` / `GetWeaponType` here, but the files don't use the columns, despite having all the same ones.
 }

@@ -14,9 +14,12 @@ public static partial class Program {
         ExtractArtianInfoByGuid();
         ExtractDecorationInfo();
         ExtractEnemyInfoByName();
+        ExtractGimmickInfoByName();
+        ExtractGimmickInfoByGuid();
         ExtractItemInfoByName();
         ExtractItemInfoByGuid();
         ExtractMedalInfoByGuid();
+        ExtractMenuInfo();
         ExtractNpcInfoByName();
         ExtractPendantInfoByGuid();
         ExtractOtomoInfoByGuid();
@@ -28,6 +31,7 @@ public static partial class Program {
         ExtractTitleInfoByGuid();
         ExtractWeaponInfoByGuid();
         ExtractWeaponSeriesInfoByName();
+        ExtractWeaponLayeredInfoByGuid();
     }
 
     private static void ExtractArmorInfoByGuid() {
@@ -154,6 +158,28 @@ public static partial class Program {
         CreateAssetFile(msgBitset, "TRANSLATION_App_EnemyDef_ID_BIT");
     }
 
+    private static void ExtractGimmickInfoByName() {
+        var msgData   = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\Gimmick.msg.{Global.MSG_VERSION}");
+        var nameRegex = new Regex(@"Gimmick_NAME_(m?\d+)");
+        var msgByEnum = msgData.GetLangIdMap<App_GimmickDef_ID_Fixed>(name => {
+            var match = nameRegex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return (App_GimmickDef_ID_Fixed) int.Parse(value);
+        });
+        var msgByValue = msgByEnum.ConvertTo<App_GimmickDef_ID_Fixed, int>();
+        DataHelper.GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "GimmickConstants");
+    }
+
+    private static void ExtractGimmickInfoByGuid() {
+        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\Gimmick.msg.{Global.MSG_VERSION}")
+                     .GetLangGuidMap();
+        DataHelper.GIMMICK_INFO_LOOKUP_BY_GUID = msg;
+        CreateAssetFile(msg, "GIMMICK_INFO_LOOKUP_BY_GUID");
+    }
+
     private static void ExtractItemInfoByName() {
         var msgData   = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\Item.msg.{Global.MSG_VERSION}");
         var nameRegex = new Regex(@"Item_IT_(\d+)");
@@ -211,6 +237,39 @@ public static partial class Program {
         DataHelper.MEDAL_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
         CreateAssetFile(msgByValue, "MEDAL_NAME_LOOKUP_BY_ENUM_VALUE");
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "MedalConstants");
+    }
+
+    private static void ExtractMenuInfo() {
+        // Do first so we have GUID data to reference.
+        {
+            var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Reference\RefMenu.msg.{Global.MSG_VERSION}")
+                         .GetLangGuidMap();
+            DataHelper.MENU_INFO_LOOKUP_BY_GUID = msg;
+            CreateAssetFile(msg, "MENU_INFO_LOOKUP_BY_GUID");
+        }
+
+        // TODO: This requires generated data to be loaded so it can't be done here.
+        // The numbers don't line up to the enum, so we have to hack it and associate this from the file itself.
+        /*
+        {
+            var menuDataFile = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}\{PathHelper.MENU_SETTING_DATA_PATH}");
+            var menuData     = menuDataFile.rsz.GetEntryObject<App_user_data_MenuData>().Values;
+
+            Dictionary<Global.LangIndex, Dictionary<App_Menu_ID_Fixed, string>> msgByEnum = [];
+            foreach (var data in menuData) {
+                foreach (var lang in Global.LANGUAGES) {
+                    var name = DataHelper.MENU_INFO_LOOKUP_BY_GUID[lang][data.Title];
+                    msgByEnum[lang]              ??= [];
+                    msgByEnum[lang][data.MenuId] =   name;
+                }
+            }
+
+            var msgByValue = msgByEnum.ConvertTo<App_Menu_ID_Fixed, int>();
+            DataHelper.MENU_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
+            CreateAssetFile(msgByValue, "MENU_NAME_LOOKUP");
+            CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "MenuConstants");
+        }
+        */
     }
 
     private static void ExtractNpcInfoByName() {
@@ -408,5 +467,28 @@ public static partial class Program {
         DataHelper.WEAPON_SERIES_BY_ENUM_VALUE = msgByValue;
         CreateAssetFile(msgByValue, "WEAPON_SERIES_BY_ENUM_VALUE");
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "WeaponSeriesConstants");
+    }
+
+    private static void ExtractWeaponLayeredInfoByGuid() {
+        var allMsgs      = new List<Dictionary<Global.LangIndex, Dictionary<Guid, string>>>();
+        var nameOnlyMsgs = new List<Dictionary<Global.LangIndex, Dictionary<Guid, string>>>();
+        foreach (var weaponType in Global.WEAPON_TYPES) {
+            var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\Outer{weaponType}.msg.{Global.MSG_VERSION}");
+            var msgByGuid = msg.GetLangGuidMap();
+            allMsgs.Add(msgByGuid);
+
+            var regex = new Regex($@"{weaponType}_(\d+)");
+            var msgNameByGuid = msg.GetLangRawMap<Guid>(name => {
+                // ReSharper disable once ConvertIfStatementToReturnStatement
+                if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
+                return name.id1;
+            });
+            nameOnlyMsgs.Add(msgNameByGuid);
+        }
+        var mergedMsg = Merge(allMsgs);
+        DataHelper.WEAPON_LAYERED_INFO_LOOKUP_BY_GUID = mergedMsg;
+        CreateAssetFile(mergedMsg, "WEAPON_LAYERED_INFO_LOOKUP_BY_GUID");
+        mergedMsg = Merge(nameOnlyMsgs);
+        CreateConstantsFile(mergedMsg[Global.LangIndex.eng].Flip(), "WeaponLayeredConstants");
     }
 }

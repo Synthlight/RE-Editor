@@ -39,6 +39,10 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Enemy/EnemyReportBossData.user.3\""
         },
+        "GimmickTextData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Gimmick/GimmickTextData.user.3\""
+        },
         "ItemData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Item/ItemData.user.3\""
@@ -55,6 +59,10 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Weapon/LongSword.user.3\""
         },
+        "MenuSetting.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Menu/MenuSetting.user.3\""
+        },
         "OtomoArmorData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Otomo/DataParam/OtomoArmorData.user.3\""
@@ -70,6 +78,10 @@
         "OuterArmorData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/OuterArmorData.user.3\""
+        },
+        "OuterLongSwordData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Weapon/OuterLongSwordData.user.3\""
         },
         "PlayerItemParam.user.3": {
             "commandName": "Project",

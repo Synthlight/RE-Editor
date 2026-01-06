@@ -128,6 +128,7 @@ public static partial class PathHelper {
 
     public const string ARMOR_DATA_PATH                     = @"\natives\STM\GameDesign\Common\Equip\ArmorData.user.3";
     public const string ARMOR_RECIPE_DATA_PATH              = @"\natives\STM\GameDesign\Common\Equip\ArmorRecipeData.user.3";
+    public const string ARMOR_TRANSCEND_RECIPE_DATA_PATH    = @"\natives\STM\GameDesign\Common\Equip\ArmorUpgradeRecipeData.user.3";
     public const string ARMOR_SERIES_DATA_PATH              = @"\natives\STM\GameDesign\Common\Equip\ArmorSeriesData.user.3";
     public const string ARMOR_LAYERED_DATA_PATH             = @"\natives\STM\GameDesign\Common\Equip\OuterArmorData.user.3";
     public const string ARMOR_UPGRADE_DATA_PATH             = @"\natives\STM\GameDesign\Common\Equip\ArmorUpgradeData.user.3";
@@ -143,6 +144,7 @@ public static partial class PathHelper {
     public const string ITEM_SHOP_DATA_PATH                 = @"\natives\STM\GameDesign\Facility\ItemShopData.user.3";
     public const string KINSECT_RECIPE_DATA_PATH            = @"\natives\STM\GameDesign\Common\Equip\RodInsectRecipeData.user.3";
     public const string MEDAL_DATA_PATH                     = @"\natives\STM\GameDesign\HunterProfile\UserData\MedalData.user.3";
+    public const string MENU_SETTING_DATA_PATH              = @"\natives\STM\GameDesign\Common\Menu\MenuSetting.user.3";
     public const string MONSTER_RANDOM_SIZES_PATH           = @"\natives\STM\GameDesign\Enemy\CommonData\Data\EmCommonRandomSize.user.3";
     public const string OTOMO_ARMOR_DATA_PATH               = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoArmorData.user.3";
     public const string OTOMO_ARMOR_SERIES_DATA_PATH        = @"\natives\STM\GameDesign\Otomo\DataParam\OtomoEquipSeriesData.user.3";
@@ -164,13 +166,23 @@ public static partial class PathHelper {
     public const string TITLE_WORD_DATA_PATH                = @"\natives\STM\GameDesign\HunterProfile\UserData\Title_WordData.user.3";
 
     public static IEnumerable<string> GetAllWeaponFilePaths(WeaponDataType type, string platform = "STM") {
-        var postfix = type switch {
-            WeaponDataType.Recipe => "Recipe",
-            WeaponDataType.Tree => "Tree",
-            _ => ""
-        };
+        var prefix  = "";
+        var postfix = "";
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (type) {
+            case WeaponDataType.Recipe:
+                postfix = "Recipe";
+                break;
+            case WeaponDataType.Tree:
+                postfix = "Tree";
+                break;
+            case WeaponDataType.Layered:
+                prefix  = "Outer";
+                postfix = "Data";
+                break;
+        }
 
-        return Global.WEAPON_TYPES.Select(s => @$"\natives\{platform}\GameDesign\Common\Weapon\{s}{postfix}.user.3");
+        return Global.WEAPON_TYPES.Select(s => @$"\natives\{platform}\GameDesign\Common\Weapon\{prefix}{s}{postfix}.user.3");
     }
 
     public static IEnumerable<string> GetAllCampSafetyFilePaths(string platform = "STM") {
@@ -189,6 +201,7 @@ public static partial class PathHelper {
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public enum WeaponDataType {
         Base,
+        Layered,
         Recipe,
         Tree
     }
