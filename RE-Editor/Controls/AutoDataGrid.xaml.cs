@@ -218,7 +218,7 @@ public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
                 return;
             }
 
-            if (displayName.StartsWith("-") && displayName.Length > 1) displayName = displayName[1..];
+            if (displayName.StartsWith('-') && displayName.Length > 1) displayName = displayName[1..];
 
             e.Column.Header = displayName;
         }
@@ -437,7 +437,7 @@ public class AutoDataGridGeneric<T> : AutoDataGrid, IAutoDataGrid<T> {
         try {
             // Does the column we're sorting define a custom sorter?
             var matches = columnMap.Where(pair => pair.Value.column == e.Column && pair.Value.customSorter != null).ToList();
-            if (!matches.Any()) return;
+            if (matches.Count == 0) return;
             var customSorter = matches.First().Value.customSorter;
 
             e.Column.SortDirection = customSorter!.SortDirection = e.Column.SortDirection != ListSortDirection.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending;

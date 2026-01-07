@@ -19,6 +19,7 @@ using RE_Editor.Common;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Data;
 using RE_Editor.Common.Models;
+using RE_Editor.Common.Models.List_Wrappers;
 using RE_Editor.Common.PakModels.Hashing;
 using RE_Editor.Common.Util;
 using RE_Editor.Controls;
@@ -291,7 +292,7 @@ public partial class MainWindow {
     private static AutoDataGridGeneric<T> MakeAutoDataGrid<T>(UIElement control, ObservableCollection<T> items, RszObject rszObj, PropertyInfo prop) where T : notnull {
         var dataGrid = new AutoDataGridGeneric<T>();
         dataGrid.SetItems(items);
-        if (typeof(T).Is(typeof(RszObject))) {
+        if (typeof(T).Is(typeof(RszObject)) || typeof(T).IsGeneric(typeof(GenericWrapper<>))) {
             RowHelper<T>.AddKeybinds(control, dataGrid, rszObj, prop);
         }
         return dataGrid;
