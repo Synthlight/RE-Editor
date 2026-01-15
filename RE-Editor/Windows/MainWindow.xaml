@@ -128,6 +128,10 @@
                                         Orientation="Vertical"/>
                         </xctk:SplitButton.DropDownContent>
                     </xctk:SplitButton>
+                    <Button Margin="8,0,0,0"
+                            HorizontalAlignment="Right"
+                            Click="Btn_run_script_on_file_OnClick"
+                            Content="Run Code on File"/>
                     <Button Name="btn_test"
                             Margin="8,0,0,0"
                             HorizontalAlignment="Right"

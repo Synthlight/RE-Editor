@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
@@ -12,6 +13,13 @@ namespace RE_Editor.Common.Controls {
         private          bool             TextBoxFrozen;
         public           TextBox?         EditableTextBox => GetTemplateChild("PART_EditableTextBox") as TextBox;
         private readonly UserChange<bool> IsDropDownOpenUc;
+
+        public static readonly DependencyProperty MIN_COUNT_FOR_FILTER_PROPERTY = DependencyProperty.Register(nameof(MinCountForFilter), typeof(uint), typeof(AutoFilteredComboBox), new(0u));
+
+        public uint MinCountForFilter {
+            get => (uint) GetValue(MIN_COUNT_FOR_FILTER_PROPERTY);
+            set => SetValue(MIN_COUNT_FOR_FILTER_PROPERTY, value);
+        }
 
         public AutoFilteredComboBox() {
             IsDropDownOpenUc =  new(v => IsDropDownOpen = v);
@@ -64,6 +72,7 @@ namespace RE_Editor.Common.Controls {
 
         private void RefreshFilter() {
             if (ItemsSource == null) return;
+            if (Text.Length < MinCountForFilter) return;
 
             var view = CollectionViewSource.GetDefaultView(ItemsSource);
             FreezeTextBoxState(() => {

@@ -22,6 +22,15 @@ public partial class MainWindow {
         if (file == null) return;
     }
 
+    private void Btn_run_script_on_file_OnClick(object sender, RoutedEventArgs e) {
+        if (file == null) return;
+        try {
+            new RunCodeWindow(this, file).ShowDialog();
+        } catch (Exception err) {
+            ShowError(err, "Error in Run Code Window");
+        }
+    }
+
     private void Btn_make_all_mods_Click(object sender, RoutedEventArgs e) {
         foreach (var make in allMakeModMethods) {
             make.Invoke(null, null);
@@ -32,7 +41,7 @@ public partial class MainWindow {
         try {
             Process.Start(new ProcessStartInfo("cmd", $"/c start {PathHelper.WIKI_URL}") {CreateNoWindow = true});
         } catch (Exception err) {
-            Console.Error.WriteLine(err);
+            ShowError(err, "Error Opening Wiki");
         }
     }
 
@@ -40,7 +49,7 @@ public partial class MainWindow {
         try {
             new SettingsWindow().ShowDialog();
         } catch (Exception err) {
-            Console.Error.WriteLine(err);
+            ShowError(err, "Error in Settings Window");
         }
     }
 }
