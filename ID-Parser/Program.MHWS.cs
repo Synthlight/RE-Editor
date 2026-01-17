@@ -13,6 +13,8 @@ public static partial class Program {
         ExtractArmorLayeredInfoByGuid();
         ExtractArtianInfoByGuid();
         ExtractDecorationInfo();
+        ExtractDlcInfoByGuid();
+        ExtractDlcInfoByName();
         ExtractEnemyInfoByName();
         ExtractGimmickInfoByName();
         ExtractGimmickInfoByGuid();
@@ -116,6 +118,28 @@ public static partial class Program {
         DataHelper.DECORATION_INFO_LOOKUP_BY_ENUM_VALUE = msgByValue;
         CreateAssetFile(msgByValue, "DECORATION_INFO_LOOKUP_BY_ENUM_VALUE");
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "DecorationConstants");
+    }
+
+    private static void ExtractDlcInfoByGuid() {
+        var msg   = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\DlcProduct.msg.{Global.MSG_VERSION}")
+                           .GetLangGuidMap();
+        DataHelper.DLC_INFO_LOOKUP_BY_GUID = msg;
+        CreateAssetFile(msg, "DLC_INFO_LOOKUP_BY_GUID");
+    }
+
+    private static void ExtractDlcInfoByName() {
+        var msgData   = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\DlcProduct.msg.{Global.MSG_VERSION}");
+        var nameRegex = new Regex(@"DlcProduct_NAME_(m?\d+)");
+        var msgByEnum = msgData.GetLangIdMap<App_dlc_DlcProductId_ID_Fixed>(name => {
+            var match = nameRegex.Match(name);
+            if (!match.Success) return new(0, true);
+            var value = match.Groups[1].Value.Replace('m', '-');
+            return (App_dlc_DlcProductId_ID_Fixed) int.Parse(value);
+        });
+        var msgByValue = msgByEnum.ConvertTo<App_dlc_DlcProductId_ID_Fixed, int>();
+        DataHelper.DLC_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
+        CreateAssetFile(msgByValue, "DLC_NAME_LOOKUP_BY_ENUM_VALUE");
+        CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "DlcConstants");
     }
 
     private static void ExtractEnemyInfoByName() {

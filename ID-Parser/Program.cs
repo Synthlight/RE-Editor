@@ -80,6 +80,7 @@ public static partial class Program {
                                 .Replace("+", "_PLUS")
                                 .Replace("%", "_PERCENT")
                                 .Replace('-', '_')
+                                .Replace('—', '_') // Not a normal hyphen. Found in MHWS DLC names.
                                 .Replace(' ', '_')
                                 .Replace(':', '_')
                                 .Replace('{', '_')

@@ -8,6 +8,7 @@ public partial class GenerateFiles {
     [SuppressMessage("ReSharper", "StringLiteralTypo")]
     [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
     private static readonly List<string> WHITELIST = [
+        "App_dlc_DlcProductId_ID",
         "App_user_data_AccessoryData",
         "App_user_data_AccessoryData_cData",
         "App_user_data_AmuletData",

@@ -17,6 +17,8 @@ public static partial class DataInit {
         DataHelper.ARTIAN_INFO_LOOKUP_BY_GUID           = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.ARTIAN_INFO_LOOKUP_BY_GUID);
         DataHelper.DECORATION_INFO_LOOKUP_BY_ENUM_VALUE = DataHelper.LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.DECORATION_INFO_LOOKUP_BY_ENUM_VALUE);
         DataHelper.DECORATION_INFO_LOOKUP_BY_GUID       = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.DECORATION_INFO_LOOKUP_BY_GUID);
+        DataHelper.DLC_INFO_LOOKUP_BY_GUID              = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.DLC_INFO_LOOKUP_BY_GUID);
+        DataHelper.DLC_NAME_LOOKUP_BY_ENUM_VALUE        = DataHelper.LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.DLC_NAME_LOOKUP_BY_ENUM_VALUE);
         DataHelper.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE      = DataHelper.LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE);
         DataHelper.GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE    = DataHelper.LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE);
         DataHelper.GIMMICK_INFO_LOOKUP_BY_GUID          = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.GIMMICK_INFO_LOOKUP_BY_GUID);

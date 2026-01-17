@@ -23,6 +23,10 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Equip/AccessoryData.user.3\""
         },
+        "DlcProductIdList.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/DLC/UserData/DlcProductIdList.user.3\""
+        },
         "EffectManagerSetting.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/Art/VFX/EffectManagerSetting.user.3\""

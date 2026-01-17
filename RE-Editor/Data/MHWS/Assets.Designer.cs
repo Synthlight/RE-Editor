@@ -143,6 +143,26 @@ namespace RE_Editor.Data.MHWS {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DLC_INFO_LOOKUP_BY_GUID {
+            get {
+                object obj = ResourceManager.GetObject("DLC_INFO_LOOKUP_BY_GUID", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DLC_NAME_LOOKUP_BY_ENUM_VALUE {
+            get {
+                object obj = ResourceManager.GetObject("DLC_NAME_LOOKUP_BY_ENUM_VALUE", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ENEMY_NAME_LOOKUP_BY_ENUM_VALUE {
             get {
                 object obj = ResourceManager.GetObject("ENEMY_NAME_LOOKUP_BY_ENUM_VALUE", resourceCulture);

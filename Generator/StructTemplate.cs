@@ -554,6 +554,7 @@ public class StructTemplate(GenerateFiles generator, StructType structType) {
 #elif MHWS
             DataSourceType.ARMOR_SERIES => nameof(DataHelper.ARMOR_SERIES_BY_ENUM_VALUE),
             DataSourceType.DECORATIONS => nameof(DataHelper.DECORATION_INFO_LOOKUP_BY_ENUM_VALUE),
+            DataSourceType.DLC => nameof(DataHelper.DLC_NAME_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.ENEMIES => nameof(DataHelper.ENEMY_NAME_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.GIMMICKS => nameof(DataHelper.GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE),
             DataSourceType.ITEMS => nameof(DataHelper.ITEM_NAME_LOOKUP),
