@@ -94,4 +94,10 @@ public static class Extensions {
             minIndex = str.IndexOf(searchString, minIndex + searchString.Length, StringComparison.Ordinal);
         }
     }
+
+    public static string StripGreek(this string name) {
+        return name.Replace("α", "[Alpha]")
+                   .Replace("β", "[Beta]")
+                   .Replace("γ", "[Gamma]");
+    }
 }

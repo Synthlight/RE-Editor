@@ -28,7 +28,8 @@ public static partial class DataHelper {
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> MENU_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  MENU_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  NPC_NAME_LOOKUP_BY_ENUM_VALUE;
-    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> OTOMO_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> OTOMO_ARMOR_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> OTOMO_WEAPON_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  OTOMO_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> OTOMO_SERIES_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  OTOMO_SERIES_BY_ENUM_VALUE;

@@ -11,10 +11,26 @@ namespace RE_Editor.Models.Structs;
 [SuppressMessage("ReSharper", "UnusedType.Global")]
 public partial class App_user_data_OtArmorData_cData {
     [SortOrder(50)]
-    public string Name_ => DataHelper.OTOMO_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Name.Value);
+    public string Name_ => DataHelper.OTOMO_ARMOR_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Name.Value);
 
     [SortOrder(int.MaxValue)]
-    public string Description_ => DataHelper.OTOMO_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Explain.Value);
+    public string Description_ => DataHelper.OTOMO_ARMOR_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Explain.Value);
+
+    public override string ToString() {
+        return Name_;
+    }
+}
+
+[SuppressMessage("ReSharper", "InconsistentNaming")]
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+[SuppressMessage("ReSharper", "UnusedType.Global")]
+public partial class App_user_data_OtWeaponData_cData {
+    [SortOrder(50)]
+    public string Name_ => DataHelper.OTOMO_WEAPON_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Name.Value);
+
+    [SortOrder(int.MaxValue)]
+    public string Description_ => DataHelper.OTOMO_WEAPON_INFO_LOOKUP_BY_GUID[Global.locale].TryGet(Explain.Value);
 
     public override string ToString() {
         return Name_;

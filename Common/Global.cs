@@ -97,6 +97,23 @@ public static class Global {
     public static readonly List<string> WEAPON_TYPES = ["Bow", "ChargeAxe", "DualBlades", "GreatSword", "GunLance", "Hammer", "HeavyBowgun", "Horn", "InsectGlaive", "Lance", "LightBowgun", "LongSword", "ShortSword", "SlashAxe"];
 #elif MHWS
     public static readonly List<string> WEAPON_TYPES = ["Bow", "ChargeAxe", "GunLance", "Hammer", "HeavyBowgun", "Lance", "LightBowgun", "LongSword", "Rod", "ShortSword", "SlashAxe", "Tachi", "TwinSword", "Whistle"];
+
+    public static readonly Dictionary<string, string> WEAPON_TYPE_NAME_TO_TYPE = new() {
+        {"Bow", "Bow"},
+        {"Charge Blade", "ChargeAxe"},
+        {"Dual Blades", "TwinSword"},
+        {"Great Sword", "LongSword"},
+        {"Gunlance", "GunLance"},
+        {"Hammer", "Hammer"},
+        {"HBG", "HeavyBowgun"},
+        {"Hunting Horn", "Whistle"},
+        {"Insect Glaive", "Rod"},
+        {"Lance", "Lance"},
+        {"LBG", "LightBowgun"},
+        {"Long Sword", "Tachi"},
+        {"Switch Axe", "SlashAxe"},
+        {"Sword & Shield", "ShortSword"},
+    };
 #elif RE4
     public static readonly List<string> VARIANTS = ["CH", "MC", "AO"];
     public static readonly List<string> FOLDERS  = ["_Chainsaw", "_Mercenaries", "_AnotherOrder"];

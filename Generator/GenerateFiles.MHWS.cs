@@ -79,6 +79,7 @@ public partial class GenerateFiles {
         "App_user_data_Wp11ActionParam",
         "App_user_data_Wp12ActionParam",
         "App_user_data_Wp13ActionParam",
+        "App_WeaponDef_OuterWeaponId", // Needed for dumping for layered weapon unlocking.
         // For debugging:
         "App_cEnemyCheckBox", // Has a `_Serializable` field where the wrapper is another object.
         "App_user_data_EmParamParts_cMultiParts", // Has a `_Serializable` field that doesn't target `_Fixed`.

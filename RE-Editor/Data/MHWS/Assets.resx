@@ -184,8 +184,8 @@
   <data name="OBSOLETE_BY_HASH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\OBSOLETE_BY_HASH.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="OTOMO_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Assets\OTOMO_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="OTOMO_ARMOR_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_ARMOR_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="OTOMO_LAYERED_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\OTOMO_LAYERED_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -201,6 +201,9 @@
   </data>
   <data name="OTOMO_SERIES_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\OTOMO_SERIES_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OTOMO_WEAPON_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\OTOMO_WEAPON_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PENDANT_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\PENDANT_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

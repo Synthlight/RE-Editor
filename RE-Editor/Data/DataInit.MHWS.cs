@@ -29,7 +29,8 @@ public static partial class DataInit {
         DataHelper.MEDAL_INFO_LOOKUP_BY_GUID            = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.MEDAL_INFO_LOOKUP_BY_GUID);
         DataHelper.MENU_INFO_LOOKUP_BY_GUID             = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.MENU_INFO_LOOKUP_BY_GUID);
         DataHelper.NPC_NAME_LOOKUP_BY_ENUM_VALUE        = DataHelper.LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.NPC_NAME_LOOKUP_BY_ENUM_VALUE);
-        DataHelper.OTOMO_INFO_LOOKUP_BY_GUID            = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.OTOMO_INFO_LOOKUP_BY_GUID);
+        DataHelper.OTOMO_ARMOR_INFO_LOOKUP_BY_GUID      = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.OTOMO_ARMOR_INFO_LOOKUP_BY_GUID);
+        DataHelper.OTOMO_WEAPON_INFO_LOOKUP_BY_GUID     = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.OTOMO_WEAPON_INFO_LOOKUP_BY_GUID);
         DataHelper.OTOMO_NAME_LOOKUP_BY_ENUM_VALUE      = DataHelper.LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.OTOMO_NAME_LOOKUP_BY_ENUM_VALUE);
         DataHelper.OTOMO_SERIES_INFO_LOOKUP_BY_GUID     = DataHelper.LoadDict<Global.LangIndex, Dictionary<Guid, string>>(Assets.OTOMO_SERIES_INFO_LOOKUP_BY_GUID);
         DataHelper.OTOMO_SERIES_BY_ENUM_VALUE           = DataHelper.LoadDict<Global.LangIndex, Dictionary<int, string>>(Assets.OTOMO_SERIES_BY_ENUM_VALUE);

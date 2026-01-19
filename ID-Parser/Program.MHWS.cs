@@ -24,7 +24,8 @@ public static partial class Program {
         ExtractMenuInfo();
         ExtractNpcInfoByName();
         ExtractPendantInfoByGuid();
-        ExtractOtomoInfoByGuid();
+        ExtractOtomoArmorInfoByGuid();
+        ExtractOtomoWeaponInfoByGuid();
         ExtractOtomoSeriesInfoByGuid();
         ExtractOtomoLayeredInfoByGuid();
         ExtractQuestInfo();
@@ -121,8 +122,8 @@ public static partial class Program {
     }
 
     private static void ExtractDlcInfoByGuid() {
-        var msg   = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\DlcProduct.msg.{Global.MSG_VERSION}")
-                           .GetLangGuidMap();
+        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\DlcProduct.msg.{Global.MSG_VERSION}")
+                     .GetLangGuidMap();
         DataHelper.DLC_INFO_LOOKUP_BY_GUID = msg;
         CreateAssetFile(msg, "DLC_INFO_LOOKUP_BY_GUID");
     }
@@ -311,11 +312,11 @@ public static partial class Program {
         CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "NpcConstants");
     }
 
-    private static void ExtractOtomoInfoByGuid() {
+    private static void ExtractOtomoArmorInfoByGuid() {
         var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\OtomoArmor.msg.{Global.MSG_VERSION}");
         var msgByGuid = msg.GetLangGuidMap();
-        DataHelper.OTOMO_INFO_LOOKUP_BY_GUID = msgByGuid;
-        CreateAssetFile(msgByGuid, "OTOMO_INFO_LOOKUP_BY_GUID");
+        DataHelper.OTOMO_ARMOR_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "OTOMO_ARMOR_INFO_LOOKUP_BY_GUID");
 
         // The armor file uses an int field for data ID. The enum does not go high enough.
         var regex = new Regex(@"OtomoArmor_(m?\d+)");
@@ -328,6 +329,13 @@ public static partial class Program {
         DataHelper.OTOMO_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
         CreateAssetFile(msgByValue, "OTOMO_NAME_LOOKUP_BY_ENUM_VALUE");
         CreateConstantsFile(msgByValue[Global.LangIndex.eng].Flip(), "OtomoArmorConstants");
+    }
+
+    private static void ExtractOtomoWeaponInfoByGuid() {
+        var msg       = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Equip\OtomoWeapon.msg.{Global.MSG_VERSION}");
+        var msgByGuid = msg.GetLangGuidMap();
+        DataHelper.OTOMO_WEAPON_INFO_LOOKUP_BY_GUID = msgByGuid;
+        CreateAssetFile(msgByGuid, "OTOMO_WEAPON_INFO_LOOKUP_BY_GUID");
     }
 
     private static void ExtractOtomoSeriesInfoByGuid() {
