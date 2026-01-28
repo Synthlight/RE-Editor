@@ -10,7 +10,7 @@ Short | Long | Latest Release | Files Passing Write Tests
 DD2 | Dragon Age 2 | [v1.2.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/DD2-Editor_v1.2.1.0) | 99%
 DRDR | Dead Rising Deluxe Remaster | [v1.0.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/DRDR-Editor_v1.0.1.0) | 81%
 MHR | Monster Hunter Rise | [v1.5.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/MHR-Editor_v1.5.1.0) | 97%
-MHWS | Monster Hunter Wilds | [v1.6.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/MHWS-Editor_v1.6.0.0) | 93%
+MHWS | Monster Hunter Wilds | [v1.6.1.0](https://github.com/Synthlight/MHR-Editor/releases/tag/MHWS-Editor_v1.6.1.0) | 93%
 PRAGMATA | Pragmata | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/PRAGMATA-Editor_v1.0.0.0) | 89%
 RE2 | Resident Evil 2 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE2-Editor_v1.0.0.0) | 95%
 RE3 | Resident Evil 3 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE3-Editor_v1.0.0.0) | 96%

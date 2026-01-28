@@ -116,7 +116,8 @@ public static partial class PathHelper {
         ]) {updateName = "Title Update 4"},
         // Re-released later in patches.
         // new(2025, 12, 17), "1.040.01.00"
-        new(new(2025, 12, 18), "1.040.02.00", [
+        // new(2025, 12, 18), "1.040.02.00"
+        new(new(2026, 1, 27), "1.040.03.01", [
             "re_chunk_000.pak.patch_013.pak",
             "re_chunk_000.pak.sub_000.pak.patch_013.pak"
         ])
