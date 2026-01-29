@@ -11,6 +11,7 @@ public enum DataSourceType {
     GIMMICKS,
     ITEMS,
     MEDALS,
+    MENU,
     NPCS,
     OTOMO_SERIES,
     PENDANTS,

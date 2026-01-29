@@ -178,6 +178,9 @@
   <data name="MENU_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\MENU_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="MENU_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\MENU_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="NPC_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\NPC_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

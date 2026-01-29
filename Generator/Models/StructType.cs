@@ -130,6 +130,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             case "App_HunterProfileDef_MEDAL_ID_Serializable.Value": return DataSourceType.MEDALS;
             case "App_ItemDef_ID_Serializable.Value": return DataSourceType.ITEMS;
             case "App_MissionIDList_ID_Serializable.Value": return DataSourceType.QUESTS;
+            case "App_Menu_ID_Serializable.Value": return DataSourceType.MENU;
             case "App_NpcDef_ID_Serializable.Value": return DataSourceType.NPCS;
             case "App_OtEquipDef_EQUIP_DATA_ID_Serializable.Value": return DataSourceType.OTOMO_SERIES;
             case "App_user_data_EffectManagerSetting_cHitmarkColor.EnemyID_Fixed": return DataSourceType.ENEMIES;
@@ -162,6 +163,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             DataSourceType.ENEMIES => "int",
             DataSourceType.GIMMICKS => "int",
             DataSourceType.MEDALS => "int",
+            DataSourceType.MENU => "int",
             DataSourceType.NPCS => "int",
             DataSourceType.OTOMO_SERIES => "int",
             DataSourceType.QUESTS => "int",

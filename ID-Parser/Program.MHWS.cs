@@ -1,13 +1,22 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection;
+using System.Text.RegularExpressions;
 using RE_Editor.Common;
 using RE_Editor.Common.Data;
+using RE_Editor.Common.Models;
 using RE_Editor.Models.Enums;
+using RE_Editor.Models.Structs;
 using MSG = RE_Editor.Common.Models.MSG;
 
 namespace RE_Editor.ID_Parser;
 
 public static partial class Program {
     public static void Go() {
+        // Extracting menu info requires reading the menu data file.
+        Assembly.Load(nameof(Generated));
+        var structInfoJson = File.ReadAllBytes($@"{ASSETS_DIR}\STRUCT_INFO.json");
+        DataHelper.STRUCT_INFO = DataHelper.LoadDict<string, StructJson>(structInfoJson).KeyFromHexString();
+        DataHelper.InitStructTypeInfo();
+
         ExtractArmorInfoByGuid();
         ExtractArmorSeriesInfoByGuid();
         ExtractArmorLayeredInfoByGuid();
@@ -273,9 +282,6 @@ public static partial class Program {
             CreateAssetFile(msg, "MENU_INFO_LOOKUP_BY_GUID");
         }
 
-        // TODO: This requires generated data to be loaded so it can't be done here.
-        // The numbers don't line up to the enum, so we have to hack it and associate this from the file itself.
-        /*
         {
             var menuDataFile = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}\{PathHelper.MENU_SETTING_DATA_PATH}");
             var menuData     = menuDataFile.rsz.GetEntryObject<App_user_data_MenuData>().Values;
@@ -283,18 +289,22 @@ public static partial class Program {
             Dictionary<Global.LangIndex, Dictionary<App_Menu_ID_Fixed, string>> msgByEnum = [];
             foreach (var data in menuData) {
                 foreach (var lang in Global.LANGUAGES) {
-                    var name = DataHelper.MENU_INFO_LOOKUP_BY_GUID[lang][data.Title];
-                    msgByEnum[lang]              ??= [];
-                    msgByEnum[lang][data.MenuId] =   name;
+                    if (DataHelper.MENU_INFO_LOOKUP_BY_GUID[lang].TryGetValue(data.Title, out var name)) {
+#pragma warning disable CA1854
+                        if (!msgByEnum.ContainsKey(lang)) {
+#pragma warning restore CA1854
+                            msgByEnum[lang] = [];
+                        }
+                        msgByEnum[lang][(App_Menu_ID_Fixed) data.MenuId] = name;
+                    }
                 }
             }
 
             var msgByValue = msgByEnum.ConvertTo<App_Menu_ID_Fixed, int>();
             DataHelper.MENU_NAME_LOOKUP_BY_ENUM_VALUE = msgByValue;
-            CreateAssetFile(msgByValue, "MENU_NAME_LOOKUP");
+            CreateAssetFile(msgByValue, "MENU_NAME_LOOKUP_BY_ENUM_VALUE");
             CreateConstantsFile(msgByEnum[Global.LangIndex.eng].Flip(), "MenuConstants");
         }
-        */
     }
 
     private static void ExtractNpcInfoByName() {
