@@ -196,7 +196,7 @@ public static class Global {
 #elif RE3
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif RE4
-    public const string CURRENT_GAME_VERSION = "Unknown";
+    public const string CURRENT_GAME_VERSION = "v2026-02-02";
 #elif RE8
     public const string CURRENT_GAME_VERSION = "Unknown";
 #endif

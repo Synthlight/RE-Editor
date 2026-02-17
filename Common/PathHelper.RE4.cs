@@ -17,17 +17,33 @@ public static partial class PathHelper {
     public const string PAK_LIST_MSG     = "";
     public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszre4.json";
 
-    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [];
+    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
+        "user",
+        "pfb",
+        "msg"
+    ];
 
     public static readonly string[] PAK_PATHS = [
         "re_chunk_000.pak",
         "re_chunk_000.pak.patch_001.pak",
         "re_chunk_000.pak.patch_002.pak",
         "re_chunk_000.pak.patch_003.pak",
-        "re_chunk_000.pak.patch_004.pak"
+        "re_chunk_000.pak.patch_004.pak",
+        "re_chunk_000.pak.patch_005.pak"
     ];
 
-    public static readonly PakDateInfo[] PAK_UPDATE_INFO = [];
+    public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
+        new(new(2023, 3, 23), "Pre 2026-02-02", [
+            "re_chunk_000.pak",
+            "re_chunk_000.pak.patch_001.pak",
+            "re_chunk_000.pak.patch_002.pak",
+            "re_chunk_000.pak.patch_003.pak",
+            "re_chunk_000.pak.patch_004.pak"
+        ]),
+        new(new(2026, 02, 02), "2026-02-02", [
+            "re_chunk_000.pak.patch_005.pak"
+        ])
+    ];
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = "";
