@@ -139,7 +139,7 @@ public static class ModMaker {
                         var data        = dataFile.rsz.objectData;
                         var includeFile = true;
                         if (mod.FilteredAction != null) {
-                            includeFile = mod.FilteredAction.Invoke(data);
+                            includeFile = mod.FilteredAction.Invoke(data, modFile);
                         } else {
                             mod.Action!.Invoke(data);
                         }

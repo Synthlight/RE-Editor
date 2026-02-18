@@ -18,7 +18,7 @@ public class NoCraftingRequirements : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "No Crafting Requirements";
         const string description = "No Crafting Requirements.";
-        const string version     = "1.8";
+        const string version     = "1.9";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -46,6 +46,22 @@ public class NoCraftingRequirements : IMod {
                     new() {
                         Target = VariousDataTweak.Target.ARMOR_RECIPE_DATA,
                         Action = writer => NoRequirementsRef(writer, RefTarget.ARMOR, Mode.NORMAL)
+                    }
+                ])
+                .SetSkipPak(true),
+            baseMod
+                .SetName("Armor (Transcend) (loose)")
+                .SetImage($@"{PathHelper.MODS_PATH}\{name}\Armor (Transcend).png")
+                .SetFiles([PathHelper.ARMOR_TRANSCEND_RECIPE_DATA_PATH])
+                .SetAction(list => NoRequirements(list, Mode.NORMAL)),
+            baseLuaMod
+                .SetName("Armor (Transcend) (REF)")
+                .SetImage($@"{PathHelper.MODS_PATH}\{name}\Armor (Transcend).png")
+                .SetDefaultLuaName()
+                .SetChanges([
+                    new() {
+                        Target = VariousDataTweak.Target.ARMOR_TRANSCEND_RECIPE_DATA,
+                        Action = writer => NoRequirementsRef(writer, RefTarget.ARMOR_TRANSCEND, Mode.NORMAL)
                     }
                 ])
                 .SetSkipPak(true),
@@ -222,6 +238,14 @@ public class NoCraftingRequirements : IMod {
                         }
                     }
                     break;
+                case App_user_data_ArmorUpgradeRecipeData_cData armor: // Armor (Transcend)
+                    foreach (var item in armor.Item) {
+                        item.Value = (int) App_ItemDef_ID_Fixed.NONE;
+                    }
+                    foreach (var itemNum in armor.ItemNum) {
+                        itemNum.Value = 0;
+                    }
+                    break;
                 case App_user_data_RodInsectRecipeData_cData kinsect: // Insect
                     if (mode.HasFlag(Mode.IGNORE_UNLOCK_FLAGS)) {
                         kinsect.KeyEnemyId     = (int) App_EnemyDef_ID_Fixed.INVALID;
@@ -323,10 +347,18 @@ public class NoCraftingRequirements : IMod {
                 }
                 if (mode.HasFlag(Mode.NORMAL)) {
                     writer.WriteLine("    for i = 0, entry._ItemNum:get_size() - 1 do");
-                    //writer.WriteLine("    for i = 1, #entry._ItemNum do");
                     writer.WriteLine("        entry._ItemNum[i] = 0");
                     writer.WriteLine("    end");
                 }
+                writer.WriteLine("    entry:call(\"onLoad\")");
+                break;
+            case RefTarget.ARMOR_TRANSCEND:
+                writer.WriteLine("    for i = 0, entry._Item:get_size() - 1 do");
+                writer.WriteLine($"        entry._Item[i] = {(int) App_ItemDef_ID_Fixed.NONE}");
+                writer.WriteLine("    end");
+                writer.WriteLine("    for i = 0, entry._ItemNum:get_size() - 1 do");
+                writer.WriteLine("        entry._ItemNum[i] = 0");
+                writer.WriteLine("    end");
                 writer.WriteLine("    entry:call(\"onLoad\")");
                 break;
             case RefTarget.INSECTS:
@@ -364,6 +396,7 @@ public class NoCraftingRequirements : IMod {
 
     public enum RefTarget {
         ARMOR,
+        ARMOR_TRANSCEND,
         WEAPONS,
         WEAPON_TREES,
         TALISMANS,

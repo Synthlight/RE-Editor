@@ -10,39 +10,39 @@ using RE_Editor.Common.Models;
 namespace RE_Editor.Models;
 
 public interface INexusMod {
-    public string                       Name            { get; set; }
-    public string?                      NameOverride    { get; set; } // If set, this will be used as the name when writing the ini data. Made so UTF8 chars can be used.
-    public string                       Desc            { get; set; }
-    public string                       Version         { get; set; }
-    public string?                      Image           { get; set; }
-    public IEnumerable<string>          Files           { get; set; }
-    public Action<List<RszObject>>?     Action          { get; set; }
-    public Func<List<RszObject>, bool>? FilteredAction  { get; set; } // For when we want filter the files added during the action phase.
-    public bool                         ForGp           { get; set; }
-    public string?                      NameAsBundle    { get; set; }
-    public string?                      AddonFor        { get; set; }
-    public string?                      Requirement     { get; set; }
-    public bool                         SkipPak         { get; set; }
-    public Dictionary<string, object>?  AdditionalFiles { get; set; }
-    public bool                         AlwaysInclude   { get; set; }
+    public string                               Name            { get; set; }
+    public string?                              NameOverride    { get; set; } // If set, this will be used as the name when writing the ini data. Made so UTF8 chars can be used.
+    public string                               Desc            { get; set; }
+    public string                               Version         { get; set; }
+    public string?                              Image           { get; set; }
+    public IEnumerable<string>                  Files           { get; set; }
+    public Action<List<RszObject>>?             Action          { get; set; }
+    public Func<List<RszObject>, string, bool>? FilteredAction  { get; set; } // For when we want filter the files added during the action phase.
+    public bool                                 ForGp           { get; set; }
+    public string?                              NameAsBundle    { get; set; }
+    public string?                              AddonFor        { get; set; }
+    public string?                              Requirement     { get; set; }
+    public bool                                 SkipPak         { get; set; }
+    public Dictionary<string, object>?          AdditionalFiles { get; set; }
+    public bool                                 AlwaysInclude   { get; set; }
 }
 
 public struct NexusMod : INexusMod {
-    public string                       Name            { get; set; }
-    public string?                      NameOverride    { get; set; }
-    public string                       Desc            { get; set; }
-    public string                       Version         { get; set; }
-    public string?                      Image           { get; set; }
-    public IEnumerable<string>          Files           { get; set; }
-    public Action<List<RszObject>>?     Action          { get; set; }
-    public Func<List<RszObject>, bool>? FilteredAction  { get; set; }
-    public bool                         ForGp           { get; set; }
-    public string?                      NameAsBundle    { get; set; }
-    public string?                      AddonFor        { get; set; }
-    public string?                      Requirement     { get; set; }
-    public bool                         SkipPak         { get; set; }
-    public Dictionary<string, object>?  AdditionalFiles { get; set; }
-    public bool                         AlwaysInclude   { get; set; }
+    public string                               Name            { get; set; }
+    public string?                              NameOverride    { get; set; }
+    public string                               Desc            { get; set; }
+    public string                               Version         { get; set; }
+    public string?                              Image           { get; set; }
+    public IEnumerable<string>                  Files           { get; set; }
+    public Action<List<RszObject>>?             Action          { get; set; }
+    public Func<List<RszObject>, string, bool>? FilteredAction  { get; set; }
+    public bool                                 ForGp           { get; set; }
+    public string?                              NameAsBundle    { get; set; }
+    public string?                              AddonFor        { get; set; }
+    public string?                              Requirement     { get; set; }
+    public bool                                 SkipPak         { get; set; }
+    public Dictionary<string, object>?          AdditionalFiles { get; set; }
+    public bool                                 AlwaysInclude   { get; set; }
 
     [Pure]
     public readonly override string ToString() {
@@ -86,7 +86,7 @@ public static class NexusModExtensions {
         return nexusMod;
     }
 
-    public static T SetFilteredAction<T>(this T nexusMod, Func<List<RszObject>, bool> filteredAction) where T : INexusMod {
+    public static T SetFilteredAction<T>(this T nexusMod, Func<List<RszObject>, string, bool> filteredAction) where T : INexusMod {
         nexusMod.FilteredAction = filteredAction;
         return nexusMod;
     }

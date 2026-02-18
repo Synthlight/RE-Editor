@@ -33,7 +33,7 @@ public class HiddenWeaponsWhenSheathed : IMod {
         ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true);
     }
 
-    public static bool MakeHiddenWhenSheathed(IList<RszObject> rszObjectData) {
+    public static bool MakeHiddenWhenSheathed(IList<RszObject> rszObjectData, string file) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_user_data_PlayerWeaponVisualParam data:

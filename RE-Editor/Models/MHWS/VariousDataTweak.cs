@@ -15,23 +15,23 @@ public interface IVariousDataTweak : INexusMod {
 
 [SuppressMessage("ReSharper", "PropertyCanBeMadeInitOnly.Global")]
 public struct VariousDataTweak : IVariousDataTweak {
-    public string                       Name            { get; set; }
-    public string?                      NameOverride    { get; set; }
-    public string                       Desc            { get; set; }
-    public string                       Version         { get; set; }
-    public string?                      Image           { get; set; }
-    public IEnumerable<string>          Files           { get; set; }
-    public Action<List<RszObject>>?     Action          { get; set; }
-    public Func<List<RszObject>, bool>? FilteredAction  { get; set; }
-    public bool                         ForGp           { get; set; }
-    public string?                      NameAsBundle    { get; set; }
-    public string?                      AddonFor        { get; set; }
-    public string?                      Requirement     { get; set; }
-    public bool                         SkipPak         { get; set; }
-    public Dictionary<string, object>?  AdditionalFiles { get; set; }
-    public bool                         AlwaysInclude   { get; set; }
-    public string                       LuaName         { get; set; }
-    public List<Change>                 Changes         { get; set; }
+    public string                               Name            { get; set; }
+    public string?                              NameOverride    { get; set; }
+    public string                               Desc            { get; set; }
+    public string                               Version         { get; set; }
+    public string?                              Image           { get; set; }
+    public IEnumerable<string>                  Files           { get; set; }
+    public Action<List<RszObject>>?             Action          { get; set; }
+    public Func<List<RszObject>, string, bool>? FilteredAction  { get; set; }
+    public bool                                 ForGp           { get; set; }
+    public string?                              NameAsBundle    { get; set; }
+    public string?                              AddonFor        { get; set; }
+    public string?                              Requirement     { get; set; }
+    public bool                                 SkipPak         { get; set; }
+    public Dictionary<string, object>?          AdditionalFiles { get; set; }
+    public bool                                 AlwaysInclude   { get; set; }
+    public string                               LuaName         { get; set; }
+    public List<Change>                         Changes         { get; set; }
 
     public struct Change {
         public Target               Target { get; set; }
@@ -41,6 +41,7 @@ public struct VariousDataTweak : IVariousDataTweak {
     public enum Target {
         ARMOR_DATA,
         ARMOR_RECIPE_DATA,
+        ARMOR_TRANSCEND_RECIPE_DATA,
         DECORATION_DATA,
         FACILITY_MELD_DECORATION_DATA,
         ITEM_DATA,

@@ -133,6 +133,7 @@ public static class VariousDataWriter {
         return target switch {
             VariousDataTweak.Target.ARMOR_DATA => "armorData",
             VariousDataTweak.Target.ARMOR_RECIPE_DATA => "armorRecipeData",
+            VariousDataTweak.Target.ARMOR_TRANSCEND_RECIPE_DATA => "armorTranscendRecipeData",
             VariousDataTweak.Target.DECORATION_DATA => "decorationData",
             VariousDataTweak.Target.FACILITY_MELD_DECORATION_DATA => "facilityMeldDecorationData",
             VariousDataTweak.Target.ITEM_DATA => "itemData",
@@ -162,6 +163,7 @@ public static class VariousDataWriter {
         return target switch {
             VariousDataTweak.Target.ARMOR_DATA => "variousDataManager._Setting._EquipDatas._ArmorData._Values",
             VariousDataTweak.Target.ARMOR_RECIPE_DATA => "variousDataManager._Setting._EquipDatas._ArmorRecipe._Values",
+            VariousDataTweak.Target.ARMOR_TRANSCEND_RECIPE_DATA => "variousDataManager._Setting._EquipDatas._ArmorSpUpgradeRecipe._Values",
             VariousDataTweak.Target.DECORATION_DATA => "variousDataManager._Setting._EquipDatas._AccessoryData._Values",
             VariousDataTweak.Target.FACILITY_MELD_DECORATION_DATA => "variousDataManager._Setting._FacilitySetting._MakaSetting._MakaAccessoryData._Values",
             VariousDataTweak.Target.ITEM_DATA => "variousDataManager._Setting._ItemSetting._ItemData._Values",
