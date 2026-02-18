@@ -17,6 +17,8 @@ public static class OtomoArmorConstants {
     public const int F_AJARAKAN_HELM_Α = 77;
     public const int F_AJARAKAN_MAIL = 30;
     public const int F_AJARAKAN_MAIL_Α = 78;
+    public const int F_AZURE_ERA_KIMONO_Α = 184;
+    public const int F_AZURE_ERA_LIONS_HEAD_Α = 183;
     public const int F_BUTTERFLY_HAT_Α = 157;
     public const int F_BUTTERFLY_VEST_Α = 158;
     public const int F_CABRA_HOOD = 5;
@@ -63,7 +65,9 @@ public static class OtomoArmorConstants {
     public const int FELYNE_ALOHA_SHIRT_Α = 162;
     public const int FELYNE_ALOHA_STRAW_HAT_Α = 161;
     public const int FELYNE_ARKVELD_HELM_Α = 105;
+    public const int FELYNE_ARKVELD_HELM_Γ = 153;
     public const int FELYNE_ARKVELD_MAIL_Α = 106;
+    public const int FELYNE_ARKVELD_MAIL_Γ = 154;
     public const int FELYNE_ARTIAN_CORE_Α = 121;
     public const int FELYNE_ARTIAN_GEAR_Α = 122;
     public const int FELYNE_AZUZ_BODY_Α = 116;
@@ -154,6 +158,8 @@ public static class OtomoArmorConstants {
     public const int FELYNE_SILD_SUIT_Α = 120;
     public const int FELYNE_SNOWCAT_HEAD_Α = 167;
     public const int FELYNE_SNOWCAT_SUIT_Α = 168;
+    public const int FELYNE_STAR_HEAD_Α = 171;
+    public const int FELYNE_STARSTRUCK_SUIT_Α = 172;
     public const int FELYNE_SUJA_FROG_Α = 117;
     public const int FELYNE_SUJA_VEST_Α = 118;
     public const int FELYNE_UDRA_HEAD = 31;
@@ -172,6 +178,8 @@ public static class OtomoArmorConstants {
     public const int MORBOL_SEEDLING_HEAD_Α = 175;
     public const int OUR_LIL_SEIKRET_BODY_Α = 170;
     public const int OUR_LIL_SEIKRET_HEAD_Α = 169;
+    public const int RUDY_COSTUME_BODY_Α = 186;
+    public const int RUDY_COSTUME_HEAD_Α = 185;
     public const int THIEFS_SECRET_POUCH_Α = 182;
     public const int THIEFS_THIEVIN_SCARF_Α = 181;
     public const int WACKY_WUDWUD_BODY_Α = 178;

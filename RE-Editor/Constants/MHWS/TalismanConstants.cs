@@ -36,6 +36,7 @@ public static class TalismanConstants {
     public static readonly Guid CHAIN_CHARM_III = Guid.Parse("50651f9d-ed9b-49bf-945d-79cd10f5edcd");
     public static readonly Guid CHAINBLADE_CHARM_I = Guid.Parse("106a9bb1-7657-49d8-860a-0ea4ea8f0e2e");
     public static readonly Guid CHAINBLADE_CHARM_II = Guid.Parse("d185158c-3ac5-4323-9f7f-876f97ebf994");
+    public static readonly Guid CHAINBLADE_CHARM_III = Guid.Parse("84d4da69-674e-4178-a048-c3eab172345f");
     public static readonly Guid CHALLENGER_CHARM_I = Guid.Parse("926272a2-3540-4398-a869-57f7a3723f01");
     public static readonly Guid CHALLENGER_CHARM_II = Guid.Parse("e8f0c9fc-58d5-4072-a067-f37eebaa4f1b");
     public static readonly Guid CHALLENGER_CHARM_III = Guid.Parse("1d4bf72b-24b0-40ca-9592-b7167b4f04c3");
@@ -69,6 +70,7 @@ public static class TalismanConstants {
     public static readonly Guid EVASION_CHARM_IV = Guid.Parse("cf867772-8b4e-4dc6-8f0e-bb7f32246389");
     public static readonly Guid EXPLOITER_CHARM_I = Guid.Parse("8fca068c-d3e2-4736-98db-6574e11c7878");
     public static readonly Guid EXPLOITER_CHARM_II = Guid.Parse("ac9c7e11-3098-4a45-9483-ec1d50e79f4b");
+    public static readonly Guid EXPLOITER_CHARM_III = Guid.Parse("a52ec1f3-1bd1-48af-9d1e-79aae2faaa68");
     public static readonly Guid EXTENSION_CHARM_I = Guid.Parse("15b75a40-d5fb-4102-86b3-73e14bc027b3");
     public static readonly Guid EXTENSION_CHARM_II = Guid.Parse("31de71cd-aaa5-4d76-bbc4-c26df942fac8");
     public static readonly Guid EXTENSION_CHARM_III = Guid.Parse("c5582490-e6fb-4b3c-a2c0-85fddca2a8e9");

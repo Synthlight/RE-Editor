@@ -188,6 +188,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "追加チャーム「ふわふわセンバチョウ」",
     "f259302e-c96a-4f6c-8436-156851698fef": "追加ジェスチャー「セクレト騎乗リラックス」",
     "206dec76-2129-477a-b79a-4365696f6e1f": "追加ジェスチャー「優雅なティータイム」",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "追加チャーム「一蘭アイルー・黒」",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "追加チャーム「一蘭アイルー・赤」",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "追加チャーム「ごきげんババコンカー」",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "追加オトモ重ね着装備「蒼宙モリバー」シリーズ",
     "677060df-6000-40be-9bbb-43fd8844a301": "追加チャーム「玉乗りプーギー【ツートン】」",
@@ -268,7 +270,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "【無料配布版③】狩人とオトモの身だしなみチケット　１枚",
     "67e77694-d664-4e7b-90ed-280880836071": "【無料配布版④】狩人とオトモの身だしなみチケット　１枚",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "【無料配布版⑤】狩人とオトモの身だしなみチケット　１枚",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "追加チャーム「玉乗りプーギー【たこ焼】」"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "追加チャーム「玉乗りプーギー【たこ焼】」",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "【MHフェスタ：東京】来場者特典",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "追加チャーム「玉乗りプーギー【さくら】」"
   },
   "eng": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -459,6 +463,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Pendant: Fluttering Myriads",
     "f259302e-c96a-4f6c-8436-156851698fef": "Gesture: Resting Seikret",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Gesture: Tea Time",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Pendant: ICHIRAN FELYNE・BLACK",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Pendant: ICHIRAN FELYNE・RED",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Pendant: Happy-Go-Congakart",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Felyne Layered Armor Set: Azure Fantasy Wudwud",
     "677060df-6000-40be-9bbb-43fd8844a301": "Pendant: Rolling Poogie: Two-tone",
@@ -539,7 +545,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Character & Palico Edit Voucher: Single Voucher (Free Gift Version 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Character & Palico Edit Voucher: Single Voucher (Free Gift Version 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Character & Palico Edit Voucher: Single Voucher (Free Gift Version 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Pendant: Rolling Poogie: Takoyaki"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Pendant: Rolling Poogie: Takoyaki",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo: Visitor Pack",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Pendant: Rolling Poogie: Sakura"
   },
   "fre": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -730,6 +738,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Accessoire : Myriades",
     "f259302e-c96a-4f6c-8436-156851698fef": "Émote : Pause à dos de Seikret",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Émote : L'heure du thé",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Accessoire : Felyne ICHIRAN noir",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Accessoire : Felyne ICHIRAN rouge",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Accessoire : Congakart joyeux",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Set d'armure spéciale de Felyne : Wudwud Fantaisie azur",
     "677060df-6000-40be-9bbb-43fd8844a301": "Accessoire : Poogie équilibriste (bicolore)",
@@ -810,7 +820,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Coupon modification de personnage et Palico : 1 coupon (version cadeau 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Coupon modification de personnage et Palico : 1 coupon (version cadeau 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Coupon modification de personnage et Palico : 1 coupon (version cadeau 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Accessoire : Poogie équilibriste (takoyaki)"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Accessoire : Poogie équilibriste (takoyaki)",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo : pack visiteur",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Accessoire : Poogie équilibriste (sakura)"
   },
   "ita": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -1001,6 +1013,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Ciondolo: Miriadi in volo",
     "f259302e-c96a-4f6c-8436-156851698fef": "Gesto: Seikret a riposo",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Gesto: Ora del tè",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Ciondolo: Felyne Ichiran nero",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Ciondolo: Felyne Ichiran rosso",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Ciondolo: Giostra Go-Congakart",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Stile armatura Felyne (set): Fantasia celeste Wudwud",
     "677060df-6000-40be-9bbb-43fd8844a301": "Ciondolo: Poogie rotolante due toni",
@@ -1081,7 +1095,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Buono modifica del personaggio & compagno: singolo (versione in regalo 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Buono modifica del personaggio & compagno: singolo (versione in regalo 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Buono modifica del personaggio & compagno: singolo (versione in regalo 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Ciondolo: Poogie rotolante takoyaki"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Ciondolo: Poogie rotolante takoyaki",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo: Pacchetto visitatore",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Ciondolo: Poogie rotolante sakura"
   },
   "ger": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -1272,6 +1288,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Anhänger: Myriaden",
     "f259302e-c96a-4f6c-8436-156851698fef": "Geste: Saikrii-Päuschen",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Geste: Teekränzchen",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Anhänger: ICHIRAN-Felyne (schwarz)",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Anhänger: ICHIRAN-Felyne (rot)",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Anhänger: Conga-Kart",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Felynen-Dekorrüstungsset: Wudwud-Traum in Blau",
     "677060df-6000-40be-9bbb-43fd8844a301": "Anhänger: Zirkus-Poogie (zweifarbig)",
@@ -1352,7 +1370,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Charakter- und Palico-Bearbeitungsgutschein: Ein Gutschein (kostenloses Geschenk 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Charakter- und Palico-Bearbeitungsgutschein: Ein Gutschein (kostenloses Geschenk 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Charakter- und Palico-Bearbeitungsgutschein: Ein Gutschein (kostenloses Geschenk 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Anhänger: Zirkus-Poogie (Takoyaki)"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Anhänger: Zirkus-Poogie (Takoyaki)",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo: Besucher-Paket",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Anhänger: Zirkus-Poogie (Sakura)"
   },
   "spa": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -1543,6 +1563,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Colgante: Miríadas aleteando",
     "f259302e-c96a-4f6c-8436-156851698fef": "Gesto: Seikret descansando",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Gesto: Hora del té",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Colgante: FELYNE ICHIRAN・NEGRO",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Colgante: FELYNE ICHIRAN・ROJO",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Colgante: Congakart feliz",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Set de armadura superpuesta Felyne: Wudwud fantasía celeste",
     "677060df-6000-40be-9bbb-43fd8844a301": "Colgante: Poogie rodante: Duotono",
@@ -1596,7 +1618,7 @@
     "853c757e-301c-4d69-8eb6-b1e83cdf29f3": "Set de gestos: Vol. 9",
     "0ab9822c-cb56-41b3-b631-217057af4865": "Set de pegatinas: Saludos de la unidad Avis",
     "09efca67-b71a-4751-a908-60be2e12555f": "Colgante: Poogie rodante: Flores",
-    "6f65636b-044a-4f41-9df6-05ad75c1ca6f": "MH Championship Taiwán: Pack de visitante",
+    "6f65636b-044a-4f41-9df6-05ad75c1ca6f": "MH Championship Taiwan: Pack de visitante",
     "4c5d07fe-c015-49d6-a17a-a35a52bf38c6": "Ayuda a la caza: Pack de cooperación",
     "483db5fc-721b-45d7-a489-e43f16b35745": "Ayuda a la caza: Pack de cazador",
     "2935bc73-a1cf-42eb-8341-039e1483567d": "Colgante: Polluelo trotador",
@@ -1623,7 +1645,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Cupón modifica personaje/camarada: Un cupón (versión de regalo 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Cupón modifica personaje/camarada: Un cupón (versión de regalo 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Cupón modifica personaje/camarada: Un cupón (versión de regalo 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Colgante: Poogie rodante: Takoyaki"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Colgante: Poogie rodante: Takoyaki",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo: Pack de visitante",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Colgante: Poogie rodante: Sakura"
   },
   "rus": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -1814,6 +1838,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Подвеска: порхающие несметки",
     "f259302e-c96a-4f6c-8436-156851698fef": "Жест: отдыхающий сейкрет",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Жест: чайная пауза",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Подвеска: чёрный котт ICHIRAN",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Подвеска: красный котт ICHIRAN",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Подвеска: весёлый конга-карт",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Комплект многослойных доспехов для котта: лазурный космовудвуд",
     "677060df-6000-40be-9bbb-43fd8844a301": "Подвеска: хрюшка на шаре (двухцветная)",
@@ -1894,7 +1920,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Талон изменения персонажа и палико: один талон (бесплатная подарочная версия 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Талон изменения персонажа и палико: один талон (бесплатная подарочная версия 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Талон изменения персонажа и палико: один талон (бесплатная подарочная версия 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Подвеска: хрюшка на шаре (такояки)"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Подвеска: хрюшка на шаре (такояки)",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo: набор посетителя",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Подвеска: хрюшка на шаре (сакура)"
   },
   "pol": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -2085,6 +2113,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Zdobienie: trzepoczące miriady",
     "f259302e-c96a-4f6c-8436-156851698fef": "Gest: odpoczywający Seikret",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Gest: czas na herbatkę",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Zdobienie: czarny Felin ICHIRAN",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Zdobienie: czerwony Felin ICHIRAN",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Zdobienie: wesoły Kongakart",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Zestaw felińskiego pancerza warstwowego: lazurowy kosmiczny Leśniak",
     "677060df-6000-40be-9bbb-43fd8844a301": "Zdobienie: turlająca Świnka: dwukolorowa",
@@ -2165,7 +2195,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Talon edycji postaci i koleżkota: 1 talon (darmowy podarunek 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Talon edycji postaci i koleżkota: 1 talon (darmowy podarunek 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Talon edycji postaci i koleżkota: 1 talon (darmowy podarunek 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Zdobienie: turlająca się Świnka: takoyaki"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Zdobienie: turlająca się Świnka: takoyaki",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokio: zestaw gościa",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Zdobienie: turlająca Świnka: sakura"
   },
   "ptB": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -2356,6 +2388,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "Pingente: Miríades Esvoaçantes",
     "f259302e-c96a-4f6c-8436-156851698fef": "Gesto: Seikret Relaxando",
     "206dec76-2129-477a-b79a-4365696f6e1f": "Gesto: Hora do Chá",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "Pingente: ICHIRAN Felyno: Preto",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "Pingente: ICHIRAN Felyno: Vermelho",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "Pingente: Congacarro Feliz",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "Conjunto de Armadura em Camadas de Felyno: Wudwud Fantasia Celeste",
     "677060df-6000-40be-9bbb-43fd8844a301": "Pingente: Rola-Poogie: Bicolor",
@@ -2436,7 +2470,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "Vale de Edição de Personagem e Amigato: Vale Único (Versão Presente 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "Vale de Edição de Personagem e Amigato: Vale Único (Versão Presente 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "Vale de Edição de Personagem e Amigato: Vale Único (Versão Presente 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "Pingente: Rola-Poogie: Takoyaki"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "Pingente: Rola-Poogie: Takoyaki",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo: Pacote de Visitante",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "Pingente: Rola-Poogie: Sakura"
   },
   "kor": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -2627,6 +2663,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "추가 치장품 '하늘하늘 천군 나비'",
     "f259302e-c96a-4f6c-8436-156851698fef": "추가 제스처 세트 「세크레트 탑승 릴랙스」",
     "206dec76-2129-477a-b79a-4365696f6e1f": "추가 제스처 '우아한 티타임'",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "추가 치장품 '이치란 아이루/블랙'",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "추가 치장품 '이치란 아이루/레드'",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "추가 치장품 '신나는 바바콩카'",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "추가 동반자 덧입는 장비 '푸른 우주 모리바' 시리즈",
     "677060df-6000-40be-9bbb-43fd8844a301": "추가 치장품 '곡예 푸기【투톤】'",
@@ -2707,7 +2745,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "[무료 배포 버전③] 사냥꾼과 동반자의 차림새 티켓 1장",
     "67e77694-d664-4e7b-90ed-280880836071": "[무료 배포 버전④] 사냥꾼과 동반자의 차림새 티켓 1장",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "[무료 배포 버전⑤] 사냥꾼과 동반자의 차림새 티켓 1장",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "추가 치장품 '곡예 푸기【타코야키】'"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "추가 치장품 '곡예 푸기【타코야키】'",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo 방문자 특전   ",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "추가 치장품 '곡예 푸기【벚꽃】'"
   },
   "chT": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -2898,6 +2938,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "追加飾物「輕盈千羽蝶」",
     "f259302e-c96a-4f6c-8436-156851698fef": "追加動作「鷺鷹龍騎乘休息」",
     "206dec76-2129-477a-b79a-4365696f6e1f": "追加動作「優雅下午茶時間」",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "追加飾物「一蘭艾路・黑」",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "追加飾物「一蘭艾路・紅」",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "追加飾物「歡樂桃毛車」",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "隨從外觀裝備「蒼宙莫利巴系列」",
     "677060df-6000-40be-9bbb-43fd8844a301": "追加飾物「踩球噗吱豬【雙色】」",
@@ -2978,7 +3020,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "獵人與隨從造型券　1張（免費發送版3）",
     "67e77694-d664-4e7b-90ed-280880836071": "獵人與隨從造型券　1張（免費發送版4）",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "獵人與隨從造型券　1張（免費發送版5）",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "追加飾物「踩球噗吱豬【章魚燒】」"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "追加飾物「踩球噗吱豬【章魚燒】」",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "【MH Festa Tokyo】入場特典",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "追加飾物「踩球噗吱豬【櫻花】」"
   },
   "chS": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -3169,6 +3213,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "追加饰物“轻盈千羽蝶”",
     "f259302e-c96a-4f6c-8436-156851698fef": "追加肢体动作组合“鹭鹰龙骑乘休息”",
     "206dec76-2129-477a-b79a-4365696f6e1f": "追加肢体动作“优雅的下午茶时间”",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "追加饰物“一蘭艾露猫・黑”",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "追加饰物“一蘭艾露猫・红”",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "追加饰物“欢乐桃毛兽王车”",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "追加随从外观装备“苍宙森狸人系列”",
     "677060df-6000-40be-9bbb-43fd8844a301": "追加饰物“踩球噗吱猪【双色】”",
@@ -3249,7 +3295,9 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "猎人与随从造型券　1张（免费发放版3）",
     "67e77694-d664-4e7b-90ed-280880836071": "猎人与随从造型券　1张（免费发放版4）",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "猎人与随从造型券　1张（免费发放版5）",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "追加饰物“踩球噗吱猪【章鱼烧】”"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "追加饰物“踩球噗吱猪【章鱼烧】”",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "【MH Festa Tokyo】参观者特典",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "追加饰物“踩球噗吱猪【樱花】”"
   },
   "ara": {
     "16d4cc49-f9aa-4ec9-8779-b3e68be0753e": "Monster Hunter Wilds",
@@ -3440,6 +3488,8 @@
     "1c60679e-9806-452b-bd26-651da8663ee0": "حلية متدلية: آلاف متراقصة",
     "f259302e-c96a-4f6c-8436-156851698fef": "إيماءة: سيكريت مستريح",
     "206dec76-2129-477a-b79a-4365696f6e1f": "إيماءة: وقت الشاي",
+    "c529d8cf-833a-4750-b18c-cb6e236355e1": "حلية متدلية: فيلاين ICHIRAN - أسود",
+    "5f8dbe70-d943-4f23-9ab6-61fdc702a97f": "حلية متدلية: فيلاين ICHIRAN - أحمر",
     "778cc601-e5ab-481d-8940-7d00c4903f45": "حلية متدلية: كونغا كارت السعيد",
     "be0eb5f9-0f72-464b-9d81-0f8c821ae065": "درع فيلاين متعدد الطبقات: وودوود فانتازيا لازوردي",
     "677060df-6000-40be-9bbb-43fd8844a301": "حلية متدلية: بوغي المتدحرج: ثنائي اللون",
@@ -3520,6 +3570,8 @@
     "1b178675-a572-4454-8304-8bc3e216d003": "قسيمة تعديل الشخصية والباليكو: قسيمة واحدة (إصدار هدية مجانية 3)",
     "67e77694-d664-4e7b-90ed-280880836071": "قسيمة تعديل الشخصية والباليكو: قسيمة واحدة (إصدار هدية مجانية 4)",
     "09b596eb-fa25-4e2e-998e-272cc89cb6cd": "قسيمة تعديل الشخصية والباليكو: قسيمة واحدة (إصدار هدية مجانية 5)",
-    "c9831f66-db73-458a-97ac-166a63ed8998": "حلية متدلية: بوغي المتدحرج: تاكوياكي"
+    "c9831f66-db73-458a-97ac-166a63ed8998": "حلية متدلية: بوغي المتدحرج: تاكوياكي",
+    "a48d6e73-6c5a-42c7-a366-d2cd6b677f58": "MH Festa Tokyo: حزمة الزائر",
+    "a7363a16-cfc2-4850-bbd0-07a853e941e7": "حلية متدلية: بوغي المتدحرج: ساكورا"
   }
 }

@@ -16,7 +16,7 @@ public class RiceBallCharmRecipe : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Rice Ball Charm Recipe (Not Replacer)";
         const string description = "Adds a Rice Ball Charm recipe to the recipe list.";
-        const string version     = "1.2";
+        const string version     = "1.3";
 
         var mod = new NexusMod {
             Name    = name,

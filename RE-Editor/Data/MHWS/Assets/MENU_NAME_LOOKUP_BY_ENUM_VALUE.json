@@ -183,16 +183,11 @@
     "290": "限界突破強化",
     "291": "アーティア武器の生産",
     "292": "防具の生産・強化",
-    "33": "ローカル通信",
-    "34": "ロビー作成",
-    "35": "ロビー作成（<ICON LOCK_PASS>パスワード付き）",
-    "36": "ロビー検索",
-    "37": "ロビー退出",
-    "38": "ロビー解散",
     "28": "ナナイロカネの精錬",
     "29": "アイテムでの精錬",
     "30": "巨戟変異パーツでの精錬",
-    "42": "巨戟アーティア武器の復元強化"
+    "42": "巨戟アーティア武器の復元強化",
+    "60": "まとめて挑戦する"
   },
   "eng": {
     "1": "- - - - -",
@@ -378,16 +373,11 @@
     "290": "Transcend",
     "291": "Forge Artian Weapons",
     "292": "Forge/Upgrade Armor",
-    "33": "Local Communication",
-    "34": "Create Lobby",
-    "35": "Create Lobby (<ICON LOCK_PASS> with passcode)",
-    "36": "Lobby Search",
-    "37": "Exit Lobby",
-    "38": "Disband Lobby",
     "28": "Smelt Ore",
     "29": "Smelt Using Items",
     "30": "Smelt Using Gogma Materials",
-    "42": "Reinforce Gogma Artian Weapons"
+    "42": "Reinforce Gogma Artian Weapons",
+    "60": "Boost and Play"
   },
   "fre": {
     "1": "- - - - -",
@@ -573,16 +563,11 @@
     "290": "Transcender",
     "291": "Forger des armes Artian",
     "292": "Forger/Améliorer des armures",
-    "33": "Communication sans fil locale",
-    "34": "Créer un lobby",
-    "35": "Créer un lobby (<ICON LOCK_PASS> avec code)",
-    "36": "Recherche de lobby",
-    "37": "Quitter le lobby",
-    "38": "Dissoudre le lobby",
     "28": "Créer du minerai",
     "29": "Créer avec des objets",
     "30": "Créer avec matériaux Gogma",
-    "42": "Renforcement armes Artian Gogma"
+    "42": "Renforcement armes Artian Gogma",
+    "60": "Augmenter la mise"
   },
   "ita": {
     "1": "- - - - -",
@@ -768,16 +753,11 @@
     "290": "Tempra",
     "291": "Forgia armi Artian",
     "292": "Forgia/Migliora armatura",
-    "33": "Comunicazione locale",
-    "34": "Crea stanza",
-    "35": "Crea stanza (<ICON LOCK_PASS> con password)",
-    "36": "Cerca una stanza",
-    "37": "Esci dalla stanza",
-    "38": "Rimuovi stanza",
     "28": "Fondi minerali",
     "29": "Fondi usando oggetti",
     "30": "Fondi con materiali Gogma",
-    "42": "Riforgia armi Artian Gogma"
+    "42": "Riforgia armi Artian Gogma",
+    "60": "Alza la posta"
   },
   "ger": {
     "1": "- - - - -",
@@ -963,16 +943,11 @@
     "290": "Veredelung",
     "291": "Artian-Waffen schmieden",
     "292": "Rüstung schmieden/verbessern",
-    "33": "Lokale Kommunikation",
-    "34": "Lobby erstellen",
-    "35": "Lobby erstellen (<ICON LOCK_PASS> mit Passcode)",
-    "36": "Lobby-Suche",
-    "37": "Lobby verlassen",
-    "38": "Lobby auflösen",
     "28": "Erz raffinieren",
     "29": "Mit Objekten raffinieren",
     "30": "Mit Gogma-Materialien raffinieren",
-    "42": "Gogma-Artian-Waffen verstärken"
+    "42": "Gogma-Artian-Waffen verstärken",
+    "60": "Einsatz erhöhen"
   },
   "spa": {
     "1": "- - - - -",
@@ -1158,16 +1133,11 @@
     "290": "Trascender",
     "291": "Crear armas artianas",
     "292": "Forjar/mejorar armadura",
-    "33": "Comunicación local",
-    "34": "Crear sala",
-    "35": "Crear sala (<ICON LOCK_PASS> con contraseña)",
-    "36": "Buscar sala",
-    "37": "Abandonar sala",
-    "38": "Disolver sala",
     "28": "Fundir mineral",
     "29": "Fundir con objetos",
     "30": "Fundir con materiales Gogma",
-    "42": "Reforzar armas artianas Gogma"
+    "42": "Reforzar armas artianas Gogma",
+    "60": "Potenciar y jugar"
   },
   "rus": {
     "1": "- - - - -",
@@ -1353,16 +1323,11 @@
     "290": "Возвысить",
     "291": "Выковать артианское оружие",
     "292": "Выковать/улучшить доспех",
-    "33": "Локальный режим",
-    "34": "Создать лобби",
-    "35": "Создать лобби (<ICON LOCK_PASS> с паролем)",
-    "36": "Поиск лобби",
-    "37": "Покинуть лобби",
-    "38": "Расформировать лобби",
     "28": "Выплавить руду",
     "29": "Выплавить с помощью предметов",
     "30": "Выплавить из гог-материалов",
-    "42": "Улучшить гог-артианское оружие"
+    "42": "Улучшить гог-артианское оружие",
+    "60": "Игра по-крупному"
   },
   "pol": {
     "1": "- - - - -",
@@ -1471,7 +1436,7 @@
     "179": "Edytuj przenośny obóz",
     "180": "Zarządzaj przenośnymi obozami",
     "186": "Edytuj przenośny obóz",
-    "192": "Wzmocnij",
+    "192": "Wzmocnij artiańskie bronie",
     "193": "Rozmontuj",
     "194": "Zmodyfikuj łukodziałko",
     "195": "Sterowanie podstawowe",
@@ -1548,16 +1513,11 @@
     "290": "Nadlepszenie",
     "291": "Wykuj artiańskie bronie",
     "292": "Wykuj/Ulepsz pancerz",
-    "33": "Lokalna komunikacja",
-    "34": "Utwórz lobby",
-    "35": "Utwórz lobby (<ICON LOCK_PASS> z hasłem)",
-    "36": "Wyszukaj lobby",
-    "37": "Wyjdź z lobby",
-    "38": "Rozwiąż lobby",
     "28": "Wytop rudę",
     "29": "Wytapianie przedmiotami",
     "30": "Wytapiaj materiałami z Gogmy",
-    "42": "Wzmocnij art. broni z Gogmy"
+    "42": "Wzmocnij art. broni z Gogmy",
+    "60": "Graj za więcej"
   },
   "ptB": {
     "1": "- - - - -",
@@ -1743,16 +1703,11 @@
     "290": "Transcender",
     "291": "Forjar Armas Artianas",
     "292": "Forjar/Melhorar Armadura",
-    "33": "Comunicação Local",
-    "34": "Criar Lobby",
-    "35": "Criar Lobby (<ICON LOCK_PASS> com senha)",
-    "36": "Busca de Lobby",
-    "37": "Sair do Lobby",
-    "38": "Desfazer Lobby",
     "28": "Refinar Minério",
     "29": "Refinar Usando Itens",
     "30": "Refinar com Materiais Gogma",
-    "42": "Reforçar Armas Gogma-Artianas"
+    "42": "Reforçar Armas Gogma-Artianas",
+    "60": "Reforçar e Jogar"
   },
   "kor": {
     "1": "-----",
@@ -1938,16 +1893,11 @@
     "290": "한계 돌파 강화",
     "291": "아티어 무기 생산",
     "292": "방어구 생산/강화",
-    "33": "로컬 통신",
-    "34": "로비 생성",
-    "35": "로비 생성(<ICON LOCK_PASS>비밀번호 사용)",
-    "36": "로비 검색",
-    "37": "로비 나가기",
-    "38": "로비 해산",
     "28": "칠색금 제련",
     "29": "아이템 제련",
     "30": "거극 변이 파츠 제련",
-    "42": "거극 아티어 무기 복원 강화"
+    "42": "거극 아티어 무기 복원 강화",
+    "60": "한꺼번에 도전"
   },
   "chT": {
     "1": "-----",
@@ -2133,16 +2083,11 @@
     "290": "極限突破強化",
     "291": "生產機械武器",
     "292": "生產/強化防具",
-    "33": "鄰近主機通訊",
-    "34": "建立大廳",
-    "35": "建立大廳（<ICON LOCK_PASS>設有密碼）",
-    "36": "搜尋大廳",
-    "37": "退出大廳",
-    "38": "解散大廳",
     "28": "精煉七彩礦",
     "29": "使用道具精煉",
     "30": "使用巨戟變異零件精煉",
-    "42": "復原強化巨戟機械武器"
+    "42": "復原強化巨戟機械武器",
+    "60": "加倍挑戰"
   },
   "chS": {
     "1": "－－－－－",
@@ -2328,16 +2273,11 @@
     "290": "极限突破强化",
     "291": "生产机械武器",
     "292": "生产／强化防具",
-    "33": "本地联机",
-    "34": "创建大厅",
-    "35": "创建大厅（<ICON LOCK_PASS>设有密码）",
-    "36": "搜索大厅",
-    "37": "退出大厅",
-    "38": "解散大厅",
     "28": "精炼七色金石",
     "29": "使用道具精炼",
     "30": "使用巨戟变异零件精炼",
-    "42": "复原强化巨戟机械武器"
+    "42": "复原强化巨戟机械武器",
+    "60": "高倍挑战"
   },
   "ara": {
     "1": "- - - - -",
@@ -2523,15 +2463,10 @@
     "290": "ارتقاء",
     "291": "تشكيل أسلحة أرتيان",
     "292": "تشكيل/ترقية الدرع",
-    "33": "التواصل المحلي",
-    "34": "إنشاء قاعة",
-    "35": "إنشاء قاعة (<ICON LOCK_PASS> باستخدام رمز مرور)",
-    "36": "البحث عن قاعة",
-    "37": "الخروج من القاعة",
-    "38": "حل القاعة",
     "28": "صهر الخام",
     "29": "إذابة باستخدام العناصر",
     "30": "صَهر مع مواد غوغما",
-    "42": "تعزيز أسلحة أرتيان غوغما"
+    "42": "تعزيز أسلحة أرتيان غوغما",
+    "60": "التعزيز واللعب"
   }
 }

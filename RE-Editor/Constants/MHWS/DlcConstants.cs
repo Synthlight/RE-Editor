@@ -133,6 +133,7 @@ public static class DlcConstants {
     public const App_dlc_DlcProductId_ID_Fixed MH_CHAMPIONSHIP_TAIWAN__VISITOR_PACK = App_dlc_DlcProductId_ID_Fixed.ITEMPACK_0000030;
     public const App_dlc_DlcProductId_ID_Fixed MH_CHAMPIONSHIP_USA__VISITOR_PACK = App_dlc_DlcProductId_ID_Fixed.ITEMPACK_0000021;
     public const App_dlc_DlcProductId_ID_Fixed MH_FESTA_FRANCE__VISITOR_PACK = App_dlc_DlcProductId_ID_Fixed.ITEMPACK_0000022;
+    public const App_dlc_DlcProductId_ID_Fixed MH_FESTA_TOKYO__VISITOR_PACK = App_dlc_DlcProductId_ID_Fixed.ITEMPACK_0000031;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_NOW__BONUS_PACK = App_dlc_DlcProductId_ID_Fixed.ITEMPACK_0000014;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_PUZZLES__BONUS_PACK = App_dlc_DlcProductId_ID_Fixed.ITEMPACK_0000018;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS = App_dlc_DlcProductId_ID_Fixed.EARTH_FULLGAME;
@@ -197,6 +198,8 @@ public static class DlcConstants {
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__GREEN_POLTERCAT = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000064;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__GREEN_ROCK_A_BABY = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000038;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__HAPPY_GO_CONGAKART = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000061;
+    public const App_dlc_DlcProductId_ID_Fixed PENDANT__ICHIRAN_FELYNE_BLACK = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000058;
+    public const App_dlc_DlcProductId_ID_Fixed PENDANT__ICHIRAN_FELYNE_RED = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000059;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__KFC_BUCKET_FELYNE = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000065;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__KFC_COLONEL_FELYNE = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000060;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__LAGIACRUS_PLUSHIE = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000049;
@@ -212,6 +215,7 @@ public static class DlcConstants {
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__RED_LALA_DRESS_DOLL = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000032;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__RED_POLTERCAT = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000066;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__ROLLING_POOGIE__MONOCHROME = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000051;
+    public const App_dlc_DlcProductId_ID_Fixed PENDANT__ROLLING_POOGIE__SAKURA = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000054;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__ROLLING_POOGIE__SEASONAL = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000053;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__ROLLING_POOGIE__TAKOYAKI = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000052;
     public const App_dlc_DlcProductId_ID_Fixed PENDANT__ROLLING_POOGIE__TWO_TONE = App_dlc_DlcProductId_ID_Fixed.CHARM00_00000050;

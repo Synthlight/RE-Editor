@@ -89,6 +89,8 @@ public static class WeaponLayeredConstants {
     public static readonly Guid AUGURING_OMEN = Guid.Parse("a4cc0991-9bfa-445a-aaaa-257a45aa754a");
     public static readonly Guid AUGURING_PARA_OMEN = Guid.Parse("0cfe329c-c215-4057-81fc-658086108db2");
     public static readonly Guid AUGURING_VENOM_OMEN = Guid.Parse("b5954b69-31e6-485b-a0b5-1608c1edc96f");
+    public static readonly Guid AZURE_ERA_SOARING_DRAGON = Guid.Parse("5ade57c0-162c-496f-bd9d-9920f5a034da");
+    public static readonly Guid AZURE_STAR_DRAGON_DANCE = Guid.Parse("6506ffc7-3111-442a-9a5b-5330f470719c");
     public static readonly Guid BABEL_SPEAR = Guid.Parse("dccf47b0-488c-4a61-971c-aba33a0ce352");
     public static readonly Guid BALAHARA_BLADE = Guid.Parse("b50e2cfb-cb8f-4505-b020-50f45952dbe7");
     public static readonly Guid BALAHARA_EXPLODER = Guid.Parse("82e48869-99af-4691-9a6f-c111c41bedb1");
@@ -530,6 +532,7 @@ public static class WeaponLayeredConstants {
     public static readonly Guid SANDSEA_VISPONAN = Guid.Parse("1e18b5de-10ff-47ea-a3e6-622bcbe13993");
     public static readonly Guid SAWBILL_AXE = Guid.Parse("0ed8ec7e-ca22-4fde-b8f8-a65709491ac2");
     public static readonly Guid SAYYAD_CANNON = Guid.Parse("f4c408a3-9ca2-4f9c-8404-56ce9dbc4594");
+    public static readonly Guid SHATTERSEAL_DRAKESNEST = Guid.Parse("d0a599d1-32c2-48f5-b97c-c7ebb1a0af4e");
     public static readonly Guid SHELL_HAMMER = Guid.Parse("e118a8b3-314f-41a6-bf05-be07a86e248d");
     public static readonly Guid SHINING_PILLAR = Guid.Parse("dc682f52-3786-4d65-b3db-b3f1553a00b8");
     public static readonly Guid SHINING_ROOK = Guid.Parse("642716a7-bddc-43dd-92b1-4c39600997f8");

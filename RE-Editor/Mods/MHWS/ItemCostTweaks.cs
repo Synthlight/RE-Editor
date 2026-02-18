@@ -21,7 +21,7 @@ public class ItemCostTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Item Cost Tweaks - Buy for 1z, sell for 99999z";
         const string description = "Buy for 1z, sell for 99999z.";
-        const string version     = "1.8";
+        const string version     = "1.9";
 
         var baseMod = new NexusMod {
             Version      = version,

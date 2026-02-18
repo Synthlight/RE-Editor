@@ -16,6 +16,7 @@ public static class MenuConstants {
     public const App_Menu_ID_Fixed AQUATIC_LIFE_FIELD_GUIDE = App_Menu_ID_Fixed.MENU_0141;
     public const App_Menu_ID_Fixed AWAY_NOTICE = App_Menu_ID_Fixed.MENU_0144;
     public const App_Menu_ID_Fixed BASIC_CONTROLS = App_Menu_ID_Fixed.MENU_0193;
+    public const App_Menu_ID_Fixed BOOST_AND_PLAY = App_Menu_ID_Fixed.MENU_0058;
     public const App_Menu_ID_Fixed BUYING_KINSECTS = App_Menu_ID_Fixed.MENU_0212;
     public const App_Menu_ID_Fixed CALL_SEIKRET = App_Menu_ID_Fixed.MENU_0124;
     public const App_Menu_ID_Fixed CANCEL_QUEST = App_Menu_ID_Fixed.MENU_0164;
@@ -43,8 +44,6 @@ public static class MenuConstants {
     public const App_Menu_ID_Fixed COPY_TO_CLIPBOARD = App_Menu_ID_Fixed.MENU_0272;
     public const App_Menu_ID_Fixed CRAFTING_LIST = App_Menu_ID_Fixed.MENU_0000;
     public const App_Menu_ID_Fixed CRAFTING_LIST_2 = App_Menu_ID_Fixed.MENU_0219;
-    public const App_Menu_ID_Fixed CREATE_LOBBY = App_Menu_ID_Fixed.MENU_0032;
-    public const App_Menu_ID_Fixed CREATE_LOBBY__ICON_LOCK_PASS__WITH_PASSCODE = App_Menu_ID_Fixed.MENU_0033;
     public const App_Menu_ID_Fixed CUSTOMIZE_BOWGUN = App_Menu_ID_Fixed.MENU_0192;
     public const App_Menu_ID_Fixed CUSTOMIZE_RADIAL_MENU = App_Menu_ID_Fixed.MENU_0089;
     public const App_Menu_ID_Fixed DEPLOY = App_Menu_ID_Fixed.MENU_0053;
@@ -54,7 +53,6 @@ public static class MenuConstants {
     public const App_Menu_ID_Fixed DETAILED_MAP_2 = App_Menu_ID_Fixed.MENU_0262;
     public const App_Menu_ID_Fixed DISBAND_ENVIRONMENT_LINK = App_Menu_ID_Fixed.MENU_0196;
     public const App_Menu_ID_Fixed DISBAND_LOBBY = App_Menu_ID_Fixed.MENU_0198;
-    public const App_Menu_ID_Fixed DISBAND_LOBBY_2 = App_Menu_ID_Fixed.MENU_0036;
     public const App_Menu_ID_Fixed DISMANTLE = App_Menu_ID_Fixed.MENU_0191;
     public const App_Menu_ID_Fixed EDIT_NAME = App_Menu_ID_Fixed.MENU_0206;
     public const App_Menu_ID_Fixed EDIT_POP_UP_CAMPS = App_Menu_ID_Fixed.MENU_0177;
@@ -65,7 +63,6 @@ public static class MenuConstants {
     public const App_Menu_ID_Fixed EQUIPMENT_APPEARANCE = App_Menu_ID_Fixed.MENU_0173;
     public const App_Menu_ID_Fixed EQUIPMENT_INFO = App_Menu_ID_Fixed.MENU_0002;
     public const App_Menu_ID_Fixed EXCHANGE_FOR_LIMITED_ITEMS = App_Menu_ID_Fixed.MENU_0268;
-    public const App_Menu_ID_Fixed EXIT_LOBBY = App_Menu_ID_Fixed.MENU_0035;
     public const App_Menu_ID_Fixed EXPAND_PARTY_SIZE = App_Menu_ID_Fixed.MENU_0120;
     public const App_Menu_ID_Fixed FESTIVAL_SHARES = App_Menu_ID_Fixed.MENU_0204;
     public const App_Menu_ID_Fixed FIELD_POUCH = App_Menu_ID_Fixed.MENU_0114;
@@ -106,8 +103,6 @@ public static class MenuConstants {
     public const App_Menu_ID_Fixed LOBBY_ID_SEARCH = App_Menu_ID_Fixed.MENU_0162;
     public const App_Menu_ID_Fixed LOBBY_SEARCH = App_Menu_ID_Fixed.MENU_0155;
     public const App_Menu_ID_Fixed LOBBY_SEARCH_2 = App_Menu_ID_Fixed.MENU_0254;
-    public const App_Menu_ID_Fixed LOBBY_SEARCH_3 = App_Menu_ID_Fixed.MENU_0034;
-    public const App_Menu_ID_Fixed LOCAL_COMMUNICATION = App_Menu_ID_Fixed.MENU_0031;
     public const App_Menu_ID_Fixed LOGIN_BONUS = App_Menu_ID_Fixed.MENU_0246;
     public const App_Menu_ID_Fixed MANAGE_KINSECTS = App_Menu_ID_Fixed.MENU_0210;
     public const App_Menu_ID_Fixed MANAGE_POP_UP_CAMPS = App_Menu_ID_Fixed.MENU_0178;

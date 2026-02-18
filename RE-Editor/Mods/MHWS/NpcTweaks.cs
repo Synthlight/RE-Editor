@@ -20,7 +20,7 @@ public class NpcTweaks : IMod {
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_FEMALE = @"GameDesign/NPC/Data/Master_Female_NpcHunterEquipData.user";
     private const string MASTER_NPC_EQUIP_PATH_INTERNAL_MALE   = @"GameDesign/NPC/Data/Master_Male_NpcHunterEquipData.user";
     public const  string PLACEHOLDER_ENTRY_TEXT                = "Activating this entry does nothing, it exists solely to create the submenu.";
-    public const  string VERSION                               = "1.7";
+    public const  string VERSION                               = "1.8";
 
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
@@ -82,50 +82,50 @@ public class NpcTweaks : IMod {
                 .SetName("Female NPCs (Human, Excluding Skin Issues)")
                 .SetAddonFor(name)
                 .SetFiles(npcData.allExcludingSkinIssues)
-                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
-                                                                                        && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_BC
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST101
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST103
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST105)),
+                .SetFilteredAction((list, _) => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
+                                                                                             && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_BC
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST101
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST103
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST105)),
             baseMod
                 .SetName("Female NPCs (Human, All)")
                 .SetAddonFor(name)
                 .SetFiles(npcData.visualSettingsFiles)
-                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
-                                                                                        && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_BC
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST101
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST103
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST105)),
+                .SetFilteredAction((list, _) => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
+                                                                                             && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_BC
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST101
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST103
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_FEMALE_ST105)),
             baseMod
                 .SetName("Female NPCs (Wyverian)")
                 .SetAddonFor(name)
                 .SetFiles(npcData.visualSettingsFiles)
-                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
-                                                                                        && visualSettings.ParamPackOwCategory == App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.RYU_NML_FEMALE)),
+                .SetFilteredAction((list, _) => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.FEMALE
+                                                                                             && visualSettings.ParamPackOwCategory == App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.RYU_NML_FEMALE)),
             baseMod
                 .SetName("Male NPCs (Human, Excluding Skin Issues)")
                 .SetAddonFor(name)
                 .SetFiles(npcData.allExcludingSkinIssues)
-                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
-                                                                                        && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_BC
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST101
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST103
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST105)),
+                .SetFilteredAction((list, _) => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
+                                                                                             && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_BC
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST101
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST103
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST105)),
             baseMod
                 .SetName("Male NPCs (Human, All)")
                 .SetAddonFor(name)
                 .SetFiles(npcData.visualSettingsFiles)
-                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
-                                                                                        && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_BC
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST101
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST103
-                                                                                            or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST105)),
+                .SetFilteredAction((list, _) => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
+                                                                                             && visualSettings.ParamPackOwCategory is App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_BC
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST101
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST103
+                                                                                                 or App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.HUM_ADL_MALE_ST105)),
             baseMod
                 .SetName("Male NPCs (Wyverian)")
                 .SetAddonFor(name)
                 .SetFiles(npcData.visualSettingsFiles)
-                .SetFilteredAction(list => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
-                                                                                        && visualSettings.ParamPackOwCategory == App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.RYU_NML_MALE))
+                .SetFilteredAction((list, _) => ChangeVisualSettings(list, visualSettings => visualSettings.Gender == App_CharacterDef_GENDER.MALE
+                                                                                             && visualSettings.ParamPackOwCategory == App_NpcDef_PARAM_PACK_OW_CATEGORY_Fixed.RYU_NML_MALE))
         ]);
         // ReSharper restore MergeIntoPattern
 
@@ -161,7 +161,7 @@ public class NpcTweaks : IMod {
                      .SetName($"{npcName}: ({idNames})")
                      .SetAddonFor(byNameGroup)
                      .SetFiles(files)
-                     .SetFilteredAction(list => ChangeVisualSettings(list, NpcTweaksData.IsAllowed))); // Filtered again, yes, but it should always return true.
+                     .SetFilteredAction((list, _) => ChangeVisualSettings(list, NpcTweaksData.IsAllowed))); // Filtered again, yes, but it should always return true.
         }
 
         List<string> unnamedFiles = [];
@@ -176,7 +176,7 @@ public class NpcTweaks : IMod {
                  .SetName("_Unnamed NPCs: (All The Rest)")
                  .SetAddonFor(byNameGroup)
                  .SetFiles(unnamedFiles)
-                 .SetFilteredAction(list => ChangeVisualSettings(list, NpcTweaksData.IsAllowed))); // Filtered again, yes, but it should always return true.
+                 .SetFilteredAction((list, _) => ChangeVisualSettings(list, NpcTweaksData.IsAllowed))); // Filtered again, yes, but it should always return true.
 
         // The optional file will still use this mod as a base, so include this here.
         mods.Add(new() {

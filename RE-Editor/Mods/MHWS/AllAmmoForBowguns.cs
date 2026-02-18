@@ -20,7 +20,7 @@ public class AllAmmoForBowguns : IMod {
     [SuppressMessage("ReSharper", "GrammarMistakeInComment")]
     public static void Make(MainWindow mainWindow) {
         const string name    = "BG Ammo Tweaks"; // All Ammo for LBG & HBG
-        const string version = "1.2";
+        const string version = "1.3";
 
         var baseLuaMod = new VariousDataTweak {
             Version      = version,

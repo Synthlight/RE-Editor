@@ -111,6 +111,10 @@ public static class WeaponConstants {
     public static readonly Guid AUGURING_OMEN_2 = Guid.Parse("d370ce56-150c-4c7a-9e95-feec5d6cd4f3");
     public static readonly Guid AUGURING_OMEN_3 = Guid.Parse("1774c35b-e48e-4ce1-893c-5cbacf6375e2");
     public static readonly Guid AXELION_BLADE_I = Guid.Parse("aa6e10ba-94e9-453b-a9a9-dd2afd640c1c");
+    public static readonly Guid AZURE_ERA_SOARING_DRAGON = Guid.Parse("640b8b55-900c-41d6-b11f-879d72138f52");
+    public static readonly Guid AZURE_ERA_WYRMBOW = Guid.Parse("052b524e-2735-4774-976c-22c72a412197");
+    public static readonly Guid AZURE_STAR_DRAGON_DANCE = Guid.Parse("814ba00f-c935-48cd-9f20-704295141128");
+    public static readonly Guid AZURE_STAR_BLADE = Guid.Parse("17997544-c07f-43b0-9d22-6ba26ccd6e24");
     public static readonly Guid BABEL_SPEAR = Guid.Parse("cf837db2-ee66-4f2b-9a44-b90f6c1af414");
     public static readonly Guid BALAHARA_BLADE_I = Guid.Parse("3655b811-5fbb-4b41-8216-b227d2812d1a");
     public static readonly Guid BALAHARA_BLADE_II = Guid.Parse("b3baa328-f51e-4295-ba8e-f52dce16b4bb");
@@ -981,6 +985,8 @@ public static class WeaponConstants {
     public static readonly Guid SCYLLA_FIST_III = Guid.Parse("55ea6f38-f029-4b99-897c-897576497486");
     public static readonly Guid SHADOWBRINGER = Guid.Parse("c441f980-bcc7-45c7-98b2-35303fd06403");
     public static readonly Guid SHALYA_BOW_I = Guid.Parse("b9a4e32e-b43d-4f7c-acdb-bbd93a1bb622");
+    public static readonly Guid SHATTERSEAL = Guid.Parse("ff6f9ffb-fda2-4a2a-8c85-c779df518a16");
+    public static readonly Guid SHATTERSEAL_DRAKESNEST = Guid.Parse("febceced-7923-496a-a636-90f10ddff5f4");
     public static readonly Guid SHELL_GUNBERD_I = Guid.Parse("9e51d6d0-ba26-4fa6-9174-59bcfac1dc5c");
     public static readonly Guid SHELL_GUNBERD_II = Guid.Parse("871ea09a-945d-497d-aba1-c4bf1673e486");
     public static readonly Guid SHELL_GUNBERD_III = Guid.Parse("8b4798fb-843f-47e2-9f41-d3fe89ea61ac");

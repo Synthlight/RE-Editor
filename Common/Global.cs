@@ -188,7 +188,7 @@ public static class Global {
 #elif MHR
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif MHWS
-    public const string CURRENT_GAME_VERSION = "v1.040.03.01";
+    public const string CURRENT_GAME_VERSION = "v1.041.00.00";
 #elif PRAGMATA
     public const string CURRENT_GAME_VERSION = "Demo v1 (Unknown)";
 #elif RE2

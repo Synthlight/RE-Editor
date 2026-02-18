@@ -326,8 +326,8 @@ public static class GimmickConstants {
     public const App_GimmickDef_ID_Fixed CRYSTAL_FRAGMENTS = App_GimmickDef_ID_Fixed.GM034_020_00;
     public const App_GimmickDef_ID_Fixed CRYSTAL_FRAGMENTS_2 = App_GimmickDef_ID_Fixed.GM034_085_00;
     public const App_GimmickDef_ID_Fixed CRYSTAL_FRAGMENTS_3 = App_GimmickDef_ID_Fixed.GM034_086_00;
-    public const App_GimmickDef_ID_Fixed CRYSTALIZED_POISON_SHARD = App_GimmickDef_ID_Fixed.GM030_030_00;
-    public const App_GimmickDef_ID_Fixed CRYSTALIZED_VENOM = App_GimmickDef_ID_Fixed.GM000_011_00;
+    public const App_GimmickDef_ID_Fixed CRYSTALLIZED_POISON_SHARD = App_GimmickDef_ID_Fixed.GM030_030_00;
+    public const App_GimmickDef_ID_Fixed CRYSTALLIZED_VENOM = App_GimmickDef_ID_Fixed.GM000_011_00;
     public const App_GimmickDef_ID_Fixed DAM_RUBBLE = App_GimmickDef_ID_Fixed.GM500_000_00;
     public const App_GimmickDef_ID_Fixed DAMP_SCALE_FRAGMENTS = App_GimmickDef_ID_Fixed.GM030_020_00;
     public const App_GimmickDef_ID_Fixed DARK_SCALES = App_GimmickDef_ID_Fixed.GM030_070_00;
@@ -599,6 +599,7 @@ public static class GimmickConstants {
     public const App_GimmickDef_ID_Fixed WINGDRAKE_PERCH_2 = App_GimmickDef_ID_Fixed.GM810_101_00;
     public const App_GimmickDef_ID_Fixed WUDWUD_BOWLING_BOMB = App_GimmickDef_ID_Fixed.GM251_000_07;
     public const App_GimmickDef_ID_Fixed WUDWUD_DEMEOWLISHER = App_GimmickDef_ID_Fixed.GM200_003_07;
+    public const App_GimmickDef_ID_Fixed WYLKSPRING = App_GimmickDef_ID_Fixed.GM650_000_00;
     public const App_GimmickDef_ID_Fixed WYLKY_CRYSTAL_OUTCROP = App_GimmickDef_ID_Fixed.GM000_179_00;
     public const App_GimmickDef_ID_Fixed WYLKY_GEMSTONE = App_GimmickDef_ID_Fixed.GM000_178_00;
     public const App_GimmickDef_ID_Fixed WYRMSBANE = App_GimmickDef_ID_Fixed.GM000_010_01;
@@ -606,7 +607,6 @@ public static class GimmickConstants {
     public const App_GimmickDef_ID_Fixed WYVERIAN_FLOWER = App_GimmickDef_ID_Fixed.GM156_000_00;
     public const App_GimmickDef_ID_Fixed WYVERN_EGG = App_GimmickDef_ID_Fixed.GM513_000_00;
     public const App_GimmickDef_ID_Fixed WYVERN_EGG_2 = App_GimmickDef_ID_Fixed.GM512_000_00;
-    public const App_GimmickDef_ID_Fixed WYVERN_MILK_PUDDLE = App_GimmickDef_ID_Fixed.GM650_000_00;
     public const App_GimmickDef_ID_Fixed YELLOW_ORE_CHUNK = App_GimmickDef_ID_Fixed.GM034_084_00;
     public const App_GimmickDef_ID_Fixed YELLOW_ORE_SHARD = App_GimmickDef_ID_Fixed.GM034_014_00;
 }

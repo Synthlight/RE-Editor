@@ -11,6 +11,8 @@ namespace RE_Editor.Constants;
 public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed AJARAKAN_TREE = App_WeaponDef_SERIES_Fixed.ID_015;
     public const App_WeaponDef_SERIES_Fixed ARKVELD_TREE = App_WeaponDef_SERIES_Fixed.ID_033;
+    public const App_WeaponDef_SERIES_Fixed AZURE_ERA_TREE = App_WeaponDef_SERIES_Fixed.ID_051;
+    public const App_WeaponDef_SERIES_Fixed AZURE_STAR_TREE = App_WeaponDef_SERIES_Fixed.ID_050;
     public const App_WeaponDef_SERIES_Fixed BALAHARA_TREE = App_WeaponDef_SERIES_Fixed.ID_008;
     public const App_WeaponDef_SERIES_Fixed BLANGONGA_TREE = App_WeaponDef_SERIES_Fixed.ID_031;
     public const App_WeaponDef_SERIES_Fixed BONE_TREE = App_WeaponDef_SERIES_Fixed.ID_003;
@@ -45,6 +47,7 @@ public static class WeaponSeriesConstants {
     public const App_WeaponDef_SERIES_Fixed REY_DAU_TREE = App_WeaponDef_SERIES_Fixed.ID_012;
     public const App_WeaponDef_SERIES_Fixed ROMPOPOLO_TREE = App_WeaponDef_SERIES_Fixed.ID_011;
     public const App_WeaponDef_SERIES_Fixed SEREGIOS_TREE = App_WeaponDef_SERIES_Fixed.ID_029;
+    public const App_WeaponDef_SERIES_Fixed SHATTERSEAL_TREE = App_WeaponDef_SERIES_Fixed.ID_052;
     public const App_WeaponDef_SERIES_Fixed SPEARTUNA_TREE = App_WeaponDef_SERIES_Fixed.ID_043;
     public const App_WeaponDef_SERIES_Fixed UTH_DUNA_TREE = App_WeaponDef_SERIES_Fixed.ID_010;
     public const App_WeaponDef_SERIES_Fixed VESPOID_TREE = App_WeaponDef_SERIES_Fixed.ID_044;

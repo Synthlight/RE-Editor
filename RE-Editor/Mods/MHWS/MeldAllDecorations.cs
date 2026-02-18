@@ -20,7 +20,7 @@ public class MeldAllDecorations : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name           = "Meld All Decorations";
         const string description    = "Adds all decorations to the \"Meld Decorations\" list, with various config options.";
-        const string version        = "1.1";
+        const string version        = "1.2";
         const bool   includeReSorts = false;
 
         var decoData        = ReDataFile.Read(PathHelper.CHUNK_PATH + PathHelper.DECORATION_DATA_PATH).rsz.objectData.OfType<App_user_data_AccessoryData_cData>().ToList();

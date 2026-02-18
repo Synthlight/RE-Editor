@@ -21,6 +21,9 @@ public static class OtomoArmorLayeredConstants {
     public const int F_AJARAKAN_HELM_Α = 33;
     public const int F_AJARAKAN_MAIL_Α = 34;
     public const int F_AJARAKAN_STAFF_Α = 151;
+    public const int F_AZURE_ERA_FAN_Α = 197;
+    public const int F_AZURE_ERA_KIMONO_Α = 194;
+    public const int F_AZURE_ERA_LIONS_HEAD_Α = 193;
     public const int F_BLAZING_SPEAR_Α = 170;
     public const int F_BUTTERFLY_HAT_Α = 109;
     public const int F_BUTTERFLY_VEST_Α = 110;
@@ -64,8 +67,11 @@ public static class OtomoArmorLayeredConstants {
     public const int FELYNE_ALOHA_STRAW_HAT_Α = 113;
     public const int FELYNE_ALOHA_UKULELE_Α = 180;
     public const int FELYNE_ARKVELD_HELM_Α = 61;
+    public const int FELYNE_ARKVELD_HELM_Γ = 105;
     public const int FELYNE_ARKVELD_MAIL_Α = 62;
+    public const int FELYNE_ARKVELD_MAIL_Γ = 106;
     public const int FELYNE_ARKVELD_SWORD_Α = 165;
+    public const int FELYNE_ARKVELD_SWORD_Γ = 178;
     public const int FELYNE_ARTIAN_CORE_Α = 77;
     public const int FELYNE_ARTIAN_DISC_Α = 167;
     public const int FELYNE_ARTIAN_GEAR_Α = 78;
@@ -167,6 +173,9 @@ public static class OtomoArmorLayeredConstants {
     public const int FELYNE_SNOWCAT_BELL_Α = 182;
     public const int FELYNE_SNOWCAT_HEAD_Α = 119;
     public const int FELYNE_SNOWCAT_SUIT_Α = 120;
+    public const int FELYNE_STAR_HEAD_Α = 123;
+    public const int FELYNE_STAR_MIC_STAND_Α = 183;
+    public const int FELYNE_STARSTRUCK_SUIT_Α = 124;
     public const int FELYNE_SUJA_FROG_Α = 73;
     public const int FELYNE_SUJA_VEST_Α = 74;
     public const int FELYNE_UDRA_HEAD_Α = 55;
@@ -185,6 +194,8 @@ public static class OtomoArmorLayeredConstants {
     public const int MORBOL_SEEDLING_HEAD_Α = 127;
     public const int OUR_LIL_SEIKRET_BODY_Α = 122;
     public const int OUR_LIL_SEIKRET_HEAD_Α = 121;
+    public const int RUDY_COSTUME_BODY_Α = 196;
+    public const int RUDY_COSTUME_HEAD_Α = 195;
     public const int THIEFS_SECRET_POUCH_Α = 191;
     public const int THIEFS_THIEVIN_SCARF_Α = 190;
     public const int TWINFLIGHT_BUTTERFLIES_Α = 186;

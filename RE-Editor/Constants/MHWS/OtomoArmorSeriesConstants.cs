@@ -12,6 +12,7 @@ public static class OtomoArmorSeriesConstants {
     public const int ATHOS_Α = -1062790016;
     public const int AZURE_FANTASY_WUDWUD = 3122;
     public const int BLANKA_CHAN_Α = 13675;
+    public const int F_AZURE_ERA_Α = 24078;
     public const int FELYNE_AFI_Α = 8198;
     public const int FELYNE_AJARAKAN = -15275857;
     public const int FELYNE_AJARAKAN_Α = 1240712448;
@@ -19,6 +20,7 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_ALLOY_Α = -1586034176;
     public const int FELYNE_ALOHA_SET_Α = 4825;
     public const int FELYNE_ARKVELD_Α = 16681131;
+    public const int FELYNE_ARKVELD_Γ = 23229;
     public const int FELYNE_ARTIAN_Α = 897784768;
     public const int FELYNE_ASHIGARU = 27861;
     public const int FELYNE_AZUZ_Α = 1802785152;
@@ -84,6 +86,7 @@ public static class OtomoArmorSeriesConstants {
     public const int FELYNE_SEREGIOS_Α = 6690;
     public const int FELYNE_SILD_Α = -1932970112;
     public const int FELYNE_SNOWCAT_Α = 2543;
+    public const int FELYNE_STAR_Α = 20690;
     public const int FELYNE_SUJA_Α = 707825664;
     public const int FELYNE_UDRA_Γ = 24912;
     public const int FELYNE_UTH_DUNA = -2050214272;
@@ -94,6 +97,7 @@ public static class OtomoArmorSeriesConstants {
     public const int MEOWRIONETTE_Α = 2632;
     public const int MORBOL_SEEDLING_Α = 27389;
     public const int OUR_LIL_SEIKRET_Α = 14696;
+    public const int RUDY_COSTUME_Α = 21176;
     public const int THIEF_Α = 30183;
     public const int WACKY_WUDWUD_Α = 2419;
     public const int WUDWUD_GUISE_Α = -385188320;

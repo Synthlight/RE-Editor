@@ -45,6 +45,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed CONSTITUTION = App_HunterDef_Skill_Fixed.HunterSkill_025;
     public const App_HunterDef_Skill_Fixed CONVERT_ELEMENT = App_HunterDef_Skill_Fixed.HunterSkill_191;
     public const App_HunterDef_Skill_Fixed CONVERT_THUNDER_RESISTANCE = App_HunterDef_Skill_Fixed.HunterSkill_214;
+    public const App_HunterDef_Skill_Fixed CONVERT_WATER_RESISTANCE = App_HunterDef_Skill_Fixed.HunterSkill_243;
     public const App_HunterDef_Skill_Fixed COUNTERSTRIKE = App_HunterDef_Skill_Fixed.HunterSkill_110;
     public const App_HunterDef_Skill_Fixed CRACKLING_CORNPOPPER = App_HunterDef_Skill_Fixed.HunterSkill_230;
     public const App_HunterDef_Skill_Fixed CRITICAL_BOOST = App_HunterDef_Skill_Fixed.HunterSkill_002;
@@ -154,6 +155,7 @@ public static class SkillConstants {
     public const App_HunterDef_Skill_Fixed SCALING_PROWESS = App_HunterDef_Skill_Fixed.HunterSkill_166;
     public const App_HunterDef_Skill_Fixed SELF_IMPROVEMENT = App_HunterDef_Skill_Fixed.HunterSkill_145;
     public const App_HunterDef_Skill_Fixed SEREGIOSS_TENACITY = App_HunterDef_Skill_Fixed.HunterSkill_215;
+    public const App_HunterDef_Skill_Fixed SHATTERING_REFLECTION = App_HunterDef_Skill_Fixed.HunterSkill_244;
     public const App_HunterDef_Skill_Fixed SHOCK_ABSORBER = App_HunterDef_Skill_Fixed.HunterSkill_050;
     public const App_HunterDef_Skill_Fixed SLEEP_ATTACK = App_HunterDef_Skill_Fixed.HunterSkill_012;
     public const App_HunterDef_Skill_Fixed SLEEP_FUNCTIONALITY = App_HunterDef_Skill_Fixed.HunterSkill_053;

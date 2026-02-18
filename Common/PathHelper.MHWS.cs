@@ -40,6 +40,7 @@ public static partial class PathHelper {
         "re_chunk_000.pak.patch_011.pak",
         "re_chunk_000.pak.patch_012.pak",
         "re_chunk_000.pak.patch_013.pak",
+        "re_chunk_000.pak.patch_014.pak",
         "re_chunk_000.pak.sub_000.pak",
         "re_chunk_000.pak.sub_000.pak.patch_001.pak",
         "re_chunk_000.pak.sub_000.pak.patch_002.pak",
@@ -53,6 +54,7 @@ public static partial class PathHelper {
         "re_chunk_000.pak.sub_000.pak.patch_010.pak",
         "re_chunk_000.pak.sub_000.pak.patch_011.pak",
         "re_chunk_000.pak.sub_000.pak.patch_012.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_014.pak",
         "re_chunk_000.pak.sub_000.pak.patch_013.pak"
     ];
 
@@ -121,6 +123,10 @@ public static partial class PathHelper {
         new(new(2026, 1, 29), "1.040.03.02", [
             "re_chunk_000.pak.patch_013.pak",
             "re_chunk_000.pak.sub_000.pak.patch_013.pak"
+        ]),
+        new(new(2026, 2, 17), "1.041.00.00", [
+            "re_chunk_000.pak.patch_014.pak",
+            "re_chunk_000.pak.sub_000.pak.patch_014.pak"
         ])
     ];
 

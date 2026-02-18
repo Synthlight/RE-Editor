@@ -110,6 +110,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "トゲトゲの果物を先端につけた棒。 「トゲトゲ！　ツンツン！ 　イー香り！　ウーマイ！」",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "ツインバタフライα",
     "ed84efea-635b-4dda-8449-d758f4af4692": "モルボルが発する甘い息。 その香りに誘われて、 どこからか蝶たちが現れ戯れる。",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "蒼世ネコ舞扇α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "蒼き星の煌めきを思わせる武器。 その扇に描かれた満月は、 ニャン下統一への覚悟を示す。",
     "15466434-db57-4d4f-a618-224725672329": "肉球ネコぱんちα",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "アイルー族の間で広く使われる 伝統的な打撃武器。先端部には 頑丈な木が用いられている。",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "デスギアネコサイスα",
@@ -138,6 +140,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "特別なヌ・エグドラの素材で 作られた武器。紅く蠢く触手は、 歴戦王たる武勇を示した証。",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "ダハディラネコメイスγ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "特別なジン・ダハドの素材で 作られた武器。白く輝く鎚頭は、 歴戦王たる武勇を示した証。",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "シュバルカネコソードγ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "特別なアルシュベルドの素材で 作られた武器。戦傷絶えぬ大剣は、 歴戦王たる武勇を示した証。",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "パピネコステッキα",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "ブロッサムチケットで作れる 武器。ひとたび振るえば、 花畑の中を踊るように蝶が舞う。",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "アロハネコウクレレα",
@@ -145,7 +149,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "ゴーストネコランプα",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "ハーベストチケットで作れる武器。 精霊が宿るというカボチャを使った ランプは、闇夜に怪しく笑う。",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "スノーネコベルα",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "オリオンチケットで作れる武器。 煌めく黄金のハンドベルは、 振れば、祝福の鐘の音が鳴り響く。"
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "オリオンチケットで作れる武器。 煌めく黄金のハンドベルは、 振れば、祝福の鐘の音が鳴り響く。",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "スターネコスタンドα",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "フルドレスチケットで作れる武器。 ファンを魅了するスーパースターと なり、感謝のシャウトを響かせろ！"
   },
   "eng": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "Felyne Hope Hammer",
@@ -258,6 +264,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "A spiny fruit lashed to a stick. \"Spiky-pokey! Stabby-jabby! Smell big tasty! Yommy!\"",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Twinflight Butterflies α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "The sweet breath of a Morbol, accompanied by frolicking butterflies that were drawn to the cloying scent.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "F Azure Era Fan α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "A Palico weapon that gleams with the glow of the azure star. The full moon emblazed on the fan unites all.",
     "15466434-db57-4d4f-a618-224725672329": "Felyne Paw Punch α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "A customary blunt weapon favored by Felynes. Sturdy wood is used in the head.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "Felyne Deathgear Scythe α",
@@ -286,6 +294,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "A weapon made from special Nu Udra materials. Its writhing scarlet tentacles are proof of its ferocity.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "Felyne Dahaad Mace γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "A weapon made from special Jin Dahaad materials. The shining white hammerhead is proof of its innate valor.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "Felyne Arkveld Sword γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "A weapon made from special Arkveld materials. Its scars evoke the prowess of the Arch-tempered.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "F Butterfly Wand α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "A Blossom Ticket weapon. One wave of this wand can send an entire meadow of butterflies fluttering.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "Felyne Aloha Ukulele α",
@@ -293,7 +303,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "Felyne Jack-o'-Lantern α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "A Harvest Ticket weapon. The Jack-o'-lantern glows eerily, as if possessed by a spirit.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "Felyne Snowcat Bell α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "An Orion Ticket weapon. One shake of that golden bell is sure to bring on winter blessings."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "An Orion Ticket weapon. One shake of that golden bell is sure to bring on winter blessings.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "Felyne Star Mic Stand α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "A Gala Suit Ticket weapon. Scream into that mic, superstar, and make your adoring fans scream back!"
   },
   "fre": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "Marteau d'espoir Felyne",
@@ -406,6 +418,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "Un fruit à piquants attaché à un bâton. \"Pique-pointe ! Taille-coupe ! Sent bon-bon ! Miom !\"",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Duo de papillons α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "L'haleine sucrée d'un morbol, accompagnée de papillons qui batifolent, attirés par l'odeur.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "Éventail Ère d'azur Felyne α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "Une arme Palico rayonnant comme l'étoile d'azur. La pleine lune symbolise l'union.",
     "15466434-db57-4d4f-a618-224725672329": "Coup de patte Felyne α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "Arme contondante prisée des Felynes. La patte est composée de bois solide.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "Faux putride Felyne α",
@@ -434,6 +448,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "Fait à base de matériaux Nu Udra spéciaux. Ses tentacules écarlates mouvants témoignent de sa férocité.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "Sceptre Dahaad Felyne γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "Fait à base de matériaux Jin Dahaad spéciaux. La tête de marteau blanche brillante témoigne de sa valeur innée.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "Épée Arkveld Felyne γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "Faite à base de matériaux Arkveld spéciaux. Ses marques évoquent les prouesses de l'alpha suprême.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "Baguette Papillon Felyne α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "Arme obtenue grâce aux tickets Floraison. Un seul coup suffit à déployer une nuée de papillons.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "Ukulélé Aloha Felyne α",
@@ -441,7 +457,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "Jack-o'-Lantern Felyne  α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "Obtenue avec des tickets Récolte. La citrouille brille étrangement, comme possédée par un esprit.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "Cloche Chat des neiges Felyne α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Obtenue grâce aux tickets Orion. Un seul tintement de cette cloche dorée et les bénédictions de l'hiver pleuvront."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Obtenue grâce aux tickets Orion. Un seul tintement de cette cloche dorée et les bénédictions de l'hiver pleuvront.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "Micro Felyne α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "Obtenu grâce aux tickets Tenue de gala. Criez dans ce micro, et attendez la réponse de vos fans !"
   },
   "ita": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "Martello speranza F",
@@ -554,6 +572,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "Un frutto spinoso fissato a un bastone. \"Punzecchia! Punta-spunta! Odore buono! Gnam!\"",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Farfalle gemelle F α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "Dolce alito di una piantina di molboro, accompagnato da farfalle giocose attratte dal suo profumo stucchevole.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "Ventaglio epoca celeste F α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "Arma che brilla della luce di un astro celeste. La luna piena che decora il ventaglio ci unisce tutti.",
     "15466434-db57-4d4f-a618-224725672329": "Pugno-zampa F α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "Una tradizionale arma contundente amata dai Felyne. La testa è in legno resistente.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "Falce letale F α",
@@ -582,6 +602,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "Un'arma fatta di materiali di Nu Udra. I contorti tentacoli scarlatti sono prova della sua ferocia.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "Mazza Dahaad F γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "Arma fatta di materiali di Jin Dahaad. La fulgida testa di martello bianca è la prova del suo valore innato.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "Spada Arkveld F γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "Un'arma realizzata con materiali di Arkveld. Le numerose cicatrici evocano la prodezza dell'arcitemprato.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "Bacchetta farfalla F α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "Arma del biglietto floreale. Un movimento di questa bacchetta può risvegliare un intero stormo di farfalle.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "Ukulele aloha F α",
@@ -589,7 +611,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "Lanterna Miaolloween F α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "Un'arma ottenuta con biglietti Raccolto. La lanterna-zucca si  illumina in modo inquietante, come se fosse posseduta da uno spirito.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "Campana gatto di neve F α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Un'arma ottenuta con i biglietti Orione. Basta agitare una volta  quella campanella dorata per scatenare benedizioni invernali."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Un'arma ottenuta con i biglietti Orione. Basta agitare una volta  quella campanella dorata per scatenare benedizioni invernali.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "Stand microfono F α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "Un'arma ottenuta con i biglietti gran galà. Fatti sentire con quel microfono e facci sentire anche i tuoi fan adoranti!"
   },
   "ger": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "F Hoffnungshammer",
@@ -702,6 +726,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "Stachlige Frucht an einem Stock. „Pieksig! Macht aua! Riecht doll gut! Mjamm!“",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Zwillingsfalter α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "Der süße Atem eines Morbols, begleitet von herumtollenden Schmetterlingen, die vom Duft angezogen wurden.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "F Azurära-Fächer α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "Diese Palico-Waffe strahlt mit dem Glanz des Azursterns. Der Vollmond auf dem Fächer vereint alle!",
     "15466434-db57-4d4f-a618-224725672329": "F Tatzenschlag α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "Eine gewöhnliche, gern von Felynen verwendete Hiebwaffe. Die Tatze ist aus stabilem Holz.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "F Schnitter-Sense α",
@@ -730,6 +756,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "Waffe aus besonderen Nu- Udra-Materialien. Die scharlach- roten Tentakel zeugen von seiner Wildheit.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "F Dahaad-Zepter γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "Eine Waffe aus besonderem Jin-Dahaad-Material. Der leuchtend weiße Hammer- kopf zeugt von seinem Mut.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "F Arkveld-Schwert γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "Eine Waffe aus besonderen Arkveld-Materialien. Die vielen Narben unterstreichen das Geschick des Kampfgehärteten.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "F Schmetterling-Stab α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "Ein Schwung damit bringt eine ganze Wiese voller Schmetter- linge zum Flattern. Herstellbar mit Blüten-Ticket.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "F Aloha-Ukulele α",
@@ -737,7 +765,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "F Kürbisspalter  α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "Ernte-Ticket-Waffe. Die Kürbis- laterne leuchtet gruselig, als sei sie besessen.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "F Schneekatzen-Glocke α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Eine Orion-Ticket-Waffe. Ein Klingeln dieser Gold- glocke bringt sicher den Wintersegen mit sich."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Eine Orion-Ticket-Waffe. Ein Klingeln dieser Gold- glocke bringt sicher den Wintersegen mit sich.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "F Superstar-Mikro α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "Schrei ins Mikro, Superstar, und lass deine begeisterten Fans zurückschreien! Herstell- bar mit Galaanzug-Ticket."
   },
   "spa": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "Mazo de esperanza F",
@@ -850,6 +880,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "Una fruta pinchada en un palo. \"¡Pincha, pincha! ¡Clava, clava! ¡Olor muy rico! ¡Ñaaaam!\".",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Mariposas gemelas α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "El dulce aliento de un molbol, acompañado de juguetonas mariposas atraídas a su olor.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "Abanico Era Celeste F α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "Arma para camarada que reluce con el brillo de la estrella celeste. El dibujo de luna lo aúna todo.",
     "15466434-db57-4d4f-a618-224725672329": "Puño de pata F α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "Arma contundente tradicional preferida por los Felyne. Extremo de madera robusta.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "Guadaña letal F α",
@@ -878,6 +910,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "Arma de materiales especiales de Nu Udra. Sus tentáculos escarlatas demuestran su ferocidad.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "Maza Dahaad F γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "Un arma hecha con materiales especiales de Jin Dahaad. La brillante cabeza de martillo es prueba de su valor.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "Espada de Arkveld F γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "Un arma hecha con materiales especiales del Arkveld. Sus cicatrices evocan la gran destreza del hipercurtido.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "Varita de mariposa F α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "Arma de vale de flores. Con un movimiento de esta varita, envías una nube de mariposas revoloteando.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "Ukelele hawaiano F α",
@@ -885,7 +919,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "Lámpara calabaza F  α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "Arma creada con un vale de la cosecha. La calabaza brilla de forma siniestra, como poseída.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "Campana gato nival F α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Un arma del vale de Orión. Agita la campana dorada para recibir la bendición invernal."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Un arma del vale de Orión. Agita la campana dorada para recibir la bendición invernal.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "Soporte de micro F α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "Un arma del vale de traje de gala. ¡Alza la voz con tu micrófono, superestrella! ¡Haz que tus adorados fans griten con aún más fuerza!"
   },
   "rus": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "Молот надежды (К)",
@@ -998,6 +1034,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "Палка с шипастым фруктом. «Шипы-колючки! Вжик-хрясь! Запах совсем вкусный! Ням!»",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Бабочки-близнецы α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "Сладкое дыхание морбола, в парах которого порхают бабочки, привлечённые приторным ароматом.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "Веер лазурной эры (К) α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "Оружие палико, несущее в себе отблеск лазурной звезды. Изображённая полная Луна — знак всеобщего единения.",
     "15466434-db57-4d4f-a618-224725672329": "Удар лапой (К) α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "Ударное оружие с прочным навершием из твёрдой древесины. Излюбленное оружие коттов.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "Коса смерти (К) α",
@@ -1026,6 +1064,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "Оружие из особых материалов с ну удры. Извивающиеся алые щупальца напоминают о присущей монстру свирепости.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "Дахаадовая булава (К) γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "Оружие из особых материалов с джина дахаада. Сияющая белизна навершия напоминает о присущей монстру отваге.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "Арквельдовый меч (К) γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "Оружие из особых материалов с арквельда. Множество шрамов напоминает об отваге архизакалённого монстра.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "Палочка бабочки (К) α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "Оружие за билет цветения. Стоит взмахнуть этой палочкой, и над лугом зашелестят бесчисленные крылья бабочек.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "Укулеле «Алоха» (К) α",
@@ -1033,7 +1073,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "Фонарь из тыквы α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "Оружие за билет урожая. Фонарь из тыквы сияет зловещим светом, будто в нём поселился дух.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "Колокольчик снеж. котта α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Оружие за билет Ориона. Тот, кто встряхнёт этот золотой колокольчик, обязательно получит зимнее благословение."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Оружие за билет Ориона. Тот, кто встряхнёт этот золотой колокольчик, обязательно получит зимнее благословение.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "Микрофон звезды (К) α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "Оружие за билет концертного костюма. Кричите в микрофон, как подобает звезде, и пусть фанаты кричат в ответ!"
   },
   "pol": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "Feliński młot nadziei",
@@ -1146,6 +1188,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "Kolczasty owoc na kiju. „Kolczasty dziab! Dźgający dziab!  Wielce pięknie pachnie! <ITALIC>Pyszotka!</ITALIC>”",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Bliźniacze motyle α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "Słodki oddech morbola, któremu towarzyszą zwabione aromatycznym zapachem radosne motyle.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "F. wachlarz z ep. lazuru α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "Broń koleżkota lśniąca jak lazurowa gwiazda. Wszystko spaja widniejący na wachlarzu księżyc w pełni.",
     "15466434-db57-4d4f-a618-224725672329": "Fel. Łapocios α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "Zwykła broń obuchowa, lubiana przez feliny. W głowni użyto solidnego drewna.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "Fel. kosa śmierci α",
@@ -1174,6 +1218,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "Broń ze specjalnych materiałów z Nu Udry. Wijące się szkarłatne macki są dowodem okrucieństwa.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "Fel. buława Dahaada γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "Broń ze specjalnych materiałów z Jin Dahaada. Lśniąca biała głownia jest dowodem wrodzonej odwagi.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "Fel. miecz Arkvelda γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "Broń ze specjalnych materiałów z Arkvelda. Zniszczenia na jej powierzchni przywodzą na myśl waleczność arcyzahartowanego.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "F. motyla różdżka α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "Broń za kwit kwiecia. Za jednym machnięciem różdżką odlecą wszystkie motyle z łąki.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "Felińskie ukulele aloha α",
@@ -1181,7 +1227,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "Fel. dyniowa latarnia α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "Broń za kwit zbiorów. Dyniowa latarnia upiornie się świeci, jakby opętał ją duch.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "Fel. dzwonek miauwana α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Broń za kwit Oriona. Jedno potrząśnięcie tym złotym dzwonkiem sprowadzi zimowe błogosławieństwa."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Broń za kwit Oriona. Jedno potrząśnięcie tym złotym dzwonkiem sprowadzi zimowe błogosławieństwa.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "Fel. statyw gwiazdy α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "Broń za kwit stroju galowego. Krzycz do tego mikrofonu, gwiazdo, i niech twoi fani krzyczą też!"
   },
   "ptB": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "Martelo da Esperança F.",
@@ -1293,7 +1341,9 @@
     "29dbbda0-8220-4104-99e9-693bb1ea9bff": "Espontudo de Wudwud α",
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "Fruta espinhosa amarrada numa vara. \"Espinhosinho e pontudinho! Que cheiro bom! Nham-nham!\"",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "Borboletas Gêmeas α",
-    "ed84efea-635b-4dda-8449-d758f4af4692": "O doce hálito de um Morbol, acompanhado de borboletas alegres, seduzidas pelo aroma sufocante. ",
+    "ed84efea-635b-4dda-8449-d758f4af4692": "O doce hálito de um Morbol, acompanhado de borboletas alegres, seduzidas pelo aroma sufocante.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "Leque Era Lazúli F. α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "Arma de Amigato que brilha como a estrela lazúli. A lua cheia do leque une a todos.",
     "15466434-db57-4d4f-a618-224725672329": "Soco de Pata F. α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "Arma de contusão comum usada por Felyno. Usa-se madeira maciça na cabeça.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "Foice Necrarma F. α",
@@ -1322,6 +1372,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "Arma feita de materiais especiais de Nu Udra. Seus tentáculos escarlates retorcidos são a prova de sua ferocidade.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "Maça Dahaad F. γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "Arma feita de materiais especiais de Jin Dahaad. A brilhante cabeça branca do martelo é prova de seu valor inerente.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "Espada de Arkveld F. γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "Arma feita de materiais especiais de Arkveld. Suas cicatrizes evocam a proeza do Arquiaguerrido.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "Varinha Borboleta F. α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "Arma de Bilhete Florido. Um toque desta varinha pode fazer um campo inteiro de borboletas alçar voo.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "Ukulele Aloha F. α",
@@ -1329,7 +1381,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "Lanterna de Abóbora F. α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "Uma arma do Bilhete da Safra. A lanterna de abóbora brilha sombria, como se estivesse possuída por um espírito.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "Sino de Neve F. α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Arma do Bilhete de Órion. Um toque desse sino dourado trará as bênçãos do inverno."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "Arma do Bilhete de Órion. Um toque desse sino dourado trará as bênçãos do inverno.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "Microfone Estrela F. α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "Arma do Bilhete de Traje de Gala. Grite no microfone, superestrela, e faça seus fãs gritarem de volta!"
   },
   "kor": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "호프고양이망치",
@@ -1442,6 +1496,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "뾰족뾰족한 과일을 꽂은 봉. \"뾰족뾰족! 삐쭉삐쭉! 좋은 냄새! 맛~있어!\"",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "짝꿍나비α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "몰볼 묘목의 달콤한 입김. 그 향기에 이끌려 어디선가 나비들이 나타난다.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "푸른빛고양이부채α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "푸른 별빛을 연상시키는 무기. 부채에 그려진 보름달은 야옹 천하를 꿈꾸는 묘심을 나타낸다.",
     "15466434-db57-4d4f-a618-224725672329": "고양이발펀치α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "아이루족이 많이 사용하는 전통 타격 무기. 무기 끝부분은 튼튼한 나무로 만들었다.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "데스기어고양이사이즈α",
@@ -1470,6 +1526,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "특별한 누 이그드라 소재로 만든 무기. 붉게 꿈틀대는 촉수는 역전왕다운 전투 능력을 발휘한 증거다.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "다하딜라고양이메이스γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "특별한 진 다하드의 소재로 만든 무기. 하얗게 빛나는 해머 형태 헤드는 역전왕의 무용을 상징한다.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "슈바르카고양이소드γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "특별한 알슈베르도 소재로 만든 무기. 수많은 전투의 상흔이 남은 대검은 역전의 왕다운 전투 능력을 상징한다.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "파피고양이스틱α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "블로섬 티켓으로 만드는 무기. 한 번 휘두르면 꽃밭에서 뛰놀듯 나비가 춤을 춘다.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "알로하냥이우쿨렐레α",
@@ -1477,7 +1535,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "고스트고양이램프α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "하베스트 티켓으로 만드는 무기. 정령이 깃든 호박으로 만든 램프가 어둠 속에서 불길한 미소를 띤다.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "스노고양이벨α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "오리온 티켓으로 만드는 무기. 찬란한 황금으로 된 핸드벨을 흔들면 축복의 종소리가 울려 퍼진다."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "오리온 티켓으로 만드는 무기. 찬란한 황금으로 된 핸드벨을 흔들면 축복의 종소리가 울려 퍼진다.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "스타고양이스탠드α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "풀드레스 티켓으로 만드는 무기. 팬을 사로잡는 슈퍼 스타가 되어 감사한 마음을 크게 외치자!"
   },
   "chT": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "希望貓小錘",
@@ -1590,6 +1650,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "將多刺的水果插在前端的棒子。 「尖尖！刺刺！香香！好吃！」",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "雙蝶α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "不知從何處而來的蝴蝶被毛爾波爾 散發的甘甜氣味吸引，在香氣中 翩然起舞。",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "蒼世貓舞扇α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "讓人聯想到璀璨蒼藍星的武器。 那扇子上所描繪的滿月透露著 一統喵界的覺悟。",
     "15466434-db57-4d4f-a618-224725672329": "肉球貓拳α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "艾路族間廣泛使用的傳統打擊武器。 前端部分使用了堅固的木頭。",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "死神貓鐮刀α",
@@ -1618,6 +1680,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "以特殊獄焰鱆素材製作的武器。蠢蠢 欲動的紅色觸手是展現歷戰王勇武的 證明。",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "凍峰龍貓權杖γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "以特殊凍峰龍素材製作的武器。 閃耀白光的鎚頭是展現歷戰王勇 武的證明。",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "鎖刃龍貓劍γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "以特別的鎖刃龍素材製作的武器。 滿是傷痕的大劍就是展示歷戰王武 勇的證明。",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "燕尾蝶貓杖α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "可憑盛放票製作的武器。揮動武器時 蝴蝶會隨之紛飛，宛如置身於花田。",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "阿羅哈貓烏克麗麗α",
@@ -1625,7 +1689,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "幽靈貓燈α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "可憑收穫票製作的武器。據說製作 提燈的南瓜裡棲息著精靈，會在黑 夜露出妖異笑容。",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "雪貓鈴α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "可憑獵戶星票製作的武器。只要搖動 耀眼的黃金手鈴，就會響起祝福的 鐘聲。"
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "可憑獵戶星票製作的武器。只要搖動 耀眼的黃金手鈴，就會響起祝福的 鐘聲。",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "巨星貓麥克風架α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "可憑盛裝票製作的武器。成為超級巨 星，讓粉絲著迷並瘋狂歡呼吧！ "
   },
   "chS": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "希望猫小锤",
@@ -1738,6 +1804,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "顶部插着带刺果实的棍棒。 “尖尖！刺刺！香香！好吃！”",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "双蝶α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "魔界花吐出的甘甜气息，引来不知 从何处而来的蝴蝶，在香雾中翩然 起舞。",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "苍世猫舞扇α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "让人联想到璀璨苍蓝星的武器。那 扇子上所描绘的满月，透露着一统 喵界的觉悟。",
     "15466434-db57-4d4f-a618-224725672329": "肉球猫拳α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "艾露猫一族内广泛使用的传统打击 武器。前端部分使用了坚固的木头。",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "死神猫镰刀α",
@@ -1766,6 +1834,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "使用特殊的狱焰蛸素材制作的武器。 蠢动的猩红色触手彰显着历战王者 的勇武。",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "冻峰龙猫权杖γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "使用特殊的冻峰龙素材制作的武器。 散发白色光辉的锤头彰显着历战王 者的勇武。",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "锁刃龙猫剑γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "使用特殊的锁刃龙素材制作的武器。 战痕累累的大剑彰显着历战王者的 勇武。",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "燕尾蝶猫杖α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "使用盛开票券制作的武器。每次挥 动，都有蝴蝶随之翩翩起舞，宛如 置身花田之中。",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "阿罗哈猫尤克里里α",
@@ -1773,7 +1843,9 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "幽灵猫灯α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "使用收获票券制作的武器。寄宿着 精灵的南瓜制成的提灯在黑夜中发 出诡异的笑声。",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "雪猫铃α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "使用猎户星票制作的武器。闪耀的 黄金手杖，一旦挥舞便会响起祝福 的钟声。"
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "使用猎户星票制作的武器。闪耀的 黄金手杖，一旦挥舞便会响起祝福 的钟声。",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "巨星猫麦克风架α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "使用盛装票制作的武器。成为令粉 丝着迷的超级巨星。粉丝们，呐喊 起来吧！"
   },
   "ara": {
     "aedd21e2-daf4-4894-8fa2-7a7e3fe8c582": "مطرقة أمل فيلاين",
@@ -1886,6 +1958,8 @@
     "74826d29-a655-4a87-9803-0b5c0b3e5fb6": "فاكهة شوكية مربوطة بعصا. \"ذات شوكة حادة! ذات طعنات حادة! رائحتها قوية ولذيذة! يمي!\"",
     "3663b9d2-eebd-4209-b72d-b3a2608b6c1b": "فراشات التوأم المجنّحة α",
     "ed84efea-635b-4dda-8449-d758f4af4692": "نَفَس الـ(موربول) العَطِر، ترافقهُ الفراشات المرِحة التي جذبها العِطر الغامر.",
+    "8f2e43fc-124a-42dc-9780-b60e2ad822e4": "مروحة فيلاين عصر اللازوردي α",
+    "2dbb92aa-0bed-46db-9d3c-19a73fd9ec1d": "درع باليكو الوامض بوهج النجم اللازوردي. البدر الذي يشع على المروحة يوحد الجميع.",
     "15466434-db57-4d4f-a618-224725672329": "حقيبة مخلب فيلاين α",
     "ee5846fb-d30b-428f-a7c3-57f02e2ab45b": "سلاح غير حاد تقليدي يفضله الفيلاين. رأسه مصنوع من خشب متين.",
     "d4a997fe-5a62-4131-abe0-fdfc99ce0b5e": "منجل فيلاين عتاد الموت α",
@@ -1914,6 +1988,8 @@
     "5b1cf48f-ba8e-446b-8daf-1467fb04ce44": "سلاح مصنوع من مواد (نو أودرا) خاصة. مجساته القرمزية الملتوية دليل على شراسته.",
     "ba9f580f-c491-4c69-af46-9b8b28681d74": "صولجان فيلاين دهاد γ",
     "e7966a1a-62b3-4b1d-b9fc-edd402514b35": "سلاح مصنوع من مواد (جين دهاد) خاصة. رأس المطرقة الأبيض البراق دليل على بسالته الفطرية.",
+    "340d66d7-55ab-4141-872c-a0af55bce41a": "سيف فيلاين آركفيلد γ",
+    "4a5cd489-4c73-477c-80d4-a9fcf710bd54": "سلاح مصنوع من مواد (آركفيلد) خاصة. تستحضر ندوبه براعة شديد الغضب.",
     "79ba0d33-d433-40e5-a989-460e036cb9ee": "عصا فيلاين الفراشة السحرية α",
     "f1b230d9-e24c-4347-acc2-2d36789f44e2": "سلاح تذكرة مهرجان الزهرة. حركة واحدة من هذه العصا السحرية يمكن أن تجعل سربًا كاملًا من الفراشات يرفرف.",
     "2ce04689-6fb5-4822-b000-a42b406d3292": "أوكوليلي فيلاين ألوها α",
@@ -1921,6 +1997,8 @@
     "7305c465-7b35-4117-bf47-6a2faa56c359": "قرعة فيلاين المضيئة α",
     "dc9b1848-770e-47e8-932a-4c06d60dd977": "سلاح تذكرة الحصاد. يتوهج فانوس اليقطين بشكل مخيف وكأن روحًا تسكنه.",
     "7f6aede1-23cc-43d1-a9f3-9a980ab7f437": "جرس فيلاين قط الثلج α",
-    "54d1f1eb-0ed1-4da0-b882-54a475009687": "سلاح تذكرة (أوريون). مجرد هزّة واحدة لذلك الجرس الذهبي تكفي لجلب بركات الشتاء."
+    "54d1f1eb-0ed1-4da0-b882-54a475009687": "سلاح تذكرة (أوريون). مجرد هزّة واحدة لذلك الجرس الذهبي تكفي لجلب بركات الشتاء.",
+    "aa222939-ae89-4d83-8bc1-c2ceb6147969": "حامل ميكروفون فيلاين النجمي α",
+    "1f65cd6a-2ea0-425a-9b4d-a9997c329616": "سلاح تذكرة بدلة المهرجان.  <LSNR \"اصرخ\" \"اصرخي\"> في هذا الميكروفون <LSNR \"أيها النجم\" \"أيتها النجمة\">، و<LSNR \"اجعل معجبيكَ\" \"اجعلي معجبيكِ\"> يصرخون بدورهم!"
   }
 }
