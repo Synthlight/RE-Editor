@@ -1,1 +1,1 @@
-call Dump-Parser.bat MHR
+call Dump-Parser.bat MHR REasyRSZ

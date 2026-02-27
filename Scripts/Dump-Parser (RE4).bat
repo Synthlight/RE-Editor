@@ -1,1 +1,1 @@
-call Dump-Parser.bat RE4
+call Dump-Parser.bat RE4 REasyRSZ

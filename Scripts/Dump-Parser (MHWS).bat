@@ -1,1 +1,1 @@
-call Dump-Parser.bat MHWS
+call Dump-Parser.bat MHWS ALL
