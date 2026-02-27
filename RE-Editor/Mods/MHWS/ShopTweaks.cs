@@ -51,7 +51,8 @@ public class ShopTweaks : IMod {
         ItemConstants.POISON_COATING,
         ItemConstants.SLEEP_COATING,
         ItemConstants.BLAST_COATING,
-        ItemConstants.WYVERN_EGG
+        ItemConstants.WYVERN_EGG,
+        ItemConstants.MONSTIE_EGG
     ];
 
     [UsedImplicitly]
