@@ -58,6 +58,8 @@ public static class Utils {
 #elif RE4
             DataSourceType.ITEMS => DataHelper.ITEM_NAME_LOOKUP[Global.variant][Global.locale],
             DataSourceType.WEAPONS => DataHelper.WEAPON_NAME_LOOKUP[Global.variant][Global.locale],
+#elif RE9
+            DataSourceType.ITEMS => DataHelper.ITEM_NAME_LOOKUP_BY_VALUE[Global.locale],
 #endif
             _ => throw new ArgumentOutOfRangeException(dataSourceType.ToString())
         };
@@ -100,6 +102,8 @@ public static class Utils {
 #elif RE4
             "chainsaw.ItemID" => DataSourceType.ITEMS,
             "chainsaw.WeaponID" => DataSourceType.WEAPONS,
+#elif RE9
+            "chainsaw.ItemID" => DataSourceType.ITEMS,
 #endif
             _ => null
         };

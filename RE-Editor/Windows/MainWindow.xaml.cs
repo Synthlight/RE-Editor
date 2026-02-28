@@ -58,6 +58,8 @@ public partial class MainWindow {
     private const string TITLE = "RE4 Editor";
 #elif RE8
     private const string TITLE = "RE8 Editor";
+#elif RE9
+    private const string TITLE = "RE9 Editor";
 #endif
 
     [CanBeNull] private CancellationTokenSource savedTimer;

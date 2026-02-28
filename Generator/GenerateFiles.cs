@@ -74,6 +74,8 @@ public partial class GenerateFiles {
         "chainsaw.CameraCurveUserDataParam.CurveParamTable`", // Winds up with `ObservableCollection<System_String>` instead of `ObservableCollection<string>`.
 #elif RE8
         "app.TPSCameraConditionSetting`",
+#elif RE9
+        "app.lod.LODProcessDefine.ClassSelector`",
 #endif
     ];
 
@@ -219,6 +221,29 @@ public partial class GenerateFiles {
         "app.ParamSetting`",
         "app.Spawn.ResumeOptionParameter`",
         "app.TPSCameraConditionContainer`",
+#elif RE9
+        "app.AppEventCatalogBase`",
+        "app.AppIkLookAtMentalSettingUserData`", // Has nested generics: app.AppIkLookAtMentalSettingUserData`1.SettingDataWithMental`1<app.PlayerDefine.MentalState,app.PlayerDefine.MentalState>
+        "app.ContextIDRef`",
+        "app.ContextIDReserver`",
+        "app.ContextIDReserverWithEnumeration`",
+        "app.Cp_C800AfterAttackWaitInfo`",
+        "app.Cp_C900AfterAttackWaitInfo`",
+        "app.Cp_C900RankParameterBase`",
+        "app.Cp_C901AfterAttackWaitInfo`",
+        "app.Cp_C901RankParameterBase`",
+        "app.DifficultyBorderValueHolder`",
+        "app.EffectMaterialGroupConvertSettingUserdataBase`",
+        "app.GuiImageData`",
+        "app.LayeredParamContainerUserData`",
+        "app.PartDestructionHierarchyBase`", // Triple generic: app.PartDestructionHierarchyBase`3.PartNode<app.IDDummy,app.HeadPartID,app.HeadDestructionTypes>
+        "app.PlayerCameraSettingParam`",
+        "app.PlayerCameraShakeSettingParam`",
+        "app.PlayerMentalStateFacialAnimationConfiguration.MentalStateFacialAnimationSettingData`",
+        "app.RankBorderValueHolder`",
+        "app.SelectTypeContainer`",
+        "soundlib.SoundStateApp`",
+        "soundlib.SoundSwitchApp`",
 #endif
     ];
 
@@ -542,6 +567,7 @@ public partial class GenerateFiles {
             var isAllowed = structName.StartsWith(ROOT_STRUCT_NAMESPACE)
                             || structName.StartsWith("ace")
                             || structName.StartsWith("AISituation")
+                            || structName.StartsWith("anim")
                             || structName.StartsWith("goatree")
                             || structName.StartsWith("share")
                             || structName.StartsWith("solid")

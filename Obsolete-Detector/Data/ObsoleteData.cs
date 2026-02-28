@@ -27,6 +27,8 @@ using RE_Editor.Obsolete_Detector.Data.RE3;
 using RE_Editor.Obsolete_Detector.Data.RE4;
 #elif RE8
 using RE_Editor.Obsolete_Detector.Data.RE8;
+#elif RE9
+using RE_Editor.Obsolete_Detector.Data.RE9;
 #endif
 
 namespace RE_Editor.Obsolete_Detector.Data;

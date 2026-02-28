@@ -74,4 +74,11 @@
 		<Compile Remove="Models\RE8\**"/>
 		<Compile Remove="Structs\RE8\**"/>
 	</ItemGroup>
+	<!-- RE9 -->
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE9`))'">
+		<Compile Remove="Enums\RE9\**"/>
+		<Compile Remove="Manual\RE9\Structs\**"/>
+		<Compile Remove="Models\RE9\**"/>
+		<Compile Remove="Structs\RE9\**"/>
+	</ItemGroup>
 </Project>

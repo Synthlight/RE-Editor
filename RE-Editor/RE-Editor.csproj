@@ -385,6 +385,44 @@
 		<Message Importance="high" Text="Copying launchSettings.RE8.json..."/>
 		<Copy SourceFiles="Properties/launchSettings.RE8.json" DestinationFiles="Properties/launchSettings.json"/>
 	</Target>
+	<!-- RE9 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('RE9'))">
+		<AssemblyName>RE9-Editor</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('RE9'))">
+		<Compile Update="Data\RE9\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\RE9\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\RE9\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE9`))'">
+		<Compile Remove="Constants\RE9\**"/>
+		<Compile Remove="Data\RE9\**"/>
+		<EmbeddedResource Remove="Data\RE9\**"/>
+		<Page Remove="Data\RE9\**"/>
+		<None Remove="Data\RE9\**"/>
+		<Compile Remove="Data\DataInit.RE9.cs"/>
+		<Compile Remove="Models\RE9\**"/>
+		<Compile Remove="Mods\RE9\**"/>
+	</ItemGroup>
+	<!-- RE9 (Launch Settings) -->
+	<ItemGroup Condition="$(Configuration.StartsWith('RE9'))">
+		<UpToDateCheckInput Include="Properties/launchSettings.RE9.json"/>
+	</ItemGroup>
+	<Target Condition="$(Configuration.StartsWith('RE9'))" Name="CopyLaunchSettingsRE9" AfterTargets="Build" Inputs="Properties/launchSettings.RE9.json" Outputs="Properties/launchSettings.json">
+		<Message Importance="high" Text="Copying launchSettings.RE9.json..."/>
+		<Copy SourceFiles="Properties/launchSettings.RE9.json" DestinationFiles="Properties/launchSettings.json"/>
+	</Target>
 	<!-- Clean Launch Settings -->
 	<Target Name="CleanLaunchSettings" AfterTargets="Clean">
 		<Message Importance="high" Text="Deleting launchSettings.json..."/>

@@ -170,6 +170,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             DataSourceType.SKILLS => "int",
             DataSourceType.PENDANTS => "int",
             DataSourceType.WEAPON_SERIES => "int",
+#elif RE9
 #endif
             null => null,
             _ => "uint"

@@ -139,6 +139,8 @@ public static class Global {
     public const string MSG_VERSION = "22";
 #elif RE8
     public const string MSG_VERSION = "33685777";
+#elif RE9
+    public const string MSG_VERSION = "23";
 #endif
 
 #if DD2
@@ -159,6 +161,8 @@ public static class Global {
     public const string USER_VERSION = "2";
 #elif RE8
     public const string USER_VERSION = "2";
+#elif RE9
+    public const string USER_VERSION = "3";
 #endif
 
 #if DD2
@@ -179,6 +183,8 @@ public static class Global {
     public const string PAK_CREATE_ARGS = "";
 #elif RE8
     public const string PAK_CREATE_ARGS = "";
+#elif RE9
+    public const string PAK_CREATE_ARGS = "-version 4 2";
 #endif
 
 #if DD2
@@ -199,6 +205,8 @@ public static class Global {
     public const string CURRENT_GAME_VERSION = "v2026-02-02";
 #elif RE8
     public const string CURRENT_GAME_VERSION = "Unknown";
+#elif RE9
+    public const string CURRENT_GAME_VERSION = "v2026-02-28";
 #endif
 
 // @formatter:off (Because it screws up the alignment of inactive sections.)

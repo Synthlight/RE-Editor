@@ -49,4 +49,8 @@
 	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE8`))'">
 		<Compile Remove="Program.RE8.cs"/>
 	</ItemGroup>
+	<!-- RE9 -->
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE9`))'">
+		<Compile Remove="Program.RE9.cs"/>
+	</ItemGroup>
 </Project>

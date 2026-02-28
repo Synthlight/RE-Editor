@@ -4,13 +4,6 @@ using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Controls.Models;
 using RE_Editor.Common.Util;
 
-#if MHR
-using RE_Editor.Common.Data;
-#elif MHWS
-#elif RE4
-using RE_Editor.Common.Data;
-#endif
-
 namespace RE_Editor.Common.Models.List_Wrappers;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]

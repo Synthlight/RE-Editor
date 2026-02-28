@@ -1,0 +1,43 @@
+﻿using RE_Editor.Common.PakModels;
+
+namespace RE_Editor.Common;
+
+public static partial class PathHelper {
+    public const string CONFIG_NAME      = "RE9";
+    public const string CHUNK_PATH       = @"V:\RE9\re_chunk_000";
+    public const string GAME_PATH        = @"O:\SteamLibrary\steamapps\common\RESIDENT EVIL requiem BIOHAZARD requiem";
+    public const string GAME_PATH_MSG    = "";
+    public const string EXE_PATH         = $@"{GAME_PATH}\re9_dump.exe";
+    public const string IL2CPP_DUMP_PATH = $@"{GAME_PATH}\il2cpp_dump.json";
+    public const string ENUM_HEADER_PATH = $@"{GAME_PATH}\Enums_Internal.hpp";
+    public const string REFRAMEWORK_PATH = @"R:\Games\Monster Hunter Rise\REFramework";
+    public const string MODS_PATH        = @"R:\Games\Resident Evil 9 (Requiem)\Mods";
+    public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil 9 (Requiem)\FMM\Games\RE9\Mods";
+    public const string PAK_LIST         = @"R:\Games\Resident Evil 9 (Requiem)\RE9.list";
+    public const string PAK_LIST_MSG     = "";
+    public const string R_EASY_RSZ       = "";
+
+    public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
+        "user",
+        "pfb",
+        "msg"
+    ];
+
+    public static readonly string[] PAK_PATHS = [
+        "re_chunk_000.pak",
+        "re_chunk_000.pak.sub_000.pak.patch_001.pak",
+    ];
+
+    public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
+        new(new(2025, 02, 28), "1.000.00.00", [
+            "re_chunk_000.pak",
+            "re_chunk_000.pak.sub_000.pak"
+        ]) {updateName = "Initial Release"},
+    ];
+
+    public const string NEXUS_URL              = "";
+    public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
+    public const string WIKI_URL               = NEXUS_URL;
+
+    public const string ITEM_DATA_PATH = @"\natives\STM\LevelDesign\Item\UserData\ItemCatalogUserData.user.3";
+}

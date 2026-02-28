@@ -34,16 +34,19 @@ public partial class MainWindow {
     public const string FMM_GAME_FOLDER   = "Pragmata";
 #elif RE2
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\RESIDENT EVIL 2  BIOHAZARD RE2";
-    public const string FMM_GAME_FOLDER   = "";
+    public const string FMM_GAME_FOLDER   = "RE2R";
 #elif RE3
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\RE3";
-    public const string FMM_GAME_FOLDER   = "";
+    public const string FMM_GAME_FOLDER   = "RE3R";
 #elif RE4
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\RESIDENT EVIL 4  BIOHAZARD RE4";
-    public const string FMM_GAME_FOLDER   = "";
+    public const string FMM_GAME_FOLDER   = "RE4R";
 #elif RE8
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\Resident Evil Village BIOHAZARD VILLAGE";
-    public const string FMM_GAME_FOLDER   = "";
+    public const string FMM_GAME_FOLDER   = "RE8";
+#elif RE9
+    public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\RE9";
+    public const string FMM_GAME_FOLDER   = "RE9";
 #endif
 // @formatter:on
 

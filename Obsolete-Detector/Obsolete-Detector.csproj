@@ -253,4 +253,30 @@
 		<Page Remove="Data\RE8\**"/>
 		<None Remove="Data\RE8\**"/>
 	</ItemGroup>
+	<!-- RE9 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('RE9'))">
+		<AssemblyName>RE9-Obsolete-Detector</AssemblyName>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+	<ItemGroup Condition="$(Configuration.StartsWith('RE9'))">
+		<Compile Update="Data\RE9\Assets.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Assets.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Data\RE9\Assets.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Assets.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Data\RE9\Assets\SUPPORTED_FILES.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>SUPPORTED_FILES.txt</TargetPath>
+		</None>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE9`))'">
+		<Compile Remove="Data\RE9\**"/>
+		<EmbeddedResource Remove="Data\RE9\**"/>
+		<Page Remove="Data\RE9\**"/>
+		<None Remove="Data\RE9\**"/>
+	</ItemGroup>
 </Project>

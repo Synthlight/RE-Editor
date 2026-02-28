@@ -33,7 +33,7 @@ public partial class MainWindow {
 
     private void Btn_make_all_mods_Click(object sender, RoutedEventArgs e) {
         foreach (var make in allMakeModMethods) {
-            make.Invoke(null, null);
+            make.Invoke(null, [this]);
         }
     }
 

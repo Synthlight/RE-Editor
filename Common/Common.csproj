@@ -96,4 +96,13 @@
 		<Compile Remove="Data\DataHelper.RE8.cs"/>
 		<Compile Remove="PathHelper.RE8.cs"/>
 	</ItemGroup>
+	<!-- RE9 -->
+	<ItemGroup Condition="'$(Configuration.StartsWith(`RE9`))'">
+		<Compile Remove="Attributes\DataSourceType.cs"/>
+	</ItemGroup>
+	<ItemGroup Condition="'!$(Configuration.StartsWith(`RE9`))'">
+		<Compile Remove="Attributes\DataSourceType.RE9.cs"/>
+		<Compile Remove="Data\DataHelper.RE9.cs"/>
+		<Compile Remove="PathHelper.RE9.cs"/>
+	</ItemGroup>
 </Project>

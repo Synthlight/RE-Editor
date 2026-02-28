@@ -27,6 +27,8 @@ using RE_Editor.Data.RE3;
 using RE_Editor.Data.RE4;
 #elif RE8
 using RE_Editor.Data.RE8;
+#elif RE9
+using RE_Editor.Data.RE9;
 #endif
 
 namespace RE_Editor.Data;

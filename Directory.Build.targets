@@ -39,4 +39,12 @@
 	<PropertyGroup Condition="$(Configuration.Contains('Debug'))">
 		<DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
 	</PropertyGroup>
+	<!-- RE9 -->
+	<PropertyGroup Condition="$(Configuration.StartsWith('RE9'))">
+		<DefineConstants>$(DefineConstants);RE9</DefineConstants>
+	</PropertyGroup>
+	<!-- Debug -->
+	<PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+		<DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+	</PropertyGroup>
 </Project>
