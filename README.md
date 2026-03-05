@@ -16,7 +16,7 @@ RE2 | Resident Evil 2 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/rele
 RE3 | Resident Evil 3 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE3-Editor_v1.0.0.0) | 96%
 RE4 | Resident Evil 4 | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE4-Editor_v1.0.0.0) | 95%
 RE8 | Resident Evil Village | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE8-Editor_v1.0.0.0) | 98%
-RE9 | Resident Evil Requiem | [v1.0.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE9-Editor_v1.0.0.0) | 99%
+RE9 | Resident Evil Requiem | [v1.1.0.0](https://github.com/Synthlight/MHR-Editor/releases/tag/RE9-Editor_v1.1.0.0) | 99%
 
 (Almost everything in the code and prog arguments use the short name; case sensitive.)<br>
 To build for a game, switch to that configuration: `{Game} - Debug/Release`
