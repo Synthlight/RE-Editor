@@ -184,7 +184,7 @@ public static class Global {
 #elif RE8
     public const string PAK_CREATE_ARGS = "";
 #elif RE9
-    public const string PAK_CREATE_ARGS = "-version 4 2";
+    public const string PAK_CREATE_ARGS = "-version 4 1";
 #endif
 
 #if DD2
@@ -206,7 +206,7 @@ public static class Global {
 #elif RE8
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif RE9
-    public const string CURRENT_GAME_VERSION = "v2026-02-28";
+    public const string CURRENT_GAME_VERSION = "v1.0.0.0";
 #endif
 
 // @formatter:off (Because it screws up the alignment of inactive sections.)

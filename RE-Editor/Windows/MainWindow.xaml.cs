@@ -223,6 +223,10 @@ public partial class MainWindow {
             throw new NotImplementedException("Tuples are not supported yet."); // TODO: Add tuple support to the UI.
         }
 
+        if (items == null) {
+            throw new NoNullAllowedException("Object is null, nothing to open.\n(This isn't really an error, just framed as one.)");
+        }
+
         if (!isList) {
             var observableType = typeof(ObservableCollection<>).MakeGenericType(entryListType);
             var count          = (int) observableType.GetProperty(nameof(ObservableCollection<int>.Count), Global.FLAGS)!.GetGetMethod()!.Invoke(items, null)!; // TODO: Remove the `int` generic param once C# 14 come out.

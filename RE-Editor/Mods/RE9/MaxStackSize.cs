@@ -17,17 +17,18 @@ public class MaxStackSize : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Stack Size Changes";
         const string description = "Modifies the stack size of stackable items.";
-        const string version     = "1.0";
+        const string version     = "1.2";
 
-        var itemDataFiles = new List<string> {
+        List<string> files = [
             PathHelper.ITEM_DATA_PATH
-        };
+        ];
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
             Desc         = description,
-            Files        = itemDataFiles
+            Image        = $@"{PathHelper.MODS_PATH}\{name}\Pic.png",
+            Files        = files
         };
 
         var mods = new[] {
@@ -72,6 +73,10 @@ public class MaxStackSize : IMod {
                                       || itemId == ItemConstants.MIXED_HERB_G_PLUSG
                                       || itemId == ItemConstants.MIXED_HERB_G_PLUSG_PLUSG
                                       || itemId == ItemConstants.SCRAP
+                                      || itemId == ItemConstants.RARE_METAL
+                                      || itemId == ItemConstants.EMPTY_INJECTOR
+                                      || itemId == ItemConstants.STEROIDS
+                                      || itemId == ItemConstants.STABILIZER
                                       || itemId == ItemConstants.GUNPOWDER_SMALL
                                       || itemId == ItemConstants.GUNPOWDER_LARGE;
 

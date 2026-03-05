@@ -136,10 +136,21 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             case "App_user_data_EffectManagerSetting_cHitmarkColor.EnemyID_Fixed": return DataSourceType.ENEMIES;
             case "App_WeaponCharmDef_TYPE_Serializable.Value": return DataSourceType.PENDANTS;
             case "App_WeaponDef_SERIES_Serializable.Value": return DataSourceType.WEAPON_SERIES;
+#elif RE9
+            case "App_AppendItemCatalogUserData_BonusAppendItemData_Native.ItemID": return DataSourceType.ITEMS;
+            case "App_CraftRecipe_MaterialItemDataBase.ItemID": return DataSourceType.ITEMS;
+            case "App_CraftRecipe_ProductItemDataBase.ItemID": return DataSourceType.ITEMS;
 #endif
         }
 #pragma warning restore CS1522
 #pragma warning restore IDE0066
+
+#if RE9
+        if (field.name.ToConvertedFieldName() == "ItemIDStr"
+            || field.name.ToConvertedFieldName() == "AmmoItemIDStr") {
+            return DataSourceType.ITEMS;
+        }
+#endif
 
         var originalType = field.originalType;
         if (originalType == null) return null;
@@ -171,6 +182,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             DataSourceType.PENDANTS => "int",
             DataSourceType.WEAPON_SERIES => "int",
 #elif RE9
+            DataSourceType.ITEMS => "string",
 #endif
             null => null,
             _ => "uint"

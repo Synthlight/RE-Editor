@@ -35,6 +35,7 @@ public class MSG {
 
     public static MSG Read(string targetFile, bool writeNameIds = false) {
         Global.Log($"Reading: {targetFile}");
+        WriteDecryptedCopy(targetFile);
         using var reader = new BinaryReader(File.OpenRead(targetFile));
         return Read(reader, writeNameIds);
     }
@@ -42,6 +43,21 @@ public class MSG {
     public static MSG Read(byte[] bytes, bool writeNameIds = false) {
         using var reader = new BinaryReader(new MemoryStream(bytes));
         return Read(reader, writeNameIds);
+    }
+
+    private static void WriteDecryptedCopy(string targetFile) {
+        var outFile = targetFile.Replace(".msg", ".decrypted.msg");
+        File.Copy(targetFile, outFile, true);
+        using var stream = File.Open(outFile, FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
+        using var reader = new BinaryReader(stream);
+        using var writer = new BinaryWriter(stream);
+        stream.Seek(32, SeekOrigin.Begin);
+        var data1Offset = reader.ReadUInt64();
+        stream.Seek((long) data1Offset, SeekOrigin.Begin);
+        var data1 = reader.ReadBytes((int) (stream.Length - (long) data1Offset));
+        Decrypt(data1);
+        stream.Seek((long) data1Offset, SeekOrigin.Begin);
+        writer.Write(data1);
     }
 
     private static MSG Read(BinaryReader reader, bool writeNameIds = false) {
@@ -222,7 +238,7 @@ public class MSG {
         if (subEntries == null) return [];
         var dict = new Dictionary<Guid, string>(subEntries.Length);
         foreach (var entry in subEntries) {
-            var id   = entry.id1;
+            var id   = entry.guid;
             var text = entry.refs[(int) lang];
             if (text == "") continue;
             SetText(text, dict, id);
@@ -249,10 +265,10 @@ public class MSG {
     }
 
     public class SubEntry {
-        public Guid      id1;
-        public uint      id2;
-        public uint      index;
-        public ulong     firstOffset;
+        public Guid      guid;
+        public uint      crc;
+        public uint      hash;
+        public ulong     entryNameOffset;
         public ulong     typeOffset;
         public ulong[]   strOffsets;
         public TypeEntry type;
@@ -263,10 +279,10 @@ public class MSG {
             var subEntry = new SubEntry();
             var position = reader.BaseStream.Position;
             reader.BaseStream.Position = (long) subOffset;
-            subEntry.id1               = new(reader.ReadBytes(16));
-            subEntry.id2               = reader.ReadUInt32();
-            subEntry.index             = reader.ReadUInt32();
-            subEntry.firstOffset       = reader.ReadUInt64();
+            subEntry.guid              = new(reader.ReadBytes(16));
+            subEntry.crc               = reader.ReadUInt32();
+            subEntry.hash              = reader.ReadUInt32(); // `index` in older versions.
+            subEntry.entryNameOffset   = reader.ReadUInt64();
             subEntry.typeOffset        = reader.ReadUInt64();
             subEntry.strOffsets        = new ulong[file.langCount];
             for (var strIndex = 0; strIndex < file.langCount; strIndex++) {
@@ -275,7 +291,7 @@ public class MSG {
 
             reader.BaseStream.Seek((long) subEntry.typeOffset, SeekOrigin.Begin);
             subEntry.type  = TypeEntry.Read(file, reader, decryptedStream);
-            subEntry.first = ReadWString(file, decryptedStream, subEntry.firstOffset);
+            subEntry.first = ReadWString(file, decryptedStream, subEntry.entryNameOffset);
             subEntry.refs  = new string[file.langCount];
             for (var langIndex = 0; langIndex < file.langCount; langIndex++) {
                 subEntry.refs[langIndex] = ReadWString(file, decryptedStream, subEntry.strOffsets[langIndex]);

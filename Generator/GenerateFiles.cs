@@ -236,6 +236,9 @@ public partial class GenerateFiles {
         "app.EffectMaterialGroupConvertSettingUserdataBase`",
         "app.GuiImageData`",
         "app.LayeredParamContainerUserData`",
+        "app.OccurrenceConditionBase`",
+        "app.OccurrenceConditionBase_Count`",
+        "app.OccurrenceCondition_CheckAchievementLinkIDTable`",
         "app.PartDestructionHierarchyBase`", // Triple generic: app.PartDestructionHierarchyBase`3.PartNode<app.IDDummy,app.HeadPartID,app.HeadDestructionTypes>
         "app.PlayerCameraSettingParam`",
         "app.PlayerCameraShakeSettingParam`",
@@ -532,7 +535,6 @@ public partial class GenerateFiles {
              *     `app.ShellAdditionalParameter`1<app.ShellAdditionalSurfaceSticker>` <- We want to skip this.
              *         `app.ShellAdditionalParameter` <---------------------------------- And get this.
              */
-
 
             if (structJsonByName.TryGetValue(parent, out var parentStructInfo)) {
                 if (parent.Contains('`') && parentStructInfo.parent?.Contains('`') == false && parentStructInfo.fields?.Count == 0) {

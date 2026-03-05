@@ -6,5 +6,6 @@ namespace RE_Editor.Common.Data;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public static partial class DataHelper {
+    public static Dictionary<Global.LangIndex, Dictionary<string, string>> CHALLENGE_NAME_LOOKUP_BY_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<string, string>> ITEM_NAME_LOOKUP_BY_VALUE;
 }

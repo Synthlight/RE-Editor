@@ -25,19 +25,21 @@ public static partial class PathHelper {
 
     public static readonly string[] PAK_PATHS = [
         "re_chunk_000.pak",
-        "re_chunk_000.pak.sub_000.pak.patch_001.pak",
+        "re_chunk_000.pak.sub_000.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
-        new(new(2025, 02, 28), "1.000.00.00", [
+        new(new(2026, 02, 28), "1.0.0.0", [
             "re_chunk_000.pak",
             "re_chunk_000.pak.sub_000.pak"
-        ]) {updateName = "Initial Release"},
+        ]) {updateName = "Initial Release"}
     ];
 
     public const string NEXUS_URL              = "";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
     public const string WIKI_URL               = NEXUS_URL;
 
-    public const string ITEM_DATA_PATH = @"\natives\STM\LevelDesign\Item\UserData\ItemCatalogUserData.user.3";
+    public const string CHALLENGE_DATA_PATH = @"\natives\STM\LevelDesign\Achievement\AchievementDataCatalogApp.user.3";
+    public const string BONUS_DATA_PATH     = @"\natives\STM\LevelDesign\Bonus\EXShop\EXShopItemDataCatalog.user.3";
+    public const string ITEM_DATA_PATH      = @"\natives\STM\LevelDesign\Item\UserData\ItemCatalogUserData.user.3";
 }

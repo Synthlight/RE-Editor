@@ -3,6 +3,10 @@
         "[None]": {
             "commandName": "Project"
         },
+        "AchievementDataCatalogApp.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/RE9/re_chunk_000/natives/STM/LevelDesign/Achievement/AchievementDataCatalogApp.user.3\""
+        },
         "ItemCatalogUserData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/RE9/re_chunk_000/natives/STM/LevelDesign/Item/UserData/ItemCatalogUserData.user.3\""

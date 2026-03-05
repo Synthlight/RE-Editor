@@ -103,9 +103,9 @@ public static class Extensions {
         }
     }
 
-    public static string ToStringWithId<T>(this string name, T id, bool asHex = false) where T : struct {
+    public static string ToStringWithId<T>(this string name, T id, bool asHex = false) {
         // ReSharper disable once InterpolatedStringExpressionIsNotIFormattable
-        var s = asHex ? $"{id:X}" : id.ToString();
+        var s = asHex ? $"{id:X}" : id!.ToString(); // Can't constrain T to non-null as strings are valid options in RE9.
         return Global.showIdBeforeName ? $"{s}: {name}" : $"{name}: {s}";
     }
 
@@ -542,7 +542,13 @@ public static class Extensions {
      * Returns a list of all the items in the give list matching the given type.
      * Essentially a type-as-a-variable way to call OfType().
      */
-    public static object GetGenericItemsOfType<T>(this IReadOnlyList<T> rszObjectData, Type type, bool checkCounts = false) {
+    public static object GetGenericItemsOfType<T>(this IReadOnlyList<T> rszObjectData, Type type, bool checkCounts = false) where T : notnull {
+        foreach (var obj in rszObjectData) {
+            if (!obj.GetType().Is(type)) {
+                throw new($"{obj.GetType()} doesn't descend from {type}.");
+            }
+        }
+
         var genericItemsOfType = typeof(Enumerable).GetMethod(nameof(Enumerable.OfType), BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy)
                                                    ?.MakeGenericMethod(type)
                                                    .Invoke(null, [rszObjectData]) ?? throw new("rsz.objectData.OfType failure.");

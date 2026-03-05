@@ -36,7 +36,7 @@ namespace RE_Editor.Windows {
             btn_cancel.Click        += (_, _) => Cancel();
         }
 
-        private static Dictionary<T, IdNamePair<T>> ConvertToIdAndNamePair<T>(Dictionary<T, string> data, bool showAsHex) where T : struct {
+        private static Dictionary<T, IdNamePair<T>> ConvertToIdAndNamePair<T>(Dictionary<T, string> data, bool showAsHex) {
             var       dict       = new Dictionary<T, IdNamePair<T>>();
             using var enumerator = data.GetEnumerator();
             enumerator.MoveNext();

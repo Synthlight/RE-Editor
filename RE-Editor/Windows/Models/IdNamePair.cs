@@ -4,7 +4,7 @@ using RE_Editor.Common;
 namespace RE_Editor.Windows.Models;
 
 [UsedImplicitly]
-public struct IdNamePair<T> where T : struct {
+public struct IdNamePair<T> {
     public readonly T      id;
     public readonly string name;
     public readonly bool   showAsHex;
