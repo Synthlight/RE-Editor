@@ -45,7 +45,7 @@ public partial class MainWindow {
     public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\Resident Evil Village BIOHAZARD VILLAGE";
     public const string FMM_GAME_FOLDER   = "RE8";
 #elif RE9
-    public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\RE9";
+    public const string INITIAL_DIRECTORY = @"C:\Program Files (x86)\Steam\steamapps\common\RESIDENT EVIL requiem BIOHAZARD requiem";
     public const string FMM_GAME_FOLDER   = "RE9";
 #endif
 // @formatter:on
@@ -171,8 +171,10 @@ public partial class MainWindow {
                 }
             }
 
-            var pakList = new PakList(ObsoleteData.PAK_LIST);
-            foreach (var pakFile in Directory.EnumerateFiles(gamePath, "*.pak", SearchOption.TopDirectoryOnly)) {
+            var pakList  = new PakList(ObsoleteData.PAK_LIST);
+            var pakFiles = Directory.EnumerateFiles(gamePath, "*.pak", SearchOption.TopDirectoryOnly).ToList();
+            pakFiles.AddRange(Directory.EnumerateFiles($@"{gamePath}\pak_mods", "*.pak", SearchOption.TopDirectoryOnly));
+            foreach (var pakFile in pakFiles) {
                 var pakFilename = Path.GetFileName(pakFile);
                 if (PathHelper.PAK_PATHS.Contains(pakFilename)) continue; // Ignore vanilla PAK files.
 

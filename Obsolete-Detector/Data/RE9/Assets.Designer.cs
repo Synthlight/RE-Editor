@@ -59,5 +59,25 @@ namespace RE_Editor.Obsolete_Detector.Data.RE9 {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GOOD_PAK_MAP {
+            get {
+                object obj = ResourceManager.GetObject("GOOD_PAK_MAP", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HASH_TO_CRC_MAP {
+            get {
+                object obj = ResourceManager.GetObject("HASH_TO_CRC_MAP", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

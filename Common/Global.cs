@@ -206,7 +206,7 @@ public static class Global {
 #elif RE8
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif RE9
-    public const string CURRENT_GAME_VERSION = "v1.0.0.0";
+    public const string CURRENT_GAME_VERSION = "v1.1.1.0";
 #endif
 
 // @formatter:off (Because it screws up the alignment of inactive sections.)
