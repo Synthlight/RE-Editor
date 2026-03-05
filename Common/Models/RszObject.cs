@@ -148,12 +148,21 @@ public class RszObject : OnPropertyChangedBase {
                     var items = objects.GetGenericItemsOfType(fieldGenericType!, true);
                     SetList(items, fieldSetMethod, rszObject);
                 } else if (isStringType) { // Array of strings.
-                    var strings = new List<GenericWrapper<string?>>(arrayCount);
-                    for (var s = 0; s < arrayCount; s++) {
-                        reader.BaseStream.Align(field.align);
-                        strings.Add(new(s, reader.ReadWString()));
+                    if (fieldType.GenericTypeArguments[0].Is(typeof(DataSourceWrapper<string>))) {
+                        var strings = new List<DataSourceWrapper<string?>>(arrayCount);
+                        for (var s = 0; s < arrayCount; s++) {
+                            reader.BaseStream.Align(field.align);
+                            strings.Add(new(s, reader.ReadWString(), field));
+                        }
+                        SetList(strings, fieldSetMethod, rszObject);
+                    } else {
+                        var strings = new List<GenericWrapper<string?>>(arrayCount);
+                        for (var s = 0; s < arrayCount; s++) {
+                            reader.BaseStream.Align(field.align);
+                            strings.Add(new(s, reader.ReadWString()));
+                        }
+                        SetList(strings, fieldSetMethod, rszObject);
                     }
-                    SetList(strings, fieldSetMethod, rszObject);
                 } else if (isNonPrimitive) { // Array of embedded objects. (Built-in types like via.vec2.)
                     var objects = new List<IViaType>(arrayCount);
                     for (var s = 0; s < arrayCount; s++) {
@@ -405,9 +414,20 @@ public class RszObject : OnPropertyChangedBase {
                 } else if (isStringType) { // Array of strings.
                     var list = (IList) fieldGetMethod.Invoke(this, null)!;
                     writer.Write(list.Count);
-                    foreach (GenericWrapper<string> obj in list) {
-                        writer.BaseStream.Align(field.align);
-                        writer.WriteWString(obj.Value);
+                    var genericType = list.GetType().GenericTypeArguments[0];
+                    if (genericType.Is(typeof(GenericWrapper<string>))) {
+                        foreach (GenericWrapper<string> obj in list) {
+                            writer.BaseStream.Align(field.align);
+                            writer.WriteWString(obj.Value);
+                        }
+                    } else if (genericType.Is(typeof(DataSourceWrapper<string>))) {
+                        foreach (DataSourceWrapper<string> obj in list) {
+                            writer.BaseStream.Align(field.align);
+                            writer.WriteWString(obj.Value);
+                        }
+                    } else {
+                        Global.Log($"Error: Unable to write string list with a type of: {list.GetType()}");
+                        throw new FileNotSupported();
                     }
                 } else if (isNonPrimitive) { // Array of embedded objects. (Built-in types like via.vec2.)
                     var list = (IList) fieldGetMethod.Invoke(this, null)!;

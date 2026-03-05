@@ -140,6 +140,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
             case "App_AppendItemCatalogUserData_BonusAppendItemData_Native.ItemID": return DataSourceType.ITEMS;
             case "App_CraftRecipe_MaterialItemDataBase.ItemID": return DataSourceType.ITEMS;
             case "App_CraftRecipe_ProductItemDataBase.ItemID": return DataSourceType.ITEMS;
+            case "App_WeaponResourceParam_ResourceParam.WeaponItemIDStrArray": return DataSourceType.ITEMS;
 #endif
         }
 #pragma warning restore CS1522
@@ -162,7 +163,7 @@ public class StructType(string name, string? parent, uint hash, StructJson struc
 #endif
 
         // And this check the original type.
-        return Utils.GetDataSourceType(originalType);
+        return Utils.GetDataSourceType(field);
     }
 
     private static string? GetButtonPrimitive(DataSourceType? fieldButtonType) {

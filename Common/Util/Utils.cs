@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using RE_Editor.Common.Attributes;
 using RE_Editor.Common.Data;
+using RE_Editor.Common.Models;
 
 namespace RE_Editor.Common.Util;
 
@@ -24,8 +25,8 @@ public static class Utils {
         control.CommandBindings.Add(cb);
     }
 
-    public static dynamic GetDataSourceLookup(string? originalType) {
-        return GetDataSourceLookup(GetDataSourceType(originalType));
+    public static dynamic GetDataSourceLookup(StructJson.Field field) {
+        return GetDataSourceLookup(GetDataSourceType(field));
     }
 
     public static dynamic GetDataSourceLookup(DataSourceType? dataSourceType) {
@@ -66,8 +67,8 @@ public static class Utils {
         return dataSource;
     }
 
-    public static DataSourceType? GetDataSourceType(string? originalType) {
-        return originalType?.Replace("[]", "") switch {
+    public static DataSourceType? GetDataSourceType(StructJson.Field field) {
+        DataSourceType? dataSourceType = field.originalType?.Replace("[]", "") switch {
 #if DD2
             "app.ItemIDEnum" => DataSourceType.ITEMS,
 #elif DRDR
@@ -102,11 +103,21 @@ public static class Utils {
 #elif RE4
             "chainsaw.ItemID" => DataSourceType.ITEMS,
             "chainsaw.WeaponID" => DataSourceType.WEAPONS,
-#elif RE9
-            "chainsaw.ItemID" => DataSourceType.ITEMS,
 #endif
             _ => null
         };
+
+        if (dataSourceType == null) {
+#pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
+            dataSourceType = field.name switch {
+#pragma warning restore CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
+#if RE9
+                "_WeaponItemIDStrArray" => DataSourceType.ITEMS,
+#endif
+            };
+        }
+
+        return dataSourceType;
     }
 
     public static ConstructorInfo? GetGenericConstructor(Type target, List<Type> args, Type genericType) {
