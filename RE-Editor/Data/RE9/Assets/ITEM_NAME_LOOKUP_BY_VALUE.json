@@ -275,7 +275,6 @@
     "it99_06_000": "採血キット",
     "it99_06_003": "採血キット",
     "it99_06_004": "輸血バッグ",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "採血キット",
     "it99_07_001": "いつものやつのチャーム",
     "it99_07_002": "気になるチャーム",
@@ -290,9 +289,7 @@
     "it99_50_008_02": "TACトラッカー（レジェンド）",
     "it99_50_009": "タクティカル・トラッカーMod.",
     "it99_50_010": "インフィニティーリボン",
-    "it99_50_011": "オーバーライドマニュアル",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "オーバーライドマニュアル"
   },
   "eng": {
     "it00_00_000": "Green Herb",
@@ -570,7 +567,6 @@
     "it99_06_000": "Blood Collector",
     "it99_06_003": "Blood Collector",
     "it99_06_004": "Transfusion Bag",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Blood Collector",
     "it99_07_001": "Stakeout Takeout Charm",
     "it99_07_002": "Rugged Rookie Charm",
@@ -585,9 +581,7 @@
     "it99_50_008_02": "Tracking Module (Legendary)",
     "it99_50_009": "Tactical Tracker (Modded)",
     "it99_50_010": "Infinite Ribbon",
-    "it99_50_011": "Override Manual",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Override Manual"
   },
   "fre": {
     "it00_00_000": "Herbe verte",
@@ -865,7 +859,6 @@
     "it99_06_000": "Collecteur de sang",
     "it99_06_003": "Collecteur de sang",
     "it99_06_004": "Poche de sang",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Collecteur de sang",
     "it99_07_001": "Porte-bonheur Casse-dalle",
     "it99_07_002": "Porte-bonheur Nouvelle recrue",
@@ -880,9 +873,7 @@
     "it99_50_008_02": "Module de tracking (légendaire)",
     "it99_50_009": "Tracker tactique (modifié)",
     "it99_50_010": "Ruban infini",
-    "it99_50_011": "Manuel d'utilisation",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Manuel d'utilisation"
   },
   "ita": {
     "it00_00_000": "Pianta verde",
@@ -1160,7 +1151,6 @@
     "it99_06_000": "Set di prelievo ematico",
     "it99_06_003": "Set di prelievo ematico",
     "it99_06_004": "Sacca per trasfusioni",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Set di prelievo ematico",
     "it99_07_001": "Ciondolo Cena improvvisata",
     "it99_07_002": "Ciondolo Recluta determinata",
@@ -1175,9 +1165,7 @@
     "it99_50_008_02": "Modulo rilevatore (leggendario)",
     "it99_50_009": "Rilevatore tattico (modificato)",
     "it99_50_010": "Nastro infinito",
-    "it99_50_011": "Manuale di sblocco",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Manuale di sblocco"
   },
   "ger": {
     "it00_00_000": "Grünes Kraut",
@@ -1455,7 +1443,6 @@
     "it99_06_000": "Blutentnahmegerät",
     "it99_06_003": "Blutentnahmegerät",
     "it99_06_004": "Transfusionsbeutel",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Blutentnahmegerät",
     "it99_07_001": "„Das Übliche“-Talisman",
     "it99_07_002": "Anfänger-Talisman",
@@ -1470,9 +1457,7 @@
     "it99_50_008_02": "Legendäres Tracking-Modul",
     "it99_50_009": "Taktischer Tracker (gemoddet)",
     "it99_50_010": "Endlos-Farbband",
-    "it99_50_011": "Bedienungsanleitung",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Bedienungsanleitung"
   },
   "spa": {
     "it00_00_000": "Hierba verde",
@@ -1750,7 +1735,6 @@
     "it99_06_000": "Extractor de sangre",
     "it99_06_003": "Extractor de sangre",
     "it99_06_004": "Bolsa de transfusión",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Extractor de sangre",
     "it99_07_001": "Amuleto de vigilancia agridulce",
     "it99_07_002": "Amuleto de novato duro",
@@ -1765,9 +1749,7 @@
     "it99_50_008_02": "Módulo de rastreo (legendario)",
     "it99_50_009": "Rastreador táctico (modificado)",
     "it99_50_010": "Cinta infinita",
-    "it99_50_011": "Manual de instrucciones maestro",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Manual de instrucciones maestro"
   },
   "rus": {
     "it00_00_000": "Зелёная трава",
@@ -2045,7 +2027,6 @@
     "it99_06_000": "Система взятия крови",
     "it99_06_003": "Система взятия крови",
     "it99_06_004": "Мешок для переливания крови",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Система взятия крови",
     "it99_07_001": "Украшение «Засада»",
     "it99_07_002": "Украшение «Крепкий новичок»",
@@ -2060,9 +2041,7 @@
     "it99_50_008_02": "Модуль слежения (легендарный)",
     "it99_50_009": "Тактический датчик (модифицир.)",
     "it99_50_010": "Бесконечная лента",
-    "it99_50_011": "Руководство по разблокировке",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Руководство по разблокировке"
   },
   "pol": {
     "it00_00_000": "Zielone zioło",
@@ -2340,7 +2319,6 @@
     "it99_06_000": "Zbierak krwi",
     "it99_06_003": "Zbierak krwi",
     "it99_06_004": "Worek transfuzyjny",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Zbierak krwi",
     "it99_07_001": "Zawieszka „Dyskretna eliminacja”",
     "it99_07_002": "Zawieszka „Hardy nowicjusz”",
@@ -2355,9 +2333,7 @@
     "it99_50_008_02": "Moduł monitorujący (legendarny)",
     "it99_50_009": "Zmodyfikowany monitor taktyczny",
     "it99_50_010": "Nieskończona taśma z tuszem",
-    "it99_50_011": "Instrukcja ręcznego sterowania",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Instrukcja ręcznego sterowania"
   },
   "ptB": {
     "it00_00_000": "Erva Verde",
@@ -2635,7 +2611,6 @@
     "it99_06_000": "Coletor de Sangue",
     "it99_06_003": "Coletor de Sangue",
     "it99_06_004": "Bolsa de Transfusão",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "Coletor de Sangue",
     "it99_07_001": "Amuleto Tocaia e Marmita",
     "it99_07_002": "Amuleto Novato Robusto",
@@ -2650,9 +2625,7 @@
     "it99_50_008_02": "Módulo de Rastreio (Lendário)",
     "it99_50_009": "Rastreador Tático (Modificado)",
     "it99_50_010": "Fita Infinita",
-    "it99_50_011": "Manual de Modificação",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "Manual de Modificação"
   },
   "kor": {
     "it00_00_000": "녹색 약초",
@@ -2930,7 +2903,6 @@
     "it99_06_000": "채혈기",
     "it99_06_003": "채혈기",
     "it99_06_004": "수혈 팩",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "채혈기",
     "it99_07_001": "늘먹는그거 장식",
     "it99_07_002": "강인한 신입 장식",
@@ -2945,9 +2917,7 @@
     "it99_50_008_02": "트래킹 모듈 (전설)",
     "it99_50_009": "택티컬 트래커 (개조)",
     "it99_50_010": "무한 리본",
-    "it99_50_011": "제한 해제 매뉴얼",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "제한 해제 매뉴얼"
   },
   "chT": {
     "it00_00_000": "綠色藥草",
@@ -3225,7 +3195,6 @@
     "it99_06_000": "採血器",
     "it99_06_003": "採血器",
     "it99_06_004": "輸血袋",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "採血器",
     "it99_07_001": "老樣子外帶吊飾",
     "it99_07_002": "厲害菜鳥吊飾",
@@ -3240,9 +3209,7 @@
     "it99_50_008_02": "追蹤模組（傳奇）",
     "it99_50_009": "改造版戰鬥記錄器",
     "it99_50_010": "無限墨水色帶",
-    "it99_50_011": "修改上限說明書",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "修改上限說明書"
   },
   "chS": {
     "it00_00_000": "绿色药草",
@@ -3520,7 +3487,6 @@
     "it99_06_000": "采血器",
     "it99_06_003": "采血器",
     "it99_06_004": "输血袋",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "采血器",
     "it99_07_001": "执勤外卖挂件",
     "it99_07_002": "硬派新人挂件",
@@ -3535,9 +3501,7 @@
     "it99_50_008_02": "战斗日志记录器（传奇）",
     "it99_50_009": "改装版战斗日志记录器",
     "it99_50_010": "无限墨带",
-    "it99_50_011": "松冈用户指南",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "松冈用户指南"
   },
   "ara": {
     "it00_00_000": "عشب أخضر",
@@ -3815,7 +3779,6 @@
     "it99_06_000": "مُجمع الدم",
     "it99_06_003": "مُجمع الدم",
     "it99_06_004": "كيس نقل الدم",
-    "it99_06_009": "#Rejected#",
     "it99_06_010": "مُجمع الدم",
     "it99_07_001": "تميمة وجبة المكتب",
     "it99_07_002": "تميمة المبتدئ الصارم",
@@ -3830,8 +3793,6 @@
     "it99_50_008_02": "وحدة تتبع (أسطورية)",
     "it99_50_009": "جهاز تتبع تكتيكي (مُعدّل)",
     "it99_50_010": "شريط لا نهائي",
-    "it99_50_011": "دليل المُستخدم",
-    "it99_50_012": "#Rejected#",
-    "it99_50_013": "#Rejected#"
+    "it99_50_011": "دليل المُستخدم"
   }
 }

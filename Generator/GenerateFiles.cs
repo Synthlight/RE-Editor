@@ -245,6 +245,7 @@ public partial class GenerateFiles {
         "app.PlayerMentalStateFacialAnimationConfiguration.MentalStateFacialAnimationSettingData`",
         "app.RankBorderValueHolder`",
         "app.SelectTypeContainer`",
+        "app.SubGame1AscensionValueHolder`",
         "soundlib.SoundStateApp`",
         "soundlib.SoundSwitchApp`",
 #endif
