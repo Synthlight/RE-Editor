@@ -114,6 +114,7 @@ public static class Utils {
 #if RE9
                 "_WeaponItemIDStrArray" => DataSourceType.ITEMS,
 #endif
+                _ => null
             };
         }
 
