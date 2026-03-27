@@ -66,6 +66,8 @@ public static class ObsoleteMapMaker {
         fileInfoMap = fileInfoMap.Sort(pair => pair.Key).ToDictionary(pair => pair.Key.ToLower(), pair => pair.Value);
         Directory.CreateDirectory(Program.DETECTOR_ASSETS_DIR);
         File.WriteAllText($@"{Program.DETECTOR_ASSETS_DIR}\GOOD_PAK_MAP.json", JsonConvert.SerializeObject(fileInfoMap, Formatting.Indented));
+
+        File.WriteAllText($@"{Program.DETECTOR_ASSETS_DIR}\List.txt", File.ReadAllText(PathHelper.PAK_LIST));
     }
 
     private static Dictionary<string, List<PakFileInfo>> GetAllCoveredFilesByPak() {

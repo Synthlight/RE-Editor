@@ -79,5 +79,21 @@ namespace RE_Editor.Obsolete_Detector.Data.RE9 {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to natives/stm/animation/ch/ch01/ch0100/cambank/cam_gimmick_gm27_003.mcambank.3
+        ///natives/stm/animation/ch/ch01/ch0100/cambank/ch0100.mcambank.3
+        ///natives/stm/animation/ch/ch01/ch0100/cambank/ch0100fps.mcambank.3
+        ///natives/stm/animation/ch/ch01/ch0100/camlist/attack.mcamlist.24
+        ///natives/stm/animation/ch/ch01/ch0100/camlist/axe00h.mcamlist.24
+        ///natives/stm/animation/ch/ch01/ch0100/camlist/bike.mcamlist.24
+        ///natives/stm/animation/ch/ch01/ch0100/camlist/ch0100_gimmick.mcamlist.24
+        ///natives/stm/animation/ch/ch01/ch0100/camlist [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string List {
+            get {
+                return ResourceManager.GetString("List", resourceCulture);
+            }
+        }
     }
 }

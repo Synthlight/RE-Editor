@@ -79,5 +79,20 @@ namespace RE_Editor.Obsolete_Detector.Data.RE4 {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9/21/2023 RE4 List by NSA Cloud, dtlnor
+        ///natives/STM/MaterialLibrary/3D/Wood_Plank_00_001/Wood_Plank_00_001_ALBD.tex.143221013
+        ///natives/STM/MaterialLibrary/3D/Wood_Plank_00_001/Wood_Plank_00_001_CVT.tex.143221013
+        ///natives/STM/MaterialLibrary/3D/Wood_Plank_00_001/Wood_Plank_00_001_NRRC.tex.143221013
+        ///natives/STM/MaterialLibrary/3D/Wood_Timber_00_001/Wood_Timber_00_001_ALBD.tex.143221013
+        ///natives/STM/MaterialLibrary/3D/Wood_Timber_00_001/Wood_Timber_00_001_NRRC.tex.143221013
+        ///natives/STM/MaterialLibrary/3D/Wo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string List {
+            get {
+                return ResourceManager.GetString("List", resourceCulture);
+            }
+        }
     }
 }
