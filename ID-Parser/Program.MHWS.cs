@@ -57,7 +57,7 @@ public static partial class Program {
         var msgNamesByGuid = msg.GetLangRawMap<Guid>(name => {
             // ReSharper disable once ConvertIfStatementToReturnStatement
             if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
-            return name.id1;
+            return name.guid;
         });
         CreateConstantsFile(msgNamesByGuid[Global.LangIndex.eng].Flip(), "ArmorConstants");
     }
@@ -458,7 +458,7 @@ public static partial class Program {
         msgByGuid = msg.GetLangRawMap<Guid>(name => {
             // ReSharper disable once ConvertIfStatementToReturnStatement
             if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
-            return name.id1;
+            return name.guid;
         });
         CreateConstantsFile(msgByGuid[Global.LangIndex.eng].Flip(), "TalismanConstants");
     }
@@ -485,7 +485,7 @@ public static partial class Program {
             var msgNameByGuid = msg.GetLangRawMap<Guid>(name => {
                 // ReSharper disable once ConvertIfStatementToReturnStatement
                 if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
-                return name.id1;
+                return name.guid;
             });
             nameOnlyMsgs.Add(msgNameByGuid);
         }
@@ -523,7 +523,7 @@ public static partial class Program {
             var msgNameByGuid = msg.GetLangRawMap<Guid>(name => {
                 // ReSharper disable once ConvertIfStatementToReturnStatement
                 if (!regex.Match(name.first).Success) return new(Guid.Empty, true);
-                return name.id1;
+                return name.guid;
             });
             nameOnlyMsgs.Add(msgNameByGuid);
         }

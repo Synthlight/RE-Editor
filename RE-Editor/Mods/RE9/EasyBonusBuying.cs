@@ -15,7 +15,7 @@ public class EasyBonusBuying : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Easy Bonus Buying";
         const string description = "Changes the purchase conditions.";
-        const string version     = "1.0";
+        const string version     = "1.1";
 
         List<string> files = [
             PathHelper.BONUS_DATA_PATH

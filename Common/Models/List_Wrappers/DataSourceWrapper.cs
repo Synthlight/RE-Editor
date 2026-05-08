@@ -61,7 +61,7 @@ public sealed class DataSourceWrapper<T> : ListWrapper<T> {
     private string GetLookupText<LookupT>(Dictionary<LookupT, string> source) {
 #pragma warning restore CS8714 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'notnull' constraint.
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-        return source.TryGet((LookupT) Convert.ChangeType(Value, typeof(LookupT))).ToStringWithId(Value, ShowAsHex());
+        return source!.TryGet((LookupT) Convert.ChangeType(Value, typeof(LookupT))).ToStringWithId(Value, ShowAsHex());
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
     }
 

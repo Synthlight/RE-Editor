@@ -15,12 +15,13 @@ public static partial class PathHelper {
     public const string FLUFFY_MODS_PATH = @"R:\Games\Resident Evil 9 (Requiem)\FMM\Games\RE9\Mods";
     public const string PAK_LIST         = @"R:\Games\Resident Evil 9 (Requiem)\RE9.list";
     public const string PAK_LIST_MSG     = "";
-    public const string R_EASY_RSZ       = "";
+    public const string R_EASY_RSZ       = "https://github.com/seifhassine/REasy/raw/refs/heads/master/resources/data/dumps/rszre9.json";
 
     public static readonly string[] OBSOLETE_TYPES_TO_CHECK = [
         "user",
         "pfb",
-        "msg"
+        "msg",
+        "scn"
     ];
 
     public static readonly string[] PAK_PATHS = [

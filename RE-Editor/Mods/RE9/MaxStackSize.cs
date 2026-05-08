@@ -17,7 +17,7 @@ public class MaxStackSize : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Stack Size Changes";
         const string description = "Modifies the stack size of stackable items.";
-        const string version     = "1.3";
+        const string version     = "1.4";
 
         List<string> files = [
             PathHelper.ITEM_DATA_PATH
