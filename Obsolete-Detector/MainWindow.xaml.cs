@@ -173,7 +173,9 @@ public partial class MainWindow {
 
             var pakList  = new PakList(ObsoleteData.PAK_LIST);
             var pakFiles = Directory.EnumerateFiles(gamePath, "*.pak", SearchOption.TopDirectoryOnly).ToList();
-            pakFiles.AddRange(Directory.EnumerateFiles($@"{gamePath}\pak_mods", "*.pak", SearchOption.TopDirectoryOnly));
+            if (Directory.Exists($@"{gamePath}\pak_mods")) {
+                pakFiles.AddRange(Directory.EnumerateFiles($@"{gamePath}\pak_mods", "*.pak", SearchOption.TopDirectoryOnly));
+            }
             foreach (var pakFile in pakFiles) {
                 var pakFilename = Path.GetFileName(pakFile);
                 if (PathHelper.PAK_PATHS.Contains(pakFilename)) continue; // Ignore vanilla PAK files.
