@@ -698,4 +698,9 @@ public static class Extensions {
         }
         return dictionary;
     }
+
+    public static T Edit<T>(this T obj, Action<T> edit) where T : RszObject {
+        edit(obj);
+        return obj;
+    }
 }
