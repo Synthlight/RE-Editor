@@ -55,7 +55,7 @@ public class BingoBrawlers : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Bingo Brawlers";
         const string description = "Bingo Brawlers stuff.";
-        const string version     = "1.3.0";
+        const string version     = "1.4.0";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -254,6 +254,9 @@ public class BingoBrawlers : IMod {
             case ArmorSeriesConstants.GUARDIAN_RATHALOS_Α:
             case ArmorSeriesConstants.GUARDIAN_RATHALOS_Β:
                 return ItemConstants.G_RATHALOS_CERTIFICATE_S;
+            case ArmorSeriesConstants.GOGMAZIOS_Α:
+            case ArmorSeriesConstants.GOGMAZIOS_Β:
+                return ItemConstants.GOGMAZIOS_CERTIFICATE_S;
             case ArmorSeriesConstants.GORE_Α:
             case ArmorSeriesConstants.GORE_Β:
                 return ItemConstants.GORE_MAGALA_CERTIFICATE_S;
@@ -441,6 +444,9 @@ public class BingoBrawlers : IMod {
                 return ItemConstants.NERSCYLLA_CERTIFICATE_S;
             case WeaponSeriesConstants.NU_UDRA_TREE:
                 return ItemConstants.NU_UDRA_CERTIFICATE_S;
+            case WeaponSeriesConstants.DARK_KNIGHT_TREE:
+            case WeaponSeriesConstants.OMEGA_TREE:
+                return ItemConstants.OMEGA_DATA_20;
             case WeaponSeriesConstants.QUEMATRICE_TREE:
                 return ItemConstants.QUEMATRICE_CERTIFICATE_S;
             case WeaponSeriesConstants.RATHALOS_TREE:
