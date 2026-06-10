@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.IO;
 using RE_Editor.Common.Models;
 
@@ -12,23 +13,23 @@ public interface IItemDbTweak {
 }
 
 public struct ItemDbTweak : INexusMod, IItemDbTweak {
-    public string                       Name            { get; set; }
-    public string?                      NameOverride    { get; set; }
-    public string                       Desc            { get; set; }
-    public string                       Version         { get; set; }
-    public string?                      Image           { get; set; }
-    public IEnumerable<string>          Files           { get; set; }
-    public Action<List<RszObject>>?     Action          { get; set; }
-    public Func<List<RszObject>, bool>? FilteredAction  { get; set; }
-    public bool                         ForGp           { get; set; }
-    public string?                      NameAsBundle    { get; set; }
-    public string?                      AddonFor        { get; set; }
-    public string?                      Requirement     { get; set; }
-    public bool                         SkipPak         { get; set; }
-    public Dictionary<string, object>?  AdditionalFiles { get; set; }
-    public bool                         AlwaysInclude   { get; set; }
-    public string                       LuaName         { get; set; }
-    public List<Change>                 Changes         { get; set; }
+    public string                               Name            { get; set; }
+    public string?                              NameOverride    { get; set; }
+    public string                               Desc            { get; set; }
+    public string                               Version         { get; set; }
+    public string?                              Image           { get; set; }
+    public IEnumerable<string>                  Files           { get; set; }
+    public Action<List<RszObject>>?             Action          { get; set; }
+    public Func<List<RszObject>, string, bool>? FilteredAction  { get; set; }
+    public bool                                 ForGp           { get; set; }
+    public string?                              NameAsBundle    { get; set; }
+    public string?                              AddonFor        { get; set; }
+    public string?                              Requirement     { get; set; }
+    public bool                                 SkipPak         { get; set; }
+    public Dictionary<string, object>?          AdditionalFiles { get; set; }
+    public bool                                 AlwaysInclude   { get; set; }
+    public string                               LuaName         { get; set; }
+    public List<Change>                         Changes         { get; set; }
 
     public struct Change {
         public Target               Target { get; set; }
@@ -39,6 +40,11 @@ public struct ItemDbTweak : INexusMod, IItemDbTweak {
         ARMOR,
         ITEM,
         WEAPON,
+    }
+
+    [Pure]
+    public readonly override string ToString() {
+        return $"{NameAsBundle} :: {Name}";
     }
 }
 

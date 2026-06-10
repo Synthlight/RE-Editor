@@ -37,16 +37,17 @@ public static class ModMaker {
 
         foreach (var mod in mods) {
             estimatedThreadCount++;
+
+            // Don't write out the actual LUA files here as it winds up in a different thread than the one that makes the mod, and will result in a race condition.
+            // Just check for LUA filename collisions.
 #if DD2
             switch (mod) {
                 case ItemDbTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    threadHandler.AddWorker($"WriteTweak: {tweak.LuaName}", () => { ItemDbTweakWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
                 case SwapDbTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    threadHandler.AddWorker($"WriteTweak: {tweak.LuaName}", () => { SwapDbTweakWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
             }
@@ -54,7 +55,6 @@ public static class ModMaker {
             switch (mod) {
                 case VariousDataTweak tweak:
                     if (usedLuaFiles.Contains(tweak.LuaName)) throw new DuplicateNameException($"Lua file `{tweak.LuaName}` already created.");
-                    threadHandler.AddWorker($"WriteTweak: {tweak.LuaName}", () => { VariousDataWriter.WriteTweak(tweak, modFolderName); });
                     usedLuaFiles.Add(tweak.LuaName);
                     break;
             }
@@ -124,6 +124,23 @@ public static class ModMaker {
                     modInfo.WriteLine($"Requirement={mod.Requirement}");
                 }
 
+#if DD2
+                switch (mod) {
+                    case ItemDbTweak tweak:
+                        ItemDbTweakWriter.WriteTweak(tweak, modFolderName);
+                        break;
+                    case SwapDbTweak tweak:
+                        SwapDbTweakWriter.WriteTweak(tweak, modFolderName);
+                        break;
+                }
+#elif MHWS
+            switch (mod) {
+                case VariousDataTweak tweak:
+                    VariousDataWriter.WriteTweak(tweak, modFolderName);
+                    break;
+            }
+#endif
+
                 var anyIncluded = false;
                 if (mod.Files.Any()) {
                     if (mod.Action == null && mod.FilteredAction == null) {
@@ -154,7 +171,7 @@ public static class ModMaker {
                     }
                 }
 
-                if (mod.AdditionalFiles?.Any() == true) {
+                if (mod.AdditionalFiles?.Count > 0) {
                     foreach (var (dest, obj) in mod.AdditionalFiles) {
                         var fixedDest = dest;
                         if (fixedDest.StartsWith('\\') || fixedDest.StartsWith('/')) {
