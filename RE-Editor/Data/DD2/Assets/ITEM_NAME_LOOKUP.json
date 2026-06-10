@@ -828,7 +828,13 @@
     "8100": "別注ダキアエネシス",
     "8150": "別注ウッドスタッフ",
     "8200": "別注フリューテッドボウ",
-    "8600": "安心のリング"
+    "8600": "安心のリング",
+    "619": "刹那の永久石",
+    "664": "“襲撃対抗”習得の書",
+    "668": "“襲撃対抗”習特の薯",
+    "10312": "原初の王冠",
+    "10409": "原初の王鎧",
+    "10512": "原初の冑靴"
   },
   "eng": {
     "1": "Apple",
@@ -1659,7 +1665,13 @@
     "8100": "Superior Criteria",
     "8150": "Superior Wooden Staff",
     "8200": "Superior Fluted Bow",
-    "8600": "Ring of Assurance"
+    "8600": "Ring of Assurance",
+    "619": "Eternal Ferrystone",
+    "664": "Guardian's Tome",
+    "668": "Gourdian's Tome",
+    "10312": "Sovran's Crown",
+    "10409": "Sovran's Plate",
+    "10512": "Sovran's Greaves"
   },
   "fre": {
     "1": "Pomme",
@@ -2490,7 +2502,13 @@
     "8100": "Kriterion d'exception",
     "8150": "Bâton de bois d'exception",
     "8200": "Arc cannelé d'exception",
-    "8600": "Anneau d'assurance"
+    "8600": "Anneau d'assurance",
+    "619": "Transpierre éternelle",
+    "664": "Tome du Gardien",
+    "668": "Tome du Gourdin",
+    "10312": "Couronne de l'Archimonarque",
+    "10409": "Cuirasse de l'Archimonarque",
+    "10512": "Jambières de l'Archimonarque"
   },
   "ita": {
     "1": "Mela",
@@ -3321,7 +3339,13 @@
     "8100": "Kriterion superiori",
     "8150": "Bastone di legno superiore",
     "8200": "Arco affusolato superiore",
-    "8600": "Anello della serenità"
+    "8600": "Anello della serenità",
+    "619": "Pietra del viaggiatore",
+    "664": "Tomo del Guardiano",
+    "668": "Tomo del Guardingo",
+    "10312": "Corona del primo Sovrano",
+    "10409": "Armatura del primo Sovrano",
+    "10512": "Schinieri del primo Sovrano"
   },
   "ger": {
     "1": "Apfel",
@@ -4152,7 +4176,13 @@
     "8100": "Hochwertige Schlichte Dolche",
     "8150": "Hochwertiger Holzstab",
     "8200": "Hochwertiger Kampfbogen",
-    "8600": "Ring der Sicherheit"
+    "8600": "Ring der Sicherheit",
+    "619": "Ewiger Reisestein",
+    "664": "Foliant des Wächters",
+    "668": "Foliant des Waechters",
+    "10312": "Krone des Souveräns",
+    "10409": "Plattenrüstung des Souveräns",
+    "10512": "Beinschutz des Souveräns"
   },
   "spa": {
     "1": "Manzana",
@@ -4983,7 +5013,13 @@
     "8100": "Criterios Superiores",
     "8150": "Bastón de Madera Superior",
     "8200": "Arco Estriado Superior",
-    "8600": "Anillo de certidumbre"
+    "8600": "Anillo de certidumbre",
+    "619": "Piedra transportadora eterna",
+    "664": "Tomo de Guardián",
+    "668": "Tomo de Guardón",
+    "10312": "Corona de Sovran",
+    "10409": "Panoplia de Sovran",
+    "10512": "Grebas de Sovran"
   },
   "rus": {
     "1": "Яблоко",
@@ -5814,7 +5850,13 @@
     "8100": "Превосходные критерионы",
     "8150": "Превосходный деревянный посох",
     "8200": "Превосходный рифлёный лук",
-    "8600": "Кольцо спокойствия"
+    "8600": "Кольцо спокойствия",
+    "619": "Вечный камень перемещения",
+    "664": "Свиток «Защитник»",
+    "668": "Свиток «Зачинщик»",
+    "10312": "Корона Владыки",
+    "10409": "Латы Владыки",
+    "10512": "Наголенники Владыки"
   },
   "pol": {
     "1": "Jabłko",
@@ -6645,7 +6687,13 @@
     "8100": "Znakomita Kryteria",
     "8150": "Znakomita drewniana laska",
     "8200": "Znakomity łuk żłobiony",
-    "8600": "Pierścień Pewności"
+    "8600": "Pierścień Pewności",
+    "619": "Wieczny kamień przemieszczenia",
+    "664": "Księga Argusa",
+    "668": "Księga Argusa",
+    "10312": "Korona suwerena",
+    "10409": "Pancerz suwerena",
+    "10512": "Nagolenice suwerena"
   },
   "ptB": {
     "1": "Maçã",
@@ -7476,7 +7524,13 @@
     "8100": "Criteria Superior",
     "8150": "Cajado de Madeira Superior",
     "8200": "Arco Ondulado Superior",
-    "8600": "Anel da Reafirmação"
+    "8600": "Anel da Reafirmação",
+    "619": "Pedra-barca Eterna",
+    "664": "Tomo do Guardião",
+    "668": "Tomo do Guardão",
+    "10312": "Coroa de Sobran",
+    "10409": "Couraça do Sobran",
+    "10512": "Grevas do Sobran"
   },
   "kor": {
     "1": "사과 ",
@@ -8307,7 +8361,13 @@
     "8100": "특별 주문 제작 다키아 에네시스",
     "8150": "특별 주문 제작 우드 스태프",
     "8200": "특별 주문 제작 플루티드 보우",
-    "8600": "안심의 반지"
+    "8600": "안심의 반지",
+    "619": "찰나의 영구석",
+    "664": "'습격 대항' 습득의 서",
+    "668": "'습격 대항' 습특의 서",
+    "10312": "원초의 왕관",
+    "10409": "원초의 왕개",
+    "10512": "원초의 주화"
   },
   "chT": {
     "1": "蘋果 ",
@@ -8606,7 +8666,7 @@
     "452": "殺那飛石",
     "453": "歸途基右",
     "454": "封印小缾",
-    "455": "會心嵛",
+    "455": "會必箭",
     "456": "戰士祕枝書",
     "457": "太魔術真書",
     "458": "極遺書卷",
@@ -9138,7 +9198,13 @@
     "8100": "訂製的標準匕首",
     "8150": "訂製的木杖",
     "8200": "訂製的凹槽弓",
-    "8600": "放心戒指"
+    "8600": "放心戒指",
+    "619": "永恆剎那飛石",
+    "664": "「對抗襲擊」專長書",
+    "668": "「對抗襲擊」尃長書",
+    "10312": "初始王冠",
+    "10409": "初始王鎧",
+    "10512": "初始脛甲"
   },
   "chS": {
     "1": "苹果 ",
@@ -9969,7 +10035,13 @@
     "8100": "定制标准匕首",
     "8150": "定制木杖",
     "8200": "定制槽纹弓",
-    "8600": "宽心戒指"
+    "8600": "宽心戒指",
+    "619": "刹那的永久飞石",
+    "664": "“袭击对抗”技能书",
+    "668": "“袭击对抗”枝能薯",
+    "10312": "原初王冠",
+    "10409": "原初王铠",
+    "10512": "原初铠靴"
   },
   "ara": {
     "1": "تفاح ",
@@ -10800,6 +10872,12 @@
     "8100": "الخنجر الخفيف الفائق",
     "8150": "الصولجان الخشبي الفائق",
     "8200": "القوس المحزز الفائق",
-    "8600": "خاتم الأمان"
+    "8600": "خاتم الأمان",
+    "619": "حجر عبور سرمديّ",
+    "664": "كتاب الحامي",
+    "668": "كتاب حامي",
+    "10312": "تاج العاهل",
+    "10409": "درع العاهل الصفيحي",
+    "10512": "دروع سيقان العاهل"
   }
 }

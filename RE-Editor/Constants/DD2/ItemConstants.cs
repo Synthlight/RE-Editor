@@ -219,6 +219,7 @@ public static class ItemConstants {
     public const uint ESCORT_ORDERS = 367;
     public const uint ESOTERIC_VESTMENT = 5054;
     public const uint ETERNAL_BOND = 3555;
+    public const uint ETERNAL_FERRYSTONE = 619;
     public const uint ETERNAL_WAKESTONE = 76;
     public const uint ETERNAL_WOKESTONE = 468;
     public const uint EUPHORIC_HOSEN = 6052;
@@ -298,6 +299,7 @@ public static class ItemConstants {
     public const uint GOLDEN_STOVE_BEETLE = 474;
     public const uint GOLDEN_TROVE_BEETLE = 398;
     public const uint GOLDTHISTLE = 192;
+    public const uint GOURDIANS_TOME = 668;
     public const uint GOVERNING_SOUL = 176;
     public const uint GRACEFUL_TUNIC = 5106;
     public const uint GRAND_CUIRASS = 5012;
@@ -320,6 +322,7 @@ public static class ItemConstants {
     public const uint GRYPHIC_VICTORY = 1204;
     public const uint GUARDIAN_LEG_PLATES = 6007;
     public const uint GUARDIAN_PLATE_ARMOR = 5007;
+    public const uint GUARDIANS_TOME = 664;
     public const uint GUERCO_PEAFOWL_FEATHERCLOAK = 3310;
     public const uint HALF_FRAME_GLASSES = 3415;
     public const uint HALF_PLATE_ARMOR = 5132;
@@ -712,6 +715,9 @@ public static class ItemConstants {
     public const uint SOUL_OF_ANTIQUITY = 2004;
     public const uint SOULSKIN = 5130;
     public const uint SOUTHRON_IRON = 199;
+    public const uint SOVRANS_CROWN = 10312;
+    public const uint SOVRANS_GREAVES = 10512;
+    public const uint SOVRANS_PLATE = 10409;
     public const uint SPELLBOWS_PARABOLA = 465;
     public const uint SPELLBOWS_PARADOX = 296;
     public const uint SPELLWEAVERS_WAISTCLOTH = 6058;

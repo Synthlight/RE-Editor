@@ -294,6 +294,9 @@ public static class StyleConstants {
     public const App_TopsStyle SOLDIERS_HELM = App_TopsStyle.Tops_202;
     public const App_TopsStyle SORCERERS_HOOD = App_TopsStyle.Tops_045;
     public const App_TopsStyle SOULSKIN = App_TopsStyle.Tops_307;
+    public const App_TopsStyle SOVRANS_CROWN = App_TopsStyle.Tops_409;
+    public const App_TopsStyle SOVRANS_GREAVES = App_TopsStyle.Tops_409;
+    public const App_TopsStyle SOVRANS_PLATE = App_TopsStyle.Tops_409;
     public const App_TopsStyle SPELLWEAVERS_WAISTCLOTH = App_TopsStyle.Tops_023;
     public const App_TopsStyle SPIRIT_COAT = App_TopsStyle.Tops_277;
     public const App_TopsStyle SPRINTERS_BOOTS = App_TopsStyle.Tops_007;

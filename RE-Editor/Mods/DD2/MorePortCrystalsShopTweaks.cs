@@ -20,7 +20,7 @@ public class MorePortCrystalsShopTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Ferrystones and Portcrystals in Every Shop";
         const string description = "Adds both items to every single shop in the game.";
-        const string version     = "1.7";
+        const string version     = "1.8";
 
         var mod = new NexusMod {
             Version = version,
@@ -40,6 +40,7 @@ public class MorePortCrystalsShopTweaks : IMod {
                     if (shopData.ShopId == 59) continue; // The `Seekers Token` shop which isn't really a shop.
                     if (shopData.BuyParams.Count > 0) {
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.FERRYSTONE, 255));
+                        shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.ETERNAL_FERRYSTONE, 1));
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.PORTCRYSTAL, 255));
                     }
                     break;

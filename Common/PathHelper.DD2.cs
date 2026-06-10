@@ -37,7 +37,8 @@ public static partial class PathHelper {
         "re_chunk_000.pak.patch_010.pak",
         "re_chunk_000.pak.patch_011.pak",
         "re_chunk_000.pak.patch_012.pak",
-        "re_chunk_000.pak.patch_013.pak"
+        "re_chunk_000.pak.patch_013.pak",
+        "re_chunk_000.pak.patch_014.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
@@ -82,7 +83,10 @@ public static partial class PathHelper {
         ]) {updateName = "2025-01-29"},
         new(new(2025, 04, 09), "Update 13", [
             "re_chunk_000.pak.patch_013.pak"
-        ]) {updateName = "2025-04-09"}
+        ]) {updateName = "2025-04-09"},
+        new(new(2025, 04, 09), "Update 14", [
+            "re_chunk_000.pak.patch_014.pak"
+        ]) {updateName = "2026-06-08"}
     ];
 
     public const string NEXUS_URL              = "https://www.nexusmods.com/dragonsdogma2/mods/522";

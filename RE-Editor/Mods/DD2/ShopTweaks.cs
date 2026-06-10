@@ -20,7 +20,7 @@ public class ShopTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Shop Tweaks";
         const string description = "Adds a much of things to every shop in the game.";
-        const string version     = "1.6";
+        const string version     = "1.7";
 
         var mod = new NexusMod {
             Version = version,
@@ -41,6 +41,7 @@ public class ShopTweaks : IMod {
                     if (shopData.BuyParams.Count > 0) {
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.ART_OF_METAMORPHOSIS, 255));
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.FERRYSTONE, 255));
+                        shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.ETERNAL_FERRYSTONE, 1));
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.PORTCRYSTAL, 255));
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.ELITE_CAMPING_KIT, 255));
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.EXPLORERS_CAMPING_KIT, 255));

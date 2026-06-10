@@ -29,13 +29,21 @@ public static partial class Program {
 
     private static void ExtractItemInfo() {
         var regex = new Regex(@"item_name_(\d+)");
-        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\message\ui\ItemName.msg.{Global.MSG_VERSION}")
-                     .GetLangIdMap<uint>(name => {
-                         var match = regex.Match(name);
-                         if (!match.Success) return new(0, true);
-                         var value = match.Groups[1].Value;
-                         return (uint) int.Parse(value);
-                     });
+        var msgNormal = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\message\ui\ItemName.msg.{Global.MSG_VERSION}")
+                           .GetLangIdMap<uint>(name => {
+                               var match = regex.Match(name);
+                               if (!match.Success) return new(0, true);
+                               var value = match.Groups[1].Value;
+                               return (uint) int.Parse(value);
+                           });
+        var msgEnd = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\message\ui\ItemName_End.msg.{Global.MSG_VERSION}")
+                        .GetLangIdMap<uint>(name => {
+                            var match = regex.Match(name);
+                            if (!match.Success) return new(0, true);
+                            var value = match.Groups[1].Value;
+                            return (uint) int.Parse(value);
+                        });
+        var msg = Merge(msgNormal, msgEnd);
         DataHelper.ITEM_NAME_LOOKUP = msg;
         CreateAssetFile(msg, "ITEM_NAME_LOOKUP");
         CreateConstantsFile(msg[Global.LangIndex.eng].Flip(), "ItemConstants");
