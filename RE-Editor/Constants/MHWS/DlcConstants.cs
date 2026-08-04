@@ -138,12 +138,15 @@ public static class DlcConstants {
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_PUZZLES__BONUS_PACK = App_dlc_DlcProductId_ID_Fixed.ITEMPACK_0000018;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS = App_dlc_DlcProductId_ID_Fixed.EARTH_FULLGAME;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS___HIGH_RESOLUTION_TEXTURE_PACK = App_dlc_DlcProductId_ID_Fixed.HQ_TEXTURE;
+    public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_COSMETIC_DLC_COLLECTION = App_dlc_DlcProductId_ID_Fixed.COLLECTIONPACK00;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_COSMETIC_DLC_PACK_1 = App_dlc_DlcProductId_ID_Fixed.COSMETICDLCPACK1;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_COSMETIC_DLC_PACK_2 = App_dlc_DlcProductId_ID_Fixed.COSMETICDLCPACK2;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_COSMETIC_DLC_PACK_3 = App_dlc_DlcProductId_ID_Fixed.COSMETICDLCPACK3;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_COSMETIC_DLC_PACK_4 = App_dlc_DlcProductId_ID_Fixed.COSMETICDLCPACK4;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_COSMETIC_DLC_PASS = App_dlc_DlcProductId_ID_Fixed.SEASONPASS_000000;
     public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_DELUXE_PACK = App_dlc_DlcProductId_ID_Fixed.EARTH_DELUXE_PACK;
+    public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_EXTRAS_COSMETIC_DLC_PACK = App_dlc_DlcProductId_ID_Fixed.DLCEXTRAPACK0000;
+    public const App_dlc_DlcProductId_ID_Fixed MONSTER_HUNTER_WILDS_GOLD_EDITION = App_dlc_DlcProductId_ID_Fixed.MHWILDSCOLLPACK0;
     public const App_dlc_DlcProductId_ID_Fixed NAMEPLATE__EXTRA_FRAME___RUSSET_DAWN = App_dlc_DlcProductId_ID_Fixed.PROFN00_00000002;
     public const App_dlc_DlcProductId_ID_Fixed PALICO_EDIT_VOUCHER__SINGLE_VOUCHER = App_dlc_DlcProductId_ID_Fixed.TICKET0_00000005;
     public const App_dlc_DlcProductId_ID_Fixed PALICO_EDIT_VOUCHER__SINGLE_VOUCHER_FREE_TRIAL_VERSION = App_dlc_DlcProductId_ID_Fixed.TICKET0_00000008;

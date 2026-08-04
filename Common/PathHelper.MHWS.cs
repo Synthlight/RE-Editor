@@ -131,7 +131,8 @@ public static partial class PathHelper {
             "re_chunk_000.pak.sub_000.pak.patch_014.pak"
         ]),
         // new(2026, 2, 19), "1.041.01.00"
-        new(new(2026, 2, 24), "1.041.02.00", [
+        // new(2026, 2, 24), "1.041.02.00"
+        new(new(2026, 8, 4), "1.042.00.00", [ // Big update, but they replaced PAK 15 again.
             "re_chunk_000.pak.patch_015.pak",
             "re_chunk_000.pak.sub_000.pak.patch_015.pak"
         ])
