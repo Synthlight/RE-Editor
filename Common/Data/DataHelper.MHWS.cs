@@ -19,6 +19,7 @@ public static partial class DataHelper {
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  DLC_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  ENEMY_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> ITEM_INFO_LOOKUP_BY_GUID;
+    public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> GESTURE_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<Guid, string>> GIMMICK_INFO_LOOKUP_BY_GUID;
     public static Dictionary<Global.LangIndex, Dictionary<int, string>>  GIMMICK_NAME_LOOKUP_BY_ENUM_VALUE;
     public static Dictionary<Global.LangIndex, Dictionary<uint, string>> ITEM_NAME_LOOKUP;

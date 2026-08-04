@@ -25,6 +25,7 @@ public static partial class Program {
         ExtractDlcInfoByGuid();
         ExtractDlcInfoByName();
         ExtractEnemyInfoByName();
+        ExtractGestureInfoByGuid();
         ExtractGimmickInfoByName();
         ExtractGimmickInfoByGuid();
         ExtractItemInfoByName();
@@ -190,6 +191,13 @@ public static partial class Program {
 
         var msgBitset = msgByEnum.ConvertToByEnumName<App_EnemyDef_ID_Fixed, App_EnemyDef_ID_BIT>();
         CreateAssetFile(msgBitset, "TRANSLATION_App_EnemyDef_ID_BIT");
+    }
+
+    private static void ExtractGestureInfoByGuid() {
+        var msg = MSG.Read($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Excel_Data\Gesture.msg.{Global.MSG_VERSION}")
+                     .GetLangGuidMap();
+        DataHelper.GESTURE_INFO_LOOKUP_BY_GUID = msg;
+        CreateAssetFile(msg, "GESTURE_INFO_LOOKUP_BY_GUID");
     }
 
     private static void ExtractGimmickInfoByName() {
@@ -413,18 +421,24 @@ public static partial class Program {
         foreach (var file in Directory.EnumerateFiles($@"{PathHelper.CHUNK_PATH}\natives\STM\GameDesign\Text\Mission", $"*.msg.{Global.MSG_VERSION}")) {
             if (!fileRegex.IsMatch(file)) continue;
 
-            var msg = MSG.Read(file);
-            var values = msg.GetLangIdMap<App_MissionIDList_ID_Fixed>(name => {
-                var match = nameRegex.Match(name);
-                if (!match.Success) return new(0, true);
-                var value = $"MISSION_{match.Groups[1].Value}";
-                // ReSharper disable once ConvertIfStatementToReturnStatement
-                if (Enum.TryParse<App_MissionIDList_ID_Fixed>(value, out var result)) {
-                    return result;
-                }
-                return new(0, true);
-            });
-            langMaps.Add(values);
+            try {
+                var msg = MSG.Read(file);
+                var values = msg.GetLangIdMap<App_MissionIDList_ID_Fixed>(name => {
+                    var match = nameRegex.Match(name);
+                    if (!match.Success) return new(0, true);
+                    var value = $"MISSION_{match.Groups[1].Value}";
+                    // ReSharper disable once ConvertIfStatementToReturnStatement
+                    if (Enum.TryParse<App_MissionIDList_ID_Fixed>(value, out var result)) {
+                        return result;
+                    }
+                    return new(0, true);
+                });
+                langMaps.Add(values);
+            } catch (ArgumentOutOfRangeException e) {
+                Global.Log($"Error parsing MSG file: {file}");
+                Global.Log(e.Message);
+                // Happens sometimes for some files. Parser has issues.
+            }
         }
         var msgByEnum  = langMaps.MergeDictionaries();
         var msgByValue = msgByEnum.ConvertTo<App_MissionIDList_ID_Fixed, int>();

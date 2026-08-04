@@ -151,6 +151,9 @@
   <data name="ENEMY_NAME_LOOKUP_BY_ENUM_VALUE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\ENEMY_NAME_LOOKUP_BY_ENUM_VALUE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="GESTURE_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Assets\GESTURE_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="GIMMICK_INFO_LOOKUP_BY_GUID" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Assets\GIMMICK_INFO_LOOKUP_BY_GUID.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

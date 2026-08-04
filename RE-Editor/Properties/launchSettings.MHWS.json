@@ -43,6 +43,10 @@
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Enemy/EnemyReportBossData.user.3\""
         },
+        "GestureData.user.3": {
+            "commandName": "Project",
+            "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Communication/GestureData.user.3\""
+        },
         "GimmickTextData.user.3": {
             "commandName": "Project",
             "commandLineArgs": "\"V:/MHWilds/re_chunk_000/natives/STM/GameDesign/Common/Gimmick/GimmickTextData.user.3\""

@@ -24,7 +24,14 @@ public class DumpWhitelistedDlcStuff : IMod {
                 || dlc.Name_.StartsWith("Hairstyle")
                 || dlc.Name_.StartsWith("Hunter Layered Armor")
                 || dlc.Name_.StartsWith("Layered")
-                || dlc.Name_.StartsWith("Seikret Decoration")) {
+                || dlc.Name_.StartsWith("Seikret Decoration")
+                || dlc.Name_.StartsWith("Camp Gear")
+                || dlc.Name_.StartsWith("BGM")
+                || dlc.Name_.StartsWith("Pendant")
+                || dlc.Name_.StartsWith("Gesture")
+                || dlc.Name_.StartsWith("Quest Completion")
+                || dlc.Name_.StartsWith("Sticker")
+                || dlc.Name_.StartsWith("Tent Customization")) {
                 var enumName = dlc.ID_Unwrapped.ToString();
                 Debug.WriteLine($"LOG(\"Unlocking {dlc.Name_}\"); dlcCache[{enumName}] = true;");
             }
