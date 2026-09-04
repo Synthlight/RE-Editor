@@ -19,13 +19,14 @@ public class JobRequirements : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "No Job Requirements";
         const string description = "Tweaks weapon & armor data to let you use any armor/weapon with any job.";
-        const string version     = "1.5";
+        const string version     = "1.6";
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
             Desc         = description,
             Image        = $@"{PathHelper.MODS_PATH}\{name}\Jobs.png",
+            SkipPak      = true
         };
 
         var mods = new List<INexusMod> {
@@ -34,7 +35,7 @@ public class JobRequirements : IMod {
                 .SetFiles([
                     PathHelper.ARMOR_DATA_PATH,
                     PathHelper.ITEM_DATA_PATH,
-                    PathHelper.WEAPON_DATA_PATH,
+                    PathHelper.WEAPON_DATA_PATH
                 ])
                 .SetAction(list => {
                     ItemTweaks.GoldCost(list, ItemTweaks.GoldOptions._1);
@@ -61,7 +62,7 @@ public class JobRequirements : IMod {
                         Target = ItemDbTweak.Target.ARMOR,
                         Action = writer => { writer.WriteLine($"        entry._{nameof(App_ItemEquipParam.Job)} = {ushort.MaxValue}"); }
                     }
-                ],
+                ]
             },
             baseMod
                 .SetName($"{name}: Armors Only (No Weight)")
@@ -88,7 +89,7 @@ public class JobRequirements : IMod {
                             writer.WriteLine($"        entry._{nameof(App_ItemCommonParam.Weight)} = 0");
                         }
                     }
-                ],
+                ]
             },
             baseMod
                 .SetName($"{name}: Weapons Only")
@@ -109,7 +110,7 @@ public class JobRequirements : IMod {
                         Target = ItemDbTweak.Target.WEAPON,
                         Action = writer => { writer.WriteLine($"        entry._{nameof(App_ItemEquipParam.Job)} = {ushort.MaxValue}"); }
                     }
-                ],
+                ]
             },
             baseMod
                 .SetName($"{name}: Weapons Only (No Weight)")
@@ -136,11 +137,11 @@ public class JobRequirements : IMod {
                             writer.WriteLine($"        entry._{nameof(App_ItemCommonParam.Weight)} = 0");
                         }
                     }
-                ],
-            },
+                ]
+            }
         };
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void Jobs(List<RszObject> rszObjectData, JobOptions option) {
@@ -169,6 +170,6 @@ public class JobRequirements : IMod {
     public enum JobOptions {
         ALL,
         ARMOR_ONLY,
-        WEAPONS_ONLY,
+        WEAPONS_ONLY
     }
 }

@@ -28,6 +28,7 @@ public class JobRequirementsCommission : IMod {
             NameAsBundle = "No Job Requirements",
             Desc         = description,
             Image        = @"R:\Games\Dragons Dogma 2\Mods\No Job Requirements\Jobs.png",
+            SkipPak      = true
         };
 
         var mods = new[] {
@@ -39,10 +40,10 @@ public class JobRequirementsCommission : IMod {
                     JobRequirements.Jobs(list, JobRequirements.JobOptions.ARMOR_ONLY);
                     ItemTweaks.Weight(list, ItemTweaks.WeightOptions._0);
                     Mod(list);
-                }),
+                })
         };
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData) {

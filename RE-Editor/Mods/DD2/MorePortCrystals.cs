@@ -18,31 +18,28 @@ public class MorePortCrystals : IMod {
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string name        = "Higher Portcrystal Limit";
-        const string description = "Changes the limit from 10 to 127.";
-        const string version     = "1.15";
+        const string description = "Changes the limit from 15 to 127.";
+        const string version     = "1.16";
 
         var baseMod = new NexusMod {
-            Version      = version,
-            NameAsBundle = name,
-            Desc         = description,
-            Image        = $@"{PathHelper.MODS_PATH}\{name}\Title.png",
+            Version = version,
+            Desc    = description,
+            Image   = $@"{PathHelper.MODS_PATH}\{name}\Title.png",
+            SkipPak = true
         };
 
         var additionalFiles = new Dictionary<string, object> {{@"reframework\plugins\MapIconSizeFixer.dll", $@"{PathHelper.MODS_PATH}\{name}\MapIconSizeFixer.dll"}};
 
         var mods = new[] {
             baseMod
-                .SetName($"{name}: REF (MUST INSTALL BOTH)")
-                .SetFiles([])
-                .SetAdditionalFiles(additionalFiles)
-                .SetSkipPak(true),
-            baseMod
-                .SetName($"{name}: PAK (MUST INSTALL BOTH)") // 'Loose' too since, of the two zips made, one will be a `pak`, the other won't.
+                .SetName(name)
                 .SetFiles([PathHelper.ITEM_PARAMETERS_PATH])
-                .SetAction(Mod),
+                .SetAdditionalFiles(additionalFiles)
+                .SetAction(Mod)
+                .SetSkipPak(true)
         };
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData) {

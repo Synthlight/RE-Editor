@@ -29,7 +29,7 @@ public class HidePetticoatSkirts : IMod {
             Image           = $@"{PathHelper.MODS_PATH}\{nameAsBundle}\Title.png",
             Files           = [],
             AdditionalFiles = [],
-            SkipPak         = true,
+            SkipPak         = true
         };
 
         var mods = new[] {
@@ -234,7 +234,7 @@ public class HidePetticoatSkirts : IMod {
                             writer.WriteLine("    end");
                         }
                     }
-                ]),
+                ])
         };
 
         foreach (var mod in mods) {

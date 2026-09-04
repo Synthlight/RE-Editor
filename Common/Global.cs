@@ -122,7 +122,7 @@ public static class Global {
 // @formatter:on
 
 #if DD2
-    public const string MSG_VERSION = "22";
+    public const string MSG_VERSION = "24";
 #elif DRDR
     public const string MSG_VERSION = "23";
 #elif MHR
@@ -144,7 +144,7 @@ public static class Global {
 #endif
 
 #if DD2
-    public const string USER_VERSION = "2";
+    public const string USER_VERSION = "3";
 #elif DRDR
     public const string USER_VERSION = "3";
 #elif MHR
@@ -188,7 +188,7 @@ public static class Global {
 #endif
 
 #if DD2
-    public const string CURRENT_GAME_VERSION = "Update 13 (2025-04-09)";
+    public const string CURRENT_GAME_VERSION = "Update 14 (2026-09-01)";
 #elif DRDR
     public const string CURRENT_GAME_VERSION = "Unknown";
 #elif MHR

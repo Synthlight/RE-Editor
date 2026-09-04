@@ -55,7 +55,7 @@ public class BingoBrawlers : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Bingo Brawlers";
         const string description = "Bingo Brawlers stuff.";
-        const string version     = "1.4.0";
+        const string version     = "1.4.2";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -216,6 +216,7 @@ public class BingoBrawlers : IMod {
                 return ItemConstants.AJARAKAN_CERTIFICATE_S;
             case ArmorSeriesConstants.ARKVELD_Α:
             case ArmorSeriesConstants.ARKVELD_Β:
+            case ArmorSeriesConstants.ARKVELD_Γ:
             case ArmorSeriesConstants.GUARDIAN_ARKVELD: // Not re-fight-able, so just use the regular ticket for now.
             case ArmorSeriesConstants.GUARDIAN_ARKVELD_Α:
             case ArmorSeriesConstants.GUARDIAN_ARKVELD_Β:
@@ -272,6 +273,7 @@ public class BingoBrawlers : IMod {
                 return ItemConstants.HIRABAMI_CERTIFICATE_S;
             case ArmorSeriesConstants.DAHAAD_Α:
             case ArmorSeriesConstants.DAHAAD_Β:
+            case ArmorSeriesConstants.DAHAAD_Γ:
                 return ItemConstants.JIN_DAHAAD_CERTIFICATE_S;
             case ArmorSeriesConstants.LALA_BARINA:
             case ArmorSeriesConstants.LALA_BARINA_Α:

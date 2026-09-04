@@ -28,9 +28,10 @@ public class HideSheathedWeapons : IMod {
             Desc    = description,
             Files   = [PathHelper.WEAPON_SETTINGS_PATH],
             Action  = ShopData,
+            SkipPak = true
         };
 
-        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void ShopData(List<RszObject> rszObjectData) {

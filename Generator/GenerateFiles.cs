@@ -300,7 +300,10 @@ public partial class GenerateFiles {
 
 #if DD2
         foreach (var (key, value) in STRUCT_OVERRIDES) {
-            structJson[key] = value;
+            // Because updates will use older override CRCs otherwise, which just breaks things.
+            var currentCrc = structJson[key].crc;
+            structJson[key]     = value;
+            structJson[key].crc = currentCrc;
         }
 #endif
     }

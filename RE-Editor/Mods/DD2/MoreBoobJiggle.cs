@@ -19,7 +19,7 @@ public class MoreBoobJiggle : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "More Boob Jiggle";
         const string description = "Because boobs need to jiggle.";
-        const string version     = "1.3";
+        const string version     = "1.4";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -28,6 +28,7 @@ public class MoreBoobJiggle : IMod {
             NameAsBundle = name,
             Image        = $@"{PathHelper.MODS_PATH}\{name}\Running.gif",
             Action       = Mod,
+            SkipPak      = true
         };
 
         var mods = new[] {
@@ -41,10 +42,10 @@ public class MoreBoobJiggle : IMod {
                 .SetName($"{name} (PAK)")
                 .SetDesc($"{description} ONLY ENABLE ONE OPTION.")
                 .SetFiles([PathHelper.SWAP_DATA_TOPS_PATH])
-                .SetAction(Mod),
+                .SetAction(Mod)
         };
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData) {

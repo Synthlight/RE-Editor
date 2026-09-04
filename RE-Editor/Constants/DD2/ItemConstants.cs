@@ -184,6 +184,7 @@ public static class ItemConstants {
     public const uint DRAGONS_RANCOR = 1706;
     public const uint DRAGONS_VEIN = 1411;
     public const uint DRAGONS_WIT = 1606;
+    public const uint DRAGONSBAULK_DRAUGHT = 710;
     public const uint DRAGONSWAIL_LITANY = 2105;
     public const uint DRAKESCALE_CAPE = 3338;
     public const uint DREAD_ASPIS = 2208;

@@ -24,12 +24,12 @@ public class ItemTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Item Tweaks";
         const string description = "Item/Equipment weight and cost changes.";
-        const string version     = "1.11";
+        const string version     = "1.12";
 
         var itemDataFiles = new List<string> {
             PathHelper.ARMOR_DATA_PATH,
             PathHelper.ITEM_DATA_PATH,
-            PathHelper.WEAPON_DATA_PATH,
+            PathHelper.WEAPON_DATA_PATH
         };
 
         var baseMod = new NexusMod {
@@ -38,6 +38,7 @@ public class ItemTweaks : IMod {
             Desc         = description,
             Files        = itemDataFiles,
             Image        = $@"{PathHelper.MODS_PATH}\{name}\Merchant.png",
+            SkipPak      = true
         };
 
         var _1GoldArmorsOnly = new ItemDbTweak.Change {
@@ -226,8 +227,8 @@ public class ItemTweaks : IMod {
                     sellPriceX10WeaponsOnly,
                     noDecay,
                     stackShortMax,
-                    favor1000,
-                ],
+                    favor1000
+                ]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Cost: 1 Gold (Armors Only)",
@@ -239,7 +240,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks1GoldArmors.lua",
                 SkipPak         = true,
-                Changes         = [_1GoldArmorsOnly],
+                Changes         = [_1GoldArmorsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Cost: 1 Gold (Items Only)",
@@ -251,7 +252,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks1GoldItems.lua",
                 SkipPak         = true,
-                Changes         = [_1GoldItemsOnly],
+                Changes         = [_1GoldItemsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Cost: 1 Gold (Weapons Only)",
@@ -263,7 +264,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks1GoldWeapons.lua",
                 SkipPak         = true,
-                Changes         = [_1GoldWeaponsOnly],
+                Changes         = [_1GoldWeaponsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Cost: 1 Gold (Ferrystone Only)",
@@ -275,7 +276,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks1GoldFerrystone.lua",
                 SkipPak         = true,
-                Changes         = [_1GoldFerrystoneOnly],
+                Changes         = [_1GoldFerrystoneOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Weight: 0 (Armors Only)",
@@ -287,7 +288,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0WeightArmors.lua",
                 SkipPak         = true,
-                Changes         = [weight0ArmorsOnly],
+                Changes         = [weight0ArmorsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Weight: 0 (Items Only)",
@@ -299,7 +300,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0WeightItems.lua",
                 SkipPak         = true,
-                Changes         = [weight0ItemsOnly],
+                Changes         = [weight0ItemsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Weight: 0 (Weapons Only)",
@@ -311,7 +312,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0WeightWeapons.lua",
                 SkipPak         = true,
-                Changes         = [weight0WeaponsOnly],
+                Changes         = [weight0WeaponsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Weight: 0 (Materials Only)",
@@ -323,7 +324,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0WeightMaterials.lua",
                 SkipPak         = true,
-                Changes         = [weight0MaterialsOnly],
+                Changes         = [weight0MaterialsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Weight: 0 (Ferrystone Only)",
@@ -335,7 +336,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0WeightFerrystone.lua",
                 SkipPak         = true,
-                Changes         = [weight0FerrystoneOnly],
+                Changes         = [weight0FerrystoneOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x10 (Armors Only)",
@@ -347,7 +348,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX10Armors.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX10ArmorsOnly],
+                Changes         = [sellPriceX10ArmorsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x10 (Items Only)",
@@ -359,7 +360,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX10Items.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX10ItemsOnly],
+                Changes         = [sellPriceX10ItemsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x10 (Weapons Only)",
@@ -371,7 +372,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX10Weapons.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX10WeaponsOnly],
+                Changes         = [sellPriceX10WeaponsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x5 (Armors Only)",
@@ -383,7 +384,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX5Armors.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX5ArmorsOnly],
+                Changes         = [sellPriceX5ArmorsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x5 (Items Only)",
@@ -395,7 +396,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX5Items.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX5ItemsOnly],
+                Changes         = [sellPriceX5ItemsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x5 (Weapons Only)",
@@ -407,7 +408,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX5Weapons.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX5WeaponsOnly],
+                Changes         = [sellPriceX5WeaponsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x2 (Armors Only)",
@@ -419,7 +420,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX2Armors.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX2ArmorsOnly],
+                Changes         = [sellPriceX2ArmorsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x2 (Items Only)",
@@ -431,7 +432,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX2Items.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX2ItemsOnly],
+                Changes         = [sellPriceX2ItemsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Sell Price: x2 (Weapons Only)",
@@ -443,7 +444,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaks0SellPriceX2Weapons.lua",
                 SkipPak         = true,
-                Changes         = [sellPriceX2WeaponsOnly],
+                Changes         = [sellPriceX2WeaponsOnly]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): No Bad Decay",
@@ -455,7 +456,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaksNoBadDecay.lua",
                 SkipPak         = true,
-                Changes         = [noDecay],
+                Changes         = [noDecay]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Stack Size: 999",
@@ -467,7 +468,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaksStackSize999.lua",
                 SkipPak         = true,
-                Changes         = [stack999],
+                Changes         = [stack999]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Stack Size: 9999",
@@ -479,7 +480,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaksStackSize9999.lua",
                 SkipPak         = true,
-                Changes         = [stack9999],
+                Changes         = [stack9999]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Stack Size: {short.MaxValue}",
@@ -491,7 +492,7 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = $"ItemTweaksStackSize{short.MaxValue}.lua",
                 SkipPak         = true,
-                Changes         = [stackShortMax],
+                Changes         = [stackShortMax]
             },
             new ItemDbTweak {
                 Name            = $"{name} (REF): Gift Favor: 1000",
@@ -503,11 +504,11 @@ public class ItemTweaks : IMod {
                 AdditionalFiles = [],
                 LuaName         = "ItemTweaksGiftFavor1000.lua",
                 SkipPak         = true,
-                Changes         = [favor1000],
-            },
+                Changes         = [favor1000]
+            }
         };
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void GoldCost(List<RszObject> rszObjectData, GoldOptions option) {
@@ -669,22 +670,22 @@ public class ItemTweaks : IMod {
 
     public enum GoldOptions {
         _1,
-        _1_Ferry_Only,
+        _1_Ferry_Only
     }
 
     public enum WeightOptions {
         _0,
         _0_Ferry_Only,
-        _0_Materials,
+        _0_Materials
     }
 
     public enum SellOptions {
-        X10,
+        X10
     }
 
     public enum StackOptions {
         _999,
         _9999,
-        SHORT_MAX,
+        SHORT_MAX
     }
 }

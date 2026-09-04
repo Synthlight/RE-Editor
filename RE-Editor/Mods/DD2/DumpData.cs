@@ -43,7 +43,7 @@ public class DumpData : IMod {
 
     private static void DumpGimmickData() {
         var chestContents = new Dictionary<int, List<string>>();
-        var dataFile      = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\natives/STM/AppSystem/Gimmick/UserData/Gm80_001_GmData.user.2");
+        var dataFile      = ReDataFile.Read(@$"{PathHelper.CHUNK_PATH}\natives/STM/AppSystem/Gimmick/UserData/Gm80_001_GmData.user.3");
         foreach (var obj in dataFile.rsz.objectData) {
             if (obj is App_Gm80_001Param param) {
                 var items = param.ItemList;

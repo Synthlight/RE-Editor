@@ -39,80 +39,10 @@ public partial class GenerateFiles {
         "App_Job04Parameter_CuttingWindParameter_LevelParameter",
     ];
 
-    // Because REF dumps with a hard-coded `via.AnimationCurve` (and a few others) to fix some issue with RE4 dump, and it causes issues here.
-    // So we need to override it with the original.
+    // In-case some structs generate badly.
+    // NOTE: CRCs here will be overwritten to preserve game update compatibility.
     private static readonly Dictionary<uint, StructJson> STRUCT_OVERRIDES = JsonConvert.DeserializeObject<Dictionary<string, StructJson>>("""
                                                                                                                                           {
-                                                                                                                                              "eab06d4b": {
-                                                                                                                                                  "crc": "d8a2551d",
-                                                                                                                                                  "fields": [
-                                                                                                                                                      {
-                                                                                                                                                          "align": 16,
-                                                                                                                                                          "array": true,
-                                                                                                                                                          "name": "v0",
-                                                                                                                                                          "native": true,
-                                                                                                                                                          "original_type": "",
-                                                                                                                                                          "size": 16,
-                                                                                                                                                          "type": "Data"
-                                                                                                                                                      },
-                                                                                                                                                      {
-                                                                                                                                                          "align": 4,
-                                                                                                                                                          "array": false,
-                                                                                                                                                          "name": "v1",
-                                                                                                                                                          "native": true,
-                                                                                                                                                          "original_type": "",
-                                                                                                                                                          "size": 4,
-                                                                                                                                                          "type": "Data"
-                                                                                                                                                      },
-                                                                                                                                                      {
-                                                                                                                                                          "align": 4,
-                                                                                                                                                          "array": false,
-                                                                                                                                                          "name": "v2",
-                                                                                                                                                          "native": true,
-                                                                                                                                                          "original_type": "",
-                                                                                                                                                          "size": 4,
-                                                                                                                                                          "type": "Data"
-                                                                                                                                                      },
-                                                                                                                                                      {
-                                                                                                                                                          "align": 4,
-                                                                                                                                                          "array": false,
-                                                                                                                                                          "name": "v3",
-                                                                                                                                                          "native": true,
-                                                                                                                                                          "original_type": "",
-                                                                                                                                                          "size": 4,
-                                                                                                                                                          "type": "Data"
-                                                                                                                                                      },
-                                                                                                                                                      {
-                                                                                                                                                          "align": 4,
-                                                                                                                                                          "array": false,
-                                                                                                                                                          "name": "v4",
-                                                                                                                                                          "native": true,
-                                                                                                                                                          "original_type": "",
-                                                                                                                                                          "size": 4,
-                                                                                                                                                          "type": "Data"
-                                                                                                                                                      },
-                                                                                                                                                      {
-                                                                                                                                                          "align": 4,
-                                                                                                                                                          "array": false,
-                                                                                                                                                          "name": "v5",
-                                                                                                                                                          "native": true,
-                                                                                                                                                          "original_type": "",
-                                                                                                                                                          "size": 4,
-                                                                                                                                                          "type": "Data"
-                                                                                                                                                      },
-                                                                                                                                                      {
-                                                                                                                                                          "align": 4,
-                                                                                                                                                          "array": false,
-                                                                                                                                                          "name": "v6",
-                                                                                                                                                          "native": true,
-                                                                                                                                                          "original_type": "",
-                                                                                                                                                          "size": 4,
-                                                                                                                                                          "type": "Data"
-                                                                                                                                                      }
-                                                                                                                                                  ],
-                                                                                                                                                  "name": "via.AnimationCurve",
-                                                                                                                                                  "parent": "System.Object"
-                                                                                                                                              }
                                                                                                                                           }
                                                                                                                                           """)!.KeyFromHexString();
 }

@@ -19,7 +19,7 @@ public class InvisiblePartsFixer : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Invisible Parts Fixer";
         const string description = "Restores missing skin textures from mesh parts hidden by tweaking the armor swap database.";
-        const string version     = "1.1";
+        const string version     = "1.2";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -27,6 +27,7 @@ public class InvisiblePartsFixer : IMod {
             NameAsBundle = name,
             Image        = $@"{PathHelper.MODS_PATH}\{name}\Title.png",
             Files        = [],
+            SkipPak      = true
         };
 
         var nulledMasks = new Dictionary<string, object>();
@@ -36,7 +37,7 @@ public class InvisiblePartsFixer : IMod {
                              .ToLower()
                              .Replace('\\', '/');
             if (line.Contains("/_furmasks/")) {
-                nulledMasks[line] = $@"{PathHelper.MODS_PATH}\{name}\null furmask.tex.760230703";
+                nulledMasks[line] = $@"{PathHelper.MODS_PATH}\{name}\null furmask.tex.251211553";
             }
         }
 
@@ -47,9 +48,9 @@ public class InvisiblePartsFixer : IMod {
                    .SetSkipPak(true),
             baseMod.SetName($"{name} (Blank All Fur Masks)")
                    .SetDesc($"{description}\nBlanks every single fur mask in the game, which works for photo mode & the inventory too.")
-                   .SetAdditionalFiles(nulledMasks),
+                   .SetAdditionalFiles(nulledMasks)
         };
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 }

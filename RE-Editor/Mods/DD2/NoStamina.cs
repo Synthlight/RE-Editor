@@ -18,26 +18,26 @@ public class NoStamina : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "No Stamina Consumed";
         const string description = "Changes stamina use.";
-        const string version     = "1.8";
+        const string version     = "1.9";
 
         var descriptionOptions = new Dictionary<StaminaOptions, string> {
             [StaminaOptions.JOB_SKILLS]    = "Changes job skills' stamina use.",
-            [StaminaOptions.OUT_OF_COMBAT] = "Changes common action (dash/climb/jump/carry/etc) stamina use.",
+            [StaminaOptions.OUT_OF_COMBAT] = "Changes common action (dash/climb/jump/carry/etc) stamina use."
         };
 
         var dataFiles = new Dictionary<StaminaOptions, List<string>> {
             [StaminaOptions.JOB_SKILLS] = [],
             [StaminaOptions.OUT_OF_COMBAT] = [
                 PathHelper.STAMINA_COMMON_ACTION_PARAM_PATH,
-                PathHelper.STAMINA_PARAM_PATH,
-            ],
+                PathHelper.STAMINA_PARAM_PATH
+            ]
         };
         for (var i = 1; i <= 10; i++) {
             dataFiles[StaminaOptions.JOB_SKILLS]
                 .AddRange([
-                    $@"natives\STM\AppSystem\ch\Common\Human\UserData\Parameter\Job{i:00}StaminaParameter.user.2",
+                    $@"natives\STM\AppSystem\ch\Common\Human\UserData\Parameter\Job{i:00}StaminaParameter.user.3",
                     PathHelper.JOB_04_PARAM_PATH,
-                    PathHelper.JOB_07_PARAM_PATH,
+                    PathHelper.JOB_07_PARAM_PATH
                 ]);
         }
 
@@ -45,6 +45,7 @@ public class NoStamina : IMod {
             Version      = version,
             NameAsBundle = name,
             Desc         = description,
+            SkipPak      = true
         };
 
         var mods = (from option in Enum.GetValues<StaminaOptions>()
@@ -56,7 +57,7 @@ public class NoStamina : IMod {
                                   .SetFiles(dataFiles[option])
                                   .SetAction(list => Stamina(list, option, value))).ToList();
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void Stamina(List<RszObject> rszObjectData, StaminaOptions option, StaminaValueOptions value) {
@@ -100,7 +101,7 @@ public class NoStamina : IMod {
 
     public enum StaminaOptions {
         OUT_OF_COMBAT,
-        JOB_SKILLS,
+        JOB_SKILLS
     }
 
     private static string GetOptionName(StaminaOptions option) {
@@ -115,7 +116,7 @@ public class NoStamina : IMod {
         _0,
         HALF,
         X2,
-        X5,
+        X5
     }
 
     private static string GetValueName(StaminaValueOptions option) {

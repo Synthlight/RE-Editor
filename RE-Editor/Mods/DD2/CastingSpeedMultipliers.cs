@@ -18,18 +18,19 @@ public class CastingSpeedMultipliers : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Casting Speed Multipliers";
         const string description = "Casting speed multipliers.";
-        const string version     = "1.4";
+        const string version     = "1.5";
 
         var dataFiles = new Dictionary<TargetOptions, List<string>> {
             [TargetOptions.MAGE]         = [PathHelper.JOB_03_PARAM_PATH],
             [TargetOptions.MAGIC_ARCHER] = [PathHelper.JOB_08_PARAM_PATH],
-            [TargetOptions.SORCERER]     = [PathHelper.JOB_06_PARAM_PATH],
+            [TargetOptions.SORCERER]     = [PathHelper.JOB_06_PARAM_PATH]
         };
 
         var baseMod = new NexusMod {
             Version      = version,
             NameAsBundle = name,
             Desc         = description,
+            SkipPak      = true
         };
 
         var mods = (from option in Enum.GetValues<TargetOptions>()
@@ -40,7 +41,7 @@ public class CastingSpeedMultipliers : IMod {
                                   .SetFiles(dataFiles[option])
                                   .SetAction(list => Mod(list, value))).ToList();
 
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData, ValueOptions option) {
@@ -79,7 +80,7 @@ public class CastingSpeedMultipliers : IMod {
     public enum TargetOptions {
         MAGE,
         MAGIC_ARCHER,
-        SORCERER,
+        SORCERER
     }
 
     private static object GetOptionName(TargetOptions option) {
@@ -101,7 +102,7 @@ public class CastingSpeedMultipliers : IMod {
         _6,
         _7,
         _8,
-        _9,
+        _9
     }
 
     private static string GetValueName(ValueOptions option) {

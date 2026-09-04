@@ -24,24 +24,15 @@ public static partial class PathHelper {
     ];
 
     public static readonly string[] PAK_PATHS = [
-        "re_chunk_000.pak",
-        "re_chunk_000.pak.patch_001.pak",
-        "re_chunk_000.pak.patch_002.pak",
-        "re_chunk_000.pak.patch_003.pak",
-        "re_chunk_000.pak.patch_004.pak",
-        "re_chunk_000.pak.patch_005.pak",
-        "re_chunk_000.pak.patch_006.pak",
-        "re_chunk_000.pak.patch_007.pak",
-        "re_chunk_000.pak.patch_008.pak",
-        "re_chunk_000.pak.patch_009.pak",
-        "re_chunk_000.pak.patch_010.pak",
-        "re_chunk_000.pak.patch_011.pak",
-        "re_chunk_000.pak.patch_012.pak",
-        "re_chunk_000.pak.patch_013.pak",
-        "re_chunk_000.pak.patch_014.pak"
+        "re_chunk_000.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
+        new(new(2026, 09, 01), "Update 2026-09-01", [
+            "re_chunk_000.pak"
+        ]) {updateName = "2026-09-01"}
+        /*
+        // Things got merged into one PAK for update 15.
         new(new(2024, 03, 21), "Release", [
             "re_chunk_000.pak"
         ]) {updateName = "2024-03-21"},
@@ -87,28 +78,29 @@ public static partial class PathHelper {
         new(new(2025, 04, 09), "Update 14", [
             "re_chunk_000.pak.patch_014.pak"
         ]) {updateName = "2026-06-08"}
+        */
     ];
 
     public const string NEXUS_URL              = "https://www.nexusmods.com/dragonsdogma2/mods/522";
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
     public const string WIKI_URL               = NEXUS_URL;
 
-    public const string ARMOR_DATA_PATH                  = "natives/STM/AppSystem/Item/ItemData/ItemArmorData.user.2";
-    public const string ARMOR_UPGRADE_DATA_PATH          = "natives/STM/AppSystem/Item/ItemData/ArmorEnhanceData.user.2";
-    public const string ITEM_DATA_PATH                   = "natives/STM/AppSystem/Item/ItemData/ItemData.user.2";
-    public const string ITEM_PARAMETERS_PATH             = "natives/STM/AppSystem/Item/ItemParameters/ItemParameters.user.2";
-    public const string ITEM_SHOP_DATA_PATH              = "natives/STM/AppSystem/Item/ItemShopData/ItemShopData.user.2";
-    public const string JOB_03_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job03Parameter.user.2";
-    public const string JOB_04_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job04Parameter.user.2";
-    public const string JOB_06_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job06Parameter.user.2";
-    public const string JOB_07_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job07Parameter.user.2";
-    public const string JOB_08_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job08Parameter.user.2";
-    public const string STAMINA_COMMON_ACTION_PARAM_PATH = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/CommonActionStaminaParameter.user.2";
-    public const string STAMINA_PARAM_PATH               = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/StaminaParameter.user.2";
-    public const string SWAP_DATA_MANTLE_PATH            = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/MantleSwapData.user.2";
-    public const string SWAP_DATA_PANTS_PATH             = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/PantsSwapData.user.2";
-    public const string SWAP_DATA_TOPS_PATH              = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/TopsSwapData.user.2";
-    public const string WEAPON_DATA_PATH                 = "natives/STM/AppSystem/Item/ItemData/ItemWeaponData.user.2";
-    public const string WEAPON_SETTINGS_PATH             = "natives/STM/AppSystem/Equipment/wp/WeaponSetting.user.2";
-    public const string WEAPON_UPGRADE_DATA_PATH         = "natives/STM/AppSystem/Item/ItemData/WeaponEnhanceData.user.2";
+    public const string ARMOR_DATA_PATH                  = "natives/STM/AppSystem/Item/ItemData/ItemArmorData.user.3";
+    public const string ARMOR_UPGRADE_DATA_PATH          = "natives/STM/AppSystem/Item/ItemData/ArmorEnhanceData.user.3";
+    public const string ITEM_DATA_PATH                   = "natives/STM/AppSystem/Item/ItemData/ItemData.user.3";
+    public const string ITEM_PARAMETERS_PATH             = "natives/STM/AppSystem/Item/ItemParameters/ItemParameters.user.3";
+    public const string ITEM_SHOP_DATA_PATH              = "natives/STM/AppSystem/Item/ItemShopData/ItemShopData.user.3";
+    public const string JOB_03_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job03Parameter.user.3";
+    public const string JOB_04_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job04Parameter.user.3";
+    public const string JOB_06_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job06Parameter.user.3";
+    public const string JOB_07_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job07Parameter.user.3";
+    public const string JOB_08_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job08Parameter.user.3";
+    public const string STAMINA_COMMON_ACTION_PARAM_PATH = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/CommonActionStaminaParameter.user.3";
+    public const string STAMINA_PARAM_PATH               = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/StaminaParameter.user.3";
+    public const string SWAP_DATA_MANTLE_PATH            = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/MantleSwapData.user.3";
+    public const string SWAP_DATA_PANTS_PATH             = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/PantsSwapData.user.3";
+    public const string SWAP_DATA_TOPS_PATH              = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/TopsSwapData.user.3";
+    public const string WEAPON_DATA_PATH                 = "natives/STM/AppSystem/Item/ItemData/ItemWeaponData.user.3";
+    public const string WEAPON_SETTINGS_PATH             = "natives/STM/AppSystem/Equipment/wp/WeaponSetting.user.3";
+    public const string WEAPON_UPGRADE_DATA_PATH         = "natives/STM/AppSystem/Item/ItemData/WeaponEnhanceData.user.3";
 }

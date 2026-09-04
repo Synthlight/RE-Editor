@@ -31,7 +31,7 @@ public class InfiniteLanternOil : IMod {
             Desc            = description,
             Files           = [],
             AdditionalFiles = new() {{$@"reframework\autorun\{luaFile}", luaPath}},
-            SkipPak         = true,
+            SkipPak         = true
         };
 
         ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true, noPakZip: true);

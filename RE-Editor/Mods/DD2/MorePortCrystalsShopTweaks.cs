@@ -20,7 +20,7 @@ public class MorePortCrystalsShopTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Ferrystones and Portcrystals in Every Shop";
         const string description = "Adds both items to every single shop in the game.";
-        const string version     = "1.8";
+        const string version     = "1.2";
 
         var mod = new NexusMod {
             Version = version,
@@ -28,9 +28,10 @@ public class MorePortCrystalsShopTweaks : IMod {
             Desc    = description,
             Files   = [PathHelper.ITEM_SHOP_DATA_PATH],
             Action  = ShopData,
+            SkipPak = true
         };
 
-        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void ShopData(List<RszObject> rszObjectData) {
