@@ -20,21 +20,31 @@ public class PakData(PakList pakList) {
 
         if (header.majorVersion != 2 && header.majorVersion != 4 || header.minorVersion != 0 && header.minorVersion != 1 && header.minorVersion != 2) throw new($"[ERROR]: Invalid version of PAK archive file -> {header.majorVersion}.{header.minorVersion}, expected 2.0, 4.0, 4.1, 4.2");
 
-        if (header.feature != 0 && header.feature != 8 && header.feature != 24 && header.feature != 40) throw new("[ERROR]: Archive is encrypted (obfuscated) with an unsupported algorithm");
+        if ((header.feature & ~PakFeatureFlags.KnownFlags) != 0) throw new("[ERROR]: Archive is using unknown flags");
 
-        // ReSharper disable once ConvertSwitchStatementToSwitchExpression
-        switch (header.majorVersion) {
-            case 2: entrySize = 24; break;
-            case 4: entrySize = 48; break;
+        entrySize = header.majorVersion switch {
+            2 => 24,
+            4 => 48,
+            _ => entrySize
+        };
+
+        if ((header.feature & PakFeatureFlags.ExtraInteger) != 0) {
+            pakStream.BaseStream.Seek(4, SeekOrigin.Current);
+        }
+
+        if ((header.feature & PakFeatureFlags.ExtraData) != 0) {
+            pakStream.BaseStream.Seek(9, SeekOrigin.Current);
         }
 
         var decryptedEntryData = pakStream.ReadBytes(header.totalFiles * entrySize);
 
-        if (header.feature is 8 or 24 or 40) {
-            if (header.feature == 24) pakStream.BaseStream.Seek(4, SeekOrigin.Current); // 0
+        if ((header.feature & PakFeatureFlags.RemapEntries) != 0) {
+            var remapCount = pakStream.ReadInt64();
+            pakStream.BaseStream.Seek(remapCount * 16, SeekOrigin.Current);
+        }
 
+        if ((header.feature & ~PakFeatureFlags.EncryptEntryList) != 0) {
             var encryptedKey = pakStream.ReadBytes(128);
-
             decryptedEntryData = PakCipher.DecryptData(decryptedEntryData, encryptedKey);
         }
 

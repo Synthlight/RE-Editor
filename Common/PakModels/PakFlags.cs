@@ -18,3 +18,13 @@ public enum EncryptionFlags : int {
     Type_4       = 0x4, // pkc_key::c4n & pkc_key::c4d
     Type_Invalid = 0x5,
 }
+
+[Flags]
+public enum PakFeatureFlags : short {
+    ExtraData            = 4,
+    EncryptEntryList     = 8,
+    ExtraInteger         = 16,
+    HasChunkContentTable = 32,
+    RemapEntries         = 64,
+    KnownFlags           = ExtraData | EncryptEntryList | ExtraInteger | HasChunkContentTable | RemapEntries,
+}
