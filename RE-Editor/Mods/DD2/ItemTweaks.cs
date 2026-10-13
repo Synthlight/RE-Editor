@@ -24,7 +24,7 @@ public class ItemTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Item Tweaks";
         const string description = "Item/Equipment weight and cost changes.";
-        const string version     = "1.12";
+        const string version     = "1.13";
 
         var itemDataFiles = new List<string> {
             PathHelper.ARMOR_DATA_PATH,

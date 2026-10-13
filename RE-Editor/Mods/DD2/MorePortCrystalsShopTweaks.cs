@@ -19,8 +19,8 @@ public class MorePortCrystalsShopTweaks : IMod {
     [UsedImplicitly]
     public static void Make(MainWindow mainWindow) {
         const string name        = "Ferrystones and Portcrystals in Every Shop";
-        const string description = "Adds both items to every single shop in the game.";
-        const string version     = "1.2";
+        const string description = "Adds some items to every single shop in the game.";
+        const string version     = "1.3";
 
         var mod = new NexusMod {
             Version = version,
@@ -43,6 +43,7 @@ public class MorePortCrystalsShopTweaks : IMod {
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.FERRYSTONE, 255));
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.ETERNAL_FERRYSTONE, 1));
                         shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.PORTCRYSTAL, 255));
+                        shopData.BuyParams.Add(App_ItemShopBuyParam.MakeNewBuyItem(shopData.rsz, (int) ItemConstants.NORGAN_PORTCRYSTAL, 255));
                     }
                     break;
             }

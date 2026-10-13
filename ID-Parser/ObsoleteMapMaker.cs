@@ -41,7 +41,8 @@ public static class ObsoleteMapMaker {
 
             foreach (var pakFileInfo in pakFileInfos) {
                 // If it's there, then we're dealing with an outdated file.
-                if (fileInfoMap.TryGetValue(pakFileInfo.filename, out var fileInfo)) {
+                // Skip if the hash matches. This can happen with DLC PAKs compared to the base PAK.
+                if (fileInfoMap.TryGetValue(pakFileInfo.filename, out var fileInfo) && pakFileInfo.hash != fileInfo.goodPakInfo.hash) {
                     fileInfo.badPakInfo.Add(pakFileInfo);
                 } else {
                     // If it's not in the map, then, because we are going through with the newest first, it must be the latest version of the file.

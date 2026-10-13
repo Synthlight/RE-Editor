@@ -24,13 +24,25 @@ public static partial class PathHelper {
     ];
 
     public static readonly string[] PAK_PATHS = [
+        @"dlc\re_dlc_stm_2593180.pak",
+        @"dlc\re_dlc_stm_2593190.pak",
+        @"dlc\re_dlc_stm_2593290.pak",
         "re_chunk_000.pak"
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
+        // Whatever the deal is with the expansion, I'm just starting anew.
+        new(new(2026, 10, 08), "Update 2026-10-08", [
+            @"dlc\re_dlc_stm_2593180.pak",
+            @"dlc\re_dlc_stm_2593190.pak",
+            @"dlc\re_dlc_stm_2593290.pak",
+            "re_chunk_000.pak"
+        ]) {updateName = "2026-10-08"}
+        /*
         new(new(2026, 09, 01), "Update 2026-09-01", [
             "re_chunk_000.pak"
         ]) {updateName = "2026-09-01"}
+        */
         /*
         // Things got merged into one PAK for update 15.
         new(new(2024, 03, 21), "Release", [
@@ -89,6 +101,7 @@ public static partial class PathHelper {
     public const string ARMOR_UPGRADE_DATA_PATH          = "natives/STM/AppSystem/Item/ItemData/ArmorEnhanceData.user.3";
     public const string ITEM_DATA_PATH                   = "natives/STM/AppSystem/Item/ItemData/ItemData.user.3";
     public const string ITEM_PARAMETERS_PATH             = "natives/STM/AppSystem/Item/ItemParameters/ItemParameters.user.3";
+    public const string ITEM_PARAMETERS_DARK_ARISEN_PATH = "natives/STM/AppSystem/Item/ItemParameters/CONTENTS0014ItemParameters.user.3";
     public const string ITEM_SHOP_DATA_PATH              = "natives/STM/AppSystem/Item/ItemShopData/ItemShopData.user.3";
     public const string JOB_03_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job03Parameter.user.3";
     public const string JOB_04_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job04Parameter.user.3";

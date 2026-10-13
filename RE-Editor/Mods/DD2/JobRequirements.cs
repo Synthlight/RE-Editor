@@ -19,7 +19,7 @@ public class JobRequirements : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "No Job Requirements";
         const string description = "Tweaks weapon & armor data to let you use any armor/weapon with any job.";
-        const string version     = "1.6";
+        const string version     = "1.7";
 
         var baseMod = new NexusMod {
             Version      = version,

@@ -19,34 +19,31 @@ public class MorePortCrystals : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Higher Portcrystal Limit";
         const string description = "Changes the limit from 15 to 127.";
-        const string version     = "1.16";
+        const string version     = "1.17";
 
-        var baseMod = new NexusMod {
+        var mod = new NexusMod {
+            Name    = name,
             Version = version,
             Desc    = description,
             Image   = $@"{PathHelper.MODS_PATH}\{name}\Title.png",
-            SkipPak = true
+            Files = [
+                PathHelper.ITEM_PARAMETERS_PATH,
+                PathHelper.ITEM_PARAMETERS_DARK_ARISEN_PATH
+            ],
+            AdditionalFiles = new() {{@"reframework\plugins\MapIconSizeFixer.dll", $@"{PathHelper.MODS_PATH}\{name}\MapIconSizeFixer.dll"}},
+            Action          = Mod,
+            SkipPak         = true
         };
 
-        var additionalFiles = new Dictionary<string, object> {{@"reframework\plugins\MapIconSizeFixer.dll", $@"{PathHelper.MODS_PATH}\{name}\MapIconSizeFixer.dll"}};
-
-        var mods = new[] {
-            baseMod
-                .SetName(name)
-                .SetFiles([PathHelper.ITEM_PARAMETERS_PATH])
-                .SetAdditionalFiles(additionalFiles)
-                .SetAction(Mod)
-                .SetSkipPak(true)
-        };
-
-        ModMaker.WriteMods(mainWindow, mods, name, copyLooseToFluffy: true, noPakZip: true);
+        ModMaker.WriteMods(mainWindow, [mod], name, copyLooseToFluffy: true, noPakZip: true);
     }
 
     public static void Mod(List<RszObject> rszObjectData) {
         foreach (var obj in rszObjectData) {
             switch (obj) {
                 case App_ItemParameters itemParameters:
-                    itemParameters.WarpPointPutEnableNum = 256;
+                    itemParameters.WarpPointPutEnableNum    = 256;
+                    itemParameters.NRDWarpPointPutEnableNum = 256;
                     break;
             }
         }

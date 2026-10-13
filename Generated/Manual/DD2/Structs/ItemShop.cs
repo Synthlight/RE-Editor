@@ -22,6 +22,9 @@ public partial class App_ItemShopBuyParam {
         newItem.ReleaseTotalPay         = 0;
         newItem.ReleaseFlag             = 0;
         newItem.IsCheckJob              = false;
+
+        newItem.QuestVariableCondition[0].QuestID   = App_QuestDefine_ID.Invalid;
+        newItem.QuestVariableCondition[0].BoolValue = true;
         return newItem;
     }
 }

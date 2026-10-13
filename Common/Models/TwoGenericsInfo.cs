@@ -36,9 +36,22 @@ public struct TwoGenericsInfo {
                 name    = rawType[..^2];
                 isArray = true;
             } else {
-                name = rawType;
+                name = rawType switch {
+                    "System.UInt32" => "uint",
+                    "System.Int32" => "int",
+                    "System.Single" => "float",
+                    "System.String" => "string",
+                    _ => rawType
+                };
             }
             convertedName = name.ToConvertedTypeName()!;
+            convertedName = convertedName switch {
+                "Uint" => "uint",
+                "Int" => "int",
+                "Float" => "float",
+                "String" => "string",
+                _ => convertedName
+            };
         }
     }
 }

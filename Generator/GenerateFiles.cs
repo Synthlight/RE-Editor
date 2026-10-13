@@ -106,6 +106,7 @@ public partial class GenerateFiles {
         "app.retarget.RetargetLodJointSettingBase`",
         "app.SimpleFlightPathTracer`",
         "app.StringUtil.NameHash`",
+        "soundlib.SoundStateApp`",
         "soundlib.SoundSwitchApp`",
 #elif DRDR
         "app.solid.camera.CameraCurveUserData.CurveParam`",

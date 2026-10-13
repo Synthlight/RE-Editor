@@ -45,6 +45,7 @@ public static partial class PathHelper {
         var pakList      = new PakList(msg ? PAK_LIST_MSG : PAK_LIST);
         // Go through in the reverse so the first entry we map is the newest version of the file.
         foreach (var pakFile in PAK_PATHS.Reverse()) {
+            Global.Log($"Reading: {pakFile}");
             var pak     = new PakData(pakList);
             var pakPath = $@"{pakDir}\{pakFile}";
             if (!File.Exists(pakPath)) continue; // Happens when MSG is lagging behind.
