@@ -24,12 +24,15 @@ public class ItemTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Item Tweaks";
         const string description = "Item/Equipment weight and cost changes.";
-        const string version     = "1.13";
+        const string version     = "1.14";
 
         var itemDataFiles = new List<string> {
             PathHelper.ARMOR_DATA_PATH,
+            PathHelper.ARMOR_DATA_DARK_ARISEN_PATH,
             PathHelper.ITEM_DATA_PATH,
-            PathHelper.WEAPON_DATA_PATH
+            PathHelper.ITEM_DATA_DARK_ARISEN_PATH,
+            PathHelper.WEAPON_DATA_PATH,
+            PathHelper.WEAPON_DATA_DARK_ARISEN_PATH
         };
 
         var baseMod = new NexusMod {

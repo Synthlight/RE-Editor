@@ -20,13 +20,16 @@ public class ShopTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Shop Tweaks";
         const string description = "Adds a bunch of things to every shop in the game.";
-        const string version     = "1.13";
+        const string version     = "1.14";
 
         var mod = new NexusMod {
             Version = version,
             Name    = name,
             Desc    = description,
-            Files   = [PathHelper.ITEM_SHOP_DATA_PATH],
+            Files = [
+                PathHelper.ITEM_SHOP_DATA_PATH,
+                PathHelper.ITEM_SHOP_DATA_DARK_ARISEN_PATH
+            ],
             Action  = ShopData,
             SkipPak = true
         };

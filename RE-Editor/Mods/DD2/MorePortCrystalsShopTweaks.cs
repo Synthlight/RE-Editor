@@ -20,13 +20,16 @@ public class MorePortCrystalsShopTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Ferrystones and Portcrystals in Every Shop";
         const string description = "Adds some items to every single shop in the game.";
-        const string version     = "1.3";
+        const string version     = "1.4";
 
         var mod = new NexusMod {
             Version = version,
             Name    = name,
             Desc    = description,
-            Files   = [PathHelper.ITEM_SHOP_DATA_PATH],
+            Files = [
+                PathHelper.ITEM_SHOP_DATA_PATH,
+                PathHelper.ITEM_SHOP_DATA_DARK_ARISEN_PATH
+            ],
             Action  = ShopData,
             SkipPak = true
         };

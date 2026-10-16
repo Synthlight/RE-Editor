@@ -19,7 +19,7 @@ public class JobRequirements : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "No Job Requirements";
         const string description = "Tweaks weapon & armor data to let you use any armor/weapon with any job.";
-        const string version     = "1.7";
+        const string version     = "1.8";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -34,8 +34,11 @@ public class JobRequirements : IMod {
                 .SetName($"{name}: All (+ Item Tweaks All-in-One)")
                 .SetFiles([
                     PathHelper.ARMOR_DATA_PATH,
+                    PathHelper.ARMOR_DATA_DARK_ARISEN_PATH,
                     PathHelper.ITEM_DATA_PATH,
-                    PathHelper.WEAPON_DATA_PATH
+                    PathHelper.ITEM_DATA_DARK_ARISEN_PATH,
+                    PathHelper.WEAPON_DATA_PATH,
+                    PathHelper.WEAPON_DATA_DARK_ARISEN_PATH
                 ])
                 .SetAction(list => {
                     ItemTweaks.GoldCost(list, ItemTweaks.GoldOptions._1);

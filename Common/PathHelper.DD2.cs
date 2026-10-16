@@ -31,6 +31,14 @@ public static partial class PathHelper {
     ];
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
+        // And they released an update overwriting the base PAK YET AGAIN!
+        new(new(2026, 10, 15), "Update 2026-10-15", [
+            @"dlc\re_dlc_stm_2593180.pak",
+            @"dlc\re_dlc_stm_2593190.pak",
+            @"dlc\re_dlc_stm_2593290.pak",
+            "re_chunk_000.pak"
+        ]) {updateName = "2026-10-15"}
+        /*
         // Whatever the deal is with the expansion, I'm just starting anew.
         new(new(2026, 10, 08), "Update 2026-10-08", [
             @"dlc\re_dlc_stm_2593180.pak",
@@ -38,6 +46,7 @@ public static partial class PathHelper {
             @"dlc\re_dlc_stm_2593290.pak",
             "re_chunk_000.pak"
         ]) {updateName = "2026-10-08"}
+        */
         /*
         new(new(2026, 09, 01), "Update 2026-09-01", [
             "re_chunk_000.pak"
@@ -97,23 +106,30 @@ public static partial class PathHelper {
     public const string JSON_VERSION_CHECK_URL = $"http://brutsches.com/{CONFIG_NAME}-Editor.version.json";
     public const string WIKI_URL               = NEXUS_URL;
 
-    public const string ARMOR_DATA_PATH                  = "natives/STM/AppSystem/Item/ItemData/ItemArmorData.user.3";
-    public const string ARMOR_UPGRADE_DATA_PATH          = "natives/STM/AppSystem/Item/ItemData/ArmorEnhanceData.user.3";
-    public const string ITEM_DATA_PATH                   = "natives/STM/AppSystem/Item/ItemData/ItemData.user.3";
-    public const string ITEM_PARAMETERS_PATH             = "natives/STM/AppSystem/Item/ItemParameters/ItemParameters.user.3";
-    public const string ITEM_PARAMETERS_DARK_ARISEN_PATH = "natives/STM/AppSystem/Item/ItemParameters/CONTENTS0014ItemParameters.user.3";
-    public const string ITEM_SHOP_DATA_PATH              = "natives/STM/AppSystem/Item/ItemShopData/ItemShopData.user.3";
-    public const string JOB_03_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job03Parameter.user.3";
-    public const string JOB_04_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job04Parameter.user.3";
-    public const string JOB_06_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job06Parameter.user.3";
-    public const string JOB_07_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job07Parameter.user.3";
-    public const string JOB_08_PARAM_PATH                = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job08Parameter.user.3";
-    public const string STAMINA_COMMON_ACTION_PARAM_PATH = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/CommonActionStaminaParameter.user.3";
-    public const string STAMINA_PARAM_PATH               = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/StaminaParameter.user.3";
-    public const string SWAP_DATA_MANTLE_PATH            = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/MantleSwapData.user.3";
-    public const string SWAP_DATA_PANTS_PATH             = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/PantsSwapData.user.3";
-    public const string SWAP_DATA_TOPS_PATH              = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/TopsSwapData.user.3";
-    public const string WEAPON_DATA_PATH                 = "natives/STM/AppSystem/Item/ItemData/ItemWeaponData.user.3";
-    public const string WEAPON_SETTINGS_PATH             = "natives/STM/AppSystem/Equipment/wp/WeaponSetting.user.3";
-    public const string WEAPON_UPGRADE_DATA_PATH         = "natives/STM/AppSystem/Item/ItemData/WeaponEnhanceData.user.3";
+    public const string ARMOR_DATA_PATH                      = "natives/STM/AppSystem/Item/ItemData/ItemArmorData.user.3";
+    public const string ARMOR_DATA_DARK_ARISEN_PATH          = "natives/STM/AppSystem/Item/ItemData/ExItemArmorData.user.3";
+    public const string ARMOR_UPGRADE_DATA_PATH              = "natives/STM/AppSystem/Item/ItemData/ArmorEnhanceData.user.3";
+    public const string ARMOR_UPGRADE_DATA_DARK_ARISEN_PATH  = "natives/STM/AppSystem/Item/ItemData/ExArmorEnhanceData.user.3";
+    public const string ITEM_DATA_PATH                       = "natives/STM/AppSystem/Item/ItemData/ItemData.user.3";
+    public const string ITEM_DATA_DARK_ARISEN_PATH           = "natives/STM/AppSystem/Item/ItemData/ExItemData.user.3";
+    public const string ITEM_PARAMETERS_PATH                 = "natives/STM/AppSystem/Item/ItemParameters/ItemParameters.user.3";
+    public const string ITEM_PARAMETERS_DARK_ARISEN_PATH     = "natives/STM/AppSystem/Item/ItemParameters/Contents0014ItemParameters.user.3";
+    public const string ITEM_SHOP_DATA_PATH                  = "natives/STM/AppSystem/Item/ItemShopData/ItemShopData.user.3";
+    public const string ITEM_SHOP_DATA_DARK_ARISEN_PATH      = "natives/STM/AppSystem/Item/ItemShopData/Contents0014ItemShopData.user.3";
+    public const string JOB_03_PARAM_PATH                    = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job03Parameter.user.3";
+    public const string JOB_04_PARAM_PATH                    = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job04Parameter.user.3";
+    public const string JOB_06_PARAM_PATH                    = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job06Parameter.user.3";
+    public const string JOB_07_PARAM_PATH                    = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job07Parameter.user.3";
+    public const string JOB_08_PARAM_PATH                    = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/Job08Parameter.user.3";
+    public const string STAMINA_COMMON_ACTION_PARAM_PATH     = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/CommonActionStaminaParameter.user.3";
+    public const string STAMINA_PARAM_PATH                   = "natives/STM/AppSystem/ch/Common/Human/UserData/Parameter/StaminaParameter.user.3";
+    public const string SWAP_DATA_MANTLE_PATH                = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/MantleSwapData.user.3";
+    public const string SWAP_DATA_PANTS_PATH                 = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/PantsSwapData.user.3";
+    public const string SWAP_DATA_TOPS_PATH                  = "natives/STM/AppSystem/CharaEdit/ch000/SwapData/TopsSwapData.user.3";
+    public const string WEAPON_DATA_PATH                     = "natives/STM/AppSystem/Item/ItemData/ItemWeaponData.user.3";
+    public const string WEAPON_DATA_DARK_ARISEN_PATH         = "natives/STM/AppSystem/Item/ItemData/ExItemWeaponData.user.3";
+    public const string WEAPON_SETTINGS_PATH                 = "natives/STM/AppSystem/Equipment/wp/WeaponSetting.user.3";
+    public const string WEAPON_SETTINGS_DARK_ARISEN_PATH     = "natives/STM/AppSystem/Equipment/wp/WeaponSetting_Contents0014.user.3";
+    public const string WEAPON_UPGRADE_DATA_PATH             = "natives/STM/AppSystem/Item/ItemData/WeaponEnhanceData.user.3";
+    public const string WEAPON_UPGRADE_DATA_DARK_ARISEN_PATH = "natives/STM/AppSystem/Item/ItemData/ExWeaponEnhanceData.user.3";
 }

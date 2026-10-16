@@ -19,7 +19,7 @@ public class InvisiblePartsFixer : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Invisible Parts Fixer";
         const string description = "Restores missing skin textures from mesh parts hidden by tweaking the armor swap database.";
-        const string version     = "1.2";
+        const string version     = "1.3";
 
         var baseMod = new NexusMod {
             Version      = version,

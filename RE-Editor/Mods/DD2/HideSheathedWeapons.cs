@@ -26,7 +26,10 @@ public class HideSheathedWeapons : IMod {
             Version = version,
             Name    = name,
             Desc    = description,
-            Files   = [PathHelper.WEAPON_SETTINGS_PATH],
+            Files = [
+                PathHelper.WEAPON_SETTINGS_PATH,
+                PathHelper.WEAPON_SETTINGS_DARK_ARISEN_PATH
+            ],
             Action  = ShopData,
             SkipPak = true
         };
