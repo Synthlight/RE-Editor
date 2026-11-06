@@ -32,13 +32,20 @@ public static partial class PathHelper {
 
     public static readonly PakDateInfo[] PAK_UPDATE_INFO = [
         // And they released an update overwriting the base PAK YET AGAIN!
+        new(new(2026, 11, 03), "Update 2026-11-03", [
+            @"dlc\re_dlc_stm_2593180.pak",
+            @"dlc\re_dlc_stm_2593190.pak",
+            @"dlc\re_dlc_stm_2593290.pak",
+            "re_chunk_000.pak"
+        ]) {updateName = "2026-11-03"}
+        /*
+        // And they released an update overwriting the base PAK YET AGAIN!
         new(new(2026, 10, 15), "Update 2026-10-15", [
             @"dlc\re_dlc_stm_2593180.pak",
             @"dlc\re_dlc_stm_2593190.pak",
             @"dlc\re_dlc_stm_2593290.pak",
             "re_chunk_000.pak"
         ]) {updateName = "2026-10-15"}
-        /*
         // Whatever the deal is with the expansion, I'm just starting anew.
         new(new(2026, 10, 08), "Update 2026-10-08", [
             @"dlc\re_dlc_stm_2593180.pak",

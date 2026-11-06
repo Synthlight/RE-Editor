@@ -24,7 +24,7 @@ public class ItemTweaks : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "Item Tweaks";
         const string description = "Item/Equipment weight and cost changes.";
-        const string version     = "1.14";
+        const string version     = "1.16";
 
         var itemDataFiles = new List<string> {
             PathHelper.ARMOR_DATA_PATH,
@@ -644,8 +644,21 @@ public class ItemTweaks : IMod {
     public static void DecayRef(StreamWriter writer) {
         var itemData = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}\{PathHelper.ITEM_DATA_PATH}")
                                  .rsz.GetEntryObject<App_ItemData>();
+        var itemDataDarkArisen = ReDataFile.Read($@"{PathHelper.CHUNK_PATH}\{PathHelper.ITEM_DATA_DARK_ARISEN_PATH}")
+                                           .rsz.GetEntryObject<App_ItemData>();
 
         foreach (var item in itemData.Params) {
+            if (item.Id == ItemConstants._1_G) continue;
+
+            var decayItemName = DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng].TryGet((uint) item.DecayedItemId, "");
+            if (decayItemName.StartsWith("Rotten") || decayItemName.StartsWith("Dried")) {
+                writer.WriteLine($"        if entry._{nameof(App_ItemDataParam.Id)} == {item.Id} then");
+                writer.WriteLine($"            entry._{nameof(App_ItemDataParam.Decay)} = 0");
+                writer.WriteLine($"            entry._{nameof(App_ItemDataParam.DecayedItemId)} = 0");
+                writer.WriteLine("        end");
+            }
+        }
+        foreach (var item in itemDataDarkArisen.Params) {
             if (item.Id == ItemConstants._1_G) continue;
 
             var decayItemName = DataHelper.ITEM_NAME_LOOKUP[Global.LangIndex.eng].TryGet((uint) item.DecayedItemId, "");

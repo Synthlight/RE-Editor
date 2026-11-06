@@ -19,7 +19,7 @@ public class JobRequirements : IMod {
     public static void Make(MainWindow mainWindow) {
         const string name        = "No Job Requirements";
         const string description = "Tweaks weapon & armor data to let you use any armor/weapon with any job.";
-        const string version     = "1.8";
+        const string version     = "1.10";
 
         var baseMod = new NexusMod {
             Version      = version,
@@ -48,7 +48,10 @@ public class JobRequirements : IMod {
                 }),
             baseMod
                 .SetName($"{name}: Armors Only")
-                .SetFiles([PathHelper.ARMOR_DATA_PATH])
+                .SetFiles([
+                    PathHelper.ARMOR_DATA_PATH,
+                    PathHelper.ARMOR_DATA_DARK_ARISEN_PATH
+                ])
                 .SetAction(list => Jobs(list, JobOptions.ARMOR_ONLY)),
             new ItemDbTweak {
                 Name            = $"{name}: Armors Only (REF)",
@@ -69,7 +72,10 @@ public class JobRequirements : IMod {
             },
             baseMod
                 .SetName($"{name}: Armors Only (No Weight)")
-                .SetFiles([PathHelper.ARMOR_DATA_PATH])
+                .SetFiles([
+                    PathHelper.ARMOR_DATA_PATH,
+                    PathHelper.ARMOR_DATA_DARK_ARISEN_PATH
+                ])
                 .SetAction(list => {
                     Jobs(list, JobOptions.ARMOR_ONLY);
                     ItemTweaks.Weight(list, ItemTweaks.WeightOptions._0);
@@ -96,7 +102,10 @@ public class JobRequirements : IMod {
             },
             baseMod
                 .SetName($"{name}: Weapons Only")
-                .SetFiles([PathHelper.WEAPON_DATA_PATH])
+                .SetFiles([
+                    PathHelper.WEAPON_DATA_PATH,
+                    PathHelper.WEAPON_DATA_DARK_ARISEN_PATH
+                ])
                 .SetAction(list => Jobs(list, JobOptions.WEAPONS_ONLY)),
             new ItemDbTweak {
                 Name            = $"{name}: Weapons Only (REF)",
@@ -117,7 +126,10 @@ public class JobRequirements : IMod {
             },
             baseMod
                 .SetName($"{name}: Weapons Only (No Weight)")
-                .SetFiles([PathHelper.WEAPON_DATA_PATH])
+                .SetFiles([
+                    PathHelper.WEAPON_DATA_PATH,
+                    PathHelper.WEAPON_DATA_DARK_ARISEN_PATH
+                ])
                 .SetAction(list => {
                     Jobs(list, JobOptions.WEAPONS_ONLY);
                     ItemTweaks.Weight(list, ItemTweaks.WeightOptions._0);

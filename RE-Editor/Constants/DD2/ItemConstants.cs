@@ -837,6 +837,9 @@ public static class ItemConstants {
     public const uint LABORERS_TROUSERS = 6118;
     public const uint LABORERS_TROUSERS_2 = 7001;
     public const uint LABYRINTHUS = 1104;
+    public const uint LAIOSS_ARMOR = 10476;
+    public const uint LAIOSS_KNEE_GUARDS = 10578;
+    public const uint LAIOSS_RUCKSACK = 10625;
     public const uint LAMELLAR_ARMOR = 5090;
     public const uint LANDWALKERS = 6041;
     public const uint LANTERN_FUELED = 86;
@@ -900,6 +903,9 @@ public static class ItemConstants {
     public const uint MARCHERS_ARMOR = 5117;
     public const uint MARCHERS_CUISSES = 6117;
     public const uint MARCHERS_HELM = 4119;
+    public const uint MARCILLES_BREECHES = 10579;
+    public const uint MARCILLES_ROBE = 10477;
+    public const uint MARCILLES_RUCKSACK_AND_CAPE = 10626;
     public const uint MASK_OF_CONCEALMENT = 4120;
     public const uint MEADOW_CLOTH = 5046;
     public const uint MEDUSA_HEAD = 99;
